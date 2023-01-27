@@ -1,0 +1,44 @@
+// @font-face {
+//     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+//     src: url("/fonts/Bebas_Neue/BebasNeue-Regular.ttf")
+//         format("truetype");
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+//     src: url("/fonts/Roboto/Roboto-Regular.ttf")
+//         format("truetype");
+//     font-display: swap;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap');
+
+body {
+    // font-family: 'RobotoRegular', Arial, Helvetica, sans-serif;
+    @include apply-utility('font', 'base');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+    @include apply-utility('font', 'title');
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: get-size('xl');
+}
+
+h2,
+h3 {
+    font-size: get-size('lg');
+}
+
+a {
+    color: currentColor;
+}

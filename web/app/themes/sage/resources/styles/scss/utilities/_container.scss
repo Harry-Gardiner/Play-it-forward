@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 get-size('md');
+  box-sizing: border-box;
+
+  @include media-query('sm') {
+    max-width: $col-sm;
+  }
+
+  @include media-query('md') {
+    max-width: $col-md;
+  }
+
+  @include media-query('lg') {
+    max-width: $col-lg;
+  }
+
+  @include media-query('xl') {
+    max-width: $col-xl;
+  }
+}
