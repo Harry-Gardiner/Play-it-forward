@@ -9,11 +9,12 @@
 @import 'utilities/full-bleed';
 
 body {
+    @extend .container;
     line-height: 1.5;
     overflow-x: hidden;
     padding-bottom: get-size('lg');
     @include apply-utility('weight', 'medium');
-    background-color: rebeccapurple;
+    background-color: $off-white;
 }
 
 table {
