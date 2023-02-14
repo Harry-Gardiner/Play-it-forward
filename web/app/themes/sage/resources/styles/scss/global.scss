@@ -4,10 +4,13 @@
 @import 'reset';
 @import 'typography';
 
-//Utilities
+// Utilities
 @import 'utilities/container';
 @import 'utilities/full-bleed';
 @import 'utilities/flow';
+
+// Sections
+@import 'sections/header';
 
 body {
     @extend .container;

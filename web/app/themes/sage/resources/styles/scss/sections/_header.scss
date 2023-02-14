@@ -1,0 +1,97 @@
+.header {
+    color: get-color('white');
+    background-color: get-color('charcoal');
+    position: sticky;
+    top: 0;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        display: inline-block;
+        align-items: center;
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+        
+            p {
+                margin-left: 0.5rem;
+            }
+        }
+
+    }
+
+    .nav {
+        @extend .full-bleed;
+        height: 100%;
+        position: fixed;
+        overflow: hidden;
+        background-color: get-color('charcoal');
+        max-height: 0;
+        transition: max-height .5s ease-out;
+    }
+
+    .menu a {
+        display: block;
+        padding: 30px;
+
+        &:hover{
+            background-color: get-color('dark-red');
+        }
+    }
+
+    .hamb{
+        cursor: pointer;
+        float: right;
+        padding: 40px 20px;
+    }
+
+    .hamb-line {
+        background: get-color('white');
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+    
+    } /* Style span tag */
+    
+    .hamb-line::before,
+    .hamb-line::after{
+        background: get-color('white');
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+    .hamb-line::before{
+        top: 5px;
+    }
+    .hamb-line::after{
+        top: -5px;
+    }
+    
+    .side-menu {
+        display: none;
+    } /* Hide checkbox */
+
+    .side-menu:checked ~ nav{
+        max-height: 100%;
+    }
+    .side-menu:checked ~ .hamb .hamb-line {
+        background: transparent;
+    }
+    .side-menu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top:0;
+    }
+    .side-menu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top:0;
+    }
+}
