@@ -30,7 +30,7 @@
     position: fixed;
     top: 78px;
     overflow: hidden;
-    background-color: get-color('charcoal');
+    background-color: get-color('dark-red');
     max-height: 0;
     transition: max-height 0.5s ease-out;
   }
@@ -40,7 +40,7 @@
     padding: 30px;
 
     &:hover {
-      background-color: get-color('dark-red');
+      background-color: get-color('red');
     }
   }
 
