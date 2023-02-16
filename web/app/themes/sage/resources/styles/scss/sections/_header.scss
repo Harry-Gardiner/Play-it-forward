@@ -39,7 +39,7 @@
 
   .menu a {
     display: block;
-    padding: 30px;
+    padding: 25px;
 
     &:hover {
       background-color: get-color('red');
@@ -102,6 +102,7 @@
     }
   }
   
+  // DESKTOP
   @include media-query('md') {
     &__wrapper {
       @include mixinContainer;
@@ -117,13 +118,20 @@
     }
   
     .menu {
+      display: flex;
+      gap: 0.5rem;
+
       li {
         float: left;
-      }
-  
-      a:hover {
-        background-color: transparent;
-        color: get-color('red');
+
+        a {
+          padding-left: 15px;
+          padding-right: 15px;
+          
+          &:hover {
+            background-color: get-color('red');
+          }
+        }
       }
     }
   
@@ -133,3 +141,34 @@
   }
 }
 
+// SUB NAVS
+.sub-menu {
+  background-color: get-color('red');
+  width: 100%;
+  z-index: 1;
+  padding: 20px 0 ;
+  display: none;
+  padding-left: 2rem;
+}
+.sub-menu a {
+  color: var(--black);
+  text-decoration: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+@include media-query('md') {
+  .sub-menu {
+      padding: 20px 0;
+      display: none;
+      position: fixed;
+  }
+  .sub-menu a {
+      color: white;
+  }
+}
+
+.menu-item-has-children:hover .sub-menu {
+  display: flex;
+  flex-direction: column;
+}
