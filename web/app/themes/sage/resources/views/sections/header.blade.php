@@ -8,8 +8,8 @@
         </a>
 
         {{-- Hamburger Icon --}}
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <input class="drop-menu" type="checkbox" id="side-menu" />
+        <input class="drop-menu" type="checkbox" id="drop-menu" />
+        <label class="hamb" for="drop-menu"><span class="hamb-line"></span></label>
         
         {{-- Primary nav --}}
         @if (has_nav_menu('primary_navigation'))
