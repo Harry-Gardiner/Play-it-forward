@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 1.5rem;
   }
 
   .logo {
@@ -29,6 +30,7 @@
     height: 100%;
     position: fixed;
     top: 78px;
+    left: 0;
     overflow: hidden;
     background-color: get-color('dark-red');
     max-height: 0;
@@ -46,7 +48,7 @@
 
   .hamb {
     cursor: pointer;
-    padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
   }
 
   .hamb-line {
@@ -99,4 +101,35 @@
       }
     }
   }
+  
+  @include media-query('md') {
+    &__wrapper {
+      @include mixinContainer;
+    }
+
+    .nav {
+      max-height: none;
+      top: 0;
+      position: relative;
+      float: right;
+      width: fit-content;
+      background-color: transparent;
+    }
+  
+    .menu {
+      li {
+        float: left;
+      }
+  
+      a:hover {
+        background-color: transparent;
+        color: get-color('red');
+      }
+    }
+  
+    .hamb {
+      display: none;
+    }
+  }
 }
+
