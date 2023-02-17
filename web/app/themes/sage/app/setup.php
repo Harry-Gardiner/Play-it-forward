@@ -134,3 +134,33 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Nav walker 
+ * 
+ * If nav item is a # swap it to a span.
+ * Add carets to nav items with child elements 
+ */
+class AWP_Menu_Walker extends \Walker_Nav_Menu {
+	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '<a href="' . $item->url . '">';
+		} else {
+			$output .= '<span>';
+		}
+ 
+		$output .= $item->title;
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '</a>';
+		} else {
+			$output .= '</span>';
+		}
+ 
+		if ($args->walker->has_children) {
+			$output .= '<button class="caret"><span class="visually-hidden">Click to access dropdown menu</span></button>';
+		}
+	}
+}
