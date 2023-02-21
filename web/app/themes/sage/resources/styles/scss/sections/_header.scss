@@ -3,6 +3,7 @@
   background-color: get-color('charcoal');
   position: sticky;
   top: 0;
+  height: 78px;
 
   &__wrapper {
     height: 100%;
@@ -13,19 +14,17 @@
   }
 
   .logo {
-    &__wrapper {
-      display: flex;
-      align-items: center;
-      height: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
-      p {
-        margin-left: 0.5rem;
-      }
+    p {
+      margin-left: 0.5rem;
     }
   }
 
   .nav {
-    @extend .full-bleed;
+    width: 100%;
     height: 100%;
     position: fixed;
     top: 78px;
@@ -37,14 +36,25 @@
   }
 
   .menu {
+    margin-top: 1rem;
+
     li {
-      &:hover {
-        background-color: get-color('red');
-      }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
 
       a {
-        display: block;
-        padding: 25px;
+        width: 100%;
+        min-height: 55px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          cursor: pointer;
+          background-color: get-color('red');
+        }
       }
     }
   }
@@ -104,7 +114,7 @@
       }
     }
   }
-  
+
   // DESKTOP
   @include media-query('md') {
     &__wrapper {
@@ -119,7 +129,7 @@
       width: fit-content;
       background-color: transparent;
     }
-  
+
     .menu {
       display: flex;
       gap: 0.5rem;
@@ -130,14 +140,14 @@
         a {
           padding-left: 15px;
           padding-right: 15px;
-          
+
           &:hover {
             background-color: get-color('red');
           }
         }
       }
     }
-  
+
     .hamb {
       display: none;
     }
@@ -148,13 +158,19 @@
 .sub-menu {
   background-color: get-color('red');
   width: 100%;
-  z-index: 1;
-  padding: 20px 0 ;
-  display: none;
-  padding-left: 2rem;
+  transition: all 0.5s ease-out;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    max-height: 1000px;
+  }
 }
+
 .sub-menu a {
-  color: var(--black);
   text-decoration: none;
   padding: 0;
   margin: 10px 0;
@@ -162,20 +178,36 @@
 
 @include media-query('md') {
   .sub-menu {
-      padding: 20px 0;
-      display: none;
-      position: fixed;
+    padding: 20px 0;
+    display: none;
+    position: fixed;
   }
   .sub-menu a {
-      color: white;
+    color: white;
   }
 }
 
 .caret {
+  position: absolute;
+  right: 0;
+  top: 0;
   background-image: url('../../../images/caret.svg');
-  height: 1rem;
-  width: 1rem;
-  padding: 1rem;
+  height: 55px;
+  width: 3rem;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: get-color('dark-red');
+  transform: rotate(0);
+  transition: rotate 300ms ease-out;
+
+  &.active {
+    transform: rotate(180deg);
+    transition: rotate 300ms ease-out;
+    background-color: get-color('red');
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: get-color('red');
+  }
 }
