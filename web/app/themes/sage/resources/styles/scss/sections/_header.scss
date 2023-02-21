@@ -38,7 +38,7 @@
   .menu {
     margin-top: 1rem;
 
-    li {
+    & > li {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -169,10 +169,16 @@
     max-height: 2000px; // Has to be set to a larger number for animation to work
   }
 
-  a {
-    text-decoration: none;
-    padding: 0;
-    margin: 10px 0;
+  li {
+    a {
+      text-decoration: none;
+      padding: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: get-color('light-red');
+    }
   }
 
   @include media-query('md') {

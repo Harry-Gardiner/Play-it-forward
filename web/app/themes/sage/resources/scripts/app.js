@@ -15,7 +15,6 @@ import.meta.webpackHot?.accept(console.error);
 /**
  * Nav toggle
  */
-
 const dropdownBtn = document.querySelector(".caret");
 const dropdownMenu = document.querySelector(".sub-menu");
 
