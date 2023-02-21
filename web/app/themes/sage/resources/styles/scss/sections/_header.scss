@@ -166,24 +166,23 @@
   &.show {
     visibility: visible;
     opacity: 1;
-    max-height: 1000px;
+    max-height: 2000px; // Has to be set to a larger number for animation to work
   }
-}
 
-.sub-menu a {
-  text-decoration: none;
-  padding: 0;
-  margin: 10px 0;
-}
+  a {
+    text-decoration: none;
+    padding: 0;
+    margin: 10px 0;
+  }
 
-@include media-query('md') {
-  .sub-menu {
+  @include media-query('md') {
     padding: 20px 0;
     display: none;
     position: fixed;
-  }
-  .sub-menu a {
-    color: white;
+
+    a {
+      color: white;
+    }
   }
 }
 
