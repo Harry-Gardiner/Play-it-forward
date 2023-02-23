@@ -48,16 +48,17 @@ $header-height: 78px;
       align-items: flex-end;
       position: relative;
 
+      &:hover {
+        cursor: pointer;
+        background-color: get-color('red');
+      }
+
       a {
         width: 100%;
         min-height: 55px;
         display: flex;
         align-items: center;
-
-        &:hover {
-          cursor: pointer;
-          background-color: get-color('red');
-        }
+        margin: 0 24px;
       }
     }
   }
@@ -178,6 +179,7 @@ $header-height: 78px;
     a {
       text-decoration: none;
       padding: 0;
+      padding-left: 24px;
     }
 
     &:hover {
