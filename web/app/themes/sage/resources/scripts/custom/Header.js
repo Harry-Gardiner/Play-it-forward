@@ -4,16 +4,19 @@
  * The mobile menu toggle is controlled using a checkbox and css, no JS applied.
  * Subnav logic open and close is controlled below.
  */
+
 const dropdownBtns = document.querySelectorAll('.caret');
 const dropdownMenus = document.querySelectorAll('.sub-menu');
 const navItems = document.querySelectorAll('.menu-item a');
 
+// Toggle targeted sub nav
 const toggleDropdown = function (e) {
   e.target.classList.toggle('active');
   var subnav = e.target.nextElementSibling;
   subnav.classList.toggle('show');
 };
 
+// Close non target subnavs if open
 const closeOtherSubNavs = function (e) {
     dropdownMenus.forEach(menu => {
         if(menu === e.target.nextElementSibling) return;
@@ -22,6 +25,7 @@ const closeOtherSubNavs = function (e) {
     });
 }
 
+// Handle dropdowns
 dropdownBtns.forEach((button) => {
   button.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -30,6 +34,7 @@ dropdownBtns.forEach((button) => {
   });
 });
 
+// Close all subnavs if open
 function closeNavs(){
   dropdownBtns.forEach(button => {
     button.classList.remove('active');
@@ -39,6 +44,7 @@ function closeNavs(){
   });
 }
 
+// Handles moving out of the nav
 navItems.forEach(item => {
   item.addEventListener('click', function (e){
     closeNavs()
