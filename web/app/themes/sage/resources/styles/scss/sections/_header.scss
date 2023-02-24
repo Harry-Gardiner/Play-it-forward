@@ -1,12 +1,13 @@
 // Header specific variables
-$header-height: 78px;
+$header-height-mobile: 78px;
+$header-height-desktop: 106px;
 
 .header {
   color: get-color('off-white');
   background-color: get-color('charcoal');
   position: sticky;
   top: 0;
-  height: $header-height;
+  height: $header-height-mobile;
 
   &__wrapper {
     height: 100%;
@@ -30,7 +31,7 @@ $header-height: 78px;
     width: 100%;
     height: 100%;
     position: fixed;
-    top: $header-height;
+    top: $header-height-mobile;
     left: 0;
     overflow: hidden;
     background-color: get-color('dark-red');
@@ -102,7 +103,7 @@ $header-height: 78px;
     &:checked {
       & ~ nav {
         max-height: 100%;
-        padding-bottom: $header-height;
+        padding-bottom: $header-height-mobile;
         overflow-y: scroll;
       }
 
@@ -119,44 +120,6 @@ $header-height: 78px;
         transform: rotate(45deg);
         top: 0;
       }
-    }
-  }
-
-  // DESKTOP
-  @include media-query('md') {
-    &__wrapper {
-      @include mixinContainer;
-    }
-
-    .nav {
-      max-height: none;
-      top: 0;
-      position: relative;
-      float: right;
-      width: fit-content;
-      background-color: transparent;
-    }
-
-    .menu {
-      display: flex;
-      gap: 0.5rem;
-
-      li {
-        float: left;
-
-        a {
-          padding-left: 15px;
-          padding-right: 15px;
-
-          &:hover {
-            background-color: get-color('red');
-          }
-        }
-      }
-    }
-
-    .hamb {
-      display: none;
     }
   }
 }
@@ -224,7 +187,7 @@ $header-height: 78px;
   top: 0;
   background-image: url('../../../images/icons/caret.svg');
   height: 55px;
-  width: 3rem;
+  width: 4rem;
   background-repeat: no-repeat;
   background-position: center;
   background-color: get-color('dark-red');
@@ -240,5 +203,88 @@ $header-height: 78px;
   &:hover {
     cursor: pointer;
     background-color: get-color('red');
+  }
+}
+
+// DESKTOP
+@include media-query('md') {
+  .header {
+    height: $header-height-desktop;
+
+    &__wrapper {
+      @include mixinContainer;
+      display: flex;
+    }
+
+    .logo {
+      padding-top: 1.5rem;
+      flex: 1;
+
+      p {
+        font-size: 23px;
+      }
+    }
+
+    .menu-primary-container {
+      height: 100%;
+    }
+
+    .nav {
+      flex: 2;
+      max-height: none;
+      top: 0;
+      position: relative;
+      float: right;
+      width: fit-content;
+      background-color: transparent;
+    }
+
+    .menu {
+      display: flex;
+      margin-top: 0;
+      height: 100%;
+      font-size: get-size('md');
+      font-weight: bold;
+      text-transform: uppercase;
+      overflow: visible;
+
+      li {
+        float: left;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 0.5rem;
+        padding-top: 1.5rem;
+
+        a {
+          width: fit-content;
+          margin: 0;
+
+          &:hover {
+            background-color: get-color('red');
+          }
+        }
+
+        .caret {
+          width: 2rem;
+          position: relative;
+          background-color: inherit;
+        }
+      }
+    }
+
+    .hamb {
+      display: none;
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    &.open {
+      display: block;
+    }
   }
 }
