@@ -14,11 +14,12 @@ $gorko-base-size: 1rem;
   * your whole project.
   */
 $gorko-size-scale: (
-    'sm': $gorko-base-size * 0.8,   //300
-    'base': $gorko-base-size,       //400
-    'md': $gorko-base-size * 1.33,  //500
-    'lg': $gorko-base-size * 1.77,  //600
-    'xl': $gorko-base-size * 2.4    //700
+    'xs': $gorko-base-size * 0.6875,    //11
+    'sm': $gorko-base-size * 0.8125,    //13
+    'base': $gorko-base-size,           //16
+    'md': $gorko-base-size * 1.125,     //18
+    'lg': $gorko-base-size * 1.5,       //24
+    'xl': $gorko-base-size * 1.875      //30
 );
 
 /**

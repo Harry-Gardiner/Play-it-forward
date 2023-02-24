@@ -2,7 +2,7 @@
 $header-height: 78px;
 
 .header {
-  color: get-color('white');
+  color: get-color('off-white');
   background-color: get-color('charcoal');
   position: sticky;
   top: 0;
@@ -36,6 +36,7 @@ $header-height: 78px;
     background-color: get-color('dark-red');
     max-height: 0;
     transition: max-height 0.5s ease-out;
+    font-size: get-size('base');
   }
 
   .menu {
