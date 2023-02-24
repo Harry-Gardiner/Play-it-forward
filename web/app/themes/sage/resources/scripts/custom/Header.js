@@ -45,3 +45,8 @@ navItems.forEach(item => {
     closeNavs()
   })
 });
+
+// Handle closing subnav if clicking outside of nav
+document.addEventListener('click', function(event) {
+  closeNavs();
+});
