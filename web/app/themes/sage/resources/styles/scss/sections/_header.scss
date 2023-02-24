@@ -169,7 +169,7 @@ $header-height: 78px;
   opacity: 0;
   max-height: 0;
 
-  &.show {
+  &.open {
     visibility: visible;
     opacity: 1;
     max-height: 2000px; // Has to be set to a larger number for animation to work

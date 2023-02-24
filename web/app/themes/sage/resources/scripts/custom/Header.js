@@ -9,28 +9,23 @@ const dropdownBtns = document.querySelectorAll('.caret');
 const dropdownMenus = document.querySelectorAll('.sub-menu');
 const navItems = document.querySelectorAll('.menu-item a');
 
-// Toggle targeted sub nav
-const toggleDropdown = function (e) {
-  e.target.classList.toggle('active');
-  var subnav = e.target.nextElementSibling;
-  subnav.classList.toggle('show');
-};
-
-// Close non target subnavs if open
-const closeOtherSubNavs = function (e) {
-    dropdownMenus.forEach(menu => {
-        if(menu === e.target.nextElementSibling) return;
-        menu.classList.remove('show');
-        menu.previousElementSibling.classList.remove('active');
-    });
+function toggleSubnav(e) {
+  for (var i = 0; i < dropdownBtns.length; i++) {
+    if (dropdownBtns[i] == e.target) {
+      dropdownBtns[i].classList.toggle('active');
+      dropdownBtns[i].nextElementSibling.classList.toggle('open');
+    } else {
+      dropdownBtns[i].classList.remove('active');
+      dropdownBtns[i].nextElementSibling.classList.remove('open');
+    }
+  }
 }
 
 // Handle dropdowns
 dropdownBtns.forEach((button) => {
-  button.addEventListener('click', function (e) {
-    e.stopPropagation();
-    toggleDropdown(e);
-    closeOtherSubNavs(e);
+  button.addEventListener('click', function (target) {
+    target.stopPropagation();
+    toggleSubnav(target);
   });
 });
 
@@ -40,7 +35,7 @@ function closeNavs(){
     button.classList.remove('active');
   })
   dropdownMenus.forEach(menu => {
-    menu.classList.remove('show');
+    menu.classList.remove('open');
   });
 }
 
