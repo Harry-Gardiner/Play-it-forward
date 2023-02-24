@@ -21,9 +21,16 @@ $header-height-desktop: 106px;
     display: flex;
     align-items: center;
     height: 100%;
+    margin-right: 3rem;
 
     p {
       margin-left: 0.5rem;
+      font-weight: 300;
+      white-space: nowrap;
+
+      .strong {
+        font-weight: 500;
+      }
     }
   }
 
@@ -144,18 +151,6 @@ $header-height-desktop: 106px;
       text-decoration: none;
       padding: 0;
       padding-left: 24px;
-
-      &::after {
-        content: '';
-        background-image: url('../../../images/icons/arrow.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 30px;
-        height: 15px;
-        margin-left: 1rem;
-        opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-      }
     }
 
     &:hover {
@@ -172,7 +167,6 @@ $header-height-desktop: 106px;
 
   @include media-query('md') {
     padding: 20px 0;
-    display: none;
     position: fixed;
 
     a {
@@ -218,7 +212,6 @@ $header-height-desktop: 106px;
 
     .logo {
       padding-top: 1.5rem;
-      flex: 1;
 
       p {
         font-size: 23px;
@@ -230,39 +223,33 @@ $header-height-desktop: 106px;
     }
 
     .nav {
-      flex: 2;
       max-height: none;
       top: 0;
       position: relative;
-      float: right;
       width: fit-content;
       background-color: transparent;
+      overflow: visible;
     }
 
     .menu {
       display: flex;
       margin-top: 0;
       height: 100%;
-      font-size: get-size('md');
+      font-size: get-size('base');
       font-weight: bold;
       text-transform: uppercase;
       overflow: visible;
 
       li {
-        float: left;
-        display: flex;
         align-items: center;
+        flex-wrap: nowrap;
         height: 100%;
         padding: 0 0.5rem;
         padding-top: 1.5rem;
 
         a {
-          width: fit-content;
+          height: 100%;
           margin: 0;
-
-          &:hover {
-            background-color: get-color('red');
-          }
         }
 
         .caret {
@@ -279,12 +266,21 @@ $header-height-desktop: 106px;
   }
 
   .sub-menu {
+    display: none;
+    visibility: visible;
+    opacity: 1;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: $header-height-desktop;
+    left: 50%; transform: translateX(-50%);
 
     &.open {
       display: block;
+      min-width: 200px;
+      padding: 0;
+    }
+
+    li {
+      width: 100%;
     }
   }
 }
