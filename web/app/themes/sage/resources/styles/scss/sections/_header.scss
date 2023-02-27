@@ -247,6 +247,20 @@ $header-height-desktop: 106px;
         padding: 0 0.5rem;
         padding-top: 1.5rem;
 
+        &.menu-item-has-children {
+          &:hover {
+            .sub-menu {
+              display: block;
+              min-width: 200px;
+              padding: 0;
+              background-color: get-color('red');
+              width: 100%;
+              transition: all 0.5s ease-out;
+              max-height: 10000px;
+            }
+          }
+        }
+
         a {
           height: 100%;
           margin: 0;
