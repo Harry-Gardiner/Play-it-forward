@@ -11,7 +11,8 @@
 @import 'utilities/visually-hidden';
 
 // Sections
-@import 'sections/header';
+// @import 'sections/header';
+@import 'sections/accessible-header';
 
 body {
     @extend .container;

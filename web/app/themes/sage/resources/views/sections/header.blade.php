@@ -1,4 +1,4 @@
-<header class="header full-bleed">
+{{-- <header class="header full-bleed">
     <div class="header__wrapper">
         <a class="logo" href="{{ home_url('/') }}">
             <img src="{{ asset('images/logo_white.svg') }}" alt="Play it forward logo">
@@ -14,4 +14,17 @@
             </nav>
         @endif
     </div>  
+</header> --}}
+
+<header class="full-bleed">
+    @if (has_nav_menu('primary_navigation'))
+        <nav class="nav__desktop container" role="navigation" aria-label="<?php _e('Main Menu', 'textdomain'); ?>">
+            {!! wp_nav_menu([
+                'theme_location' => 'primary_navigation',
+                'container' => false,
+                'menu_class' => 'main-navigation',
+                'items_wrap' => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
+            ]) !!}
+        </nav>
+    @endif
 </header>

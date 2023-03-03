@@ -1,72 +1,44 @@
-/**
- * Sub Nav toggle
- *
- * The mobile menu toggle is controlled using a checkbox and css, no JS applied.
- * Subnav logic open and close is controlled below.
- */
+var menuItems = document.querySelectorAll('li.menu-item-has-children');
 
-const dropdownBtns = document.querySelectorAll('.caret');
-const dropdownMenus = document.querySelectorAll('.sub-menu');
-const navItems = document.querySelectorAll('.menu-item a');
+Array.prototype.forEach.call(menuItems, function(el, i){
+	el.addEventListener("mouseover", function(){
+		this.classList.add('open');
+    this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
+    this.parentNode
+      .querySelector('button')
+      .setAttribute('aria-expanded', 'true');
+		clearTimeout(timer);
+	});
+	el.addEventListener("mouseout", function(){
+		timer = setTimeout(function(){
+			document.querySelector(".menu-item-has-children.open").classList.remove('open');
+		}, 1000);
+	});
+});
 
-function toggleSubnav(e) {
-  for (var i = 0; i < dropdownBtns.length; i++) {
-    const visuallyHiddenText = dropdownBtns[i].firstElementChild;
-    const subnav = dropdownBtns[i].nextElementSibling;
+Array.prototype.forEach.call(menuItems, function (el, i) {
+  var activatingA = el.querySelector('a');
 
-    if (dropdownBtns[i] == e.target) {
-      dropdownBtns[i].classList.toggle('active');
+  var btn =
+    '<button class="caret" aria-haspopup="true" aria-expanded="false" tabindex="0"><span class="visually-hidden">show submenu for ' +
+    activatingA.text +
+    '</span></button>';
+  activatingA.insertAdjacentHTML('afterend', btn);
 
-      if (dropdownBtns[i].classList.contains('active')) {
-        visuallyHiddenText.innerHTML = 'Click to close the subnav';
-        // dropdownBtns[i].setAttribute('aria-controls', '')
-      } else {
-        visuallyHiddenText.innerHTML = 'Click to access dropdown menu';
-        // dropdownBtns[i].setAttribute('aria-controls', false)
-      }
-
-      subnav.classList.toggle('open');
-
-      if (subnav.classList.contains('open')) {
-        subnav.setAttribute('aria-expanded', true)
-      } else {
-        subnav.setAttribute('aria-expanded', false)
-      }
-
+  el.querySelector('button').addEventListener('click', function (event) {
+    if (!this.parentNode.classList.contains('open')) {
+      this.parentNode.classList.add('open');
+      this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
+      this.parentNode
+        .querySelector('button')
+        .setAttribute('aria-expanded', 'true');
     } else {
-      dropdownBtns[i].classList.remove('active');
-      visuallyHiddenText.innerHTML = 'Click to access dropdown menu';
-      dropdownBtns[i].nextElementSibling.classList.remove('open');
+      this.parentNode.classList.remove('open');
+      this.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
+      this.parentNode
+        .querySelector('button')
+        .setAttribute('aria-expanded', 'false');
     }
-  }
-}
-
-// Handle dropdowns
-dropdownBtns.forEach((button) => {
-  button.addEventListener('click', function (target) {
-    target.stopPropagation();
-    toggleSubnav(target);
+    event.preventDefault();
   });
-});
-
-// Close all subnavs if open
-function closeNavs() {
-  dropdownBtns.forEach((button) => {
-    button.classList.remove('active');
-  });
-  dropdownMenus.forEach((menu) => {
-    menu.classList.remove('open');
-  });
-}
-
-// Handles moving out of the nav
-navItems.forEach((item) => {
-  item.addEventListener('click', function (e) {
-    closeNavs();
-  });
-});
-
-// Handle closing subnav if clicking outside of nav
-document.addEventListener('click', function (event) {
-  closeNavs();
 });
