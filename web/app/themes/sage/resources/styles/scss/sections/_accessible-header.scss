@@ -1,61 +1,92 @@
+// Header specific variables
+$header-height-mobile: 78px;
+$header-height-desktop: 106px;
+
 header {
-    color: get-color('off-white');
-    background-color: get-color('charcoal');
-    position: sticky;
-    top: 0;
+  color: get-color('off-white');
+  background-color: get-color('charcoal');
+  position: sticky;
+  top: 0;
+  height: $header-height-desktop;
+  font-size: get-size('base');
+  font-weight: bold;
+  text-transform: uppercase;
 
-    nav {
-        ul.main-navigation {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+  nav {
+    height: 100%;
+    ul.main-navigation {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-            .menu-item {
-                display: flex;
-                align-items: center;
-            }
-        }
-    }
+      & > .menu-item {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 1rem;
 
-    // Has submenu
-    .menu-item-has-children {
-        position: relative;
-        width: fit-content;
-
-        .sub-menu {
-            display: none;
-        }
-
-        &:hover,
-        &.open {
-            .sub-menu {
-                display: block;
-            }
-        }
-    }
-
-    .caret {
-        // position: absolute;
-        // right: 0;
-        // top: 0;
-        background-image: url('../../../images/icons/caret.svg');
-        height: 4rem;
-        width: 4rem;
-        background-repeat: no-repeat;
-        background-position: center;
-        // background-color: get-color('dark-red');
-        transform: rotate(0);
-        transition: rotate 300ms ease-out;
-      
-        &[aria-expanded="true"] {
-          transform: rotate(180deg);
-          transition: rotate 300ms ease-out;
-          background-color: get-color('red');
-        }
-      
         &:hover {
-          cursor: pointer;
-          background-color: get-color('red');
+          background-color: get-color('dark-red');
         }
       }
-} 
+
+      a {
+        padding-bottom: 21px;
+      }
+    }
+  }
+
+  // Has submenu
+  .menu-item-has-children {
+    position: relative;
+    width: fit-content;
+
+    .sub-menu {
+      transition: all 400ms ease-in-out;
+      display: block;
+      visibility: hidden;
+      background-color: get-color('dark-red');
+      position: absolute;
+      left: 0;
+      top: 100%;
+      max-height: 0;
+      width: 300px;
+      padding: 2rem;
+    }
+
+    &:hover,
+    &.open {
+      .caret {
+        pointer-events: none;
+      }
+
+      .sub-menu {
+        transition: all 400ms ease;
+        visibility: visible;
+        max-height: 2000px;
+      }
+    }
+  }
+
+  .caret {
+    background-image: url('../../../images/icons/caret.svg');
+    height: 100%;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(0);
+    transition: rotate 300ms ease-out;
+
+    &[aria-expanded='true'] {
+      transform: rotate(180deg);
+      transition: rotate 300ms ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: get-color('dark-red');
+    }
+  }
+}

@@ -1,21 +1,19 @@
 var menuItems = document.querySelectorAll('li.menu-item-has-children');
 
-Array.prototype.forEach.call(menuItems, function(el, i) {
-	el.addEventListener("mouseover", function() {
-		this.classList.add('open');
-    this.childNodes
-      .querySelector('button')
-      .setAttribute('aria-expanded', 'true');
-		clearTimeout(timer);
-	});
-	el.addEventListener("mouseout", function(){
-		timer = setTimeout(function(){
-			document.querySelector(".menu-item-has-children.open").classList.remove('open');
-		}, 1000);
-	});
+Array.prototype.forEach.call(menuItems, function (el) {
+  el.addEventListener('mouseover', function () {
+    this.classList.add('open');
+    this.querySelector('.caret').setAttribute('aria-expanded', 'true');
+  });
+  el.addEventListener('mouseleave', function () {
+    setTimeout(function () {
+      el.classList.remove('open');
+      el.querySelector('.caret').setAttribute('aria-expanded', 'false');
+    }, 300);
+  });
 });
 
-Array.prototype.forEach.call(menuItems, function (el, i) {
+Array.prototype.forEach.call(menuItems, function (el) {
   var activatingA = el.querySelector('a');
 
   var btn =
@@ -25,7 +23,7 @@ Array.prototype.forEach.call(menuItems, function (el, i) {
   activatingA.insertAdjacentHTML('afterend', btn);
 
   el.querySelector('button').addEventListener('click', function (event) {
-    if (!this.parentNode.classList.contains('open')) {
+    if (!this.parentNode.classList.contains('open'))  {
       this.parentNode.classList.add('open');
       this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
       this.parentNode
