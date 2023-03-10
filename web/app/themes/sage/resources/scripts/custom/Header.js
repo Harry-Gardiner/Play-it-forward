@@ -1,10 +1,9 @@
 var menuItems = document.querySelectorAll('li.menu-item-has-children');
 
-Array.prototype.forEach.call(menuItems, function(el, i){
-	el.addEventListener("mouseover", function(){
+Array.prototype.forEach.call(menuItems, function(el, i) {
+	el.addEventListener("mouseover", function() {
 		this.classList.add('open');
-    this.parentNode.querySelector('a').setAttribute('aria-expanded', 'true');
-    this.parentNode
+    this.childNodes
       .querySelector('button')
       .setAttribute('aria-expanded', 'true');
 		clearTimeout(timer);
