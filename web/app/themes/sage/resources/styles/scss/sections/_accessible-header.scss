@@ -102,8 +102,8 @@ $header-height-desktop: 106px;
         padding: 2rem;
       }
 
-      &:hover,
-      &.open {
+      &.open,
+      &:hover {
         .caret {
           pointer-events: none;
           transform: rotate(180deg);
@@ -200,6 +200,11 @@ $header-height-desktop: 106px;
     display: flex;
     align-items: flex-end;
     height: 100%;
+
+    &:disabled {
+      cursor: none;
+      pointer-events: none;
+    }
 
     &[aria-expanded='true'] {
       .caret {

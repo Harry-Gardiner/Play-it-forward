@@ -1,15 +1,17 @@
 var menuItems = document.querySelectorAll('li.menu-item-has-children');
 
-// Array.prototype.forEach.call(menuItems, function (el) {
-//   el.addEventListener('mouseover', function () {
-//     this.classList.add('open');
-//     this.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'true');
-//   });
-//   el.addEventListener('mouseleave', function () {
-//     el.classList.remove('open');
-//     el.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'false');
-//   });
-// });
+Array.prototype.forEach.call(menuItems, function (el) {
+  el.addEventListener('mouseover', function () {
+    // this.classList.add('open');
+    // this.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'true');
+    this.querySelector('.sub-menu-btn').disabled = true;
+  });
+  el.addEventListener('mouseleave', function () {
+    // el.classList.remove('open');
+    // el.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'false');
+    this.querySelector('.sub-menu-btn').disabled = false;
+  });
+});
 
 Array.prototype.forEach.call(menuItems, function (el) {
   var activatingA = el.querySelector('a');
