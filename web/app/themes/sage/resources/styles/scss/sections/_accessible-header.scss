@@ -43,7 +43,6 @@ header {
     width: fit-content;
 
     .sub-menu {
-      transition: all 400ms ease-in-out;
       display: block;
       visibility: hidden;
       background-color: get-color('dark-red');
@@ -69,18 +68,16 @@ header {
     }
   }
 
-  .caret {
-    background-image: url('../../../images/icons/caret.svg');
+  .sub-menu-btn {
+    display: flex;
+    align-items: flex-end;
     height: 100%;
-    width: 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: rotate(0);
-    transition: rotate 300ms ease-out;
 
     &[aria-expanded='true'] {
-      transform: rotate(180deg);
-      transition: rotate 300ms ease-out;
+      .caret {
+        transform: rotate(180deg);
+        transition: rotate 300ms ease-out;
+      }
     }
 
     &:hover,
@@ -88,5 +85,18 @@ header {
       cursor: pointer;
       background-color: get-color('dark-red');
     }
+  }
+
+  .caret {
+    background-image: url('../../../images/icons/caret.svg');
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(0);
+    transition: rotate 300ms ease-out;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 0.25rem;
   }
 }
