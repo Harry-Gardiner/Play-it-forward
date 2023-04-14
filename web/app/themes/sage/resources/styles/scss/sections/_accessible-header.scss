@@ -2,7 +2,7 @@
 $header-height-mobile: 78px;
 $header-height-desktop: 106px;
 
-header {
+.header {
   color: get-color('off-white');
   background-color: get-color('charcoal');
   position: sticky;
@@ -11,6 +11,36 @@ header {
   font-size: get-size('base');
   font-weight: bold;
   text-transform: uppercase;
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    margin-right: 3rem;
+    margin-bottom: 21px;
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      margin-left: 0.5rem;
+      font-weight: 300;
+      white-space: nowrap;
+
+      .strong {
+        font-weight: 500;
+      }
+    }
+  }
 
   nav {
     height: 100%;
