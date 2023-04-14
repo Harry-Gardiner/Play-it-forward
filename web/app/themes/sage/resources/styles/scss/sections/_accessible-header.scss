@@ -7,8 +7,12 @@ $header-height-desktop: 106px;
   background-color: get-color('charcoal');
   position: sticky;
   top: 0;
-  height: $header-height-desktop;
+  height: $header-height-mobile;
   font-size: get-size('base');
+
+  @include media-query('lg') {
+    height: $header-height-desktop;
+  }
 
   &__wrapper {
     height: 100%;
@@ -19,10 +23,14 @@ $header-height-desktop: 106px;
 
   .logo {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
     margin-right: 3rem;
-    margin-bottom: 21px;
+
+    @include media-query('lg') {
+      align-items: flex-end;
+      margin-bottom: 21px;
+    }
 
     &__wrapper {
       display: flex;
@@ -40,11 +48,15 @@ $header-height-desktop: 106px;
     }
   }
 
-  nav {
+  /*
+  * DESKTOP STYLING
+  */
+  .nav__desktop {
+    display: none;
     height: 100%;
     font-weight: bold;
     text-transform: uppercase;
-    
+
     ul.main-navigation {
       height: 100%;
       display: flex;
@@ -68,39 +80,122 @@ $header-height-desktop: 106px;
         font-weight: bold;
       }
     }
-  }
 
-  // Has submenu
-  .menu-item-has-children {
-    position: relative;
-    width: fit-content;
-
-    .sub-menu {
+    @include media-query('lg') {
       display: block;
-      visibility: hidden;
-      background-color: get-color('dark-red');
-      position: absolute;
-      left: 0;
-      top: 100%;
-      max-height: 0;
-      width: 300px;
-      padding: 2rem;
     }
 
-    &:hover,
-    &.open {
-      .caret {
-        pointer-events: none;
-      }
+    // Has submenu
+    .menu-item-has-children {
+      position: relative;
+      width: fit-content;
 
       .sub-menu {
-        transition: all 400ms ease;
-        visibility: visible;
-        max-height: 2000px;
+        display: block;
+        visibility: hidden;
+        background-color: get-color('dark-red');
+        position: absolute;
+        left: 0;
+        top: 100%;
+        max-height: 0;
+        width: 300px;
+        padding: 2rem;
+      }
+
+      &:hover,
+      &.open {
+        .caret {
+          pointer-events: none;
+          transform: rotate(180deg);
+          transition: rotate 300ms ease-out;
+        }
+
+        .sub-menu {
+          transition: all 400ms ease;
+          visibility: visible;
+          max-height: 2000px;
+        }
       }
     }
   }
 
+  /*
+  * MOBILE STYLING
+  */
+  .nav__mobile {
+    @include media-query('lg') {
+      display: none;
+    }
+  }
+
+  /*
+  * HAMBURGER MENU
+  */
+  .hamb {
+    cursor: pointer;
+    padding: 1rem 0 1rem 1rem;
+
+    @include media-query('lg') {
+      display: none;
+    }
+  }
+
+  .hamb-line {
+    background: get-color('white');
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+
+    &::before,
+    &::after {
+      background: get-color('white');
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.2s ease-out;
+      width: 100%;
+    }
+
+    &::before {
+      top: 5px;
+    }
+
+    &::after {
+      top: -5px;
+    }
+  }
+
+  .drop-menu {
+    display: none;
+
+    &:checked {
+      & ~ nav {
+        max-height: 100%;
+        padding-bottom: $header-height-mobile;
+        overflow-y: scroll;
+      }
+
+      & ~ .hamb .hamb-line {
+        background: transparent;
+      }
+
+      & ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+
+      & ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top: 0;
+      }
+    }
+  }
+
+  /*
+  * CHEVRON BUTTON
+  */
   .sub-menu-btn {
     display: flex;
     align-items: flex-end;
@@ -118,18 +213,21 @@ $header-height-desktop: 106px;
       cursor: pointer;
       background-color: get-color('dark-red');
     }
-  }
 
-  .caret {
-    background-image: url('../../../images/icons/caret.svg');
-    height: 25px;
-    width: 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: rotate(0);
-    transition: rotate 300ms ease-out;
-    display: inline-block;
-    margin-bottom: 20px;
-    margin-left: 0.25rem;
+    .caret {
+      background-image: url('../../../images/icons/caret.svg');
+      height: 25px;
+      width: 25px;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(0);
+      transition: rotate 300ms ease-out;
+      display: inline-block;
+  
+      @include media-query('lg') {
+        margin-bottom: 20px;
+        margin-left: 0.25rem;
+      }
+    }
   }
 }
