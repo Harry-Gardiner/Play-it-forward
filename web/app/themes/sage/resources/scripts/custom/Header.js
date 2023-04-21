@@ -1,24 +1,49 @@
-var menuItems = document.querySelectorAll('li.menu-item-has-children');
+let menuItems = document.querySelectorAll('li.menu-item-has-children');
 
-Array.prototype.forEach.call(menuItems, function (el) {
-  el.addEventListener('mouseover', function () {
-    // this.classList.add('open');
-    // this.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'true');
-    this.querySelector('.sub-menu-btn').disabled = true;
-  });
-  el.addEventListener('mouseleave', function () {
-    // el.classList.remove('open');
-    // el.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'false');
-    this.querySelector('.sub-menu-btn').disabled = false;
-  });
+const hamb = document.querySelector('.hamb');
+const dropdown = document.querySelector('.nav');
+let subMenuItems = Array.from(
+  dropdown.querySelectorAll('li.menu-item-has-children')
+);
+
+hamb.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (dropdown) {
+    dropdown.classList.toggle('drop-open');
+  }
 });
 
+// if (dropdown.classList.contains('drop-open')) {
+//   toggleSubMenuItems();
+// }
+
+// function toggleSubMenuItems(subMenuItems){
+//   subMenuItems.forEach(item => {
+//     if (dropdown.classList.contains('drop-open')) {
+//         console.log('click');
+//     }
+//   })
+// }
+
+// Array.prototype.forEach.call(menuItems, function (el) {
+//   el.addEventListener('mouseover', function () {
+//     // this.classList.add('open');
+//     // this.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'true');
+//     this.querySelector('.sub-menu-btn').disabled = true;
+//   });
+//   el.addEventListener('mouseleave', function () {
+//     // el.classList.remove('open');
+//     // el.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'false');
+//     this.querySelector('.sub-menu-btn').disabled = false;
+//   });
+// });
+
 Array.prototype.forEach.call(menuItems, function (el) {
-  var activatingA = el.querySelector('a');
+  let activatingA = el.querySelector('a');
 
   function menuToggle(event) {
     if (!this.parentNode.classList.contains('open')) {
-      var elems = document.querySelectorAll('.open');
+      let elems = document.querySelectorAll('.open');
       [].forEach.call(elems, function (el) {
         el.classList.remove('open');
         el.querySelector('button').setAttribute('aria-expanded', 'false');
@@ -30,8 +55,14 @@ Array.prototype.forEach.call(menuItems, function (el) {
       this.parentNode
         .querySelector('button')
         .setAttribute('aria-expanded', 'true');
-    }
-    else {
+
+      let subMenuItems = Array.from(
+        this.nextElementSibling.querySelectorAll('.menu-item')
+      );
+      subMenuItems.forEach((item) => {
+        item.setAttribute('tabindex', 0);
+      });
+    } else {
       this.parentNode.classList.remove('open');
       this.parentNode.querySelector('a').setAttribute('aria-expanded', 'false');
       this.parentNode
@@ -41,7 +72,7 @@ Array.prototype.forEach.call(menuItems, function (el) {
     event.preventDefault();
   }
 
-  var btn =
+  let btn =
     '<button class="sub-menu-btn" aria-haspopup="true" aria-expanded="false" tabindex="0"><span class="caret"></span><span class="visually-hidden">show submenu for ' +
     activatingA.text +
     '</span></button>';

@@ -48,83 +48,180 @@ $header-height-desktop: 106px;
     }
   }
 
-  /*
-  * DESKTOP STYLING
+  .nav {
+    /*
+  * MOBILE STYLING
   */
-  .nav__desktop {
-    display: none;
-    height: 100%;
-    font-weight: bold;
-    text-transform: uppercase;
+  @media screen and (max-width: 992px) {
+    background-color: get-color('dark-red');
+    position: absolute;
+    left: 0;
+    top: $header-height-mobile;
+    width: 100%;
+    max-height: 0;
+    transition: max-height 1s;
+    overflow: hidden;
 
-    ul.main-navigation {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    &.drop-open {
+      height: fit-content;
+      max-height: 2000px;
+      transition: max-height 1s;
+    }
 
-      & > .menu-item {
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        padding: 0 1rem;
+    .main-navigation {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
 
-        &:hover,
-        &:focus-within {
-          background-color: get-color('dark-red');
+    .menu-item {
+      display: grid;
+      grid-template-columns: 6fr 1fr;
+
+      & .sub-menu-btn {
+        display: block;
+      }
+
+      & .sub-menu {
+        display: unset;
+      }
+    }
+
+    .menu-item-has-children {
+      .sub-menu {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 1s;
+
+        li {
+          margin-left: 1rem;
         }
       }
 
-      a {
-        padding-bottom: 21px;
-        font-weight: bold;
+      &.open {
+        .sub-menu {
+          height: fit-content;
+          max-height: 500px;
+        }
       }
     }
 
+
+  }
+   
+
+    /*
+  * DESKTOP STYLING
+  */
     @include media-query('lg') {
-      display: block;
-    }
+      background-color: pink;
+      display: none;
+      height: 100%;
+      font-weight: bold;
+      text-transform: uppercase;
 
-    // Has submenu
-    .menu-item-has-children {
-      position: relative;
-      width: fit-content;
+      ul.main-navigation {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
 
-      .sub-menu {
-        display: block;
-        visibility: hidden;
-        background-color: get-color('dark-red');
-        position: absolute;
-        left: 0;
-        top: 100%;
-        max-height: 0;
-        width: 300px;
-        padding: 2rem;
+        & > .menu-item {
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          padding: 0 1rem;
+
+          &:hover,
+          &:focus-within {
+            background-color: get-color('dark-red');
+          }
+        }
+
+        a {
+          padding-bottom: 21px;
+          font-weight: bold;
+        }
       }
 
-      &.open,
-      &:hover {
+      @include media-query('lg') {
+        display: block;
+      }
+
+      // Has submenu
+      .menu-item-has-children {
+        position: relative;
+        width: fit-content;
+
+        .sub-menu {
+          display: block;
+          visibility: hidden;
+          background-color: get-color('dark-red');
+          position: absolute;
+          left: 0;
+          top: 100%;
+          max-height: 0;
+          width: 300px;
+          padding: 2rem;
+        }
+
+        &.open,
+        &:hover {
+          .caret {
+            pointer-events: none;
+            transform: rotate(180deg);
+            transition: rotate 300ms ease-out;
+          }
+
+          .sub-menu {
+            transition: all 400ms ease;
+            visibility: visible;
+            max-height: 2000px;
+          }
+        }
+      }
+    }
+
+    /*
+  * CHEVRON BUTTON
+  */
+    .sub-menu-btn {
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+
+      &:disabled {
+        cursor: none;
+        pointer-events: none;
+      }
+
+      &[aria-expanded='true'] {
         .caret {
-          pointer-events: none;
           transform: rotate(180deg);
           transition: rotate 300ms ease-out;
         }
+      }
 
-        .sub-menu {
-          transition: all 400ms ease;
-          visibility: visible;
-          max-height: 2000px;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: get-color('dark-red');
+      }
+
+      .caret {
+        background-image: url('../../../images/icons/caret.svg');
+        height: 25px;
+        width: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(0);
+        transition: rotate 300ms ease-out;
+        display: inline-block;
+
+        @include media-query('lg') {
+          margin-bottom: 20px;
+          margin-left: 0.25rem;
         }
       }
-    }
-  }
-
-  /*
-  * MOBILE STYLING
-  */
-  .nav__mobile {
-    @include media-query('lg') {
-      display: none;
     }
   }
 
@@ -167,72 +264,33 @@ $header-height-desktop: 106px;
     }
   }
 
-  .drop-menu {
-    display: none;
+  // .drop-menu {
+  //   // display: none;
 
-    &:checked {
-      & ~ nav {
-        max-height: 100%;
-        padding-bottom: $header-height-mobile;
-        overflow-y: scroll;
-      }
+  //   &:checked {
+  //     & ~ nav {
+  //       display: block;
+  //       // visibility: visible;
+        
+  //       // padding-bottom: $header-height-mobile;
+  //       max-height: 20000px;
+  //       overflow-y: scroll;
+  //       transition: max-height 5s ease-in;
+  //     }
 
-      & ~ .hamb .hamb-line {
-        background: transparent;
-      }
+  //     & ~ .hamb .hamb-line {
+  //       background: transparent;
+  //     }
 
-      & ~ .hamb .hamb-line::before {
-        transform: rotate(-45deg);
-        top: 0;
-      }
+  //     & ~ .hamb .hamb-line::before {
+  //       transform: rotate(-45deg);
+  //       top: 0;
+  //     }
 
-      & ~ .hamb .hamb-line::after {
-        transform: rotate(45deg);
-        top: 0;
-      }
-    }
-  }
-
-  /*
-  * CHEVRON BUTTON
-  */
-  .sub-menu-btn {
-    display: flex;
-    align-items: flex-end;
-    height: 100%;
-
-    &:disabled {
-      cursor: none;
-      pointer-events: none;
-    }
-
-    &[aria-expanded='true'] {
-      .caret {
-        transform: rotate(180deg);
-        transition: rotate 300ms ease-out;
-      }
-    }
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
-      background-color: get-color('dark-red');
-    }
-
-    .caret {
-      background-image: url('../../../images/icons/caret.svg');
-      height: 25px;
-      width: 25px;
-      background-repeat: no-repeat;
-      background-position: center;
-      transform: rotate(0);
-      transition: rotate 300ms ease-out;
-      display: inline-block;
-  
-      @include media-query('lg') {
-        margin-bottom: 20px;
-        margin-left: 0.25rem;
-      }
-    }
-  }
+  //     & ~ .hamb .hamb-line::after {
+  //       transform: rotate(45deg);
+  //       top: 0;
+  //     }
+  //   }
+  // }
 }
