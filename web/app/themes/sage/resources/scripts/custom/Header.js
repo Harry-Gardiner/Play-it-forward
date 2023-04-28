@@ -10,6 +10,7 @@ hamb.addEventListener('click', function (e) {
   e.preventDefault();
   if (dropdown) {
     dropdown.classList.toggle('drop-open');
+    this.classList.toggle('hamb-open')
   }
 });
 
@@ -60,7 +61,7 @@ Array.prototype.forEach.call(menuItems, function (el) {
         this.nextElementSibling.querySelectorAll('.menu-item')
       );
       subMenuItems.forEach((item) => {
-        item.setAttribute('tabindex', 0);
+        item.firstChild.setAttribute('tabindex', 0);
       });
     } else {
       this.parentNode.classList.remove('open');

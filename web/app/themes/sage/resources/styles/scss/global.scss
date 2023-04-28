@@ -35,3 +35,11 @@ th {
     outline: 2px dotted;
     outline-offset: 0.25rem;
 }
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}

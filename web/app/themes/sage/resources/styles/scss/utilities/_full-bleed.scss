@@ -1,4 +1,9 @@
 .full-bleed {
     margin-left: calc((100vw - 100%) / -2);
     width: 100vw;
-   }
+}
+
+@mixin full-bleed {
+    margin-left: calc((100vw - 100%) / -2);
+    width: 100vw;
+}

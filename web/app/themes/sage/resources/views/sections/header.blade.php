@@ -28,11 +28,11 @@
         <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
 
         @if (has_nav_menu('primary_navigation'))
-            <nav class="nav container" role="navigation" aria-label="<?php _e('Main Menu', 'textdomain'); ?>">
+            <nav class="nav" role="navigation" aria-label="<?php _e('Main Menu', 'textdomain'); ?>">
                 {!! wp_nav_menu([
                     'theme_location' => 'primary_navigation',
                     'container' => false,
-                    'menu_class' => 'main-navigation flow',
+                    'menu_class' => 'main-navigation',
                     'items_wrap' => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
                 ]) !!}
             </nav>
