@@ -21,31 +21,6 @@ window.addEventListener('click', function (event) {
   }
 })
 
-// if (dropdown.classList.contains('drop-open')) {
-//   toggleSubMenuItems();
-// }
-
-// function toggleSubMenuItems(subMenuItems){
-//   subMenuItems.forEach(item => {
-//     if (dropdown.classList.contains('drop-open')) {
-//         console.log('click');
-//     }
-//   })
-// }
-
-// Array.prototype.forEach.call(menuItems, function (el) {
-//   el.addEventListener('mouseover', function () {
-//     // this.classList.add('open');
-//     // this.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'true');
-//     this.querySelector('.sub-menu-btn').disabled = true;
-//   });
-//   el.addEventListener('mouseleave', function () {
-//     // el.classList.remove('open');
-//     // el.querySelector('.sub-menu-btn').setAttribute('aria-expanded', 'false');
-//     this.querySelector('.sub-menu-btn').disabled = false;
-//   });
-// });
-
 Array.prototype.forEach.call(menuItems, function (el) {
   let activatingA = el.querySelector('a');
 
