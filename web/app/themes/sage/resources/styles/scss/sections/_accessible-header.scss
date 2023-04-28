@@ -1,6 +1,7 @@
 // Header specific variables
 $header-height-mobile: 78px;
 $header-height-desktop: 106px;
+$nav-bottom-padding: 21px;
 
 .header {
   color: get-color('off-white');
@@ -29,7 +30,7 @@ $header-height-desktop: 106px;
 
     @include media-query('lg') {
       align-items: flex-end;
-      margin-bottom: 21px;
+      padding-bottom: $nav-bottom-padding;
     }
 
     &__wrapper {
@@ -175,7 +176,7 @@ $header-height-desktop: 106px;
         }
 
         & > li > a {
-          padding-bottom: 21px;
+          padding-bottom: $nav-bottom-padding;
           font-weight: bold;
         }
       }
@@ -211,7 +212,7 @@ $header-height-desktop: 106px;
               padding: 1em 2em;
               width: 100%;
             }
-          }          
+          }
         }
 
         &.open,
@@ -238,6 +239,11 @@ $header-height-desktop: 106px;
       display: flex;
       align-items: flex-end;
       height: 100%;
+
+      @include media-query('lg') {
+        padding-bottom: calc($nav-bottom-padding + 3px);
+        margin-left: 0.25em;
+      }
 
       &:disabled {
         cursor: none;
@@ -266,11 +272,6 @@ $header-height-desktop: 106px;
         transform: rotate(0);
         transition: rotate 300ms ease-out;
         display: inline-block;
-
-        @include media-query('lg') {
-          margin-bottom: 20px;
-          margin-left: 0.25rem;
-        }
       }
     }
   }
@@ -308,7 +309,7 @@ $header-height-desktop: 106px;
       height: 2px;
       position: relative;
       width: 24px;
-  
+
       &::before,
       &::after {
         background: get-color('white');
@@ -319,46 +320,14 @@ $header-height-desktop: 106px;
         transition: all 0.2s ease-out;
         width: 100%;
       }
-  
+
       &::before {
         top: 5px;
       }
-  
+
       &::after {
         top: -5px;
       }
     }
   }
-
-  
-
-  // .drop-menu {
-  //   // display: none;
-
-  //   &:checked {
-  //     & ~ nav {
-  //       display: block;
-  //       // visibility: visible;
-
-  //       // padding-bottom: $header-height-mobile;
-  //       max-height: 20000px;
-  //       overflow-y: scroll;
-  //       transition: max-height 5s ease-in;
-  //     }
-
-  //     & ~ .hamb .hamb-line {
-  //       background: transparent;
-  //     }
-
-  //     & ~ .hamb .hamb-line::before {
-  //       transform: rotate(-45deg);
-  //       top: 0;
-  //     }
-
-  //     & ~ .hamb .hamb-line::after {
-  //       transform: rotate(45deg);
-  //       top: 0;
-  //     }
-  //   }
-  // }
 }
