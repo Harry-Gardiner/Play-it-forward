@@ -14,6 +14,13 @@ hamb.addEventListener('click', function (e) {
   }
 });
 
+window.addEventListener('click', function (event) {
+  if (!dropdown.contains(event.target) && !hamb.contains(event.target)) {
+    hamb.classList.remove('hamb-open')
+    dropdown.classList.remove('drop-open');
+  }
+})
+
 // if (dropdown.classList.contains('drop-open')) {
 //   toggleSubMenuItems();
 // }
