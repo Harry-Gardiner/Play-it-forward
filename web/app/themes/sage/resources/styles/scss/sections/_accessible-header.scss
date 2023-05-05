@@ -1,0 +1,332 @@
+// Header specific variables
+$header-height-mobile: 78px;
+$header-height-desktop: 106px;
+$nav-bottom-padding: 21px;
+
+.header {
+  color: get-color('off-white');
+  background-color: get-color('charcoal');
+  position: sticky;
+  top: 0;
+  height: $header-height-mobile;
+  font-size: get-size('base');
+
+  @include media-query('lg') {
+    height: $header-height-desktop;
+  }
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 3rem;
+
+    @include media-query('lg') {
+      align-items: flex-end;
+      padding-bottom: $nav-bottom-padding;
+    }
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      margin-left: 0.5rem;
+      font-weight: 300;
+      white-space: nowrap;
+
+      .strong {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .nav {
+    /*
+  * MOBILE STYLING
+  */
+    @media screen and (max-width: 992px) {
+      background-color: get-color('dark-red');
+      position: absolute;
+      left: 0;
+      top: $header-height-mobile;
+      width: 100%;
+      max-height: 0;
+      transition: max-height 1s;
+      overflow: hidden;
+      @include full-bleed;
+
+      &.drop-open {
+        height: fit-content;
+        max-height: 2000px;
+        transition: max-height 1s;
+      }
+
+      .main-navigation {
+        margin-top: 2rem;
+      }
+
+      .menu-item {
+        & .sub-menu-btn {
+          display: block;
+
+          &:hover,
+          &:focus {
+            background: get-color('red');
+          }
+        }
+
+        & .sub-menu {
+          display: unset;
+        }
+
+        a {
+          padding: 1em 2em;
+          display: inline-block;
+          width: 100%;
+
+          &:hover,
+          &:focus {
+            background: get-color('red');
+          }
+        }
+      }
+
+      .menu-item-has-children {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        & > a {
+          flex: 1 0 80%;
+        }
+
+        .sub-menu-btn {
+          height: 100%;
+          flex: 1 0 10%;
+          height: 56px;
+        }
+
+        .sub-menu {
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height 1s;
+          visibility: hidden;
+          flex-basis: 100%;
+
+          a {
+            &:hover,
+            &:focus {
+              background: get-color('light-red');
+              outline-offset: -0.25rem;
+            }
+          }
+        }
+
+        &.open {
+          background: get-color('red');
+
+          .sub-menu {
+            height: fit-content;
+            max-height: 500px;
+            visibility: visible;
+
+            a {
+              padding-left: 4rem;
+            }
+          }
+        }
+      }
+    }
+
+    /*
+  * DESKTOP STYLING
+  */
+    @include media-query('lg') {
+      display: none;
+      height: 100%;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      ul.main-navigation {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        & > .menu-item {
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          padding: 0 1rem;
+
+          &:hover,
+          &:focus-within {
+            background-color: get-color('dark-red');
+          }
+        }
+
+        & > li > a {
+          padding-bottom: $nav-bottom-padding;
+          font-weight: bold;
+        }
+      }
+
+      @include media-query('lg') {
+        display: block;
+      }
+
+      // Has submenu
+      .menu-item-has-children {
+        position: relative;
+        width: fit-content;
+
+        .sub-menu {
+          display: block;
+          visibility: hidden;
+          background-color: get-color('dark-red');
+          position: absolute;
+          left: 50%;
+          margin-left: -150px; // Has to be half the sub-menu width to centre.
+          top: 100%;
+          max-height: 0;
+          width: 300px;
+
+          li {
+            &:hover,
+            &:focus {
+              background: get-color('red');
+            }
+
+            a {
+              display: inline-block;
+              padding: 1em 2em;
+              width: 100%;
+            }
+          }
+        }
+
+        &.open,
+        &:hover {
+          .caret {
+            pointer-events: none;
+            transform: rotate(180deg);
+            transition: rotate 300ms ease-out;
+          }
+
+          .sub-menu {
+            transition: all 400ms ease;
+            visibility: visible;
+            max-height: 2000px;
+          }
+        }
+      }
+    }
+
+  /*
+  * CHEVRON BUTTON
+  */
+    .sub-menu-btn {
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+
+      @include media-query('lg') {
+        padding-bottom: calc($nav-bottom-padding + 3px);
+        margin-left: 0.25em;
+      }
+
+      &:disabled {
+        cursor: none;
+        pointer-events: none;
+      }
+
+      &[aria-expanded='true'] {
+        .caret {
+          transform: rotate(180deg);
+          transition: rotate 300ms ease-out;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: get-color('dark-red');
+      }
+
+      .caret {
+        background-image: url('../../../images/icons/caret.svg');
+        height: 25px;
+        width: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(0);
+        transition: rotate 300ms ease-out;
+        display: inline-block;
+      }
+    }
+  }
+
+  /*
+  * HAMBURGER MENU
+  */
+  .hamb {
+    cursor: pointer;
+    padding: 1rem 0 1rem 1rem;
+
+    @include media-query('lg') {
+      display: none;
+    }
+
+    &.hamb-open {
+      .hamb-line {
+        background: transparent;
+      }
+
+      .hamb-line::before {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+
+      .hamb-line::after {
+        transform: rotate(45deg);
+        top: 0;
+      }
+    }
+
+    .hamb-line {
+      background: get-color('white');
+      display: block;
+      height: 2px;
+      position: relative;
+      width: 24px;
+
+      &::before,
+      &::after {
+        background: get-color('white');
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+      }
+
+      &::before {
+        top: 5px;
+      }
+
+      &::after {
+        top: -5px;
+      }
+    }
+  }
+}
