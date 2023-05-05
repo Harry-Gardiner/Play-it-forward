@@ -112,6 +112,20 @@ add_action('after_setup_theme', function () {
 }, 20);
 
 /**
+ * Add ACF options page
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page([
+		'page_title' => 'Theme Options',
+		'menu_title' => 'Theme options',
+		'menu_slug'  => 'theme_options',
+		'capability' => 'edit_theme_options',
+		'position'   => '99',
+		'autoload'   => true
+	]);
+}
+
+/**
  * Register the theme sidebars.
  *
  * @return void
