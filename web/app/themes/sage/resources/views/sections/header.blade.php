@@ -7,6 +7,8 @@
             </div>
         </a>
 
+        @include('partials.button', ['type' => 'donate'])
+
         <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
 
         @if (has_nav_menu('primary_navigation'))

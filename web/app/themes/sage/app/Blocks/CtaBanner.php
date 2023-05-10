@@ -2,8 +2,10 @@
 
 namespace App\Blocks;
 
+use App\Fields\Partials\Button;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+
 
 class CtaBanner extends Block
 {
@@ -138,7 +140,7 @@ class CtaBanner extends Block
     public function with()
     {
         return [
-            'items' => $this->items(),
+            'items' => get_fields(),
         ];
     }
 
@@ -152,21 +154,11 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
-            ->addRepeater('items')
-                ->addText('item')
-            ->endRepeater();
-
+            ->addText('title')
+            ->addGroup('cta_button', ['label' => 'CTA Button'])
+            ->addFields($this->get(Button::class))
+            ->endGroup();
         return $ctaBanner->build();
-    }
-
-    /**
-     * Return the items field.
-     *
-     * @return array
-     */
-    public function items()
-    {
-        return get_field('items') ?: $this->example['items'];
     }
 
     /**

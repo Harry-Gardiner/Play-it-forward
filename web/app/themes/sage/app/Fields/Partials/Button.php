@@ -33,6 +33,7 @@ class Button extends Partial
                 'choices' => [
                     'primary' => 'Primary',
                     'secondary' => 'Secondary',
+                    'donate' => 'Donate',
                 ],
                 'default_value' => 'primary',
             ])
@@ -40,6 +41,12 @@ class Button extends Partial
                 'label' => 'Text',
                 'instructions' => 'Enter the text for the button.',
                 'default_value' => 'Get involved',
+                'required' => 1,
+            ])
+            ->addUrl('link', [
+                'label' => 'Link',
+                'instructions' => 'Enter the link for the button.',
+                'required' => 1,
             ]);
 
         return $button;
