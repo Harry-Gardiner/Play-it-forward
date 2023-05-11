@@ -20,6 +20,10 @@ $nav-bottom-padding: 21px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include media-query('lg') {
+     align-items: flex-end;
+    }
   }
 
   .logo {
@@ -49,7 +53,7 @@ $nav-bottom-padding: 21px;
       height: 26px;
     }
 
-    @include media-query('lg') {
+    @include media-query('md') {
       align-items: flex-end;
       padding-bottom: $nav-bottom-padding;
       margin-right: 3rem;
@@ -340,5 +344,11 @@ $nav-bottom-padding: 21px;
         top: -5px;
       }
     }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

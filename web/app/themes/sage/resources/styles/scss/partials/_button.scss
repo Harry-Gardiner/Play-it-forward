@@ -7,6 +7,12 @@
     text-transform: uppercase;
     padding: toRem(8) toRem(20);
     font-weight: bold;
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
 
     @include media-query('lg') {
         padding: toRem(19) toRem(20);
@@ -26,11 +32,16 @@
     &--donate {
         background-color: get-color('white');
         color: get-color('charcoal');
-        transition: background-color 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out;
+        padding: toRem(10) toRem(25);
    
         &:hover,
         &:focus {
-            background-color: get-color('dark-red');
+           color: get-color('dark-red');
+        }
+
+        @include media-query('lg') {
+            margin-bottom: 21px;
         }
     }
 }

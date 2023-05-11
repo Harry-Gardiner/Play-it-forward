@@ -7,10 +7,6 @@
             </div>
         </a>
 
-        @include('partials.button', ['type' => 'donate'])
-
-        <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
-
         @if (has_nav_menu('primary_navigation'))
             <nav class="nav" role="navigation" aria-label="<?php _e('Main Menu', 'textdomain'); ?>">
                 {!! wp_nav_menu([
@@ -21,5 +17,10 @@
                 ]) !!}
             </nav>
         @endif
+
+        <div class="header__buttons">
+            @include('partials.button', ['type' => 'donate'])
+            <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
+        </div>
     </div>
 </header>
