@@ -1,5 +1,4 @@
 .button {
-    border-radius: 100px;
     text-align: center;
     font-family: get-utility-value('font', 'title');
     line-height: 22px;
@@ -19,6 +18,14 @@
     }
 
     &--primary {
+        border-radius: 100px;
+    }
+
+    &--secondary {
+        border-radius: 8px;
+    }
+
+    &--red {
         background-color: get-color('red');
         color: get-color('white');
         transition: background-color 0.2s ease-in-out;
@@ -26,6 +33,28 @@
         &:hover,
         &:focus {
             background-color: get-color('dark-red');
+        }
+    }
+
+    &--black {
+        background-color: get-color('charcoal');
+        color: get-color('white');
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: get-color('dark-charcoal');
+        }
+    }
+
+    &--white {
+        background-color: get-color('white');
+        color: get-color('charcoal');
+        transition: color 0.2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: get-color('dark-red');
         }
     }
 

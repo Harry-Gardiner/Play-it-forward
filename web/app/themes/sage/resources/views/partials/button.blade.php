@@ -1,6 +1,6 @@
 @switch($type)
     @case('secondary')
-        <a class="button button--secondary" href="{{ $link }}">{{ $text }}</a>
+        <a class="button button--secondary button--{{$colour}}" href="{{ $link }}">{{ $text }}</a>
     @break
 
     @case('donate')
@@ -18,5 +18,5 @@
     @break
 
     @default
-        <a class="button button--primary" href="{{ $link }}">{{ $text }}</a>
+        <a class="button button--primary button--{{$colour}}" href="{{ $link }}">{{ $text }}</a>
 @endswitch

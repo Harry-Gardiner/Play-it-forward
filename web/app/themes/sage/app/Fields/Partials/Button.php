@@ -17,19 +17,9 @@ class Button extends Partial
         $button = new FieldsBuilder('button');
 
         $button
-            ->addSelect('colour', [
-                'label' => 'Colour',
-                'instructions' => 'Choose a colour for the button.',
-                'choices' => [
-                    'red' => 'Red',
-                    'black' => 'Black',
-                    'white' => 'White',
-                ],
-                'default_value' => 'red',
-            ])
             ->addSelect('type', [
                 'label' => 'Type',
-                'instructions' => 'Choose a type for the button.',
+                'instructions' => 'Choose button type. <br><br> Primary is the default button style that can be customised. <br><br> Secondary is a secondary button style that can be customised. <br><br> Donate is a button style that links to the donate page.',
                 'choices' => [
                     'primary' => 'Primary',
                     'secondary' => 'Secondary',
@@ -37,17 +27,27 @@ class Button extends Partial
                 ],
                 'default_value' => 'primary',
             ])
+            ->addSelect('colour', [
+                'label' => 'Colour',
+                'instructions' => 'Choose the background colour for the button.',
+                'choices' => [
+                    'red' => 'Red',
+                    'black' => 'Black',
+                    'white' => 'White',
+                ],
+                'default_value' => 'red',
+            ])->conditional('type', '!=', 'donate')
             ->addText('text', [
                 'label' => 'Text',
                 'instructions' => 'Enter the text for the button.',
                 'default_value' => 'Get involved',
                 'required' => 1,
-            ])
+            ])->conditional('type', '!=', 'donate')
             ->addUrl('link', [
                 'label' => 'Link',
                 'instructions' => 'Enter the link for the button.',
                 'required' => 1,
-            ]);
+            ])->conditional('type', '!=', 'donate');
 
         return $button;
     }
