@@ -43,7 +43,7 @@
 
         &:hover,
         &:focus {
-            background-color: get-color('dark-charcoal');
+            background-color: get-color('dark-charcoal'); // TODO: Add this color to the color palette or some other on hover style
         }
     }
 
