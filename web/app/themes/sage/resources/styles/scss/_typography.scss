@@ -48,7 +48,7 @@ a {
     font-size: get-size('md');
 }
 
-@include media-query('lg') {
+@include media-breakpoint('lg') {
   .nav {
     font-family: get-utility-value('font', 'title');
     font-size: 22px;

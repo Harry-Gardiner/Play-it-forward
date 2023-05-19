@@ -11,7 +11,7 @@ $nav-bottom-padding: 21px;
   height: $header-height-mobile;
   font-size: get-size('base');
 
-  @include media-query('lg') {
+  @include media-breakpoint('lg') {
     height: $header-height-desktop;
   }
 
@@ -28,7 +28,7 @@ $nav-bottom-padding: 21px;
     height: 100%;
     margin-right: 3rem;
 
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
       align-items: flex-end;
       padding-bottom: $nav-bottom-padding;
     }
@@ -150,7 +150,7 @@ $nav-bottom-padding: 21px;
     /*
   * DESKTOP STYLING
   */
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
       display: none;
       height: 100%;
       font-weight: bold;
@@ -180,7 +180,7 @@ $nav-bottom-padding: 21px;
         }
       }
 
-      @include media-query('lg') {
+      @include media-breakpoint('lg') {
         display: block;
       }
 
@@ -239,7 +239,7 @@ $nav-bottom-padding: 21px;
       align-items: flex-end;
       height: 100%;
 
-      @include media-query('lg') {
+      @include media-breakpoint('lg') {
         padding-bottom: calc($nav-bottom-padding + 3px);
         margin-left: 0.25em;
       }
@@ -282,7 +282,7 @@ $nav-bottom-padding: 21px;
     cursor: pointer;
     padding: 1rem 0 1rem 1rem;
 
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
       display: none;
     }
 

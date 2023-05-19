@@ -3,7 +3,7 @@
         margin-top: get-size('500');
     }
 
-    @include media-query('md') {
+    @include media-breakpoint('md') {
         display: flex;
 
         >* {
