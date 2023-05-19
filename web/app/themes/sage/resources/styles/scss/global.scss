@@ -23,6 +23,10 @@
 // @import 'sections/header';
 @import 'sections/accessible-header';
 
+
+// Partials
+@import 'partials/button';
+
 body {
     @extend .container;
     line-height: 1.5;

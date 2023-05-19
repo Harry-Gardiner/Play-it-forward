@@ -1,0 +1,77 @@
+.button {
+    text-align: center;
+    font-family: get-utility-value('font', 'title');
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: toRem(8) toRem(20);
+    font-weight: bold;
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+
+    @include media-query('lg') {
+        padding: toRem(19) toRem(20);
+    }
+
+    &--primary {
+        border-radius: 100px;
+    }
+
+    &--secondary {
+        border-radius: 8px;
+    }
+
+    &--red {
+        background-color: get-color('red');
+        color: get-color('white');
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: get-color('dark-red');
+        }
+    }
+
+    &--black {
+        background-color: get-color('charcoal');
+        color: get-color('white');
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: get-color('dark-charcoal'); // TODO: Add this color to the color palette or some other on hover style
+        }
+    }
+
+    &--white {
+        background-color: get-color('white');
+        color: get-color('charcoal');
+        transition: color 0.2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: get-color('dark-red');
+        }
+    }
+
+    &--donate {
+        background-color: get-color('white');
+        color: get-color('charcoal');
+        transition: color 0.2s ease-in-out;
+        padding: toRem(10) toRem(25);
+   
+        &:hover,
+        &:focus {
+           color: get-color('dark-red');
+        }
+
+        @include media-query('lg') {
+            margin-bottom: 21px;
+        }
+    }
+}
+
