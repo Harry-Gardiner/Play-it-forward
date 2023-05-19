@@ -21,7 +21,7 @@ $nav-bottom-padding: 21px;
     align-items: center;
     justify-content: space-between;
 
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
      align-items: flex-end;
     }
   }
@@ -57,7 +57,7 @@ $nav-bottom-padding: 21px;
       height: 26px;
     }
 
-    @include media-query('md') {
+    @include media-breakpoint('md') {
       align-items: flex-end;
       padding-bottom: $nav-bottom-padding;
       margin-right: 3rem;

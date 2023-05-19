@@ -1,10 +1,9 @@
 .button {
     text-align: center;
-    font-family: get-utility-value('font', 'title');
     line-height: 22px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: toRem(8) toRem(20);
+    padding: rem(8) rem(20);
     font-weight: bold;
     display: inline-block;
 
@@ -13,8 +12,8 @@
         cursor: pointer;
     }
 
-    @include media-query('lg') {
-        padding: toRem(19) toRem(20);
+    @include media-breakpoint('lg') {
+        padding: rem(19) rem(20);
     }
 
     &--primary {
@@ -26,50 +25,54 @@
     }
 
     &--red {
-        background-color: get-color('red');
-        color: get-color('white');
+        background-color: $pf-red;
+        color: $pf-white;
         transition: background-color 0.2s ease-in-out;
 
         &:hover,
         &:focus {
-            background-color: get-color('dark-red');
+            background-color: $pf-dark-red;
         }
     }
 
     &--black {
-        background-color: get-color('charcoal');
-        color: get-color('white');
+        background-color: $pf-charcoal;
+        color: $pf-white;
         transition: background-color 0.2s ease-in-out;
 
         &:hover,
         &:focus {
-            background-color: get-color('dark-charcoal'); // TODO: Add this color to the color palette or some other on hover style
+            background-color: $pf-charcoal; // TODO: Add this color to the color palette or some other on hover style
         }
     }
 
     &--white {
-        background-color: get-color('white');
-        color: get-color('charcoal');
+        background-color: $pf-white;
+        color: $pf-charcoal;
         transition: color 0.2s ease-in-out;
 
         &:hover,
         &:focus {
-            color: get-color('dark-red');
+            color: $pf-dark-red;
         }
     }
 
     &--donate {
-        background-color: get-color('white');
-        color: get-color('charcoal');
+        background-color: $pf-white;
+        color: $pf-charcoal;
         transition: color 0.2s ease-in-out;
-        padding: toRem(10) toRem(25);
+        padding: rem(10) rem(25);
+        border: 1px solid $pf-white;
+        border-radius: 100px;
    
         &:hover,
         &:focus {
-           color: get-color('dark-red');
+           background-color: $pf-charcoal;
+           color: $pf-white;
+           border-color: $pf-white;
         }
 
-        @include media-query('lg') {
+        @include media-breakpoint('lg') {
             margin-bottom: 21px;
         }
     }
