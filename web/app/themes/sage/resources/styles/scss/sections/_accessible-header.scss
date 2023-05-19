@@ -4,14 +4,14 @@ $header-height-desktop: 106px;
 $nav-bottom-padding: 21px;
 
 .header {
-  color: get-color('off-white');
-  background-color: get-color('charcoal');
+  color: $pf-off-white;
+  background-color: $pf-charcoal;
   position: sticky;
   top: 0;
   height: $header-height-mobile;
-  font-size: get-size('base');
+  font-size: $size--base;
 
-  @include media-query('lg') {
+  @include media-breakpoint('lg') {
     height: $header-height-desktop;
   }
 
@@ -32,7 +32,11 @@ $nav-bottom-padding: 21px;
     height: 100%;
     margin-right: 1rem;
 
-    
+    @include media-breakpoint('lg') {
+      align-items: flex-end;
+      padding-bottom: $nav-bottom-padding;
+    }
+
     &__wrapper {
       display: flex;
       align-items: center;
@@ -70,7 +74,7 @@ $nav-bottom-padding: 21px;
   * MOBILE STYLING
   */
     @media screen and (max-width: 992px) {
-      background-color: get-color('dark-red');
+      background-color: $pf-dark-red;
       position: absolute;
       left: 0;
       top: $header-height-mobile;
@@ -96,7 +100,7 @@ $nav-bottom-padding: 21px;
 
           &:hover,
           &:focus {
-            background: get-color('red');
+            background: $pf-red;
           }
         }
 
@@ -111,7 +115,7 @@ $nav-bottom-padding: 21px;
 
           &:hover,
           &:focus {
-            background: get-color('red');
+            background: $pf-red;
           }
         }
       }
@@ -141,14 +145,14 @@ $nav-bottom-padding: 21px;
           a {
             &:hover,
             &:focus {
-              background: get-color('light-red');
+              background: $pf-light-red;
               outline-offset: -0.25rem;
             }
           }
         }
 
         &.open {
-          background: get-color('red');
+          background: $pf-red;
 
           .sub-menu {
             height: fit-content;
@@ -166,7 +170,7 @@ $nav-bottom-padding: 21px;
     /*
   * DESKTOP STYLING
   */
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
       display: none;
       height: 100%;
       font-weight: bold;
@@ -186,7 +190,7 @@ $nav-bottom-padding: 21px;
 
           &:hover,
           &:focus-within {
-            background-color: get-color('dark-red');
+            background-color: $pf-dark-red;
           }
         }
 
@@ -196,7 +200,7 @@ $nav-bottom-padding: 21px;
         }
       }
 
-      @include media-query('lg') {
+      @include media-breakpoint('lg') {
         display: block;
       }
 
@@ -208,7 +212,7 @@ $nav-bottom-padding: 21px;
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: get-color('dark-red');
+          background-color: $pf-dark-red;
           position: absolute;
           left: 50%;
           margin-left: -150px; // Has to be half the sub-menu width to centre.
@@ -219,7 +223,7 @@ $nav-bottom-padding: 21px;
           li {
             &:hover,
             &:focus {
-              background: get-color('red');
+              background: $pf-red;
             }
 
             a {
@@ -255,7 +259,7 @@ $nav-bottom-padding: 21px;
       align-items: flex-end;
       height: 100%;
 
-      @include media-query('lg') {
+      @include media-breakpoint('lg') {
         padding-bottom: calc($nav-bottom-padding + 3px);
         margin-left: 0.25em;
       }
@@ -275,7 +279,7 @@ $nav-bottom-padding: 21px;
       &:hover,
       &:focus {
         cursor: pointer;
-        background-color: get-color('dark-red');
+        background-color: $pf-dark-red;
       }
 
       .caret {
@@ -298,7 +302,7 @@ $nav-bottom-padding: 21px;
     cursor: pointer;
     padding: 1rem 0 1rem 1rem;
 
-    @include media-query('lg') {
+    @include media-breakpoint('lg') {
       display: none;
     }
 
@@ -319,7 +323,7 @@ $nav-bottom-padding: 21px;
     }
 
     .hamb-line {
-      background: get-color('white');
+      background: $pf-white;
       display: block;
       height: 2px;
       position: relative;
@@ -327,7 +331,7 @@ $nav-bottom-padding: 21px;
 
       &::before,
       &::after {
-        background: get-color('white');
+        background: $pf-white;
         content: '';
         display: block;
         height: 100%;

@@ -1,14 +1,23 @@
-@import 'config';
 @import 'variables';
-@import '~gorko/gorko.scss';
 @import 'reset';
-@import 'typography';
+
+// Functions
+@import 'functions/map-deep-get';
+@import 'functions/rem';
+
+// Mixins
+@import 'mixins/mixin-columns';
+@import 'mixins/mixin-container';
+@import 'mixins/mixin-full-bleed';
+@import 'mixins/mixin-media-queries';
 
 // Utilities
 @import 'utilities/container';
 @import 'utilities/full-bleed';
 @import 'utilities/flow';
 @import 'utilities/visually-hidden';
+
+@import 'typography';
 
 // Sections
 // @import 'sections/header';
@@ -22,9 +31,8 @@ body {
     @extend .container;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: get-size('lg');
-    @include apply-utility('weight', 'medium');
-    background-color: get-color('off-white');
+    padding-bottom: $size--lg;
+    background-color: $pf-off-white;
 }
 
 table {

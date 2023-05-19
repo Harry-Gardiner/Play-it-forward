@@ -1,9 +1,9 @@
 .splitter {
     > :last-child {
-        margin-top: get-size('500');
+        margin-top: rem(500);
     }
 
-    @include media-query('md') {
+    @include media-breakpoint('md') {
         display: flex;
 
         >* {
@@ -12,7 +12,7 @@
 
         > :last-child {
             margin-top: 0;
-            margin-left: get-size('500');
+            margin-left: rem(500);
             min-width: 22rem;
         }
     }
