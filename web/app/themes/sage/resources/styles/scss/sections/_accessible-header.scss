@@ -20,31 +20,47 @@ $nav-bottom-padding: 21px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include media-query('lg') {
+     align-items: flex-end;
+    }
   }
 
   .logo {
     display: flex;
     align-items: center;
     height: 100%;
-    margin-right: 3rem;
+    margin-right: 1rem;
 
-    @include media-query('lg') {
-      align-items: flex-end;
-      padding-bottom: $nav-bottom-padding;
-    }
-
+    
     &__wrapper {
       display: flex;
       align-items: center;
     }
-
+    
     p {
       margin-left: 0.5rem;
       font-weight: 300;
       white-space: nowrap;
-
+      
       .strong {
         font-weight: 500;
+      }
+    }
+
+    img {
+      width: 32px;
+      height: 26px;
+    }
+
+    @include media-query('md') {
+      align-items: flex-end;
+      padding-bottom: $nav-bottom-padding;
+      margin-right: 3rem;
+
+      img {
+        width: 50px;
+        height: 41px;
       }
     }
   }
@@ -328,5 +344,11 @@ $nav-bottom-padding: 21px;
         top: -5px;
       }
     }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }

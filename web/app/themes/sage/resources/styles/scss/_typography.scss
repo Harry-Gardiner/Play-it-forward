@@ -43,6 +43,14 @@ a {
   color: currentColor;
 }
 
+.button {
+  font-size: toRem(18);
+
+  @include media-query('lg') {
+    font-size: toRem(22);
+  }
+}
+
 .nav {
     font-family: get-utility-value('font', 'base');
     font-size: get-size('md');

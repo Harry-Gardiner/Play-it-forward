@@ -102,3 +102,8 @@ $gorko-config: (
     'xl-4': '(min-width: 1500px)',
   ),
 );
+
+@function toRem($value) {
+  $remValue: ($value / 16) + rem; 
+  @return $remValue;
+}
