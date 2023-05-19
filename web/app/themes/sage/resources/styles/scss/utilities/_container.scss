@@ -21,28 +21,3 @@
     max-width: $col-xl;
   }
 }
-
-// Mixin that can be used inside media queries
-@mixin mixinContainer {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 get-size('md');
-  box-sizing: border-box;
-
-  @include media-breakpoint('sm') {
-    max-width: $col-sm;
-  }
-
-  @include media-breakpoint('md') {
-    max-width: $col-md;
-  }
-
-  @include media-breakpoint('lg') {
-    max-width: $col-lg;
-  }
-
-  @include media-breakpoint('xl') {
-    max-width: $col-xl;
-  }
-}
