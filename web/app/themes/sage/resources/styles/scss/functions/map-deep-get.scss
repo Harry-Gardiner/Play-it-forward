@@ -1,3 +1,21 @@
+/**
+The function `map-deep-get` is a custom function written in a Sass/SCSS stylesheet. Its purpose is to retrieve a nested value from a map (also known as a dictionary or associative array) using a variable number of keys.
+
+Here's a breakdown of how the function works:
+
+1. The function is defined using the `@function` directive and named `map-deep-get`. It takes two parameters:
+   - `$map`: The map from which the value will be retrieved.
+   - `$keys...`: A variable number of keys that specify the path to the desired value in the map.
+
+2. Inside the function, there is a `@each` loop that iterates over each `$key` provided in `$keys...`.
+
+3. Within the loop, the `map-get()` function is used to retrieve the value associated with the current `$key` from the `$map`. The retrieved value is then assigned back to the `$map` variable, effectively updating it to the nested map.
+
+4. After the loop finishes, the final value of `$map` is returned using the `@return` directive.
+
+In summary, the `map-deep-get` function allows you to access a nested value within a map by providing a sequence of keys that define the path to the desired value. Each key is used to access a nested map until the final value is reached, which is then returned.
+*/
+
 @function map-deep-get($map, $keys...) {
 	@each $key in $keys {
 		$map: map-get($map, $key);
