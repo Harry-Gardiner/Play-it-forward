@@ -1,10 +1,12 @@
+$pf-base-size: 1rem;
+
 /**********************
  Container sizes
 ***********************/
-$col-sm:        540px;  // (max-width: 540px)
-$col-md:        720px;  // (max-width: 720px)
-$col-lg:        960px;  // (max-width: 960px)
-$col-xl:        1140px; // (max-width: 1140px)
+$col--sm: 540px; // (max-width: 540px)
+$col--md: 720px; // (max-width: 720px)
+$col--lg: 960px; // (max-width: 960px)
+$col--xl: 1140px; // (max-width: 1140px)
 
 /**********************
  Colours
@@ -24,33 +26,44 @@ $pf-light-red: #bd4c4c;
 // Text colours
 $body-text-color: $pf-charcoal;
 
-
 /**********************
  Breakpoints
 ***********************/
 
 $breakpoints: (
-	sm: (
-		breakpoint: 576px,
-		max-width: 540px,
-	),
-	md: (
-		breakpoint: 768px,
-		max-width: 720px,
-	),
-	lg: (
-		breakpoint: 992px,
-		max-width: 960px,
-	),
-	xl: (
-		breakpoint: 1200px,
-		max-width: 1140px,
-	),
-	xxl: (
-		breakpoint: 1650px,
-	)
+  sm: (
+    breakpoint: 576px,
+    max-width: 540px,
+  ),
+  md: (
+    breakpoint: 768px,
+    max-width: 720px,
+  ),
+  lg: (
+    breakpoint: 992px,
+    max-width: 960px,
+  ),
+  xl: (
+    breakpoint: 1200px,
+    max-width: 1140px,
+  ),
+  xxl: (
+    breakpoint: 1650px,
+  ),
 );
 
+$size--xs: $pf-base-size * 0.6875;
+//11px
+$size--sm: $pf-base-size * 0.8125;
+//13px
+$size--base: $pf-base-size;
+//16px
+$size--md: $pf-base-size * 1.125;
+//18px
+$size--lg: $pf-base-size * 1.5;
+//24px
+$size--xl: $pf-base-size * 1.875;
+//30px
 
 /**********************
  Spacing
@@ -63,5 +76,5 @@ $block-padding-desktop: 75px;
  Fonts
 ***********************/
 
-$font--primary: "Barlow", Helvetica, Arial, sans-serif;
-$font--secondary: "Barlow Condensed", Helvetica, Arial, sans-serif';
+$size--primary: 'Barlow', Helvetica, Arial, sans-serif;
+$size--secondary: 'Barlow Condensed', Helvetica, Arial, sans-serif;

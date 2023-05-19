@@ -3,7 +3,7 @@
     position: relative;
     margin: 0 auto;
     width: 100%;
-    padding: 0 get-size('md');
+    padding: 0 $size--md;
     box-sizing: border-box;
   
     @include media-breakpoint('sm') {
