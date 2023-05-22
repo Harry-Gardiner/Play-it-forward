@@ -1,80 +1,69 @@
 .button {
-    text-align: center;
-    line-height: 22px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: rem(8) rem(20);
-    font-weight: bold;
-    display: inline-block;
+  text-align: center;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: rem(8) rem(20);
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+
+  @include media-breakpoint('lg') {
+    padding: rem(19) rem(20);
+  }
+
+  &--primary {
+    border-radius: 100px;
+  }
+
+  &--secondary {
+    border-radius: 8px;
+  }
+
+  &--red {
+    background-color: $pf-red;
+    color: $pf-white;
 
     &:hover,
     &:focus {
-        cursor: pointer;
+      background-color: $pf-dark-red;
     }
+  }
+
+  &--black {
+    background-color: $pf-charcoal;
+    color: $pf-white;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal; // TODO: Add this color to the color palette or some other on hover style
+    }
+  }
+
+  &--white {
+    background-color: $pf-white;
+    color: $pf-charcoal;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal;
+      color: $pf-white;
+      border-color: $pf-white;
+    }
+  }
+
+  &--donate {
+    padding: rem(10) rem(25);
+    border: 1px solid $pf-white;
+    border-radius: 100px;
 
     @include media-breakpoint('lg') {
-        padding: rem(19) rem(20);
+      margin-bottom: 21px;
     }
-
-    &--primary {
-        border-radius: 100px;
-    }
-
-    &--secondary {
-        border-radius: 8px;
-    }
-
-    &--red {
-        background-color: $pf-red;
-        color: $pf-white;
-        transition: background-color 0.2s ease-in-out;
-
-        &:hover,
-        &:focus {
-            background-color: $pf-dark-red;
-        }
-    }
-
-    &--black {
-        background-color: $pf-charcoal;
-        color: $pf-white;
-        transition: background-color 0.2s ease-in-out;
-
-        &:hover,
-        &:focus {
-            background-color: $pf-charcoal; // TODO: Add this color to the color palette or some other on hover style
-        }
-    }
-
-    &--white {
-        background-color: $pf-white;
-        color: $pf-charcoal;
-        transition: color 0.2s ease-in-out;
-
-        &:hover,
-        &:focus {
-            color: $pf-dark-red;
-        }
-    }
-
-    &--donate {
-        background-color: $pf-white;
-        color: $pf-charcoal;
-        transition: color 0.2s ease-in-out;
-        padding: rem(10) rem(25);
-        border: 1px solid $pf-white;
-        border-radius: 100px;
-   
-        &:hover,
-        &:focus {
-           background-color: $pf-charcoal;
-           color: $pf-white;
-           border-color: $pf-white;
-        }
-
-        @include media-breakpoint('lg') {
-            margin-bottom: 21px;
-        }
-    }
+  }
 }
-

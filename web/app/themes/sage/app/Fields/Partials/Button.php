@@ -19,7 +19,7 @@ class Button extends Partial
         $button
             ->addSelect('type', [
                 'label' => 'Type',
-                'instructions' => 'Choose button type. <br><br> Primary is the default button style that can be customised. <br><br> Secondary is a secondary button style that can be customised. <br><br> Donate is a button style that links to the donate page.',
+                'instructions' => 'Choose button type. <br><br> Primary is the default button style that can be customised. <br><br> Secondary is a secondary button style that can be customised. <br><br> Donate pulls the text and link from the theme options, but the colour can be customised.',
                 'choices' => [
                     'primary' => 'Primary',
                     'secondary' => 'Secondary',
@@ -36,7 +36,7 @@ class Button extends Partial
                     'white' => 'White',
                 ],
                 'default_value' => 'red',
-            ])->conditional('type', '!=', 'donate')
+            ])
             ->addText('text', [
                 'label' => 'Text',
                 'instructions' => 'Enter the text for the button.',

@@ -19,7 +19,7 @@
         @endif
 
         <div class="header__buttons">
-            @include('partials.button', ['type' => 'donate'])
+            @include('partials.button', ['type' => 'donate', 'colour' => 'white'])
             <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
         </div>
     </div>
