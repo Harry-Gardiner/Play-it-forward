@@ -47,6 +47,7 @@ class Button extends Partial
                 'label' => 'Link',
                 'instructions' => 'Enter the link for the button.',
                 'required' => 1,
+                'default_value' => '/',
             ])->conditional('type', '!=', 'donate');
 
         return $button;

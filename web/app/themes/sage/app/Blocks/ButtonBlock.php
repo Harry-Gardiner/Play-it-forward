@@ -2,6 +2,7 @@
 
 namespace App\Blocks;
 
+use App\Fields\Partials\Button;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -101,32 +102,17 @@ class ButtonBlock extends Block
     ];
 
     /**
-     * The block styles.
-     *
-     * @var array
-     */
-    public $styles = [
-        [
-            'name' => 'light',
-            'label' => 'Light',
-            'isDefault' => true,
-        ],
-        [
-            'name' => 'dark',
-            'label' => 'Dark',
-        ]
-    ];
-
-    /**
      * The block preview example data.
      *
      * @var array
      */
     public $example = [
         'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
+            "position" => "center",
+            "type" => "primary",
+            "colour" => "red",
+            "text" => "Get involved",
+            "link" => "/"
         ],
     ];
 
@@ -152,10 +138,16 @@ class ButtonBlock extends Block
         $buttonBlock = new FieldsBuilder('button_block');
 
         $buttonBlock
-            ->addGroup('cta_button', ['label' => 'CTA Button'])
-                ->addFields($this->get(Button::class))
-            ->endGroup();
-
+            ->addSelect('position', [
+                'label' => 'Position',
+                'choices' => [
+                    'left' => 'Left',
+                    'center' => 'Center',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'center',
+            ])
+            ->addFields($this->get(Button::class));
         return $buttonBlock->build();
     }
 
