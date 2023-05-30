@@ -1,3 +1,12 @@
 .cta-banner {
-    $flow-space: 1.5rem;
+    color: $pf-off-white;
+
+   &__content {
+    padding-top: rem(66);
+    padding-bottom: rem(66);
+    display: grid;
+    align-items: end;
+    grid-template-columns: 3fr 1fr;
+    gap: 4rem;
+   }
 }

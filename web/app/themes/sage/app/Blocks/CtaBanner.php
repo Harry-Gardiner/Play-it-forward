@@ -140,7 +140,13 @@ class CtaBanner extends Block
     public function with()
     {
         return [
-            'items' => get_fields(),
+            'title' => get_field('title'),
+            'body' => get_field('body'),
+            'image' => get_field('image'),
+            'image_position' => get_field('image_position'),
+            'show_button' => get_field('show_button'),
+            'cta_button' => get_field('cta_button'),
+            'background_colour' => get_field('background_colour'),
         ];
     }
 
