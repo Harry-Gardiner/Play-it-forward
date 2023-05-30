@@ -63,7 +63,7 @@ class CtaBanner extends Block
      *
      * @var string
      */
-    public $mode = 'preview';
+    public $mode = 'edit';
 
     /**
      * The default block alignment.
@@ -154,9 +154,40 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
+            // Add tab with text field and wysiwyg field then another tab with button fields
+            ->addTab('Content')
+            ->addColorPicker('background_colour', [
+                'label' => 'Background Colour',
+                'required' => 0,
+                'default_value' => '#ffffff',
+            ])
             ->addText('title')
+            ->addWysiwyg('body')
+            ->addTab('Image')
+            ->addImage('image')
+            ->addSelect('image_position', [
+                'label' => 'Image Position',
+                'required' => 0,
+                'choices' => [
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
+                'layout' => 'horizontal',
+                ])
+            ->addTab('Button')
+            ->addRadio('show_button', [
+                'label' => 'Show Button?',
+                'required' => 1,
+                'choices' => [
+                    'yes' => 'Yes',
+                    'no' => 'No',
+                ],
+                'default_value' => 'no',
+                'layout' => 'horizontal',
+                ])
             ->addGroup('cta_button', ['label' => 'CTA Button'])
-            ->addFields($this->get(Button::class))
+            ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
             ->endGroup();
         return $ctaBanner->build();
     }
