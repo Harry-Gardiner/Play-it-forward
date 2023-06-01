@@ -147,6 +147,7 @@ class CtaBanner extends Block
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
             'background_colour' => get_field('background_colour'),
+            'layout' => get_field('layout'),
         ];
     }
 
@@ -160,7 +161,6 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
-            // Add tab with text field and wysiwyg field then another tab with button fields
             ->addTab('Content')
             ->addColorPicker('background_colour', [
                 'label' => 'Background Colour',
@@ -169,6 +169,21 @@ class CtaBanner extends Block
             ])
             ->addText('title')
             ->addWysiwyg('body')
+            
+            ->addTab('Layout')
+            ->addSelect('layout', [
+                'label' => 'Layout',
+                'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Contained will be approx 70% page width. Default will be the default width of the content.',
+                'required' => 0,
+                'choices' => [
+                    'default' => 'Default',
+                    'full' => 'Full Width',
+                    'contained' => 'Contained'
+                ],
+                'default_value' => 'default',
+                'layout' => 'horizontal',
+            ])
+
             ->addTab('Image')
             ->addImage('image')
             ->addSelect('image_position', [
@@ -180,7 +195,8 @@ class CtaBanner extends Block
                 ],
                 'default_value' => 'left',
                 'layout' => 'horizontal',
-                ])
+            ])
+
             ->addTab('Button')
             ->addRadio('show_button', [
                 'label' => 'Show Button?',

@@ -1,12 +1,52 @@
-.cta-banner {
-    color: $pf-off-white;
+.cta-wrapper {
+  &.default,
+  &.contained {
+    .cta-banner {
+      &__content {
+        padding-left: rem(42);
+        padding-right: rem(42);
+      }
+    }
+  }
 
-   &__content {
+  &.default {
+    .cta-banner {
+      &__content {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @include media-breakpoint('lg') {
+    &.contained {
+      width: 70%;
+      .cta-banner {
+        &__content {
+          flex-wrap: nowrap;
+        }
+      }
+    }
+
+    &.default,
+    &.full-bleed {
+      .cta-banner {
+        &__content {
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+}
+
+.cta-banner {
+  color: $pf-off-white;
+
+  &__content {
     padding-top: rem(66);
-    padding-bottom: rem(66);
-    display: grid;
-    align-items: end;
-    grid-template-columns: 3fr 1fr;
-    gap: 4rem;
-   }
+    padding-bottom: rem(54);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-end;
+  }
 }

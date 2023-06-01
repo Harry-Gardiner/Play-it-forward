@@ -5,11 +5,23 @@
     $btn_colour = $cta_button['colour'];
     $btn_type = $cta_button['type'];
     // dump($image);
+
+    // $layout switch statement
+    switch ($layout) {
+        case 'full':
+            $layout = 'full-bleed';
+            break;
+        case 'contained':
+            $layout = 'contained';
+            break;
+        default:
+            $layout = 'default';
+    }
 @endphp
-<div class="{{ $block->classes }} full-bleed" style="background-color: {{ $background_colour }}">
+<div class="cta-wrapper {{$layout}}" style="background-color: {{ $background_colour }}">
     @if (!$image)
-        <div class="cta-banner container">
-            <div class="cta-banner__content flow">
+        <div class="cta-banner">
+            <div class="cta-banner__content flow container">
                 <div class="flow">
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
