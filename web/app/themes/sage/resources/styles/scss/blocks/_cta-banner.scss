@@ -38,7 +38,8 @@
   }
 }
 
-.cta-banner {
+.cta-banner,
+.cta-banner__image {
   color: $pf-off-white;
 
   &__content {
@@ -48,5 +49,43 @@
     flex-wrap: wrap;
     gap: 2rem;
     align-items: flex-end;
+  }
+}
+
+.cta-banner__image {
+  position: relative;
+
+  img {
+    object-fit: cover;
+    max-height: 40vh;
+    width: 100%;
+    object-position: center center;
+
+    // media query for landscape orientation
+    @media screen and (orientation:landscape) 
+    and (max-device-width: 900px) {
+      max-height: 80vh;
+    }
+
+    @include media-breakpoint('lg') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      max-height: unset;
+    }
+  }
+
+  &__content {
+    @include media-breakpoint('lg') {
+      display: flex;
+      justify-content: flex-end;
+
+      &__body {
+        width: 50%;
+        padding-left: rem(74);
+      }
+    }
   }
 }
