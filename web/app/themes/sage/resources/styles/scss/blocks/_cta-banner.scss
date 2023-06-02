@@ -74,6 +74,11 @@
       width: 50%;
       height: 100%;
       max-height: unset;
+
+      &.image--right {
+        left: unset;
+        right: 0;
+      }
     }
   }
 
@@ -81,6 +86,15 @@
     @include media-breakpoint('lg') {
       display: flex;
       justify-content: flex-end;
+
+      &.image--right {
+        justify-content: flex-start;
+
+        .cta-banner__image__content__body {
+          padding-left: 0;
+          padding-right: rem(74);
+        }
+      }
 
       &__body {
         width: 50%;

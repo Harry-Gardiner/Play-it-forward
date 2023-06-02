@@ -169,8 +169,31 @@ class CtaBanner extends Block
             ])
             ->addText('title')
             ->addWysiwyg('body')
-            
-            ->addTab('Layout')
+
+            ->addTab('Image')
+            ->addRadio('add_image', [
+                'label' => 'Add Image?',
+                'required' => 1,
+                'choices' => [
+                    'yes' => 'Yes',
+                    'no' => 'No',
+                ],
+                'default_value' => 'no',
+                'layout' => 'horizontal',
+                ])
+            ->addImage('image')->conditional('add_image', '==', 'yes')
+            ->addSelect('image_position', [
+                'label' => 'Image Position',
+                'required' => 0,
+                'choices' => [
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
+                'layout' => 'horizontal',
+            ])->conditional('add_image', '==', 'yes')
+
+            ->addTab('Layout')->conditional('add_image', '==', 'no')
             ->addSelect('layout', [
                 'label' => 'Layout',
                 'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Contained will be approx 70% page width. Default will be the default width of the content.',
@@ -181,19 +204,6 @@ class CtaBanner extends Block
                     'contained' => 'Contained'
                 ],
                 'default_value' => 'default',
-                'layout' => 'horizontal',
-            ])
-
-            ->addTab('Image')
-            ->addImage('image')
-            ->addSelect('image_position', [
-                'label' => 'Image Position',
-                'required' => 0,
-                'choices' => [
-                    'left' => 'Left',
-                    'right' => 'Right',
-                ],
-                'default_value' => 'left',
                 'layout' => 'horizontal',
             ])
 
