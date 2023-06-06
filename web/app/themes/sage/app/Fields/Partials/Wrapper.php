@@ -23,9 +23,9 @@ class Wrapper extends Partial
                 'block-spacing--top' => 'Above',
                 'block-spacing--bottom' => 'Below',
                 'block-spacing--both' => 'Both',
-                '' => 'None',
+                'block-spacing--none' => 'None',
             ],
-            'default' => '',
+            'default' => 'block-spacing--both',
             'wpml_cf_preferences' => 0,
         ]);
         return $wrapper;

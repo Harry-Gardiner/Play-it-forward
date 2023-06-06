@@ -1,13 +1,4 @@
-@php
-    //deconstruct $items
-    $btn_link = $items['link'];
-    $btn_text = $items['text'];
-    $btn_colour = $items['colour'];
-    $btn_type = $items['type'];
-    $btn_position = $items['position'];
-    
-@endphp
-<div class="{{ $block->classes }}">
+<section class="{{ $block->classes }} {{$wrapper ? $wrapper : ''}}">
     <div class="button-block flow button-block--{{$btn_position}}">
         @include('partials.button', [
             'type' => $btn_type,
@@ -16,4 +7,4 @@
             'colour' => $btn_colour,
         ])
     </div>
-</div>
+</section>
