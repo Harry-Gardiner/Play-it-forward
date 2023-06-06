@@ -3,6 +3,7 @@
 namespace App\Blocks;
 
 use App\Fields\Partials\Button;
+use App\Fields\Partials\Wrapper;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -35,14 +36,14 @@ class CtaBanner extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-ul';
+    public $icon = 'editor-contract';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = [];
+    public $keywords = ['cta', 'banner', 'call to action'];
 
     /**
      * The block post type allow list.
@@ -140,6 +141,7 @@ class CtaBanner extends Block
     public function with()
     {
         return [
+            'wrapper' => get_field('block_spacing'),
             'title' => get_field('title'),
             'body' => get_field('body'),
             'image' => get_field('image'),
@@ -161,6 +163,8 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
+            ->addTab('General')
+            ->addFields($this->get(Wrapper::class))
             ->addTab('Content')
             ->addColorPicker('background_colour', [
                 'label' => 'Background Colour',

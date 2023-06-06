@@ -19,7 +19,7 @@
 @endphp
 <div class="cta-wrapper {{!$image ? $layout : 'full-bleed'}}" style="background-color: {{ $background_colour }}">
     @if (!$image)
-        <div class="cta-banner">
+        <div class="cta-banner {{$wrapper ? $wrapper : ''}}">
             <div class="cta-banner__content flow container">
                 <div class="flow">
                     <h1>{{ $title }}</h1>
@@ -37,7 +37,7 @@
 
 
     @if ($image)
-    <div class="cta-banner__image">
+    <div class="cta-banner__image {{$wrapper ? $wrapper : ''}}">
         <img class="image--{{$image_position}}" src="{{$image['url']}}"" alt="{{$image['alt'] ? $image['alt'] : $image['name']}}">
         <div class="cta-banner__image__content container image--{{$image_position}}">
             <div class="cta-banner__image__content__body flow">
