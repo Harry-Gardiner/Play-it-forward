@@ -1,13 +1,13 @@
-$padding: rem(66);
+$margin: rem(66);
 .block-spacing {
     &--top {
-        padding-top: $padding;
+        margin-top: $margin;
     }
     &--bottom {
-        padding-bottom: $padding;
+        margin-bottom: $margin;
     }
     &--both {
-        padding-top: $padding;
-        padding-bottom: $padding;
+        margin-top: $margin;
+        margin-bottom: $margin;
     }
 }
