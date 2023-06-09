@@ -23,9 +23,11 @@
 // @import 'sections/header';
 @import 'sections/accessible-header';
 
-
 // Partials
 @import 'partials/button';
+
+// Blocks
+@import 'blocks/button-block';
 
 body {
     @extend .container;

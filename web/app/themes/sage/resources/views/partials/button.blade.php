@@ -11,7 +11,7 @@
             $text = $donationsLink['title'];
             $target = $donationsLink['target'] ? $donationsLink['target'] : '_self';
         @endphp
-        <a class="button button--donate" href="{{ $link }}">
+        <a class="button button--donate button--{{$colour}}" href="{{ $link }}">
             {{$text}}
             <span class="visually-hidden">Link to donate</span>
         </a>
