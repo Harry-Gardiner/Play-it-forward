@@ -3,6 +3,7 @@
 namespace App\Blocks;
 
 use App\Fields\Partials\Button;
+use App\Fields\Partials\Wrapper;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -62,7 +63,7 @@ class ButtonBlock extends Block
      *
      * @var string
      */
-    public $mode = 'preview';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
@@ -124,7 +125,14 @@ class ButtonBlock extends Block
     public function with()
     {
         return [
-            'items' => get_fields(),
+             //deconstruct button
+            'btn_link' => get_field('link'),
+            'btn_text' => get_field('text'),
+            'btn_type' => get_field('type'),
+            'btn_colour' => get_field('colour'),
+            'btn_position' => get_field('position'),
+            
+            'wrapper' => get_field('block_spacing'),
         ];
     }
 
@@ -138,6 +146,9 @@ class ButtonBlock extends Block
         $buttonBlock = new FieldsBuilder('button_block');
 
         $buttonBlock
+        ->addTab('General')
+            ->addFields($this->get(Wrapper::class))
+        ->addTab('Button')
             ->addSelect('position', [
                 'label' => 'Position',
                 'choices' => [
