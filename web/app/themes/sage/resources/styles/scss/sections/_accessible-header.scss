@@ -3,6 +3,8 @@ $header-height-mobile: 78px;
 $header-height-desktop: 106px;
 $nav-bottom-padding: 21px;
 
+// TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
+
 .header {
   color: $pf-off-white;
   background-color: $pf-charcoal;
@@ -10,6 +12,7 @@ $nav-bottom-padding: 21px;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
+  z-index: 10000;
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;
@@ -49,6 +52,10 @@ $nav-bottom-padding: 21px;
       
       .strong {
         font-weight: 500;
+      }
+
+      @media screen and (max-width: 350px) {
+        display: none;
       }
     }
 

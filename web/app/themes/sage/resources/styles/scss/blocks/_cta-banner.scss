@@ -1,3 +1,105 @@
-.cta-banner {
-    $flow-space: 1.5rem;
+.cta-wrapper {
+  &.default,
+  &.contained {
+    .cta-banner {
+      &__content {
+        padding-left: rem(42);
+        padding-right: rem(42);
+      }
+    }
+  }
+
+  &.default {
+    .cta-banner {
+      &__content {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @include media-breakpoint('lg') {
+    &.contained {
+      width: 70%;
+      .cta-banner {
+        &__content {
+          flex-wrap: nowrap;
+        }
+      }
+    }
+
+    &.default,
+    &.full-bleed {
+      .cta-banner {
+        &__content {
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+}
+
+.cta-banner,
+.cta-banner__image {
+  color: $pf-off-white;
+
+  &__content {
+    padding-top: rem(66);
+    padding-bottom: rem(54);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-end;
+  }
+}
+
+.cta-banner__image {
+  position: relative;
+
+  img {
+    object-fit: cover;
+    max-height: 40vh;
+    width: 100%;
+    object-position: center center;
+
+    // media query for landscape orientation
+    @media screen and (orientation: landscape) 
+    and (max-width: 900px) {
+      max-height: 80vh;
+    }
+
+    @include media-breakpoint('lg') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      max-height: unset;
+
+      &.image--right {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+
+  &__content {
+    @include media-breakpoint('lg') {
+      display: flex;
+      justify-content: flex-end;
+
+      &.image--right {
+        justify-content: flex-start;
+
+        .cta-banner__image__content__body {
+          padding-left: 0;
+          padding-right: rem(74);
+        }
+      }
+
+      &__body {
+        width: 50%;
+        padding-left: rem(74);
+      }
+    }
+  }
 }

@@ -63,7 +63,7 @@ class CtaBanner extends Block
      *
      * @var string
      */
-    public $mode = 'preview';
+    public $mode = 'edit';
 
     /**
      * The default block alignment.
@@ -140,7 +140,14 @@ class CtaBanner extends Block
     public function with()
     {
         return [
-            'items' => get_fields(),
+            'title' => get_field('title'),
+            'body' => get_field('body'),
+            'image' => get_field('image'),
+            'image_position' => get_field('image_position'),
+            'show_button' => get_field('show_button'),
+            'cta_button' => get_field('cta_button'),
+            'background_colour' => get_field('background_colour'),
+            'layout' => get_field('layout'),
         ];
     }
 
@@ -154,9 +161,65 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
+            ->addTab('Content')
+            ->addColorPicker('background_colour', [
+                'label' => 'Background Colour',
+                'required' => 0,
+                'default_value' => '#ffffff',
+            ])
             ->addText('title')
+            ->addWysiwyg('body')
+
+            ->addTab('Image')
+            ->addRadio('add_image', [
+                'label' => 'Add Image?',
+                'required' => 1,
+                'choices' => [
+                    'yes' => 'Yes',
+                    'no' => 'No',
+                ],
+                'default_value' => 'no',
+                'layout' => 'horizontal',
+                ])
+            ->addImage('image')->conditional('add_image', '==', 'yes')
+            ->addSelect('image_position', [
+                'label' => 'Image Position',
+                'required' => 0,
+                'choices' => [
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
+                'layout' => 'horizontal',
+            ])->conditional('add_image', '==', 'yes')
+
+            ->addTab('Layout')->conditional('add_image', '==', 'no')
+            ->addSelect('layout', [
+                'label' => 'Layout',
+                'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Contained will be approx 70% page width. Default will be the default width of the content.',
+                'required' => 0,
+                'choices' => [
+                    'default' => 'Default',
+                    'full' => 'Full Width',
+                    'contained' => 'Contained'
+                ],
+                'default_value' => 'default',
+                'layout' => 'horizontal',
+            ])
+
+            ->addTab('Button')
+            ->addRadio('show_button', [
+                'label' => 'Show Button?',
+                'required' => 1,
+                'choices' => [
+                    'yes' => 'Yes',
+                    'no' => 'No',
+                ],
+                'default_value' => 'no',
+                'layout' => 'horizontal',
+                ])
             ->addGroup('cta_button', ['label' => 'CTA Button'])
-            ->addFields($this->get(Button::class))
+            ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
             ->endGroup();
         return $ctaBanner->build();
     }
