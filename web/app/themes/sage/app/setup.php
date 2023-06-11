@@ -178,3 +178,69 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu {
 		}
 	}
 }
+
+/** 
+ * Custom colour palette for Gutenberg
+ */
+add_theme_support( 'editor-color-palette', array(
+	array(
+		'name'  => __( 'Aqua', 'pif' ),
+		'slug'  => 'aqua',
+		'color'	=> '#21a8af',
+	),
+	array(
+		'name'  => __( 'Purple Dark', 'pif' ),
+		'slug'  => 'purple-dark',
+		'color' => '#632695',
+	),
+	array(
+		'name'  => __( 'Purple Light', 'pif' ),
+		'slug'  => 'purple-light',
+		'color' => '#9e15bf',
+     ),
+     array(
+		'name'  => __( 'Pink', 'pif' ),
+		'slug'  => 'pink',
+		'color' => '#b5267b',
+     ),
+     array(
+		'name'  => __( 'Black', 'pif' ),
+		'slug'  => 'black',
+		'color' => '#1d1d2c',
+     ),
+     array(
+		'name'  => __( 'Grey Light', 'pif' ),
+		'slug'  => 'grey-light',
+		'color' => '#f7f7f7',
+     ),
+     array(
+		'name'  => __( 'White', 'pif' ),
+		'slug'  => 'white',
+		'color' => '#ffffff',
+     ),
+) );
+
+/**
+ * ACF Radio Color Palette
+ * @link https://www.advancedcustomfields.com/resources/acf-load_field/
+ * @link https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
+ * @link https://whiteleydesigns.com/create-a-gutenberg-like-color-picker-with-advanced-custom-fields
+ *
+ * Dynamically populates any ACF field with wd_text_color Field Name with custom color palette
+ *
+*/
+add_filter('acf/load_field/name=colour_picker_select', function ($field) {
+    // get array of colors created using editor-color-palette
+    $colors = get_theme_support( 'editor-color-palette' );
+
+    // if this array is empty, continue
+    if( ! empty( $colors ) ) {
+
+        // loop over each color and create option
+        foreach( $colors[0] as $color ) {
+            $field['choices'][ $color['slug'] ] = $color['name'];
+        }
+    }
+
+    return $field;
+});

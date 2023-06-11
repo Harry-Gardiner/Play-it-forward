@@ -3,6 +3,7 @@
 namespace App\Blocks;
 
 use App\Fields\Partials\Button;
+use App\Fields\Partials\ColourPicker;
 use App\Fields\Partials\Wrapper;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
@@ -165,12 +166,14 @@ class CtaBanner extends Block
         $ctaBanner
             ->addTab('General')
             ->addFields($this->get(Wrapper::class))
+            ->addFields($this->get(ColourPicker::class))
             ->addTab('Content')
-            ->addColorPicker('background_colour', [
-                'label' => 'Background Colour',
-                'required' => 0,
-                'default_value' => '#ffffff',
-            ])
+            // add colour picker partial 
+            // ->addColorPicker('background_colour', [
+            //     'label' => 'Background Colour',
+            //     'required' => 0,
+            //     'default_value' => '#ffffff',
+            // ])
             ->addText('title')
             ->addWysiwyg('body')
 
