@@ -72,8 +72,11 @@ $size--xl: $pf-base-size * 3.125;
  Spacing
 ***********************/
 
-$spacer: 0.5rem;
-$block-padding-desktop: 75px;
+$spacing--xs: $pf-base-size * 1;
+$spacing--sm: $pf-base-size * 1.5;
+$spacing--md: $pf-base-size * 2;
+$spacing--lg: $pf-base-size * 3;
+$spacing--xl: $pf-base-size * 4;
 
 /**********************
  Fonts

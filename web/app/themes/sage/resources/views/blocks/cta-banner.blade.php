@@ -17,10 +17,10 @@
             $layout = 'default';
     }
 @endphp
-<div class="cta-wrapper {{!$image ? $layout : 'full-bleed'}}" style="background-color: {{ $background_colour }}">
+<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}}" style="background-color: {{ $background_colour }}">
     @if (!$image)
-        <div class="cta-banner {{$wrapper ? $wrapper : ''}}">
-            <div class="cta-banner__content flow container">
+        <div class="cta-banner">
+            <div class="cta-banner__content flow container block-padding">
                 <div class="flow">
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
@@ -39,7 +39,7 @@
     @if ($image)
     <div class="cta-banner__image">
         <img class="image--{{$image_position}}" src="{{$image['url']}}"" alt="{{$image['alt'] ? $image['alt'] : $image['name']}}">
-        <div class="cta-banner__image__content container image--{{$image_position}} {{$wrapper ? $wrapper : ''}}">
+        <div class="cta-banner__image__content container image--{{$image_position}} {{$wrapper ? $wrapper : ''}} block-padding">
             <div class="cta-banner__image__content__body flow">
                 <div class="flow">
                     <h1>{{ $title }}</h1>
@@ -55,4 +55,4 @@
         </div>
     </div>
     @endif
-</div>
+</section>

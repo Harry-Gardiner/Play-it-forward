@@ -1,13 +1,58 @@
-$margin: rem(66);
 .block-spacing {
     &--top {
-        margin-top: $margin;
+        &.size--xs {
+            margin-top: $spacing--xs;
+        }
+        &.size--sm {
+            margin-top: $spacing--sm;
+        }
+        &.size--md {
+            margin-top: $spacing--md;
+        }
+        &.size--lg {
+            margin-top: $spacing--lg;
+        }
+        &.size--xl {
+            margin-top: $spacing--xl;
+        }
     }
     &--bottom {
-        margin-bottom: $margin;
+        &.size--xs {
+            margin-bottom: $spacing--xs;
+        }
+        &.size--sm {
+            margin-bottom: $spacing--sm;
+        }
+        &.size--md {
+            margin-bottom: $spacing--md;
+        }
+        &.size--lg {
+            margin-bottom: $spacing--lg;
+        }
+        &.size--xl {
+            margin-bottom: $spacing--xl;
+        }
     }
     &--both {
-        margin-top: $margin;
-        margin-bottom: $margin;
+        &.size--xs {
+            margin-top: $spacing--xs;
+            margin-bottom: $spacing--xs;
+        }
+        &.size--sm {
+            margin-top: $spacing--sm;
+            margin-bottom: $spacing--sm;
+        }
+        &.size--md {
+            margin-top: $spacing--md;
+            margin-bottom: $spacing--md;
+        }
+        &.size--lg {
+            margin-top: $spacing--lg;
+            margin-bottom: $spacing--lg;
+        }
+        &.size--xl {
+            margin-top: $spacing--xl;
+            margin-bottom: $spacing--xl;
+        }
     }
 }

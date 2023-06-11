@@ -27,6 +27,16 @@ class Wrapper extends Partial
             ],
             'default' => 'block-spacing--both',
             'wpml_cf_preferences' => 0,
+        ])
+        ->addSelect('spacing_size', [
+            'label' => 'White space size',
+            'choices' => [
+                'size--sm' => 'Small',
+                'size--md' => 'Medium',
+                'size--lg' => 'Large'
+            ],
+            'default' => 'size--lg',
+            'wpml_cf_preferences' => 0,
         ]);
         return $wrapper;
     }
