@@ -31,11 +31,13 @@ class Wrapper extends Partial
         ->addSelect('spacing_size', [
             'label' => 'White space size',
             'choices' => [
-                'size--sm' => 'Small',
-                'size--md' => 'Medium',
-                'size--lg' => 'Large'
+                'spacing--xs' => 'Extra Small',
+                'spacing--sm' => 'Small',
+                'spacing--md' => 'Medium',
+                'spacing--lg' => 'Large',
+                'spacing--xl' => 'Extra Large',
             ],
-            'default' => 'size--lg',
+            'default' => 'spacing--lg',
             'wpml_cf_preferences' => 0,
         ]);
         return $wrapper;

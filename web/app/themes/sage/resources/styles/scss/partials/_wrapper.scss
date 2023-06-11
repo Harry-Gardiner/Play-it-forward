@@ -1,56 +1,56 @@
 .block-spacing {
     &--top {
-        &.size--xs {
+        &.spacing--xs {
             margin-top: $spacing--xs;
         }
-        &.size--sm {
+        &.spacing--sm {
             margin-top: $spacing--sm;
         }
-        &.size--md {
+        &.spacing--md {
             margin-top: $spacing--md;
         }
-        &.size--lg {
+        &.spacing--lg {
             margin-top: $spacing--lg;
         }
-        &.size--xl {
+        &.spacing--xl {
             margin-top: $spacing--xl;
         }
     }
     &--bottom {
-        &.size--xs {
+        &.spacing--xs {
             margin-bottom: $spacing--xs;
         }
-        &.size--sm {
+        &.spacing--sm {
             margin-bottom: $spacing--sm;
         }
-        &.size--md {
+        &.spacing--md {
             margin-bottom: $spacing--md;
         }
-        &.size--lg {
+        &.spacing--lg {
             margin-bottom: $spacing--lg;
         }
-        &.size--xl {
+        &.spacing--xl {
             margin-bottom: $spacing--xl;
         }
     }
     &--both {
-        &.size--xs {
+        &.spacing--xs {
             margin-top: $spacing--xs;
             margin-bottom: $spacing--xs;
         }
-        &.size--sm {
+        &.spacing--sm {
             margin-top: $spacing--sm;
             margin-bottom: $spacing--sm;
         }
-        &.size--md {
+        &.spacing--md {
             margin-top: $spacing--md;
             margin-bottom: $spacing--md;
         }
-        &.size--lg {
+        &.spacing--lg {
             margin-top: $spacing--lg;
             margin-bottom: $spacing--lg;
         }
-        &.size--xl {
+        &.spacing--xl {
             margin-top: $spacing--xl;
             margin-bottom: $spacing--xl;
         }
