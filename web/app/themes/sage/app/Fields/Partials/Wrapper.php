@@ -23,9 +23,10 @@ class Wrapper extends Partial
                 'block-spacing--top' => 'Above',
                 'block-spacing--bottom' => 'Below',
                 'block-spacing--both' => 'Both',
+                'block-spacing--auto' => 'Auto',
                 'block-spacing--none' => 'None',
             ],
-            'default' => 'block-spacing--both',
+            'default' => 'block-spacing--auto',
             'wpml_cf_preferences' => 0,
         ])
         ->addSelect('spacing_size', [
@@ -39,7 +40,7 @@ class Wrapper extends Partial
             ],
             'default' => 'spacing--lg',
             'wpml_cf_preferences' => 0,
-        ]);
+        ])->conditional('block_spacing', '!=', 'block-spacing--auto')->and('block_spacing', '!=', 'block-spacing--none');
         return $wrapper;
     }
 }
