@@ -7,6 +7,7 @@
 namespace App;
 
 use function Roots\bundle;
+require_once('helper.php');
 
 /**
  * Register the theme assets.
@@ -179,46 +180,8 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu {
 	}
 }
 
-/** 
- * Custom colour palette for Gutenberg
- * 
- * The slug value is used as the class name, therefore the names within colours.scss need to be identical to these slugs.
- */
-add_theme_support( 'editor-color-palette', array(
-	array(
-		'name'  => __( 'White', 'pif' ),
-		'slug'  => 'white',
-		'color'	=> '#fff',
-	),
-	array(
-		'name'  => __( 'Off White', 'pif' ),
-		'slug'  => 'off-white',
-		'color' => '#f8faf8',
-	),
-	array(
-		'name'  => __( 'Charcoal', 'pif' ),
-		'slug'  => 'charcoal',
-		'color' => '#262626',
-     ),
-     array(
-		'name'  => __( 'Red', 'pif' ),
-		'slug'  => 'red',
-		'color' => '#a43939',
-     ),
-     array(
-		'name'  => __( 'Dark Red', 'pif' ),
-		'slug'  => 'dark-red',
-		'color' => '#802727',
-     ),
-     array(
-		'name'  => __( 'Light Red', 'pif' ),
-		'slug'  => 'light-red',
-		'color' => '#bd4c4c',
-     ),
-) );
-
 /**
- * ACF Radio Color Palette
+ * ACF Radio Colour Palette
  * @link https://www.advancedcustomfields.com/resources/acf-load_field/
  * @link https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
  * @link https://whiteleydesigns.com/create-a-gutenberg-like-color-picker-with-advanced-custom-fields
@@ -229,17 +192,37 @@ add_theme_support( 'editor-color-palette', array(
  *
 */
 add_filter('acf/load_field/name=colour', function ($field) {
-    // get array of colors created using editor-color-palette
-    $colors = get_theme_support( 'editor-color-palette' );
+    $colours = getColoursFromJson(get_stylesheet_directory() . '/json/colours.json');
 
-    // if this array is empty, continue
-    if( ! empty( $colors ) ) {
-
-        // loop over each color and create option
-        foreach( $colors[0] as $color ) {
-            $field['choices'][ $color['slug'] ] = $color['name'];
+    if( ! empty( $colours ) ) {
+        foreach( $colours as $colour_name => $colour_hex ) {
+            $field['choices'][ $colour_name ] = $colour_name;
         }
     }
-
     return $field;
 });
+
+/**
+* ACF Options colour palette to JSON file
+*/
+add_action('acf/save_post', function ($post_id) {
+    // Check if the current user is an administrator
+    if (current_user_can('administrator')) {
+        // Check if the updated post is the options page
+        if ($post_id == 'options') {
+            // Get the ACF options field value
+            $colours = get_field('pf_colour_palette', 'option');
+
+            // Convert the colours data to JSON format
+            $json_data = json_encode($colours);
+            
+            // Specify the file path and name for the JSON file
+            $file_path = get_stylesheet_directory() . '/json/colours.json';
+
+            // Save the JSON data to the file
+            file_put_contents($file_path, $json_data);
+        }
+    }
+}, 20);
+
+// TODO: Continue with this
