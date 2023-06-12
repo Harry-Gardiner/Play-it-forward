@@ -181,6 +181,8 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu {
 
 /** 
  * Custom colour palette for Gutenberg
+ * 
+ * The slug value is used as the class name, therefore the names within colours.scss need to be identical to these slugs.
  */
 add_theme_support( 'editor-color-palette', array(
 	array(
@@ -221,7 +223,9 @@ add_theme_support( 'editor-color-palette', array(
  * @link https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
  * @link https://whiteleydesigns.com/create-a-gutenberg-like-color-picker-with-advanced-custom-fields
  *
- * Dynamically populates any ACF field with wd_text_color Field Name with custom color palette
+ * Dynamically populates any ACF field with 'colour' Field Name with custom color palette
+ * 
+ * 'colour' is the field name of the ACF field within the ColourPalette partial
  *
 */
 add_filter('acf/load_field/name=colour', function ($field) {
