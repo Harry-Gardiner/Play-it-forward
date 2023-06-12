@@ -151,6 +151,8 @@ class CtaBanner extends Block
             'cta_button' => get_field('cta_button'),
             'background_colour' => get_field('background_colour'),
             'layout' => get_field('layout'),
+            'colour_picker' => get_field('colour_picker'),
+
         ];
     }
 

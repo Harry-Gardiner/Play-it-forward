@@ -18,8 +18,8 @@ class ColourPicker extends Partial
 
         $colourPicker
             ->addGroup('colour_picker')
-                ->addRadio('colour_picker_select', [
-                    'label' => 'Colour picker',
+                ->addRadio('colour', [
+                    'label' => 'Select Colour',
                     'instructions' => 'Choose section background colour.',
                 ]);
         return $colourPicker;

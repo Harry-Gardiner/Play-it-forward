@@ -65,7 +65,7 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#disabling-the-default-block-patterns
      */
-    remove_theme_support('core-block-patterns');
+    // remove_theme_support('core-block-patterns');
 
     /**
      * Enable plugins to manage the document title.
@@ -184,39 +184,34 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu {
  */
 add_theme_support( 'editor-color-palette', array(
 	array(
-		'name'  => __( 'Aqua', 'pif' ),
-		'slug'  => 'aqua',
-		'color'	=> '#21a8af',
-	),
-	array(
-		'name'  => __( 'Purple Dark', 'pif' ),
-		'slug'  => 'purple-dark',
-		'color' => '#632695',
-	),
-	array(
-		'name'  => __( 'Purple Light', 'pif' ),
-		'slug'  => 'purple-light',
-		'color' => '#9e15bf',
-     ),
-     array(
-		'name'  => __( 'Pink', 'pif' ),
-		'slug'  => 'pink',
-		'color' => '#b5267b',
-     ),
-     array(
-		'name'  => __( 'Black', 'pif' ),
-		'slug'  => 'black',
-		'color' => '#1d1d2c',
-     ),
-     array(
-		'name'  => __( 'Grey Light', 'pif' ),
-		'slug'  => 'grey-light',
-		'color' => '#f7f7f7',
-     ),
-     array(
 		'name'  => __( 'White', 'pif' ),
 		'slug'  => 'white',
-		'color' => '#ffffff',
+		'color'	=> '#fff',
+	),
+	array(
+		'name'  => __( 'Off White', 'pif' ),
+		'slug'  => 'off-white',
+		'color' => '#f8faf8',
+	),
+	array(
+		'name'  => __( 'Charcoal', 'pif' ),
+		'slug'  => 'charcoal',
+		'color' => '#262626',
+     ),
+     array(
+		'name'  => __( 'Red', 'pif' ),
+		'slug'  => 'red',
+		'color' => '#a43939',
+     ),
+     array(
+		'name'  => __( 'Dark Red', 'pif' ),
+		'slug'  => 'dark-red',
+		'color' => '#802727',
+     ),
+     array(
+		'name'  => __( 'Light Red', 'pif' ),
+		'slug'  => 'light-red',
+		'color' => '#bd4c4c',
      ),
 ) );
 
@@ -229,7 +224,7 @@ add_theme_support( 'editor-color-palette', array(
  * Dynamically populates any ACF field with wd_text_color Field Name with custom color palette
  *
 */
-add_filter('acf/load_field/name=colour_picker_select', function ($field) {
+add_filter('acf/load_field/name=colour', function ($field) {
     // get array of colors created using editor-color-palette
     $colors = get_theme_support( 'editor-color-palette' );
 

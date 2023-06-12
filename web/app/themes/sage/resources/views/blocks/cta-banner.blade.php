@@ -5,6 +5,9 @@
     $btn_colour = $cta_button['colour'];
     $btn_type = $cta_button['type'];
 
+    //deconstruct background
+    $background_colour = !empty($colour_picker) ? $colour_picker['colour'] : 'white';
+
     // $layout switch statement
     switch ($layout) {
         case 'full':
@@ -17,7 +20,7 @@
             $layout = 'default';
     }
 @endphp
-<div class="cta-wrapper {{!$image ? $layout : 'full-bleed'}}" style="background-color: {{ $background_colour }}">
+<div class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$background_colour}}">
     @if (!$image)
         <div class="cta-banner {{$wrapper ? $wrapper : ''}}">
             <div class="cta-banner__content flow container">
