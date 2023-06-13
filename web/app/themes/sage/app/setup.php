@@ -66,7 +66,7 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#disabling-the-default-block-patterns
      */
-    // remove_theme_support('core-block-patterns');
+    remove_theme_support('core-block-patterns');
 
     /**
      * Enable plugins to manage the document title.
