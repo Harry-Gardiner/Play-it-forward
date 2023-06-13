@@ -16,12 +16,9 @@ function getColoursFromJson($jsonFile) {
     $colours = [];
 
     // Iterate over each item in the data array
-    foreach ($data as $item) {
-        // Extract the color value from each item
-        $colour = $item['colour'];
-        $lowercaseKey = strtolower(str_replace(" ", "-", $item['colour_name']));
+    foreach ($data as $colour => $hex) {
         // Add the colour value to the colours array
-        $colours[$lowercaseKey] = $colour;
+        $colours[$colour] = $hex;
     }
     // Return the array of colour values
     return $colours;

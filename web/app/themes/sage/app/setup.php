@@ -206,17 +206,20 @@ add_filter('acf/load_field/name=colour', function ($field) {
 * ACF Options colour palette to JSON file
 */
 add_action('acf/save_post', function ($post_id) {
-    // Check if the current user is an administrator
     if (current_user_can('administrator')) {
         // Check if the updated post is the options page
         if ($post_id == 'options') {
-            // Get the ACF options field value
             $colours = get_field('pf_colour_palette', 'option');
-
-            // Convert the colours data to JSON format
-            $json_data = json_encode($colours);
             
-            // Specify the file path and name for the JSON file
+            $formattedArray = [];
+
+            foreach ($colours as $colour) {
+                $formattedArray[strtolower(str_replace(" ", "-", $colour['colour_name']))] = $colour['colour'];
+            }
+            // Convert the colours data to JSON format
+            $json_data = json_encode($formattedArray);
+            
+            // JSON colour file
             $file_path = get_stylesheet_directory() . '/json/colours.json';
 
             // Save the JSON data to the file
@@ -224,5 +227,3 @@ add_action('acf/save_post', function ($post_id) {
         }
     }
 }, 20);
-
-// TODO: Continue with this
