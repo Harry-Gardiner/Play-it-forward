@@ -2,91 +2,77 @@
 
 
 .editor-styles-wrapper {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  
-    .block-editor-block-list__block {
-      margin: 0 auto;
-      padding: 1rem 0;
-    }
-  }
+     padding-left: 2rem !important;
+     padding-right: 2rem !important;
 
-$white: #fff;
-$charcoal: #262626;
-$off-white: #f8faf8;
-$red: #a43939;
-$dark-red: #802727;
-$light-red: #bd4c4c;
-
-
-$colors:  ( 'primary-color', $white ),
-	        ( 'secondary-color', $off-white ),
-          ( 'charcoal', $charcoal ),
-          ( 'red', $red ),
-          ( 'dark-red', $dark-red ),
-          ( 'light-red', $light-red );
+     .block-editor-block-list__block {
+          margin: 0 auto;
+          padding: 1rem 0;
+     }
+}
 
 .acf-field-cta-banner-colour-picker-colour {
 
-  ul.acf-radio-list {
-       display: flex;
-       flex-wrap: wrap;
-       padding-left: 0;
-       margin-left: 0;
+     ul.acf-radio-list {
+          display: flex;
+          flex-wrap: wrap;
+          padding-left: 0;
+          margin-left: 0;
 
-       li {
-            margin-right: 0;
-            display: flex;
+          li {
+               margin-right: 0;
+               display: flex;
 
-            label {
-                 width: 28px;
-                 height: 28px;
-                 position: relative;
-                 margin-right: 10px;
-                 margin-bottom: 10px;
-                 color: #fff;
+               label {
+                    width: 28px;
+                    height: 28px;
+                    position: relative;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                    color: #fff;
 
-                 input[type="radio"] {
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      width: 28px;
-                      height: 28px;
+                    input[type="radio"] {
+                         position: absolute;
+                         top: 0;
+                         left: 0;
+                         width: 28px;
+                         height: 28px;
 
-                      &:checked {
+                         &:checked {
 
-                           &::before {
-                                content: "\f15e";
-                                font-family: dashicons;
-                                width: 20px;
-                                height: 20px;
-                                background-color: transparent;
-                                font-size: 20px;
-                                margin: 1px;
-                                color: #fff;
-                           }
-                      }
+                              &::before {
+                                   content: "\f15e";
+                                   font-family: dashicons;
+                                   width: 20px;
+                                   height: 20px;
+                                   background-color: transparent;
+                                   font-size: 20px;
+                                   margin: 1px;
+                                   color: #fff;
+                              }
+                         }
 
-                      // override light colors with a black checkmark when checked (default is white)
-                      &[value="white"],
-                      &[value="off-white"] {
+                         // override light colors with a black checkmark when checked (default is white)
+                         &[value="white"],
+                         &[value="off-white"] {
 
-                           &:checked {
+                              &:checked {
 
-                                &::before {
-                                     color: #000;
-                                }
-                           }
-                      }
+                                   &::before {
+                                        color: #000;
+                                   }
+                              }
+                         }
 
-                      @each $name, $color in $colors {
+                         @each $name,
+                         $color in $colors {
 
-                        &[value="#{$name}"] {
-                          background-color: $color;
-                        }
-                      }
-                 }
-            }
-       }
-  }
+                              &[value="#{$name}"] {
+                                   background-color: $color;
+                              }
+                         }
+                    }
+               }
+          }
+     }
 }
