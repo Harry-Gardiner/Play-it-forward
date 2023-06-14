@@ -227,3 +227,11 @@ add_action('acf/save_post', function ($post_id) {
         }
     }
 }, 20);
+
+
+
+add_filter( 'render_block_core/button/className', function( $classes ) {
+    $classes = array_diff( $classes, array( 'wp-core-ui' ) );
+    return $classes;
+});
+
