@@ -1,9 +1,9 @@
 @php
     //deconstruct button
-    $btn_link = $cta_button['link'];
-    $btn_text = $cta_button['text'];
-    $btn_colour = $cta_button['colour'];
-    $btn_type = $cta_button['type'];
+    $btn_link = $cta_button['link'] ?? null;
+    $btn_text = $cta_button['text']?? null;
+    $btn_colour = $cta_button['colour']?? null;
+    $btn_type = $cta_button['type']?? null;
 
     // $layout switch statement
     switch ($layout) {
