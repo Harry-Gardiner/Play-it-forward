@@ -3,8 +3,6 @@
 namespace App\Blocks;
 
 use App\Fields\Partials\Button;
-use App\Fields\Partials\ColourPicker;
-use App\Fields\Partials\Wrapper;
 use App\Fields\Partials\GeneralTab;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
