@@ -142,6 +142,7 @@ class CtaBanner extends Block
     {
         return [
             'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
             'title' => get_field('title'),
             'body' => get_field('body'),
             'image' => get_field('image'),

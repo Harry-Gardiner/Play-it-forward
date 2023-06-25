@@ -17,6 +17,10 @@
     }
   }
 
+  &.contained {
+    padding-top: 2rem;
+  }
+
   @include media-breakpoint('lg') {
     &.contained {
       width: 70%;
