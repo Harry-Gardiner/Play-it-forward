@@ -150,10 +150,9 @@ class CtaBanner extends Block
             'image_position' => get_field('image_position'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
-            'background_colour' => get_field('background_colour'),
             'layout' => get_field('layout'),
-            'colour_picker' => get_field('colour_picker'),
-
+            'background_colour' => get_field('background_colour'),
+            'font_colour' => get_field('font_colour'),
         ];
     }
 
@@ -171,12 +170,6 @@ class CtaBanner extends Block
             ->addFields($this->get(Wrapper::class))
             ->addFields($this->get(ColourPicker::class))
             ->addTab('Content')
-            // add colour picker partial 
-            // ->addColorPicker('background_colour', [
-            //     'label' => 'Background Colour',
-            //     'required' => 0,
-            //     'default_value' => '#ffffff',
-            // ])
             ->addText('title')
             ->addWysiwyg('body')
 

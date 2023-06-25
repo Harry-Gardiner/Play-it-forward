@@ -17,10 +17,15 @@ class ColourPicker extends Partial
         $colourPicker = new FieldsBuilder('colour_picker');
 
         $colourPicker
-            ->addColorPicker('colour', [
-                'label' => 'Select Colour',
+            ->addColorPicker('background_colour', [
+                'label' => 'Select Background Colour',
                 'instructions' => 'Choose section background colour.',
                 'default_value' => '#ffffff'
+            ])
+            ->addColorPicker('font_colour', [
+                'label' => 'Select Background Colour',
+                'instructions' => 'Choose section background colour.',
+                'default_value' => '#262626'
             ]);
         return $colourPicker;
     }
