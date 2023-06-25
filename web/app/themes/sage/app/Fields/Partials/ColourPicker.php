@@ -17,14 +17,10 @@ class ColourPicker extends Partial
         $colourPicker = new FieldsBuilder('colour_picker');
 
         $colourPicker
-            // ->addGroup('colour_picker')
-            //     ->addRadio('colour', [
-            //         'label' => 'Select Colour',
-            //         'instructions' => 'Choose section background colour.',
-            //     ]);
             ->addColorPicker('colour', [
                 'label' => 'Select Colour',
                 'instructions' => 'Choose section background colour.',
+                'default_value' => '#ffffff'
             ]);
         return $colourPicker;
     }
