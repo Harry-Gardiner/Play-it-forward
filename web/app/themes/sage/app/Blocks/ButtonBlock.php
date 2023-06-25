@@ -146,6 +146,9 @@ class ButtonBlock extends Block
         $buttonBlock = new FieldsBuilder('button_block');
 
         $buttonBlock
+        ->addMessage('block_title', '', [
+            'label' => 'Button Block',
+        ])
         ->addTab('General')
             ->addFields($this->get(Wrapper::class))
         ->addTab('Button')
