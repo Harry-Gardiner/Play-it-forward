@@ -165,6 +165,9 @@ class CtaBanner extends Block
         $ctaBanner = new FieldsBuilder('cta_banner');
 
         $ctaBanner
+            ->addMessage('block_title', '', [
+                'label' => 'CTA Banner',
+            ])
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Content')
             ->addText('title')
