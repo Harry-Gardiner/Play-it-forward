@@ -1,9 +1,15 @@
 @php
     //deconstruct button
-    $btn_link = $cta_button['link'] ?? null;
-    $btn_text = $cta_button['text']?? null;
-    $btn_colour = $cta_button['colour']?? null;
-    $btn_type = $cta_button['type']?? null;
+    if ($show_button == 'yes') {
+        $btn_link = $cta_button['link'];
+        $btn_text = $cta_button['text'];
+        $btn_colour = $cta_button['colour'];
+        $btn_type = $cta_button['type'];
+    }
+    
+
+    //deconstruct background
+    $background_colour = !empty($colour_picker) ? $colour_picker['colour'] : 'white';
 
     // $layout switch statement
     switch ($layout) {
@@ -25,12 +31,15 @@
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
                 </div>
-                @include('partials.button', [
-                    'type' => $btn_type,
-                    'link' => $btn_link,
-                    'text' => $btn_text,
-                    'colour' => $btn_colour,
-                ])
+                @if ($show_button == 'yes')
+                    @include('partials.button', [
+                        'type' => $btn_type,
+                        'link' => $btn_link,
+                        'text' => $btn_text,
+                        'colour' => $btn_colour,
+                    ])
+                @endif
+                
             </div>
         </div>
     @endif
@@ -45,12 +54,14 @@
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
                 </div>
-                @include('partials.button', [
-                    'type' => $btn_type,
-                    'link' => $btn_link,
-                    'text' => $btn_text,
-                    'colour' => $btn_colour,
-                ])
+                @if ($show_button == 'yes')
+                    @include('partials.button', [
+                        'type' => $btn_type,
+                        'link' => $btn_link,
+                        'text' => $btn_text,
+                        'colour' => $btn_colour,
+                    ])
+                @endif
             </div>
         </div>
     </div>

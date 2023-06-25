@@ -7,6 +7,7 @@
 namespace App;
 
 use function Roots\bundle;
+require_once('helper.php');
 
 /**
  * Register the theme assets.
@@ -178,3 +179,26 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu {
 		}
 	}
 }
+
+/**
+ * Add custom theme colours
+ */
+add_action('acf/input/admin_footer', function() {
+    ?>
+    <script type="text/javascript">
+    (function() {
+        acf.addFilter('color_picker_args', function(args, field) {
+            // Find a specific field
+            var fieldElement = document.querySelector('#color_primary');
+
+            // Do something to args
+            args.palettes = ['#5ee8bf', '#2f353e', '#f55e4f', '#f7f7f7', '#ffffff'];
+
+            // Return
+            return args;
+        });
+    })();
+    </script>
+    <?php
+});
+
