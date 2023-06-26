@@ -7,11 +7,13 @@ $theme_options
     ->setLocation('options_page', '==', 'theme_options');
 
 $theme_options
+    ->addTab('Donation Link')
     ->addLink('donation_link', [
         'label' => 'Donation Link',
         'instructions' => 'Add url and button text for donation link. This will be used throughout the site.',
         'required' => 1,
     ])
+    ->addTab('Colour Palette')
     ->addRepeater('pf_colour_palette', [
         'label' => 'Colour Palette',
         'instructions' => 'Add colours to be used throughout the site.',
