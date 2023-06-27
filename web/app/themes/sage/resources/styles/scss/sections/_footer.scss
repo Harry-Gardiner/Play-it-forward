@@ -1,0 +1,28 @@
+//TODO: Add make footer bottom responsive at md breakpoint
+.footer {
+    color: $pf-white;
+
+    &__top {
+        background-color: $pf-charcoal;
+    }
+
+    &__bottom {
+        background-color: black;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            padding-top: rem(44);
+            padding-bottom: rem(44);
+        }
+    }
+
+    &__social {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
