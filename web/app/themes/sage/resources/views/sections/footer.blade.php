@@ -8,7 +8,20 @@ $linkedin = get_field('linkedin_link', 'option');
 <footer class="footer">
 
     <div class="footer__top full-bleed">
-        <div class="container">TOP CONTENT</div>
+        <div class="footer__top__content container">
+            <div class="footer__top__col1">
+                <div class="footer__logo">
+                    @include('partials.logo')
+                </div>
+                <div class="footer__menu">
+                    @if (has_nav_menu('footer_navigation'))
+                    {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'nav']) !!}
+                    @endif
+                </div>
+            </div>
+            <div class="footer__top__col2">
+                Will contain form and icons
+            </div>
     </div>
     <div class="footer__bottom full-bleed">
         <div class="footer__bottom__content container">
