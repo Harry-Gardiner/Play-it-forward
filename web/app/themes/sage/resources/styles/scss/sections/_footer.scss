@@ -1,4 +1,3 @@
-//TODO: Add make footer bottom responsive at md breakpoint
 .footer {
     color: $pf-white;
 
@@ -18,6 +17,11 @@
 
             padding-top: rem(44);
             padding-bottom: rem(44);
+
+            @include media-breakpoint(md) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
     }
 

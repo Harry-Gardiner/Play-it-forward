@@ -4,7 +4,6 @@ $instagram = get_field('instagram_link', 'option');
 $twitter = get_field('twitter_link', 'option');
 $youtube = get_field('youtube_link', 'option');
 $linkedin = get_field('linkedin_link', 'option');
-dump($facebook, $instagram, $twitter, $youtube, $linkedin);
 @endphp
 <footer class="footer">
 

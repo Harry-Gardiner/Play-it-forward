@@ -33,11 +33,20 @@
 @import 'blocks/button-block';
 @import 'blocks/cta-banner';
 
+// Forces footer to stay at bottom of page
+#app {
+    min-height: 100vh;
+
+    footer {
+        position: sticky;
+        top: 100vh;
+      }
+}
+
 body {
     @extend .container;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: $size--lg;
     background-color: $pf-off-white;
 }
 
