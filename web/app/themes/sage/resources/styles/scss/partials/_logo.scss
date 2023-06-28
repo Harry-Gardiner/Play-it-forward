@@ -1,0 +1,46 @@
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 1rem;
+
+    @include media-breakpoint('lg') {
+      align-items: flex-end;
+      padding-bottom: $nav-bottom-padding;
+    }
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+    
+    p {
+      margin-left: 0.5rem;
+      font-weight: 300;
+      white-space: nowrap;
+      
+      .strong {
+        font-weight: 500;
+      }
+
+      @media screen and (max-width: 350px) {
+        display: none;
+      }
+    }
+
+    img {
+      width: 32px;
+      height: 26px;
+    }
+
+    @include media-breakpoint('md') {
+      align-items: flex-end;
+      padding-bottom: $nav-bottom-padding;
+      margin-right: 3rem;
+
+      img {
+        width: 50px;
+        height: 41px;
+      }
+    }
+  }
