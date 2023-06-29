@@ -65,7 +65,11 @@ $theme_options
             'label' => 'Footer Logo',
             'instructions' => 'Add a logo for the footer.',
         ])
-    ->endRepeater();
+    ->endRepeater()
+    ->addText('footer_form', [
+        'label' => 'Footer Form Shortcode',
+        'instructions' => 'Add the shortcode from WPForms Builder, e.g. [wpforms id="319" title="true"]',
+    ]);
 
 
 acf_add_local_field_group($theme_options->build());

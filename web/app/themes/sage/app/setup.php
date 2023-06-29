@@ -227,3 +227,12 @@ add_action('acf/input/admin_footer', function() {
     <?php
 });
 
+
+/**
+ * Add the SVG mime type to the allowed media types in WordPress
+ */
+add_filter('upload_mimes', function($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+});
+
