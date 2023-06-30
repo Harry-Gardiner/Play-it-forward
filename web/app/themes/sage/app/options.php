@@ -60,6 +60,7 @@ $theme_options
         'instructions' => 'Add footer logos.',
         'layout' => 'block',
         'button_label' => 'Add Footer Logo',
+        'max' => 3
     ])
         ->addImage('footer_logo', [
             'label' => 'Footer Logo',

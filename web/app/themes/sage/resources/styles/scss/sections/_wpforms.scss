@@ -1,0 +1,66 @@
+.wpforms-container {
+    .wpforms-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wpforms-title {
+        color: #000 !important;
+        font-size: 28px !important;
+        font-family: $font--tertiary !important;
+        font-style: normal !important;
+        font-weight: 300 !important;
+        @include media-breakpoint('lg') {
+            line-height: 90px !important;
+        }
+    }
+
+    .wpforms-head-container {
+        padding-bottom: 0 !important;
+        height: 65px !important;
+    }
+
+    .wpforms-container .wpforms-field {
+        padding: 0 !important;
+    }
+
+    .wpforms-field-container {
+        input {
+            max-width: 100% !important;
+            border-radius: 4px !important;
+            border: none !important;
+        }
+    }
+
+    .wpforms-submit-container {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+       align-self: flex-end !important;
+    }
+
+    .wpforms-submit {
+        display: flex !important;
+        width: 167px !important;
+        height: 51px !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+
+        color: #000 !important;
+        text-align: center !important;
+        font-size: 18px !important;
+        font-family: $font--tertiary !important;
+        font-style: normal !important;
+        font-weight: 500 !important;
+        line-height: 90px !important;
+        text-transform: uppercase !important;
+    }
+
+    button[type="submit"] {
+        border-radius: 4px !important;
+        background-color: #B4B2B2 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important; 
+    }
+}

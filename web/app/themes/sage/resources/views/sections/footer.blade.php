@@ -12,7 +12,7 @@ $form = get_field('footer_form', 'option');
     <div class="footer__top full-bleed">
         <div class=" container">
             <div class="footer__top__wrapper">
-                <div class="footer__top__col1">
+                <div class="footer__top__col1 flow">
                     <div class="footer__top__logo">
                         @include('partials.logo')
                     </div>
@@ -22,7 +22,7 @@ $form = get_field('footer_form', 'option');
                         @endif
                     </div>
                 </div>
-                <div class="footer__top__col2">
+                <div class="footer__top__col2 flow">
                     @if ($form != '' || !isset($form))
                         <div class="footer__top__form">
                             @php
@@ -31,15 +31,15 @@ $form = get_field('footer_form', 'option');
                         </div>
                     @endif
                     
-                    <div class="footer__top__icons">
-                        @if ($footer_logos)
-                            @foreach ($footer_logos as $logo)
-                            <div class="footer__top__icons__img">
-                                <img src="{{ $logo['footer_logo']['url'] }}" alt="{{ $logo['footer_logo']['alt'] }}">
-                            </div>
-                            @endforeach
-                        @endif
-                    </div>
+                    <div class="footer__top__icons{{ count($footer_logos) > 1 ? ' multiple-icons' : '' }}">
+    @if ($footer_logos)
+        @foreach ($footer_logos as $logo)
+        <div class="footer__top__icons__img">
+            <img src="{{ $logo['footer_logo']['url'] }}" alt="{{ $logo['footer_logo']['alt'] }}">
+        </div>
+        @endforeach
+    @endif
+</div>
                 </div>
             </div>
         </div>
