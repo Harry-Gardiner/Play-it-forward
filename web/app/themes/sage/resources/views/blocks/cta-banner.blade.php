@@ -1,9 +1,11 @@
 @php
     //deconstruct button
-    $btn_link = $cta_button['link'];
-    $btn_text = $cta_button['text'];
-    $btn_colour = $cta_button['colour'];
-    $btn_type = $cta_button['type'];
+    if ($show_button == 'yes') {
+        $btn_link = $cta_button['link'];
+        $btn_text = $cta_button['text'];
+        $btn_colour = $cta_button['colour'];
+        $btn_type = $cta_button['type'];
+    }
 
     // $layout switch statement
     switch ($layout) {
@@ -17,7 +19,7 @@
             $layout = 'default';
     }
 @endphp
-<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}}" style="background-color: {{ $background_colour }}">
+<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}}" style="background-color: {{ $background_colour }}; color: {{ $font_colour }}">
     @if (!$image)
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
@@ -25,12 +27,15 @@
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
                 </div>
-                @include('partials.button', [
-                    'type' => $btn_type,
-                    'link' => $btn_link,
-                    'text' => $btn_text,
-                    'colour' => $btn_colour,
-                ])
+                @if ($show_button == 'yes')
+                    @include('partials.button', [
+                        'type' => $btn_type,
+                        'link' => $btn_link,
+                        'text' => $btn_text,
+                        'colour' => $btn_colour,
+                    ])
+                @endif
+                
             </div>
         </div>
     @endif
@@ -45,12 +50,14 @@
                     <h1>{{ $title }}</h1>
                     {!! $body !!}
                 </div>
-                @include('partials.button', [
-                    'type' => $btn_type,
-                    'link' => $btn_link,
-                    'text' => $btn_text,
-                    'colour' => $btn_colour,
-                ])
+                @if ($show_button == 'yes')
+                    @include('partials.button', [
+                        'type' => $btn_type,
+                        'link' => $btn_link,
+                        'text' => $btn_text,
+                        'colour' => $btn_colour,
+                    ])
+                @endif
             </div>
         </div>
     </div>

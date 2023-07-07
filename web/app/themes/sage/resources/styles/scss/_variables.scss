@@ -23,8 +23,6 @@ $pf-red: #a43939;
 $pf-dark-red: #802727;
 $pf-light-red: #bd4c4c;
 
-// Button colours
-// $button-primary: $brand-primary-cyan;
 
 // Text colours
 $body-text-color: $pf-charcoal;
@@ -82,5 +80,5 @@ $spacing--xl: $pf-base-size * 4;
  Fonts
 ***********************/
 
-$size--primary: 'Barlow', Helvetica, Arial, sans-serif;
-$size--secondary: 'Barlow Condensed', Helvetica, Arial, sans-serif;
+$font--primary: 'Barlow', Helvetica, Arial, sans-serif;
+$font--secondary: 'Barlow Condensed', Helvetica, Arial, sans-serif;
