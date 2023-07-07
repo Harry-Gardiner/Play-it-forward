@@ -58,6 +58,7 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer_navigation' => __('Footer Navigation', 'sage'),
     ]);
 
     /**
@@ -224,5 +225,14 @@ add_action('acf/input/admin_footer', function() {
     })();
     </script>
     <?php
+});
+
+
+/**
+ * Add the SVG mime type to the allowed media types in WordPress
+ */
+add_filter('upload_mimes', function($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
 });
 

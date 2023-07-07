@@ -10,6 +10,7 @@
 @import 'mixins/mixin-container';
 @import 'mixins/mixin-full-bleed';
 @import 'mixins/mixin-media-queries';
+@import 'mixins/mixin-columns';
 
 // Utilities
 @import 'utilities/container';
@@ -22,22 +23,32 @@
 @import 'typography';
 
 // Sections
-// @import 'sections/header';
 @import 'sections/accessible-header';
+@import 'sections/footer';
+@import 'sections/wpforms';
 
 // Partials
 @import 'partials/button';
 @import 'partials/wrapper';
+@import 'partials/logo';
 
 // Blocks
 @import 'blocks/button-block';
 @import 'blocks/cta-banner';
 
+#app {
+    min-height: 100vh;
+
+    footer {
+        position: sticky;
+        top: 100vh;
+      }
+}
+
 body {
     @extend .container;
     line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: $size--lg;
     background-color: $pf-off-white;
 }
 

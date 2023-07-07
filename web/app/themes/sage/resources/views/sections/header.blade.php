@@ -1,11 +1,6 @@
 <header class="header full-bleed">
     <div class="header__wrapper container">
-        <a class="logo" href="{{ home_url('/') }}">
-            <div class="logo__wrapper">
-                <img src="{{ asset('images/logo_white.svg') }}" alt="Play it forward logo">
-                <p>play it <span class="strong">forward</span></p>
-            </div>
-        </a>
+        @include('partials.logo')
 
         @if (has_nav_menu('primary_navigation'))
             <nav class="nav" role="navigation" aria-label="<?php _e('Main Menu', 'textdomain'); ?>">
