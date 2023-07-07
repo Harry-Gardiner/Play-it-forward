@@ -24,22 +24,26 @@ $form = get_field('footer_form', 'option');
                 </div>
                 <div class="footer__top__col2 flow">
                     @if ($form != '' || !isset($form))
-                        <div class="footer__top__form">
-                            @php
-                                echo do_shortcode(get_field('footer_form', 'option'));
-                            @endphp
-                        </div>
+                    <div class="footer__top__form">
+                        @php
+                        echo do_shortcode(get_field('footer_form', 'option'));
+                        @endphp
+                    </div>
                     @endif
-                    
+
+                    @if ($footer_logos)
                     <div class="footer__top__icons{{ count($footer_logos) > 1 ? ' multiple-icons' : '' }}">
-    @if ($footer_logos)
-        @foreach ($footer_logos as $logo)
-        <div class="footer__top__icons__img">
-            <img src="{{ $logo['footer_logo']['url'] }}" alt="{{ $logo['footer_logo']['alt'] }}">
-        </div>
-        @endforeach
-    @endif
-</div>
+                        @foreach ($footer_logos as $logo)
+
+                        @if ($logo['footer_logo'] !== false)
+                        <div class="footer__top__icons__img">
+                            <img src="{{ $logo['footer_logo']['url'] }}" alt="{{ $logo['footer_logo']['alt'] }}">
+                        </div>
+                        @endif
+
+                        @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
