@@ -150,8 +150,7 @@ class CtaBanner extends Block
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
             'layout' => get_field('layout'),
-            'background_colour' => get_field('background_colour'),
-            'font_colour' => get_field('font_colour'),
+            'background_colour' => get_field('colour_picker'),
         ];
     }
 

@@ -19,7 +19,7 @@
             $layout = 'default';
     }
 @endphp
-<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}}" style="background-color: {{ $background_colour }}; color: {{ $font_colour }}">
+<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} {{ $background_colour }}">
     @if (!$image)
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
