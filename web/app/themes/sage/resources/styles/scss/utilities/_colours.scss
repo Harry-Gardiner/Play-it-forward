@@ -1,29 +1,63 @@
-.red {
+/**
+ * Background Colours
+ * -----------------------------------------------------------------------------
+ */
+
+.bg--red {
     background-color: $pf-red;
     color: $pf-white;
 }
 
-.dark-red {
+.bg--dark-red {
     background-color: $pf-dark-red;
     color: $pf-white;
 }
 
-.light-red {
+.bg--light-red {
     background-color: $pf-light-red;
     color: $pf-white;
 }
 
-.off-white {
+.bg--off-white {
     background-color: $pf-off-white;
     color: $pf-charcoal;
 }
 
-.white {
+.bg--white {
     background-color: $pf-white;
     color: $pf-charcoal;
 }
 
-.charcoal {
+.bg--charcoal {
     background-color: $pf-charcoal;
     color: $pf-white;
 }
+
+/**
+ * Text Colours
+ * -----------------------------------------------------------------------------
+ */
+.red {
+    color: $pf-red;
+}
+
+.dark-red {
+    color: $pf-dark-red;
+}
+
+.light-red {
+    color: $pf-light-red;
+}
+
+.off-white {
+    color: $pf-off-white;
+}
+
+.white {
+    color: $pf-white;
+}
+
+.charcoal {
+    color: $pf-charcoal;
+}
+
