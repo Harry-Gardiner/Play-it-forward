@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use App\Fields\Partials\Button;
 use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -151,6 +152,7 @@ class CtaBanner extends Block
             'cta_button' => get_field('cta_button'),
             'layout' => get_field('layout'),
             'background_colour' => get_field('colour_picker'),
+            'title_style' => get_field('title_style'),
         ];
     }
 
@@ -169,7 +171,7 @@ class CtaBanner extends Block
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Content')
-            ->addText('title')
+            ->addFields($this->get(Title::class))
             ->addWysiwyg('body')
 
             ->addTab('Image')

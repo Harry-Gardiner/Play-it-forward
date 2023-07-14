@@ -18,13 +18,16 @@
         default:
             $layout = 'default';
     }
+
+   
 @endphp
-<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} {{ $background_colour }}">
+<section class="cta-wrapper {{!$image ? $layout : 'full-bleed'}} {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }}">
     @if (!$image)
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
                 <div class="flow">
-                    <h1>{{ $title }}</h1>
+                    {{-- <h1>{{ $title }}</h1> --}}
+                    @include('partials.title', [$title_style])
                     {!! $body !!}
                 </div>
                 @if ($show_button == 'yes')
@@ -47,7 +50,7 @@
         <div class="cta-banner__image__content container image--{{$image_position}} {{$wrapper ? $wrapper : ''}} block-padding">
             <div class="cta-banner__image__content__body flow">
                 <div class="flow">
-                    <h1>{{ $title }}</h1>
+                    @include('partials.title', [$title_style])
                     {!! $body !!}
                 </div>
                 @if ($show_button == 'yes')
