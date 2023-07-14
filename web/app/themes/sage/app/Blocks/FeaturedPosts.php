@@ -5,6 +5,7 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
 
 class FeaturedPosts extends Block
 {
@@ -139,12 +140,15 @@ class FeaturedPosts extends Block
     public function with()
     {
         return [
-            // 'wrapper' => get_field('block_spacing'),
-            // 'spacing_size' => get_field('spacing_size'),
-            // 'background_colour' => get_field('colour_picker'),
-            // 'featured_posts_type' => get_field('featured_posts_type'),
-            // 'featured_posts' => get_field('featured_posts'),
-            // 'latest_posts_type' => get_field('latest_posts_type'),
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+            // Featured Posts
+            'title_style' => get_field('title_style'),
+            'featured_posts_type' => get_field('featured_posts_type'),
+            'featured_posts' => get_field('featured_posts'),
+            'latest_posts_type' => get_field('latest_posts_type'),
         ];
     }
 
@@ -165,6 +169,7 @@ class FeaturedPosts extends Block
             ->addTab('featured_posts', [
                 'label' => 'Featured Posts',
             ])
+            ->addFields($this->get(Title::class))
             ->addSelect('featured_posts_type', [
                 'label' => 'Featured Posts Type',
                 'instructions' => 'Choose whether to display the latest posts or specific featured posts.',

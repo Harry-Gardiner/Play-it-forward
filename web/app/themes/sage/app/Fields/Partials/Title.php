@@ -18,7 +18,9 @@ class Title extends Partial
         $title = new FieldsBuilder('title');
 
         $title
-        ->addGroup('title_style')
+        ->addGroup('title_style', [
+            'label' => 'Block Title',
+        ])
             ->addText('title', [
                 'label' => 'Title',
                 'required' => 1,
