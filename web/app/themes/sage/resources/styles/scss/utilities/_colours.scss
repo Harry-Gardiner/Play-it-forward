@@ -1,31 +1,29 @@
-// These class names must be identical to the colour slugs used in setup.php editor-color-palette. 
-
-.off-white {
-    background: $pf-off-white;
-    color: $pf-charcoal;
-}
-
-.charcoal {
-    background: $pf-charcoal;
-    color: $pf-white;
-}
-
-.white {
-    background: $pf-white;
-    color: $pf-charcoal;
-}
-
 .red {
-    background: $pf-red;
+    background-color: $pf-red;
     color: $pf-white;
 }
 
 .dark-red {
-    background: $pf-dark-red;   
+    background-color: $pf-dark-red;
     color: $pf-white;
 }
 
 .light-red {
-    background: $pf-light-red;
+    background-color: $pf-light-red;
+    color: $pf-white;
+}
+
+.off-white {
+    background-color: $pf-off-white;
+    color: $pf-charcoal;
+}
+
+.white {
+    background-color: $pf-white;
+    color: $pf-charcoal;
+}
+
+.charcoal {
+    background-color: $pf-charcoal;
     color: $pf-white;
 }

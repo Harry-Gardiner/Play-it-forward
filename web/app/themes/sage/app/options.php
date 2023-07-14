@@ -13,25 +13,6 @@ $theme_options
         'instructions' => 'Add url and button text for donation link. This will be used throughout the site.',
         'required' => 1,
     ])
-    ->addTab('Colour Palette')
-    ->addRepeater('pf_colour_palette', [
-        'label' => 'Colour Palette',
-        'instructions' => 'Add colours to be used throughout the site.',
-        'required' => 1,
-        'layout' => 'block',
-        'button_label' => 'Add Colour',
-    ])
-        ->addText('colour_name', [
-            'label' => 'Colour Name',
-            'instructions' => 'Add a name for this colour.',
-            'required' => 1,
-        ])
-        ->addColorPicker('colour', [
-            'label' => 'Colour',
-            'instructions' => 'Add a hex value for this colour. E.g. #ffffff',
-            'required' => 1,
-        ])
-    ->endRepeater()
     ->addTab('Social Media')
     ->addLink('facebook_link', [
         'label' => 'Facebook Link',

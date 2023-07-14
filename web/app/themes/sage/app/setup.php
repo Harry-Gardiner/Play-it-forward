@@ -113,17 +113,55 @@ add_action('after_setup_theme', function () {
 }, 20);
 
 /**
+ * Register editor colour palette
+ */
+add_action('after_setup_theme', function () {
+    add_theme_support('editor-color-palette', [
+        [
+            'name' => __('Red', 'PIF'),
+            'slug' => 'red',
+            'color' => '#a43939',
+        ],
+        [
+            'name' => __('Dark Red', 'PIF'),
+            'slug' => 'dark-red',
+            'color' => '#802727',
+        ],
+        [
+            'name' => __('Light Red', 'PIF'),
+            'slug' => 'light-red',
+            'color' => '#bd4c4c',
+        ],
+        [
+            'name' => __('Off White', 'PIF'),
+            'slug' => 'off-white',
+            'color' => '#f8faf8',
+        ],
+        [
+            'name' => __('White', 'PIF'),
+            'slug' => 'white',
+            'color' => '#fffff',
+        ],
+        [
+            'name' => __('Charcoal', 'PIF'),
+            'slug' => 'charcoal',
+            'color' => '#262626',
+        ],
+    ]);
+});
+
+/**
  * Add ACF options page
  */
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page([
-		'page_title' => 'Theme Options',
-		'menu_title' => 'Theme options',
-		'menu_slug'  => 'theme_options',
-		'capability' => 'edit_theme_options',
-		'position'   => '99',
-		'autoload'   => true
-	]);
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'Theme Options',
+        'menu_title' => 'Theme options',
+        'menu_slug'  => 'theme_options',
+        'capability' => 'edit_theme_options',
+        'position'   => '99',
+        'autoload'   => true
+    ]);
 }
 
 /**
@@ -156,83 +194,59 @@ add_action('widgets_init', function () {
  * If nav item is a # swap it to a span.
  * Add carets to nav items with child elements 
  */
-class AWP_Menu_Walker extends \Walker_Nav_Menu {
-	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
-		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
- 
-		if ($item->url && $item->url != '#') {
-			$output .= '<a href="' . $item->url . '">';
-		} else {
-			$output .= '<span>';
-		}
- 
-		$output .= $item->title;
- 
-		if ($item->url && $item->url != '#') {
-			$output .= '</a>';
-		} else {
-			$output .= '</span>';
-		}
- 
-		if ($args->walker->has_children) {
-			$output .= '<button class="caret"><span class="visually-hidden">Click to access dropdown menu</span></button>';
-		}
-	}
+class AWP_Menu_Walker extends \Walker_Nav_Menu
+{
+    function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
+    {
+        $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+
+        if ($item->url && $item->url != '#') {
+            $output .= '<a href="' . $item->url . '">';
+        } else {
+            $output .= '<span>';
+        }
+
+        $output .= $item->title;
+
+        if ($item->url && $item->url != '#') {
+            $output .= '</a>';
+        } else {
+            $output .= '</span>';
+        }
+
+        if ($args->walker->has_children) {
+            $output .= '<button class="caret"><span class="visually-hidden">Click to access dropdown menu</span></button>';
+        }
+    }
 }
 
 /**
-* ACF Options colour palette to JSON file
-*/
-add_action('acf/save_post', function ($post_id) {
-    if (current_user_can('administrator')) {
-        // Check if the updated post is the options page
-        if ($post_id == 'options') {
-            $colours = get_field('pf_colour_palette', 'option');
-            
-            $formattedArray = [];
-
-            foreach ($colours as $colour) {
-                $formattedArray[strtolower(str_replace(" ", "-", $colour['colour_name']))] = $colour['colour'];
-            }
-            // Convert the colours data to JSON format
-            $json_data = json_encode($formattedArray);
-            
-            // JSON colour file
-            $file_path = get_stylesheet_directory() . '/json/colours.json';
-
-            // Save the JSON data to the file
-            file_put_contents($file_path, $json_data);
+ * ACF Radio Color Palette
+ * @link https://www.advancedcustomfields.com/resources/acf-load_field/
+ * @link https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
+ * @link https://whiteleydesigns.com/create-a-gutenberg-like-color-picker-with-advanced-custom-fields
+ *
+ * Dynamically populates any ACF field with colour_picker Field Name with custom color palette
+ *
+ */
+add_filter('acf/load_field/name=colour_picker', function ($field) {
+    // get array of colors created using editor-color-palette
+    $colors = get_theme_support('editor-color-palette');
+    
+    if (!empty($colors)) {
+        // loop over each color and create option
+        foreach ($colors[0] as $color) {
+            $field['choices'][$color['slug']] = $color['name'];
         }
     }
-}, 20);
 
-/**
- * Add custom theme colours
- */
-add_action('acf/input/admin_footer', function() {
-    ?>
-    <script type="text/javascript">
-    (function() {
-        acf.addFilter('color_picker_args', function(args, field) {    
-            // Get colours from colours.json
-            let colours = <?php echo file_get_contents(get_stylesheet_directory() . '/json/colours.json'); ?>;
-            let colourValues = Object.values(colours);
-                
-            args.palettes = colourValues;
-
-            return args;
-        });
-    })();
-    </script>
-    <?php
+    return $field;
 });
-
 
 /**
  * Add the SVG mime type to the allowed media types in WordPress
  */
-add_filter('upload_mimes', function($mimes) {
+add_filter('upload_mimes', function ($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 });
-

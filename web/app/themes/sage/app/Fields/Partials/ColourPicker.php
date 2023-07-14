@@ -17,15 +17,10 @@ class ColourPicker extends Partial
         $colourPicker = new FieldsBuilder('colour_picker');
 
         $colourPicker
-            ->addColorPicker('background_colour', [
+            ->addRadio('colour_picker', [
                 'label' => 'Select Background Colour',
-                'instructions' => 'Choose section background colour.',
-                'default_value' => '#ffffff'
-            ])
-            ->addColorPicker('font_colour', [
-                'label' => 'Select Background Colour',
-                'instructions' => 'Choose section background colour.',
-                'default_value' => '#262626'
+                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 223.
+                'default_value' => 'white',
             ]);
         return $colourPicker;
     }

@@ -9,4 +9,93 @@
           margin: 0 auto;
           padding: 1rem 0;
      }
+
+     .acf-field[data-name="colour_picker"] {
+          ul.acf-radio-list {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 1rem;
+               align-items: flex-start;
+               overflow: visible;
+
+               &:focus-within {
+                    border-color: transparent;
+               }
+
+               li {
+                    width: fit-content;
+                    margin: 0 8px 8px 0;
+                    border-radius: 4px;
+                    display: flex;
+
+                    &:nth-child(3n) {
+                         margin-right: 0;
+                    }
+
+                    label {
+                         display: flex;
+                         flex-direction: column;
+                         width: 100%;
+                         justify-content: center;
+                         align-items: center;
+                         text-align: center;
+                         line-height: 1.2;
+                         font-size: 10px;
+                         text-transform: uppercase;
+                         font-weight: 700;
+                         border-radius: 4px;
+
+                         &.selected {
+                              input {
+                                   outline: 2px solid #2271b1;
+                                   outline-offset: 3px;
+                              }
+                         }
+
+                         input[type="radio"] {
+                              width: 3rem;
+                              height: 36px;
+                              border-radius: 4px;
+                              margin: 0;
+                              margin-bottom: 0.5rem;
+
+                              &[value="red"] {
+                                   background-color: $pf-red;
+                              }
+
+                              &[value="dark-red"] {
+                                   background-color: $pf-dark-red;
+                              }
+
+                              &[value="light-red"] {
+                                   background-color: $pf-light-red;
+                              }
+
+                              &[value="off-white"] {
+                                   background-color: $pf-off-white;
+                              }
+
+                              &[value="white"] {
+                                   background-color: $pf-white;
+                              }
+
+                              &[value="charcoal"] {
+                                   background-color: $pf-charcoal;
+                              }
+
+                              &:checked {
+                                   &::before {
+                                        display: none;
+                                   }
+                              }
+
+                              &:focus {
+                                   box-shadow: none;
+                                   border-color: none;
+                              }
+                         }
+                    }
+               }
+          }
+     }
 }
