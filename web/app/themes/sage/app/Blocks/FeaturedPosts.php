@@ -146,9 +146,10 @@ class FeaturedPosts extends Block
             'background_colour' => get_field('colour_picker'),
             // Featured Posts
             'title_style' => get_field('title_style'),
-            'featured_posts_type' => get_field('featured_posts_type'),
+            'featured_post_type' => get_field('featured_post_type'),
             'featured_posts' => get_field('featured_posts'),
             'latest_posts_type' => get_field('latest_posts_type'),
+            'number_of_posts' => get_field('number_of_posts'),
         ];
     }
 
@@ -170,8 +171,8 @@ class FeaturedPosts extends Block
                 'label' => 'Featured Posts',
             ])
             ->addFields($this->get(Title::class))
-            ->addSelect('featured_posts_type', [
-                'label' => 'Featured Posts Type',
+            ->addSelect('featured_post_type', [
+                'label' => 'Featured Post Type',
                 'instructions' => 'Choose whether to display the latest posts or specific featured posts.',
                 'choices' => [
                     'latest' => 'Latest Posts',
@@ -183,7 +184,7 @@ class FeaturedPosts extends Block
                 'label' => 'Featured Posts',
                 'layout' => 'block',
                 'button_label' => 'Add Post',
-            ])->conditional('featured_posts_type', '==', 'featured')
+            ])->conditional('featured_post_type', '==', 'featured')
                 ->addPostObject('post', [
                     'label' => 'Post',
                     'post_type' => ['post'],
@@ -195,7 +196,17 @@ class FeaturedPosts extends Block
                 'label' => 'Post Type',
                 'instructions' => 'Choose the post type to display.',
                 'default_value' => 'post',
-            ])->conditional('featured_posts_type', '==', 'latest')
+            ])->conditional('featured_post_type', '==', 'latest')
+            ->addSelect('number_of_posts', [
+                'label' => 'Number of Posts',
+                'instructions' => 'Choose the number of posts to display. If set to "All", 6 posts will be displayed with a load more button.',
+                'default_value' => '3',
+                'choices' => [
+                    '4' => '4',
+                    '8' => '8',
+                    '-1' => 'All',
+                ],
+            ])->conditional('featured_post_type', '==', 'latest')
             ;
         return $featuredPosts->build();
     }
