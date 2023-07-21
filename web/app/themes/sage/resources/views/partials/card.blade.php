@@ -12,7 +12,7 @@
             <img src="{{get_the_post_thumbnail_url($post->ID, 'medium')}}" alt="">  
         </div>
         <div class="card__content">
-            <h3 class="card__title">{{$post->post_title}}</h3>
+            <h3 class="card__title"><span>{{$post->post_title}}</span></h3>
             <p class="card__excerpt">{{$post->post_excerpt}}</p>    
         </div>
     </a>

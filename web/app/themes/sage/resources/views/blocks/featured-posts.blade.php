@@ -22,11 +22,13 @@ if ($featured_post_type == 'latest') {
         @endif
       </div>
       <div class="featured-posts__latest">
-        @if ($featured_post_type == 'latest')
-          @foreach ($latest_posts->posts as $post)
-            @include('partials.card', ['post' => $post])
-          @endforeach
-        @endif
+        <div class="cards-wrapper">
+          @if ($featured_post_type == 'latest')
+            @foreach ($latest_posts->posts as $post)
+              @include('partials.card', ['post' => $post])
+            @endforeach
+          @endif
+        </div>
       </div>
     @endisset
   </div>

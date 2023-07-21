@@ -1,0 +1,59 @@
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  border-radius: 12px;
+
+  &__image {
+    img {
+      border-radius: 12px;
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+        object-fit: cover;
+        object-position: center center;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    margin: $spacing--sm;
+    z-index: 1;
+  }
+
+  &__title {
+    
+    color: $pf-white;
+    // padding: 1rem;
+
+    span {
+      background: $pf-red;
+      padding: 0.25em;
+      line-height: 1.5;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+  }
+
+ &:nth-child(even) {
+    .card__content {
+      bottom: 0;
+    }
+  }
+
+  &:nth-child(odd) {
+    .card__content {
+      top: 0;
+    }
+  }
+
+  &:hover {
+    .card__content {
+      color: $pf-red;
+    }
+ } 
+}
