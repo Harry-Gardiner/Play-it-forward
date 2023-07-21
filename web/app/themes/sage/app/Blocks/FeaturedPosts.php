@@ -199,13 +199,14 @@ class FeaturedPosts extends Block
             ])->conditional('featured_post_type', '==', 'latest')
             ->addSelect('number_of_posts', [
                 'label' => 'Number of Posts',
-                'instructions' => 'Choose the number of posts to display. If set to "All", 6 posts will be displayed with a load more button.',
-                'default_value' => '3',
+                'instructions' => 'Choose the number of posts to display. If set to "All" posts will be displayed with a load more button.',
+                'default_value' => '4',
                 'choices' => [
                     '4' => '4',
                     '8' => '8',
                     '-1' => 'All',
                 ],
+                'return_format' => 'key',
             ])->conditional('featured_post_type', '==', 'latest')
             ;
         return $featuredPosts->build();

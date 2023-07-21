@@ -1,4 +1,8 @@
 @php
+if ($number_of_posts == 'All') {
+  $number_of_posts = -1;
+}
+
 if ($featured_post_type == 'latest') {
   $args = [
     'post_type' => $latest_posts_type,
