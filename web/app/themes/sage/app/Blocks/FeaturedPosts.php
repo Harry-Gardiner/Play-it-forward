@@ -204,7 +204,7 @@ class FeaturedPosts extends Block
                 'choices' => [
                     '4' => '4',
                     '8' => '8',
-                    '-1' => 'All',
+                    '10' => 'All',
                 ],
                 'return_format' => 'key',
             ])->conditional('featured_post_type', '==', 'latest')

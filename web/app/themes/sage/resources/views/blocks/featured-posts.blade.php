@@ -1,16 +1,13 @@
 @php
-if ($number_of_posts == 'All') {
-  $number_of_posts = -1;
-}
-
 if ($featured_post_type == 'latest') {
   $args = [
-    'post_type' => $latest_posts_type,
+    'post_type' => 'post',
     'posts_per_page' => intval($number_of_posts),
+    'orderby' => 'date',
+    'order' => 'DESC',
   ];
   $latest_posts = new WP_Query($args);
-}
-  
+}  
 @endphp
 
 <section
@@ -33,7 +30,14 @@ if ($featured_post_type == 'latest') {
             @endforeach
           @endif
         </div>
+        <div class="btn__wrapper">
+          <button class="button button--primary button--red" id="load-more">Load more</button>
+        </div>
       </div>
     @endisset
   </div>
 </section>
+
+@php
+   wp_reset_postdata(); 
+@endphp

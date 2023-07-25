@@ -250,3 +250,46 @@ add_filter('upload_mimes', function ($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 });
+
+
+add_action('rest_api_init', function() {
+  register_rest_route('v1', 'posts/load_more', [
+    'methods' => 'GET', // or POST
+    'callback' => function($request) {
+      $page = $request->get_param('page');
+      $per_page = $request->get_param('per_page');
+
+      $args = [
+        'post_type' => 'post',
+        'posts_per_page' => $per_page,
+        'paged' => $page
+      ];
+
+     
+      // In Sage 10, the WP_Query class is in the global namespace, so you should use \WP_Query instead of App\WP_Query.
+      $query = new \WP_Query($args);
+     
+      $posts = [];
+
+      if ($query->have_posts()) {
+        while ($query->have_posts()) {
+          $query->the_post();
+
+          $post = [
+            'id' => get_the_ID(),
+            'title' => get_the_title(),
+            'excerpt' => get_the_excerpt(),
+            'link' => get_permalink()
+          ];
+
+          $posts[] = $post;
+        }
+      }
+
+      wp_reset_postdata();
+
+      return $posts;
+    },
+    'permission_callback' => '__return_true'
+  ]);
+});
