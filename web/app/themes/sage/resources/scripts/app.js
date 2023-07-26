@@ -13,6 +13,9 @@ domReady(async () => {
  */
 import.meta.webpackHot?.accept(console.error);
 
+/**
+ * Load more posts
+ */
 const loadMoreButton = document.getElementById('load-more');
 const cardsWrapper = document.querySelector('.cards-wrapper');
 let currentPage = 1;
@@ -21,7 +24,6 @@ let posts = [];
 loadMoreButton.addEventListener('click', async () => {
   const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=10`);
   const newPosts = await response.json();
-
   // Check if there are new posts
   if (newPosts.length > 0) {
     // Filter out any duplicates
@@ -30,18 +32,11 @@ loadMoreButton.addEventListener('click', async () => {
     // Add the new posts to the existing posts array
     posts = [...posts, ...filteredPosts];
 
+    // Convert the posts to HTML
+    const postsHtml = posts.join('');
     // Render the new posts
-    filteredPosts.forEach(post => {
-      const cardHtml = `
-        <div class="card">
-          <h2>${post.title}</h2>
-          <p>${post.excerpt}</p>
-          <a href="${post.link}">Read more</a>
-        </div>
-      `;
-      cardsWrapper.insertAdjacentHTML('beforeend', cardHtml);
-    });
-
+    cardsWrapper.insertAdjacentHTML('beforeend', postsHtml);
+  
     // Increment the current page
     currentPage++;
   }

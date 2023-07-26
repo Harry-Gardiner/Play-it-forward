@@ -26,6 +26,7 @@ if ($featured_post_type == 'latest') {
         <div class="cards-wrapper">
           @if ($featured_post_type == 'latest')
             @foreach ($latest_posts->posts as $post)
+            {{-- @dump($post) --}}
               @include('partials.card', ['post' => $post])
             @endforeach
           @endif

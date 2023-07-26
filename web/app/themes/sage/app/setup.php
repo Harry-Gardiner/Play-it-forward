@@ -7,7 +7,7 @@
 namespace App;
 
 use function Roots\bundle;
-
+use function Roots\view;
 /**
  * Register the theme assets.
  *
@@ -275,14 +275,12 @@ add_action('rest_api_init', function() {
         while ($query->have_posts()) {
           $query->the_post();
 
-          $post = [
-            'id' => get_the_ID(),
-            'title' => get_the_title(),
-            'excerpt' => get_the_excerpt(),
-            'link' => get_permalink()
-          ];
+            $post = get_post();
 
-          $posts[] = $post;
+            $cardHtml = view('partials.card', [
+                'post' => $post,
+            ])->render();
+            $posts[] = $cardHtml;
         }
       }
 
