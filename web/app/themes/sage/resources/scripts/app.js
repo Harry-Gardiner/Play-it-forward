@@ -20,13 +20,24 @@ const loadMoreButton = document.getElementById('load-more');
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const spinner = document.querySelector('.spinner');
 let currentPage = 1;
+let isLoading = false;
 
 loadMoreButton.addEventListener('click', async () => {
-  // Show the spinner
-  spinner.style.display = 'flex';
-
   // Increment the current page
   currentPage++;
+
+  // Check if a request is already in progress
+  if (isLoading) {
+    return;
+  }
+
+  // Set the isLoading flag to true
+  isLoading = true;
+
+  // Show the spinner after 0.5 seconds
+  const spinnerTimeout = setTimeout(() => {
+    spinner.style.display = 'flex';
+  }, 500);
 
   const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=10`);
   const newPosts = await response.json();
@@ -42,17 +53,20 @@ loadMoreButton.addEventListener('click', async () => {
     newCards.forEach((card, index) => {
       setTimeout(() => {
         card.style.opacity = 1;
-        // opacity duration must match the setTimeout duration
         card.style.transition = 'opacity 0.5s ease-in-out';
         setTimeout(() => {
           card.classList.remove('new-card');
         }, 500);
-      }, index * 300);
+      }, index * 100);
     });
   }
 
   // Hide the spinner
+  clearTimeout(spinnerTimeout);
   spinner.style.display = 'none';
+
+  // Set the isLoading flag to false
+  isLoading = false;
 
   if (newPosts.length < 10) {
     loadMoreButton.remove();
