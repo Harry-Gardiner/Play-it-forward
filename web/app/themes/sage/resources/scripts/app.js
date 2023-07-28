@@ -18,12 +18,12 @@ import.meta.webpackHot?.accept(console.error);
  */
 const loadMoreButton = document.getElementById('load-more');
 const cardsWrapper = document.querySelector('.cards-wrapper');
-// const spinner = document.querySelector('.spinner');
+const spinner = document.querySelector('.spinner');
 let currentPage = 1;
 
 loadMoreButton.addEventListener('click', async () => {
   // Show the spinner
-  // spinner.style.display = 'block';
+  spinner.style.display = 'flex';
 
   // Increment the current page
   currentPage++;
@@ -42,6 +42,7 @@ loadMoreButton.addEventListener('click', async () => {
     newCards.forEach((card, index) => {
       setTimeout(() => {
         card.style.opacity = 1;
+        // opacity duration must match the setTimeout duration
         card.style.transition = 'opacity 0.5s ease-in-out';
         setTimeout(() => {
           card.classList.remove('new-card');
@@ -51,7 +52,7 @@ loadMoreButton.addEventListener('click', async () => {
   }
 
   // Hide the spinner
-  // spinner.style.display = 'none';
+  spinner.style.display = 'none';
 
   if (newPosts.length < 10) {
     loadMoreButton.remove();

@@ -30,6 +30,7 @@ if ($featured_post_type == 'latest') {
             @endforeach
           @endif
         </div>
+        <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
         <div class="btn__wrapper">
           <button class="button button--primary button--red" id="load-more">Load more</button>
         </div>
