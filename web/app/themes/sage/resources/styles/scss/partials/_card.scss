@@ -62,22 +62,23 @@
     }
   }
 
- &:nth-child(even) {
-    .card__content {
-      bottom: $spacing--xs;
-
-      @include media-breakpoint('lg') {
-        bottom: $spacing--sm;
-      }
-    }
-  }
-
   &:nth-child(odd) {
     .card__content {
       top: $spacing--xs;
 
       @include media-breakpoint('lg') {
         top: $spacing--sm;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    .card__content {
+      bottom: $spacing--xs;
+      top: unset;
+
+      @include media-breakpoint('lg') {
+        bottom: $spacing--sm;
       }
     }
   }
