@@ -34,4 +34,8 @@ loadMoreButton.addEventListener('click', async () => {
     // Render the new posts
     cardsWrapper.insertAdjacentHTML('beforeend', postsHtml);
   }
+
+  if (newPosts.length < 10) {
+    loadMoreButton.remove();
+  }
 });
