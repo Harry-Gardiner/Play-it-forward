@@ -262,29 +262,19 @@ add_action('rest_api_init', function() {
       $args = [
         'post_type' => 'post',
         'posts_per_page' => $per_page,
-        'paged' => $page
+        'paged' => $page,
+        'orderby' => 'date',
+        'order' => 'DESC',
       ];
 
+      $query = get_posts($args);
      
-      // In Sage 10, the WP_Query class is in the global namespace, so you should use \WP_Query instead of App\WP_Query.
-      $query = new \WP_Query($args);
-     
-      $posts = [];
-
-      if ($query->have_posts()) {
-        while ($query->have_posts()) {
-          $query->the_post();
-
-            $post = get_post();
-
-            $cardHtml = view('partials.card', [
-                'post' => $post,
-            ])->render();
-            $posts[] = $cardHtml;
-        }
-      }
-
-      wp_reset_postdata();
+      $posts = collect($query)->map(function($post) {
+        $cardHtml = view('partials.card', [
+            'post' => $post,
+        ])->render();
+        return $cardHtml;
+      });
 
       return $posts;
     },

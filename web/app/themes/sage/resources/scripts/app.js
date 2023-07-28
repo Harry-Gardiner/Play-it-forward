@@ -19,25 +19,19 @@ import.meta.webpackHot?.accept(console.error);
 const loadMoreButton = document.getElementById('load-more');
 const cardsWrapper = document.querySelector('.cards-wrapper');
 let currentPage = 1;
-let posts = [];
+// let posts = [];
 
 loadMoreButton.addEventListener('click', async () => {
+   // Increment the current page
+   currentPage++;
+
   const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=10`);
   const newPosts = await response.json();
   // Check if there are new posts
   if (newPosts.length > 0) {
-    // Filter out any duplicates
-    const filteredPosts = newPosts.filter(post => !posts.find(p => p.id === post.id));
-
-    // Add the new posts to the existing posts array
-    posts = [...posts, ...filteredPosts];
-
     // Convert the posts to HTML
-    const postsHtml = posts.join('');
+    const postsHtml = newPosts.join('');
     // Render the new posts
     cardsWrapper.insertAdjacentHTML('beforeend', postsHtml);
-  
-    // Increment the current page
-    currentPage++;
   }
 });
