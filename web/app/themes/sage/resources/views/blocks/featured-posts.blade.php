@@ -11,8 +11,8 @@ if ($featured_post_type == 'latest') {
 @endphp
 
 <section
-  class="featured-posts {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }}">
-  <div class="featured-posts__content flow">
+  class="featured-posts {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }} full-bleed">
+  <div class="featured-posts__content container flow">
     @include('partials.title', [$title_style])
     @isset($featured_post_type)
       <div class="featured-posts__featured">
@@ -26,7 +26,6 @@ if ($featured_post_type == 'latest') {
         <div class="cards-wrapper">
           @if ($featured_post_type == 'latest')
             @foreach ($latest_posts->posts as $post)
-            {{-- @dump($post) --}}
               @include('partials.card', ['post' => $post])
             @endforeach
           @endif

@@ -1,0 +1,10 @@
+.featured-posts {
+
+    &__latest {
+        @extend .flow;
+
+        .btn__wrapper {
+            text-align: center;
+        }
+    }
+}
