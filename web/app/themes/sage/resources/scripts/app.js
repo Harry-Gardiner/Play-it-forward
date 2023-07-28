@@ -18,10 +18,13 @@ import.meta.webpackHot?.accept(console.error);
  */
 const loadMoreButton = document.getElementById('load-more');
 const cardsWrapper = document.querySelector('.cards-wrapper');
-
+// const spinner = document.querySelector('.spinner');
 let currentPage = 1;
 
 loadMoreButton.addEventListener('click', async () => {
+  // Show the spinner
+  // spinner.style.display = 'block';
+
   // Increment the current page
   currentPage++;
 
@@ -40,9 +43,15 @@ loadMoreButton.addEventListener('click', async () => {
       setTimeout(() => {
         card.style.opacity = 1;
         card.style.transition = 'opacity 0.5s ease-in-out';
-      }, index * 100);
+        setTimeout(() => {
+          card.classList.remove('new-card');
+        }, 500);
+      }, index * 300);
     });
   }
+
+  // Hide the spinner
+  // spinner.style.display = 'none';
 
   if (newPosts.length < 10) {
     loadMoreButton.remove();
