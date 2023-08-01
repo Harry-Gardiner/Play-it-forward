@@ -5,6 +5,7 @@
 
 @php
     $post = $post ?? null;
+    // dd($post);
 @endphp
 <div class="card">
     <a href="{{get_permalink($post->ID)}}">
