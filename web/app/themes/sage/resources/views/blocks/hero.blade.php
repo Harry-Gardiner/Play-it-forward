@@ -12,7 +12,6 @@
     @if ($hero_image)
       <div class="hero__image">
         <img class="hero__image" src="{{ $hero_image['url'] }}" alt="{{$alt_text}}">
-        <div class="overlay"></div>
       </div>
      
     @endif
