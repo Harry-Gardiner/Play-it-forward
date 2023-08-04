@@ -14,7 +14,7 @@
             @if ($thumbnail_id)
                 <img src="{{get_the_post_thumbnail_url($post->ID)}}" alt="{{$thumbnail_alt}}">  
             @else
-                <img src="{{get_template_directory_uri()}}/images/placeholder.jpg" alt="Placeholder image">
+                <img src="{{ asset('images/placeholder.png') }}" alt="Placeholder image">
             @endif
         </div>
         <div class="card__content">
