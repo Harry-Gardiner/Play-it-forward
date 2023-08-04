@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Fields\Partials\GeneralTab;
 
 class hero extends Block
 {
@@ -138,7 +139,14 @@ class hero extends Block
     public function with()
     {
         return [
-           
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Hero Content
+            'hero_image' => get_field('hero_image'),
+            'hero_content' => get_field('hero_content'),
         ];
     }
 
@@ -168,7 +176,7 @@ class hero extends Block
             'label' => 'Hero Text',
             'media_upload' => 0,
             'tabs' => 'visual',
-            'toolbar' => 'basic',
+            'toolbar' => 'full',
             'delay' => 1,
             'wrapper' => [
                 'class' => 'autosize',
