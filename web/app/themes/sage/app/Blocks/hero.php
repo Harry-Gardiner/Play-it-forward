@@ -182,6 +182,8 @@ class hero extends Block
                 'class' => 'autosize',
             ],
         ])
+
+        // TODO: add video option with url.
         ;
 
         return $hero->build();
