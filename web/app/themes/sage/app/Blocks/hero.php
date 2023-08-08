@@ -146,6 +146,7 @@ class hero extends Block
 
             // Hero Content
             'hero_image' => get_field('hero_image'),
+            'hero_image_position' => get_field('hero_image_position'),
             'hero_content' => get_field('hero_content'),
         ];
     }
@@ -172,6 +173,18 @@ class hero extends Block
             'library' => 'all',
             'mime_types' => 'jpg, jpeg, png, svg',
         ]) 
+        ->addSelect('hero_image_position', [
+            'label' => 'Image Position',
+            'instructions' => 'If required, use this to position the image.',
+            'choices' => [
+                'center' => 'Center',
+                'top' => 'Top',
+                'bottom' => 'Bottom',
+                'left' => 'Left',
+                'right' => 'Right',
+            ],
+            'default_value' => 'center',
+        ])
         ->addWysiwyg('hero_content', [
             'label' => 'Hero Text',
             'media_upload' => 0,
@@ -182,8 +195,6 @@ class hero extends Block
                 'class' => 'autosize',
             ],
         ])
-
-        // TODO: add video option with url.
         ;
 
         return $hero->build();

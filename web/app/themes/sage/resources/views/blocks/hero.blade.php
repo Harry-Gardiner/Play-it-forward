@@ -4,6 +4,7 @@
   if (is_array($hero_image) && isset($hero_image['alt'])) {
     $alt_text = $hero_image['alt'] !== '' ? $hero_image['alt'] : 'hero image';
   }
+  $image_position = $hero_image_position ?? 'center center';
   $hero_content = $hero_content ?? null;
 
 @endphp
@@ -11,7 +12,7 @@
  
     @if ($hero_image)
       <div class="hero__image">
-        <img class="hero__image" src="{{ $hero_image['url'] }}" alt="{{$alt_text}}">
+        <img class="hero__image" src="{{ $hero_image['url'] }}" alt="{{$alt_text}}" style="object-position:{{$hero_image_position}}">
       </div>
      
     @endif
