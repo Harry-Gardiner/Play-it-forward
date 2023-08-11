@@ -14,7 +14,7 @@
       <div class="hero__image">
         <img class="hero__image" src="{{ $hero_image['url'] }}" alt="{{$alt_text}}" style="object-position:{{$hero_image_position}}">
       </div>
-     
+      
     @endif
     @if ($hero_content)
       <div class="hero__inner container">
