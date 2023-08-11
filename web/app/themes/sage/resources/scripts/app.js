@@ -1,5 +1,6 @@
 import domReady from '@roots/sage/client/dom-ready';
-import Header from './custom/Header.js'
+import Header from './custom/Header.js';
+import SwiffySlider from './custom/SwiffySlider.js';
 
 /**
  * Application entrypoint
