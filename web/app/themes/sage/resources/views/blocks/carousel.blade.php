@@ -1,6 +1,11 @@
 @php
   $num_slides = count($slides);
-  dump($slide_gap, $slide_reveal, $num_of_shown_slides);
+  $full = $full ?? 'false';
+  $slider_autoplay = $slider_autoplay ?? 'false';
+  $slider_ratio = $slider_ratio ?? '21:9';
+  $slide_gap = $slide_gap ?? 'true';
+  $slide_reveal = $slide_reveal ?? 'false';
+  $num_of_shown_slides = $num_of_shown_slides ?? $num_slides;
 @endphp
 <section class="carousel {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }} {{ $full === 'true' ? 'full-bleed' : '' }}">
  
