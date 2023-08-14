@@ -149,6 +149,9 @@ class Carousel extends Block
             'slider_autoplay' => get_field('slider_autoplay'),
             'add_text' => get_field('add_text'),
             'slider_ratio' => get_field('slider_ratio'),
+            'slide_gap' => get_field('slide_gap'),
+            'slide_reveal' => get_field('slide_reveal'),
+            'num_of_shown_slides' => get_field('num_of_shown_slides'),
         ];
     }
 
@@ -186,7 +189,6 @@ class Carousel extends Block
                 'default_value' => 'false',
                 'layout' => 'horizontal',
             ])
-            // add slider ratios select
             ->addSelect('slider_ratio', [
                 'label' => 'Slider Ratio',
                 'instructions' => 'Select the ratio of the slider. 21:9 is the default.',
@@ -200,6 +202,40 @@ class Carousel extends Block
                     'slider-item-ratio-32x9' => '32x9',
                 ],
                 'default_value' => 'slider-item-ratio-21x9',
+                'multiple' => 0,
+                'return_format' => 'value',
+            ])
+            ->addRadio('slide_gap', [
+                'label' => 'Slide Gap',
+                'instructions' => 'Add a gap between the slides.',
+                'choices' => [
+                    'true' => 'Yes',
+                    'false' => 'No',
+                ],
+                'default_value' => 'false',
+                'layout' => 'horizontal',
+            ])
+            ->addRadio('slide_reveal', [
+                'label' => 'Slide Reveal',
+                'instructions' => 'Add a reveal effect to the slides. This will reveal a portion on the next slide.',
+                'choices' => [
+                    'true' => 'Yes',
+                    'false' => 'No',
+                ],
+                'default_value' => 'false',
+                'layout' => 'horizontal',
+            ])
+            ->addSelect('num_of_shown_slides', [
+                'label' => 'Number of Shown Slides',
+                'instructions' => 'Select the number of slides to show at once.',
+                'choices' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5'
+                ],
+                'default_value' => '1',
                 'multiple' => 0,
                 'return_format' => 'value',
             ])

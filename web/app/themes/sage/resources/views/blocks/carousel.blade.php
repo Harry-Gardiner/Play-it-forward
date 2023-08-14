@@ -1,9 +1,10 @@
 @php
   $num_slides = count($slides);
+  dump($slide_gap, $slide_reveal, $num_of_shown_slides);
 @endphp
 <section class="carousel {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }} {{ $full === 'true' ? 'full-bleed' : '' }}">
  
-  <div class="swiffy-slider slider-item-nogap {{ $slider_autoplay === 'true' ? 'slider-nav-autoplay' : ''}} slider-nav-autopause slider-item-first-visibles slider-nav-autohide slider-nav-caretfill slider-item-ratio {{ $slider_ratio }}">
+  <div class="swiffy-slider {{ $slider_autoplay === 'true' ? 'slider-nav-autoplay' : ''}} slider-nav-autopause slider-item-first-visibles slider-nav-autohide slider-nav-caretfill slider-item-ratio {{ $slider_ratio }} {{ $slide_gap === 'true' ? '' : 'slider-item-nogap'}} {{ $slide_reveal === 'true' ? 'slider-item-reveal' : '' }} slider-item-show{{$num_of_shown_slides}}">
     <ul class="slider-container">
         @foreach ($slides as $slide)
             @php
