@@ -145,6 +145,7 @@ class Carousel extends Block
 
             // Carousel
             'slides' => get_field('slides'),
+            'slider_type' => get_field('slider_type'),
             'full' => get_field('full'),
             'slider_autoplay' => get_field('slider_autoplay'),
             'add_text' => get_field('add_text'),
@@ -170,6 +171,17 @@ class Carousel extends Block
             ])
             ->addFields($this->get(GeneralTab::class))  
             ->addTab('Slider Options')
+            ->addSelect('slider_type', [
+                'label' => 'Slider Type',
+                'instructions' => 'Choose between icons or images.',
+                'choices' => [
+                    'slider-type-icons' => 'Icons',
+                    'slider-type-images' => 'Images',
+                ],
+                'default_value' => 'slider-type-images',
+                'multiple' => 0,
+                'return_format' => 'value',
+            ])
             ->addRadio('full', [
                 'label' => 'Full Width',
                 'instructions' => 'Full width will ignore the container width and stretch the slider to the full width of the screen.',
@@ -188,7 +200,7 @@ class Carousel extends Block
                 ],
                 'default_value' => 'false',
                 'layout' => 'horizontal',
-            ])
+            ])->conditional('slider_type', '==', 'slider-type-images')
             ->addSelect('slider_ratio', [
                 'label' => 'Slider Ratio',
                 'instructions' => 'Select the ratio of the slider. 21:9 is the default.',
@@ -204,7 +216,7 @@ class Carousel extends Block
                 'default_value' => 'slider-item-ratio-21x9',
                 'multiple' => 0,
                 'return_format' => 'value',
-            ])
+            ])->conditional('slider_type', '==', 'slider-type-images')
             ->addRadio('slide_gap', [
                 'label' => 'Slide Gap',
                 'instructions' => 'Add a gap between the slides.',
@@ -214,7 +226,7 @@ class Carousel extends Block
                 ],
                 'default_value' => 'false',
                 'layout' => 'horizontal',
-            ])
+            ])->conditional('slider_type', '==', 'slider-type-images')
             ->addRadio('slide_reveal', [
                 'label' => 'Slide Reveal',
                 'instructions' => 'Add a reveal effect to the slides. This will reveal a portion on the next slide.',
@@ -224,7 +236,7 @@ class Carousel extends Block
                 ],
                 'default_value' => 'false',
                 'layout' => 'horizontal',
-            ])
+            ])->conditional('slider_type', '==', 'slider-type-images')
             ->addSelect('num_of_shown_slides', [
                 'label' => 'Number of Shown Slides',
                 'instructions' => 'Select the number of slides to show at once.',
