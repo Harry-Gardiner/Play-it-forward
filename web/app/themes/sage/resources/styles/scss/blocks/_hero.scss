@@ -1,19 +1,14 @@
 .hero {
     position: relative;
-    height: 80vh;
-    min-height: 500px;
+    display: flex;
+    flex-direction: column-reverse;
 
     &__image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            min-height: 50vh;
         }
     }
 
