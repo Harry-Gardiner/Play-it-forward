@@ -5,6 +5,7 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Button;
 
 class hero extends Block
 {
@@ -147,7 +148,10 @@ class hero extends Block
             // Hero Content
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
+            'hero_title' => get_field('hero_title'),
             'hero_content' => get_field('hero_content'),
+            'show_button' => get_field('show_button'),
+            'cta_button' => get_field('cta_button'),
         ];
     }
 
@@ -165,7 +169,7 @@ class hero extends Block
             'label' => 'Hero',
         ])
         ->addFields($this->get(GeneralTab::class))  
-        ->addTab('Hero Content')
+        ->addTab('Hero Image')
         ->addImage('hero_image', [
             'label' => 'Hero Image',
             'return_format' => 'array',
@@ -185,16 +189,29 @@ class hero extends Block
             ],
             'default_value' => 'center',
         ])
-        ->addWysiwyg('hero_content', [
-            'label' => 'Hero Text',
+        ->addTab('Hero Content')
+        ->addText('hero_title', [
+            'label' => 'Hero Title',
+        ])
+        ->addWYSIWYG('hero_content', [
+            'label' => 'Hero Content',
             'media_upload' => 0,
-            'tabs' => 'visual',
             'toolbar' => 'full',
             'delay' => 1,
-            'wrapper' => [
-                'class' => 'autosize',
-            ],
         ])
+        ->addRadio('show_button', [
+            'label' => 'Show Button?',
+            'required' => 1,
+            'choices' => [
+                'yes' => 'Yes',
+                'no' => 'No',
+            ],
+            'default_value' => 'no',
+            'layout' => 'horizontal',
+            ])
+        ->addGroup('cta_button', ['label' => 'CTA Button'])
+        ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
+        ->endGroup();
         ;
 
         return $hero->build();
