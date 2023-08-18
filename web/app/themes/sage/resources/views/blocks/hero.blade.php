@@ -25,20 +25,22 @@ $btn_type = $cta_button['type'] ?? null;
 
   @if ($hero_title)
     <div class="hero__inner container">
-      <div class="hero__title flow">
-        <h1>{{$hero_title}}</h1>
+      <div class="hero__inner__content flow">
+        <div class="hero__title">
+          <h1>{{$hero_title}}</h1>
+        </div>
+        <div class="hero__sub-text flow">
+          {!! $hero_content !!}
+          @if ($show_button == 'yes')
+            @include('partials.button', [
+            'type' => $btn_type,
+            'link' => $btn_link,
+            'text' => $btn_text,
+            'colour' => $btn_colour,
+            ])
+          @endif
+        </div>
       </div>
-      <div>
-        {!! $hero_content !!}
-      </div>
-      @if ($show_button == 'yes')
-        @include('partials.button', [
-        'type' => $btn_type,
-        'link' => $btn_link,
-        'text' => $btn_text,
-        'colour' => $btn_colour,
-        ])
-      @endif
     </div>
   @endif
 
