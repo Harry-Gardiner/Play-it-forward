@@ -9,7 +9,20 @@ $image_position = $hero_image_position ?? 'center center';
 
 // Content
 $hero_title = $hero_title ?? null;
+$highlighted_text = $highlighted_text ?? null;
 $hero_content = $hero_content ?? null;
+
+function highlightWords($text, $wordsToColor) {
+    foreach ($wordsToColor as $word) {
+        $word = $word['text_string'];
+        $text = str_replace($word, '<span class="highlight">' . $word . '</span>', $text);
+    }
+    return $text;
+}
+
+if ($highlighted_text && !empty($highlighted_text)) {
+  $hero_title = highlightWords($hero_title, $highlighted_text);
+}
 
 // Btn
 if ($show_button == 'yes') {
@@ -27,7 +40,7 @@ $btn_type = $cta_button['type'] ?? null;
     <div class="hero__inner container">
       <div class="hero__inner__content flow">
         <div class="hero__title">
-          <h1>{{$hero_title}}</h1>
+          <h1>{!! $hero_title !!}</h1>
         </div>
         <div class="hero__sub-text flow">
           {!! $hero_content !!}

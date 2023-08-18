@@ -149,6 +149,7 @@ class hero extends Block
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
             'hero_title' => get_field('hero_title'),
+            'highlighted_text' => get_field('highlighted_text'),
             'hero_content' => get_field('hero_content'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
@@ -193,8 +194,18 @@ class hero extends Block
         ->addText('hero_title', [
             'label' => 'Hero Title',
         ])
+        ->addRepeater('highlighted_text', [
+            'label' => 'Highlighted Title Text',
+            'instructions' => 'Highlighted text will be displayed in red. <br><br> Each word you wish to highlight needs to be added individually. The text string must be an exact match of the text string in the hero title above, inc any punctuation if that should also be highlighted.',
+            'layout' => 'table',
+            'button_label' => 'Add Highlighted Text',
+        ])
+            ->addText('text_string', [
+                'label' => 'Highlighted Text',
+            ])
+        ->endRepeater()
         ->addWYSIWYG('hero_content', [
-            'label' => 'Hero Content',
+            'label' => 'Hero Subtitle',
             'media_upload' => 0,
             'toolbar' => 'full',
             'delay' => 1,
