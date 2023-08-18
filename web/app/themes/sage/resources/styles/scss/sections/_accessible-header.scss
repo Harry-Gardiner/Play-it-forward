@@ -7,7 +7,7 @@ $nav-bottom-padding: 21px;
 
 .header {
   color: $pf-off-white;
-  background-color: $pf-charcoal;
+  background-color: $pf-white;
   position: sticky;
   top: 0;
   height: $header-height-mobile;
@@ -283,7 +283,7 @@ $nav-bottom-padding: 21px;
     }
 
     .hamb-line {
-      background: $pf-white;
+      background: $pf-charcoal;
       display: block;
       height: 2px;
       position: relative;
@@ -291,7 +291,7 @@ $nav-bottom-padding: 21px;
 
       &::before,
       &::after {
-        background: $pf-white;
+        background: $pf-charcoal;
         content: '';
         display: block;
         height: 100%;
@@ -301,11 +301,11 @@ $nav-bottom-padding: 21px;
       }
 
       &::before {
-        top: 5px;
+        top: 8px;
       }
 
       &::after {
-        top: -5px;
+        top: -8px;
       }
     }
   }
