@@ -12,15 +12,15 @@ $hero_title = $hero_title ?? null;
 $highlighted_text = $highlighted_text ?? null;
 $hero_content = $hero_content ?? null;
 
-function highlightWords($text, $wordsToColor) {
-    foreach ($wordsToColor as $word) {
-        $word = $word['text_string'];
-        $text = str_replace($word, '<span class="highlight">' . $word . '</span>', $text);
-    }
-    return $text;
-}
-
 if ($highlighted_text && !empty($highlighted_text)) {
+  function highlightWords($text, $wordsToColor) {
+      foreach ($wordsToColor as $word) {
+          $word = $word['text_string'];
+          $text = str_replace($word, '<span class="highlight">' . $word . '</span>', $text);
+      }
+      return $text;
+  }
+  
   $hero_title = highlightWords($hero_title, $highlighted_text);
 }
 
