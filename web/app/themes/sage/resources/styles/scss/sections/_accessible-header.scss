@@ -13,6 +13,8 @@ $nav-bottom-padding: 21px;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;
@@ -314,5 +316,17 @@ $nav-bottom-padding: 21px;
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+}
+
+
+// Logo
+.logo__wrapper {
+  &__text {
+    display: none;
+
+    @include media-breakpoint('lg') {
+      display: block;
+    }
   }
 }
