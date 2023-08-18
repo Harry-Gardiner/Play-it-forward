@@ -26,7 +26,7 @@ $btn_type = $cta_button['type'] ?? null;
   @if ($hero_title)
     <div class="hero__inner container">
       <div class="hero__title flow">
-        {{$hero_title}}
+        <h1>{{$hero_title}}</h1>
       </div>
       <div>
         {!! $hero_content !!}

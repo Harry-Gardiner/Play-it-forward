@@ -13,21 +13,24 @@
     }
 
     &__inner {
+        // display: inline-block;
         position: relative;
-        height: 100%;
-        display: flex;
-        align-items: center;
+        // height: 100%;
+        // display: flex;
+        // align-items: center;
     }
 
     &__title {
-        color: $pf-white;
-        margin-top: $spacing--xl;
-        margin-bottom: $spacing--xl;
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50)); 
+        border-left: 13px solid $pf-dark-red;
 
-        * {
-            background-color: rgba(24, 24, 24, 0.8);
-            padding: $spacing--xs;
-            width: fit-content;
+        h1 {
+            display: inline; 
+            background-color: $pf-off-white;
+            padding: 0.1px 0.5rem;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
         }
     }
 }
