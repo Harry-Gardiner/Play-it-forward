@@ -1,7 +1,6 @@
 // Header specific variables
 $header-height-mobile: 78px;
 $header-height-desktop: 106px;
-$nav-bottom-padding: 27px;
 
 // TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
 
@@ -149,6 +148,11 @@ $nav-bottom-padding: 27px;
           &:hover,
           &:focus-within {
             background-color: $pf-dark-red;
+            color: $pf-white;
+
+            .caret {
+              background-image: url('../../../images/icons/caret_white.svg');
+            }
           }
         }
 
@@ -181,6 +185,7 @@ $nav-bottom-padding: 27px;
             &:hover,
             &:focus {
               background: $pf-red;
+              color: $pf-white;
             }
 
             a {
@@ -193,16 +198,26 @@ $nav-bottom-padding: 27px;
 
         &.open,
         &:hover {
+          color: $pf-off-white;
+          background: $pf-dark-red;
+
           .caret {
             pointer-events: none;
             transform: rotate(180deg);
             transition: rotate 300ms ease-out;
+            background-image: url('../../../images/icons/caret_white.svg');
           }
 
           .sub-menu {
             transition: all 400ms ease;
             visibility: visible;
             max-height: 2000px;
+          }
+        }
+
+        &:hover {
+          .sub-menu-btn {
+            pointer-events: none;
           }
         }
       }
@@ -238,16 +253,17 @@ $nav-bottom-padding: 27px;
         background-color: $pf-dark-red;
       }
 
-      .caret {
-        background-image: url('../../../images/icons/caret_charcoal.svg');
-        height: 25px;
-        width: 25px;
-        background-repeat: no-repeat;
-        background-position: center;
-        transform: rotate(0);
-        transition: rotate 300ms ease-out;
-        display: inline-block;
-      }
+    }
+
+    .caret {
+      background-image: url('../../../images/icons/caret_charcoal.svg');
+      height: 25px;
+      width: 25px;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(0);
+      transition: rotate 300ms ease-out;
+      display: inline-block;
     }
   }
 
