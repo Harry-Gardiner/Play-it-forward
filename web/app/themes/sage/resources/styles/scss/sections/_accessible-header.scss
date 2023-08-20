@@ -39,6 +39,7 @@ $header-height-desktop: 106px;
   */
     @media screen and (max-width: 992px) {
       background-color: $pf-dark-red;
+      color: $pf-off-white;
       position: absolute;
       left: 0;
       top: $header-height-mobile;
@@ -263,7 +264,7 @@ $header-height-desktop: 106px;
     }
 
     .caret {
-      background-image: url('../../../images/icons/caret_charcoal.svg');
+      background-image: url('../../../images/icons/caret_white.svg');
       height: 25px;
       width: 25px;
       background-repeat: no-repeat;
@@ -271,6 +272,8 @@ $header-height-desktop: 106px;
       transform: rotate(0);
       transition: rotate 300ms ease-out;
       display: inline-block;
+
+      background-image: url('../../../images/icons/caret_charcoal.svg');
     }
   }
 
