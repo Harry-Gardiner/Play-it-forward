@@ -1,12 +1,12 @@
 // Header specific variables
 $header-height-mobile: 78px;
 $header-height-desktop: 106px;
-$nav-bottom-padding: 21px;
+$nav-bottom-padding: 27px;
 
 // TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
 
 .header {
-  color: $pf-off-white;
+  color: $pf-charcoal;
   background-color: $pf-white;
   position: sticky;
   top: 0;
@@ -25,10 +25,6 @@ $nav-bottom-padding: 21px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @include media-breakpoint('lg') {
-     align-items: flex-end;
-    }
   }
 
   .nav {
@@ -147,7 +143,7 @@ $nav-bottom-padding: 21px;
         & > .menu-item {
           height: 100%;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           padding: 0 1rem;
 
           &:hover,
@@ -157,7 +153,6 @@ $nav-bottom-padding: 21px;
         }
 
         & > li > a {
-          padding-bottom: $nav-bottom-padding;
           font-weight: bold;
         }
       }
@@ -218,11 +213,10 @@ $nav-bottom-padding: 21px;
   */
     .sub-menu-btn {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       height: 100%;
 
       @include media-breakpoint('lg') {
-        padding-bottom: calc($nav-bottom-padding + 3px);
         margin-left: 0.25em;
       }
 
@@ -245,7 +239,7 @@ $nav-bottom-padding: 21px;
       }
 
       .caret {
-        background-image: url('../../../images/icons/caret.svg');
+        background-image: url('../../../images/icons/caret_charcoal.svg');
         height: 25px;
         width: 25px;
         background-repeat: no-repeat;
@@ -316,17 +310,5 @@ $nav-bottom-padding: 21px;
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-}
-
-
-// Logo
-.logo__wrapper {
-  &__text {
-    display: none;
-
-    @include media-breakpoint('lg') {
-      display: block;
-    }
   }
 }
