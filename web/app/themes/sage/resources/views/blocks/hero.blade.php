@@ -13,15 +13,10 @@ $highlighted_text = $highlighted_text ?? null;
 $hero_content = $hero_content ?? null;
 
 if ($highlighted_text && !empty($highlighted_text)) {
-  function highlightWords($text, $wordsToColor) {
-      foreach ($wordsToColor as $word) {
-          $word = $word['text_string'];
-          $text = str_replace($word, '<span class="highlight">' . $word . '</span>', $text);
-      }
-      return $text;
+  foreach ($highlighted_text as $word) {
+    $word = $word['text_string'];
+    $hero_title = str_replace($word, '<span class="highlight">' . $word . '</span>', $hero_title);
   }
-  
-  $hero_title = highlightWords($hero_title, $highlighted_text);
 }
 
 // Btn
