@@ -1,8 +1,8 @@
 .footer {
-    color: $pf-white;
+    color: $pf-charcoal;
 
     &__top {
-        background-color: $pf-charcoal;
+        background-color: $pf-off-white;
 
         &__wrapper {
             display: flex;
@@ -124,8 +124,6 @@
         &__icons {
             margin-bottom: $spacing--md;
         }
-
-
     }
 
 
@@ -151,6 +149,77 @@
 
     &__social {
         display: flex;
-        gap: 1.5rem;
+        gap: 2rem;
+    }
+
+    &__upper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 3rem;
+
+        @include media-breakpoint(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__middle {
+        padding-bottom: 3rem;
+    }
+
+    &__columns-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include media-breakpoint(md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1rem;
+
+        h3 {
+            font-weight: 700;
+            font-size: $size--md;
+            text-transform: none;
+        }
+
+        a {
+            font-weight: 300;
+        }
+    }
+
+    &__newsletter {
+        @include media-breakpoint(lg) {
+            width: 33%;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: $size--md;
+            text-transform: none;
+        }
+    }
+
+    &__lower {
+        background-color: $pf-charcoal;
+        color: $pf-white;
+        text-align: center;
+        padding: 2rem 0;
+
+        p, a {
+            font-size: $size--sm;
+        }
+
+        a {
+            text-decoration: underline;
+        }
     }
 }
