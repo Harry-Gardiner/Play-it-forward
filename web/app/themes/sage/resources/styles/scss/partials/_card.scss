@@ -1,0 +1,94 @@
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  justify-items: start;
+  align-items: center;
+
+  @include media-breakpoint('md') {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  @include media-breakpoint('lg') {
+    gap: 2rem;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 12px;
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  opacity: 1;
+
+  @include media-breakpoint('lg') {
+    height: 400px;
+  }
+
+  @include media-breakpoint('xl') {
+    height: 540px;
+  }
+
+  &__image {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    img {
+      object-fit: cover;
+      object-position: center center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    top: $spacing--xs;
+    margin: $spacing--sm;
+    z-index: 1;
+  }
+
+  &__title {
+    color: $pf-white;
+
+    span {
+      background: $pf-red;
+      padding: 0.25em;
+      line-height: 1.5;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+  }
+
+  @include media-breakpoint('md') {
+    &:nth-child(odd) {
+      .card__content {
+        top: $spacing--xs;
+
+        @include media-breakpoint('lg') {
+          top: $spacing--sm;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .card__content {
+        bottom: $spacing--xs;
+        top: unset;
+
+        @include media-breakpoint('lg') {
+          bottom: $spacing--sm;
+        }
+      }
+    } 
+  }
+
+  &:hover {
+    .card__content {
+      color: $pf-red;
+    }
+ } 
+}
