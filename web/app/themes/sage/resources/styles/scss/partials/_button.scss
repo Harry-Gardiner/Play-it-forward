@@ -63,9 +63,5 @@
     padding: rem(10) rem(25);
     border: 1px solid $pf-white;
     border-radius: 100px;
-
-    @include media-breakpoint('lg') {
-      margin-bottom: 21px;
-    }
   }
 }

@@ -1,18 +1,19 @@
 // Header specific variables
 $header-height-mobile: 78px;
 $header-height-desktop: 106px;
-$nav-bottom-padding: 21px;
 
 // TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
 
 .header {
-  color: $pf-off-white;
-  background-color: $pf-charcoal;
+  color: $pf-charcoal;
+  background-color: $pf-white;
   position: sticky;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;
@@ -24,8 +25,10 @@ $nav-bottom-padding: 21px;
     align-items: center;
     justify-content: space-between;
 
-    @include media-breakpoint('lg') {
-     align-items: flex-end;
+    &__nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -35,6 +38,7 @@ $nav-bottom-padding: 21px;
   */
     @media screen and (max-width: 992px) {
       background-color: $pf-dark-red;
+      color: $pf-off-white;
       position: absolute;
       left: 0;
       top: $header-height-mobile;
@@ -48,6 +52,7 @@ $nav-bottom-padding: 21px;
         height: fit-content;
         max-height: 2000px;
         transition: max-height 1s;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
       }
 
       .main-navigation {
@@ -140,22 +145,26 @@ $nav-bottom-padding: 21px;
         height: 100%;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        // gap: 1rem;
 
         & > .menu-item {
           height: 100%;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           padding: 0 1rem;
 
           &:hover,
           &:focus-within {
             background-color: $pf-dark-red;
+            color: $pf-white;
+
+            .caret {
+              background-image: url('../../../images/icons/caret_white.svg');
+            }
           }
         }
 
         & > li > a {
-          padding-bottom: $nav-bottom-padding;
           font-weight: bold;
         }
       }
@@ -184,6 +193,7 @@ $nav-bottom-padding: 21px;
             &:hover,
             &:focus {
               background: $pf-red;
+              color: $pf-white;
             }
 
             a {
@@ -196,16 +206,26 @@ $nav-bottom-padding: 21px;
 
         &.open,
         &:hover {
+          color: $pf-off-white;
+          background: $pf-dark-red;
+
           .caret {
             pointer-events: none;
             transform: rotate(180deg);
             transition: rotate 300ms ease-out;
+            background-image: url('../../../images/icons/caret_white.svg');
           }
 
           .sub-menu {
             transition: all 400ms ease;
             visibility: visible;
             max-height: 2000px;
+          }
+        }
+
+        &:hover {
+          .sub-menu-btn {
+            pointer-events: none;
           }
         }
       }
@@ -216,11 +236,10 @@ $nav-bottom-padding: 21px;
   */
     .sub-menu-btn {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       height: 100%;
 
       @include media-breakpoint('lg') {
-        padding-bottom: calc($nav-bottom-padding + 3px);
         margin-left: 0.25em;
       }
 
@@ -242,15 +261,20 @@ $nav-bottom-padding: 21px;
         background-color: $pf-dark-red;
       }
 
-      .caret {
-        background-image: url('../../../images/icons/caret.svg');
-        height: 25px;
-        width: 25px;
-        background-repeat: no-repeat;
-        background-position: center;
-        transform: rotate(0);
-        transition: rotate 300ms ease-out;
-        display: inline-block;
+    }
+
+    .caret {
+      background-image: url('../../../images/icons/caret_white.svg');
+      height: 25px;
+      width: 25px;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(0);
+      transition: rotate 300ms ease-out;
+      display: inline-block;
+
+      @include media-breakpoint('lg') {
+        background-image: url('../../../images/icons/caret_charcoal.svg');
       }
     }
   }
@@ -283,7 +307,7 @@ $nav-bottom-padding: 21px;
     }
 
     .hamb-line {
-      background: $pf-white;
+      background: $pf-charcoal;
       display: block;
       height: 2px;
       position: relative;
@@ -291,7 +315,7 @@ $nav-bottom-padding: 21px;
 
       &::before,
       &::after {
-        background: $pf-white;
+        background: $pf-charcoal;
         content: '';
         display: block;
         height: 100%;
@@ -301,11 +325,11 @@ $nav-bottom-padding: 21px;
       }
 
       &::before {
-        top: 5px;
+        top: 8px;
       }
 
       &::after {
-        top: -5px;
+        top: -8px;
       }
     }
   }
@@ -313,6 +337,9 @@ $nav-bottom-padding: 21px;
   &__buttons {
     display: flex;
     align-items: center;
-    gap: 1rem;
+
+    @include media-breakpoint('lg') {
+      margin-left: 1rem;
+    }
   }
 }

@@ -19,6 +19,14 @@ window.addEventListener('click', function (event) {
     hamb.classList.remove('hamb-open')
     dropdown.classList.remove('drop-open');
   }
+
+  subMenuItems.forEach(function (menu) {
+    if (!menu.contains(event.target)) {
+      menu.classList.remove('open');
+      menu.querySelector('button').setAttribute('aria-expanded', 'false');
+      menu.querySelector('a').setAttribute('aria-expanded', 'false');
+    }
+  });
 })
 
 Array.prototype.forEach.call(menuItems, function (el) {
