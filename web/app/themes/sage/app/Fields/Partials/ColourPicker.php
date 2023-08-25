@@ -20,7 +20,7 @@ class ColourPicker extends Partial
             ->addRadio('colour_picker', [
                 'label' => 'Select Colour',
                 // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 223.
-                'default_value' => 'white',
+                'default_value' => 'off-white',
             ]);
         return $colourPicker;
     }

@@ -33,12 +33,14 @@
 @import 'partials/button';
 @import 'partials/wrapper';
 @import 'partials/logo';
+@import 'partials/card';
 
 // Blocks
 @import 'blocks/button-block';
 @import 'blocks/cta-banner';
 @import 'blocks/hero';
 @import 'blocks/carousel';
+@import 'blocks/featured-posts';
 
 #app {
     min-height: 100vh;
@@ -54,6 +56,11 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     background-color: $pf-off-white;
+}
+
+main {
+    margin-top: $spacing--lg;
+    margin-bottom: $spacing--lg;
 }
 
 table {

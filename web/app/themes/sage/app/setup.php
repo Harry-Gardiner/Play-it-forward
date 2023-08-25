@@ -7,7 +7,7 @@
 namespace App;
 
 use function Roots\bundle;
-
+use function Roots\view;
 /**
  * Register the theme assets.
  *
@@ -249,4 +249,35 @@ add_filter('acf/load_field/name=colour_picker', function ($field) {
 add_filter('upload_mimes', function ($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
+});
+
+
+add_action('rest_api_init', function() {
+  register_rest_route('v1', 'posts/load_more', [
+    'methods' => 'GET', // or POST
+    'callback' => function($request) {
+      $page = $request->get_param('page');
+      $per_page = $request->get_param('per_page');
+
+      $args = [
+        'post_type' => 'post',
+        'posts_per_page' => $per_page,
+        'paged' => $page,
+        'orderby' => 'date',
+        'order' => 'DESC',
+      ];
+
+      $query = get_posts($args);
+     
+      $posts = collect($query)->map(function($post) {
+        $cardHtml = view('partials.card', [
+            'post' => $post,
+        ])->render();
+        return $cardHtml;
+      });
+
+      return $posts;
+    },
+    'permission_callback' => '__return_true'
+  ]);
 });
