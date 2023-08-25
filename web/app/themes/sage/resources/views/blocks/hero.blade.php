@@ -28,8 +28,7 @@ $btn_type = $cta_button['type'] ?? null;
 }
 
 @endphp
-<section
-  class="hero full-bleed {{$wrapper ? $wrapper : ''}} {{$spacing_size ? $spacing_size : ''}} bg--{{ $background_colour }}">
+
 
   @if ($hero_title)
     <div class="hero__inner container">
@@ -38,6 +37,7 @@ $btn_type = $cta_button['type'] ?? null;
           <h1 class="bg--{{ $background_colour }}">{!! $hero_title !!}</h1>
         </div>
         <div class="hero__sub-text flow">
+
           {!! $hero_content !!}
           @if ($show_button == 'yes')
             @include('partials.button', [
