@@ -8055,6 +8055,11 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+swiffy-slider@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/swiffy-slider/-/swiffy-slider-1.6.0.tgz#6a9a5935632c3e7941666d0f9c8c7fc58b072c15"
+  integrity sha512-5QTE7UImnYmNDmUStKYTFaMBYnOX2tpMs9w4fkKnUgJ3cUwGBD3JCllk7BbDLV9TwR0PQJL5EUDJjnMGefjWIg==
+
 tailwindcss@3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.4.tgz#afe3477e7a19f3ceafb48e4b083e292ce0dc0250"
