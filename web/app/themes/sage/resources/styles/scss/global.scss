@@ -54,6 +54,11 @@ body {
     background-color: $pf-off-white;
 }
 
+main {
+    margin-top: $spacing--lg;
+    margin-bottom: $spacing--lg;
+}
+
 table {
     border-collapse: collapse;
 }

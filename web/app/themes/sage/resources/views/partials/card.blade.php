@@ -5,16 +5,20 @@
 
 @php
     $post = $post ?? null;
-    // dd($post);
+    $thumbnail_id = get_post_thumbnail_id($post->ID);
+    $thumbnail_alt = $thumbnail_id ? get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true) : '';
 @endphp
 <div class="card">
     <a href="{{get_permalink($post->ID)}}">
         <div class="card__image">
-            <img src="{{get_the_post_thumbnail_url($post->ID)}}" alt="">  
+            @if ($thumbnail_id)
+                <img src="{{get_the_post_thumbnail_url($post->ID)}}" alt="{{$thumbnail_alt}}">  
+            @else
+                <img src="{{ asset('images/placeholder.png') }}" alt="Placeholder image">
+            @endif
         </div>
         <div class="card__content">
             <h3 class="card__title h2"><span>{{$post->post_title}}</span></h3>
-            <p class="card__excerpt">{{$post->post_excerpt}}</p>    
         </div>
     </a>
 </div>

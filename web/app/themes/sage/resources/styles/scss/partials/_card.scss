@@ -22,6 +22,7 @@
   height: 300px;
   padding: 0;
   opacity: 1;
+  transition: box-shadow 0.3s ease-in-out;
 
   @include media-breakpoint('lg') {
     height: 400px;
@@ -40,6 +41,7 @@
       object-position: center center;
       width: 100%;
       height: 100%;
+      transition: transform 0.3s ease-in-out;
     }
   }
 
@@ -87,8 +89,6 @@
   }
 
   &:hover {
-    .card__content {
-      color: $pf-red;
-    }
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
  } 
 }
