@@ -14,44 +14,54 @@ $theme_options
         'required' => 1,
     ])
     ->addTab('Social Media')
-    ->addLink('facebook_link', [
+    ->addUrl('facebook_link', [
         'label' => 'Facebook Link',
         'instructions' => 'Add a link to the Facebook page.',
     ])
-    ->addLink('twitter_link', [
+    ->addUrl('twitter_link', [
         'label' => 'Twitter Link',
         'instructions' => 'Add a link to the Twitter page.',
     ])
-    ->addLink('instagram_link', [
+    ->addUrl('instagram_link', [
         'label' => 'Instagram Link',
         'instructions' => 'Add a link to the Instagram page.',
     ])
-    ->addLink('youtube_link', [
+    ->addUrl('youtube_link', [
         'label' => 'YouTube Link',
         'instructions' => 'Add a link to the YouTube page.',
     ])
-    ->addLink('linkedin_link', [
+    ->addUrl('linkedin_link', [
         'label' => 'LinkedIn Link',
         'instructions' => 'Add a link to the LinkedIn page.',
     ])
 
     ->addTab('Footer')
-    ->addRepeater('pf_footer', [
-        'label' => 'Footer',
-        'instructions' => 'Add footer logos.',
-        'layout' => 'block',
-        'button_label' => 'Add Footer Logo',
-        'max' => 3
+    ->addTrueFalse('show_newsletter_signup', [
+        'label' => 'Show newsletter signup',
+        'instructions' => 'Shows the newsletter signup form in the final column',
+        'default_value' => 0,
     ])
-        ->addImage('footer_logo', [
-            'label' => 'Footer Logo',
-            'instructions' => 'Add a logo for the footer.',
+    ->addRepeater('footer_columns', [
+        'label' => 'Footer columns',
+        'layout' => 'block',
+        'button_label' => 'Add new column',
+    ])
+        ->addText('footer_column_title', [
+            'label' => 'Column title',
+            'instructions' => 'Add a title for the column.',
         ])
+        ->addRepeater('column_links', [
+            'label' => 'Column links',
+            'layout' => 'block',
+            'button_label' => 'Add new link',
+        ])
+            ->addLink('column_link', [
+                'label' => 'Link',
+                'instructions' => 'Add a link for the column.',
+            ])
+        ->endRepeater()
     ->endRepeater()
-    ->addText('footer_form', [
-        'label' => 'Footer Form Shortcode',
-        'instructions' => 'Add the shortcode from WPForms Builder, e.g. [wpforms id="319" title="true"]',
-    ]);
+    ;
 
 
 acf_add_local_field_group($theme_options->build());

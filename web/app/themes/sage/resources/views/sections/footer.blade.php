@@ -5,79 +5,74 @@ $twitter = get_field('twitter_link', 'option');
 $youtube = get_field('youtube_link', 'option');
 $linkedin = get_field('linkedin_link', 'option');
 
-$footer_logos = get_field('pf_footer', 'option');
-$form = get_field('footer_form', 'option');
+$footer_columns = get_field('footer_columns', 'option');
+$show_newsletter = get_field('show_newsletter_signup', 'option');
 @endphp
+
 <footer class="footer">
     <div class="footer__top full-bleed">
-        <div class=" container">
-            <div class="footer__top__wrapper">
-                <div class="footer__top__col1 flow">
-                    <div class="footer__top__logo">
-                        @include('partials.logo')
-                    </div>
-                    <div class="footer__top__nav">
-                        @if (has_nav_menu('footer_navigation'))
-                        {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'nav']) !!}
-                        @endif
-                    </div>
-                </div>
-                <div class="footer__top__col2 flow">
-                    @if ($form != '' || !isset($form))
-                    <div class="footer__top__form">
-                        @php
-                        echo do_shortcode(get_field('footer_form', 'option'));
-                        @endphp
-                    </div>
-                    @endif
-
-                    @if ($footer_logos)
-                    <div class="footer__top__icons{{ count($footer_logos) > 1 ? ' multiple-icons' : '' }}">
-                        @foreach ($footer_logos as $logo)
-
-                        @if ($logo['footer_logo'] !== false)
-                        <div class="footer__top__icons__img">
-                            <img src="{{ $logo['footer_logo']['url'] }}" alt="{{ $logo['footer_logo']['alt'] }}">
-                        </div>
-                        @endif
-
-                        @endforeach
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer__bottom full-bleed">
-            <div class="footer__bottom__content container">
+        <div class="container">
+            <div class="footer__upper">
+                <button>Temporary button here</button>
+                {{-- @include('partials.button', [
+                'button' => [
+                    'type' => 'primary',
+                    'link' => 'https://www.google.co.uk',
+                    'text' => 'Donate',
+                    'colour' => 'red',
+                    ]
+                ]) --}}
                 <div class="footer__social">
                     @if ($facebook != '')
-                    <a href={{ $facebook['url'] }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     @endif
                     @if ($instagram != '')
-                    <a href={{ $instagram['url' ] }}target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href={{ $instagram }}target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     @endif
                     @if ($twitter != '')
-                    <a href={{ $twitter['url'] }} target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href={{ $twitter }} target="_blank"><i class="fa-brands fa-twitter"></i></a>
                     @endif
                     @if ($youtube != '')
-                    <a href={{ $youtube['url'] }} target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href={{ $youtube }} target="_blank"><i class="fa-brands fa-youtube"></i></a>
                     @endif
                     @if ($linkedin != '')
-                    <a href={{ $linkedin['url'] }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+                    <a href={{ $linkedin }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
                     @endif
                 </div>
-                <div class="footer__builders">
-                    <p>©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Website by
-                        <a href="https://github.com/Harry-Gardiner" target="_blank">Harry</a>
-                        and <a href="https://github.com/Nelboh">Ellie</a>
-                    </p>
-                </div>
+            </div>
+
+            <div class="footer__middle">
+                @if($footer_columns)
+                    <div class="footer__columns-wrapper">
+                        @foreach ($footer_columns as $column)
+                            <div class="footer__column">
+                                <h3>{{ $column['footer_column_title'] }}</h3>
+                                @foreach ($column['column_links'] as $link)
+                                
+                                    <a href="{{ $link['column_link']['url'] }}">{{ $link['column_link']['title'] }}</a>
+                                @endforeach
+                            </div>
+                        @endforeach
+
+                        @if($show_newsletter)
+                            <div class="footer__newsletter">
+                                <h3>Get the newsletter</h3>
+                                <div class="footer__newsletter__form">
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                @endif
+            </div>
+
+            <div class="footer__lower full-bleed">
+                <p>©
+                    {{ date("Y") }} site & design by
+                    <a href="https://github.com/Harry-Gardiner" target="_blank">Harry</a>
+                    and <a href="https://github.com/Nelboh">Ellie</a>
+                </p>
             </div>
         </div>
     </div>
 
-    {{-- @php(dynamic_sidebar('sidebar-footer')) --}}
 </footer>
