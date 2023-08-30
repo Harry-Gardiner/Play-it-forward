@@ -60,19 +60,17 @@ $header-height-desktop: 106px;
     &__title {
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
         border-left: 13px solid $pf-dark-red;
-        max-width: 70%;
+        background-color: $pf-white;
+        width: fit-content;
 
         position: relative;
-        top: -6rem;
-
-        @include media-breakpoint('md') {
-            top: -2rem;
-        }
+        top: -5rem;
 
         @include media-breakpoint('lg') {
             filter: none;
             border-left: none;
             top: 0;
+            max-width: 100%;
         }
 
         h1 {
@@ -80,6 +78,7 @@ $header-height-desktop: 106px;
             padding: 0.4px 1rem 0.4px 0.5rem;
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
+            text-transform: none;
 
             @include media-breakpoint('lg') {
                 display: block;
@@ -93,7 +92,7 @@ $header-height-desktop: 106px;
         margin-top: -3rem;
 
         @include media-breakpoint('md') {
-            margin-top: auto;
+            margin-top: -1rem;
         }
 
         @include media-breakpoint('lg') {
