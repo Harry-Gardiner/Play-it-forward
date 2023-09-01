@@ -8,20 +8,17 @@
         ];
         $latest_posts = new WP_Query($args);
     }
-    
-    if (!empty($impact_word_group)) {
-        $impact_word = $impact_word_group['impact_word'];
-        $impact_word_position = $impact_word_group['impact_word_position'];
-        $impact_word_enable = $impact_word_group['impact_word_enable'];
-    }
+
+    if ($impact_word_enable === 'yes') {
+      $impact = $impact_word_position;
+    } 
 @endphp
 
 <section
     class="featured-posts {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
-    <div class="featured-posts__content container">
+    <div class="featured-posts__content container {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
         @if ($impact_word_enable === 'yes')
-            <div class="impact-word {{ $impact_word_position === 'right' ? 'impact-word--right' : 'impact-word--left' }}">
-            <div class="impact-word__word">{{ $impact_word }}</div>
+            <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
             @include('partials.title', [$title_style])
@@ -52,9 +49,9 @@
                 @endif
             @endisset
         </div>
-        @if($impact_word_enable === 'yes')
+        {{-- @if($impact_word_enable === 'yes')
             </div>
-        @endif
+        @endif --}}
     </div>
 </section>
 
