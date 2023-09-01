@@ -144,6 +144,7 @@ class FeaturedPosts extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+            'impact_word_group' => get_field('impact_word_group'),
             // Featured Posts
             'title_style' => get_field('title_style'),
             'featured_post_type' => get_field('featured_post_type'),
