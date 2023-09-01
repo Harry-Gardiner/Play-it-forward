@@ -1,0 +1,37 @@
+.impact {
+   display: flex;
+   gap: 5rem;
+   align-items: center;
+
+    &--right {
+        flex-direction: row-reverse;
+
+        .impact-word__word {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__word {
+        display: none;
+
+        @include media-breakpoint(xl) {
+            display: block;           
+        }
+
+        font-family: 'Katibeh';
+        font-size: 200px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 145px;
+        rotate: 180deg;
+        writing-mode: vertical-lr;
+
+        text-transform: lowercase;
+
+        // Hollow text
+        -webkit-text-stroke: 1px $pf-light-red;
+        text-stroke: 1px $pf-light-red;
+        color: transparent;
+    }
+
+}

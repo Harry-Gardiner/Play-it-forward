@@ -6,6 +6,7 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Title;
+use App\Fields\Partials\ImpactWord;
 
 class FeaturedPosts extends Block
 {
@@ -144,6 +145,12 @@ class FeaturedPosts extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+           
+            // Impact Word
+            'impact_word_enable' => get_field('impact_word_enable'),
+            'impact_word' => get_field('impact_word'),
+            'impact_word_position' => get_field('impact_word_position'),
+
             // Featured Posts
             'title_style' => get_field('title_style'),
             'featured_post_type' => get_field('featured_post_type'),
@@ -167,6 +174,7 @@ class FeaturedPosts extends Block
                 'label' => 'Featured Posts',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addFields($this->get(ImpactWord::class))
             ->addTab('featured_posts', [
                 'label' => 'Featured Posts',
             ])

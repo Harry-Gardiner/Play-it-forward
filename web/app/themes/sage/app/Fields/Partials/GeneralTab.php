@@ -26,7 +26,6 @@ class GeneralTab extends Partial
             ])
             ->addFields($this->get(Wrapper::class))
             ->addFields($this->get(ColourPicker::class));
-
         return $generalTab;
     }
 }
