@@ -25,8 +25,35 @@ class GeneralTab extends Partial
                 'message' => 'This tab contains controls settings for the block appearance, such as background colour and block padding/spacing.',
             ])
             ->addFields($this->get(Wrapper::class))
-            ->addFields($this->get(ColourPicker::class));
-
+            ->addFields($this->get(ColourPicker::class))
+            ->addGroup('impact_word_group', [
+                'label' => 'Impact word',
+                'instructions' => 'This is the word that will be displayed vertically on the left/right of the block.',
+            ])
+                ->addRadio('impact_word_enable', [
+                    'label' => 'Enable impact word',
+                    'instructions' => 'This will enable the impact word.',
+                    'choices' => [
+                        'yes' => 'Yes',
+                        'no' => 'No',
+                    ],
+                    'default_value' => 'no',
+                ])
+                ->addText('impact_word', [
+                    'label' => 'Impact word',
+                    'instructions' => 'This is the word that will be displayed vertically on the left/right of the block.',
+                ])
+                ->addSelect('impact_word_position', [
+                    'label' => 'Impact word position',
+                    'instructions' => 'This is the position of the impact word.',
+                    'choices' => [
+                        'left' => 'Left',
+                        'right' => 'Right',
+                    ],
+                    'default_value' => 'left',
+                ])
+            ->endGroup()
+;
         return $generalTab;
     }
 }
