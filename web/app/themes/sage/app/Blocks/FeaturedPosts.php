@@ -157,6 +157,7 @@ class FeaturedPosts extends Block
             'featured_posts' => get_field('featured_posts'),
             'latest_posts_type' => get_field('latest_posts_type'),
             'number_of_posts' => get_field('number_of_posts'),
+            'load_more_text' => get_field('load_more_text'),
         ];
     }
 
@@ -216,6 +217,11 @@ class FeaturedPosts extends Block
                 ],
                 'return_format' => 'key',
             ])->conditional('featured_post_type', '==', 'latest')
+            ->addText('load_more_text', [
+                'label' => 'Load More Text',
+                'instructions' => 'Enter the text to display on the load more button.',
+                'default_value' => 'Load More',
+            ])->conditional('number_of_posts', '==', 'All')
             ;
         return $featuredPosts->build();
     }
