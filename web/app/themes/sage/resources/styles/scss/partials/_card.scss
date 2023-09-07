@@ -50,10 +50,11 @@
   }
 
   &__title {
-    color: $pf-white;
+    color: $pf-charcoal;
+    border-left: 8px solid $pf-dark-red;
 
     span {
-      background: $pf-red;
+      background: $pf-white;
       padding: 0.25em;
       line-height: 1.5;
       -webkit-box-decoration-break: clone;
