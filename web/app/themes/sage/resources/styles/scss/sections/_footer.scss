@@ -150,6 +150,10 @@
     &__social {
         display: flex;
         gap: 2rem;
+
+        i {
+            color: $pf-charcoal;
+        }
     }
 
     &__upper {
@@ -193,6 +197,12 @@
 
         a {
             font-weight: 300;
+            text-decoration: none;
+            color: $pf-charcoal;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

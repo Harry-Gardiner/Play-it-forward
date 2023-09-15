@@ -13,6 +13,8 @@
 
         @include media-breakpoint('lg') {
           display: block;
+          color: $pf-charcoal;
+          text-decoration: none;
         }
       }
     }

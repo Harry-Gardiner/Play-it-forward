@@ -3,20 +3,20 @@
   line-height: 22px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: rem(8) rem(20);
-  font-weight: bold;
+  // padding: rem(8) rem(20);
+  // font-weight: bold;
   display: inline-block;
   transition: color 0.2s ease-in-out;
   min-width: fit-content;
-  height: fit-content;
+  height: 2.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: rem(10) rem(25);
 
   &:hover,
   &:focus {
     cursor: pointer;
-  }
-
-  @include media-breakpoint('lg') {
-    padding: rem(19) rem(20);
   }
 
   &--primary {
@@ -63,5 +63,11 @@
     padding: rem(10) rem(25);
     border: 1px solid $pf-white;
     border-radius: 100px;
+
+    &:hover {
+      border: 1px solid $pf-dark-red;
+      background-color: $pf-white;
+      color: $pf-dark-red;
+    }
   }
 }
