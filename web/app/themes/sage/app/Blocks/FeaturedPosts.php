@@ -6,6 +6,7 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Title;
+use App\Fields\Partials\ImpactWord;
 
 class FeaturedPosts extends Block
 {
@@ -144,12 +145,19 @@ class FeaturedPosts extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+           
+            // Impact Word
+            'impact_word_enable' => get_field('impact_word_enable'),
+            'impact_word' => get_field('impact_word'),
+            'impact_word_position' => get_field('impact_word_position'),
+
             // Featured Posts
             'title_style' => get_field('title_style'),
             'featured_post_type' => get_field('featured_post_type'),
             'featured_posts' => get_field('featured_posts'),
             'latest_posts_type' => get_field('latest_posts_type'),
             'number_of_posts' => get_field('number_of_posts'),
+            'load_more_text' => get_field('load_more_text'),
         ];
     }
 
@@ -167,6 +175,7 @@ class FeaturedPosts extends Block
                 'label' => 'Featured Posts',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addFields($this->get(ImpactWord::class))
             ->addTab('featured_posts', [
                 'label' => 'Featured Posts',
             ])
@@ -208,6 +217,11 @@ class FeaturedPosts extends Block
                 ],
                 'return_format' => 'key',
             ])->conditional('featured_post_type', '==', 'latest')
+            ->addText('load_more_text', [
+                'label' => 'Load More Text',
+                'instructions' => 'Enter the text to display on the load more button.',
+                'default_value' => 'Load More',
+            ])->conditional('number_of_posts', '==', 'All')
             ;
         return $featuredPosts->build();
     }
