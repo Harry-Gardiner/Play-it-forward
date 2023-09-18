@@ -83,6 +83,22 @@
                                    background-color: $pf-charcoal;
                               }
 
+                              &[value="raspberry"] {
+                                   background-color: $pf-raspberry;
+                              }
+
+                              &[value="yellow"] {
+                                   background-color: $pf-yellow;
+                              }
+
+                              &[value="light-green"] {
+                                   background-color: $pf-light-green;
+                              }
+
+                              &[value="dark-green"] {
+                                   background-color: $pf-dark-green;
+                              }
+
                               &:checked {
                                    &::before {
                                         display: none;

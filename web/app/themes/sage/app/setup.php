@@ -151,18 +151,23 @@ add_action('after_setup_theme', function () {
         [
             'name' => __('Yellow', 'PIF'),
             'slug' => 'yellow',
-            'color' => '#FAB200',
+            'color' => '#fab200',
         ],
         [
             'name' => __('Light Green', 'PIF'),
             'slug' => 'light-green',
-            'color' => '#60CE71',
+            'color' => '#60ce71',
         ],
         [
             'name' => __('Dark Green', 'PIF'),
             'slug' => 'dark-green',
-            'color' => '#2D6E51',
+            'color' => '#2d6e51',
         ],
+        [
+            'name' => __('Raspberry', 'PIF'),
+            'slug' => 'raspberry',
+            'color' => '#993050',
+        ]
     ]);
 });
 
