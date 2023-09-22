@@ -8,15 +8,16 @@
         ];
         $latest_posts = new WP_Query($args);
     }
-
+    
     if ($impact_word_enable === 'yes') {
-      $impact = $impact_word_position;
-    } 
+        $impact = $impact_word_position;
+    }
 @endphp
 
 <section
     class="featured-posts {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
-    <div class="featured-posts__content container {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
+    <div
+        class="featured-posts__content container {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
@@ -42,14 +43,15 @@
                         <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
                         @if ($latest_posts->post_count >= 10)
                             <div class="btn__wrapper">
-                                <button class="button button--primary button--red" id="load-more">{{$load_more_text}}</button>
+                                <button class="button button--primary button--raspberry"
+                                    id="load-more">{{ $load_more_text }}</button>
                             </div>
                         @endif
                     </div>
                 @endif
             @endisset
         </div>
-        {{-- @if($impact_word_enable === 'yes')
+        {{-- @if ($impact_word_enable === 'yes')
             </div>
         @endif --}}
     </div>

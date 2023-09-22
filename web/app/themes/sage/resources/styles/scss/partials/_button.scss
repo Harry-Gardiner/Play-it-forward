@@ -23,33 +23,49 @@
     border-radius: 100px;
   }
 
-  &--secondary {
-    border-radius: 8px;
-  }
-
-  &--red {
-    background-color: $pf-red;
+  &--raspberry {
+    background-color: $pf-raspberry;
     color: $pf-white;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
-      background-color: $pf-dark-red;
+      border-color: $pf-raspberry;
+      background-color: $pf-white;
+      color: $pf-raspberry;
+    }
+  }
+
+  &--dark-green {
+    background-color: $pf-dark-green;
+    color: $pf-white;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-white;
+      color: $pf-dark-green;
+      border-color: $pf-dark-green;
     }
   }
 
   &--black {
     background-color: $pf-charcoal;
     color: $pf-white;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
-      background-color: $pf-charcoal; // TODO: Add this color to the color palette or some other on hover style
+      background-color: $pf-white;
+      color: $pf-charcoal;
+      border-color: $pf-charcoal;
     }
   }
 
   &--white {
     background-color: $pf-white;
     color: $pf-charcoal;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
