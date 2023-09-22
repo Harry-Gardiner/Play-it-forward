@@ -33,6 +33,21 @@
     color: $pf-white;
 }
 
+.bg--yellow {
+    background-color: $pf-yellow;
+    color: $pf-charcoal;
+}
+
+.bg--raspberry {
+    background-color: $pf-raspberry;
+    color: $pf-white;
+}
+
+.bg--dark-green {
+    background-color: $pf-dark-green;
+    color: $pf-white;
+}
+
 /**
  * Text Colours
  * -----------------------------------------------------------------------------
@@ -60,4 +75,3 @@
 .charcoal {
     color: $pf-charcoal;
 }
-

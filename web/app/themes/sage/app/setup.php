@@ -153,11 +153,11 @@ add_action('after_setup_theme', function () {
             'slug' => 'yellow',
             'color' => '#fab200',
         ],
-        [
-            'name' => __('Light Green', 'PIF'),
-            'slug' => 'light-green',
-            'color' => '#60ce71',
-        ],
+        // [
+        //     'name' => __('Light Green', 'PIF'),
+        //     'slug' => 'light-green',
+        //     'color' => '#60ce71',
+        // ],
         [
             'name' => __('Dark Green', 'PIF'),
             'slug' => 'dark-green',
