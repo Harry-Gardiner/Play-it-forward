@@ -27,16 +27,6 @@ class Button extends Partial
                 ],
                 'default_value' => 'primary',
             ])
-            ->addSelect('colour', [
-                'label' => 'Colour',
-                'instructions' => 'Choose the background colour for the button.',
-                'choices' => [
-                    'red' => 'Red',
-                    'black' => 'Black',
-                    'white' => 'White',
-                ],
-                'default_value' => 'red',
-            ])
             ->addText('text', [
                 'label' => 'Text',
                 'instructions' => 'Enter the text for the button.',

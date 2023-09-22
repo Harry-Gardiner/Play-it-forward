@@ -1,6 +1,6 @@
 @switch($type)
     @case('secondary')
-        <a class="button button--secondary button--{{$colour}}" href="{{ $link }}">{{ $text }}</a>
+        <a class="button button--secondary button--{{ $colour }}" href="{{ $link }}">{{ $text }}</a>
     @break
 
     @case('donate')
@@ -11,12 +11,12 @@
             $text = $donationsLink['title'];
             $target = $donationsLink['target'] ? $donationsLink['target'] : '_self';
         @endphp
-        <a class="button button--donate button--{{$colour}}" href="{{ $link }}">
-            {{$text}}
+        <a class="button button--donate button--{{ $colour }}" href="{{ $link }}">
+            {{ $text }}
             <span class="visually-hidden">Link to donate</span>
         </a>
     @break
 
     @default
-        <a class="button button--primary button--{{$colour}}" href="{{ $link }}">{{ $text }}</a>
+        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}">{{ $text }}</a>
 @endswitch

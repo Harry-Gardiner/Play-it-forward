@@ -153,6 +153,7 @@ class CtaBanner extends Block
             'layout' => get_field('layout'),
             'background_colour' => get_field('colour_picker'),
             'title_style' => get_field('title_style'),
+            'btn_colour' => get_field('btn_colour'),
         ];
     }
 
@@ -170,6 +171,11 @@ class CtaBanner extends Block
                 'label' => 'CTA Banner',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
+                'default_value' => 'off-white',
+            ])
             ->addTab('Content')
             ->addFields($this->get(Title::class))
             ->addWysiwyg('body')
@@ -184,7 +190,7 @@ class CtaBanner extends Block
                 ],
                 'default_value' => 'no',
                 'layout' => 'horizontal',
-                ])
+            ])
             ->addImage('image')->conditional('add_image', '==', 'yes')
             ->addSelect('image_position', [
                 'label' => 'Image Position',
@@ -221,9 +227,19 @@ class CtaBanner extends Block
                 ],
                 'default_value' => 'no',
                 'layout' => 'horizontal',
-                ])
+            ])
             ->addGroup('cta_button', ['label' => 'CTA Button'])
             ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
+            ->addSelect('btn_colour', [
+                'label' => 'Colour',
+                'instructions' => 'Choose the background colour for the button.',
+                'choices' => [
+                    'red' => 'Red',
+                    'black' => 'Black',
+                    'white' => 'White',
+                ],
+                'default_value' => 'red',
+            ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
             ->endGroup();
         return $ctaBanner->build();
     }
