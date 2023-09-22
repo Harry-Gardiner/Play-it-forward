@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "yarn:dev",
+            "type": "shell",
+            "command": "yarn dev",
+            "presentation": {
+                "panel": "dedicated",
+                "group": "dev"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/web/app/themes/sage"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+    ]
+}
