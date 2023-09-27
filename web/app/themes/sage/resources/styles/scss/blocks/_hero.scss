@@ -1,6 +1,6 @@
 // These values must match those in the accesssible-header.scss file.
 $header-height-mobile: 78px;
-$header-height-desktop: 106px;
+$header-height-desktop: 60px;
 
 .hero {
     position: relative;
@@ -10,7 +10,7 @@ $header-height-desktop: 106px;
     
     @media (orientation: portrait) and (min-height: 700px) {
         height: calc(100vh - #{$header-height-mobile});
-      }
+    }
 
     @include media-breakpoint('lg') {
         display: flex;

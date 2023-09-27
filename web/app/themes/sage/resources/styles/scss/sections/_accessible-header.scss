@@ -1,6 +1,6 @@
 // Header specific variables
 $header-height-mobile: 78px;
-$header-height-desktop: 106px;
+$header-height-desktop: 60px;
 
 // TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
 
@@ -138,7 +138,7 @@ $header-height-desktop: 106px;
     @include media-breakpoint('lg') {
       display: none;
       height: 100%;
-      font-weight: bold;
+      font-weight: 500;
       text-transform: uppercase;
 
       ul.main-navigation {
@@ -165,7 +165,7 @@ $header-height-desktop: 106px;
         }
 
         & > li > a {
-          font-weight: bold;
+          font-weight: 500;
         }
       }
 

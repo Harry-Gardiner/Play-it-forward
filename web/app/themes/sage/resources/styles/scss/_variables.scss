@@ -67,6 +67,8 @@ $size--xl: $pf-base-size * 1.875;
 // 30px
 $size--xxl: $pf-base-size * 3.125;
 //50px
+$size--giant: $pf-base-size * 4.6875;
+
 
 /**********************
  Spacing
@@ -82,6 +84,6 @@ $spacing--xl: $pf-base-size * 4;
 Fonts
 ***********************/
 
-$font--primary: 'Josefin Sans', Helvetica, Arial, sans-serif;
-$font--secondary: 'Josefin Sans', Helvetica, Arial, sans-serif;
+$font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial, sans-serif;
+$font--secondary: 'Katibeh', 'Unna', 'Big Caslon', Georgia, serif;
 $font--tertiary: 'Montserrat', Helvetica, Arial, sans-serif;

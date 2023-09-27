@@ -35,7 +35,7 @@ $btn_type = $cta_button['type'] ?? null;
     <div class="hero__inner container">
       <div class="hero__inner__content flow">
         <div class="hero__title">
-          <h1 class="h1">{!! $hero_title !!}</h1>
+          <h1 class="giant-h1">{!! $hero_title !!}</h1>
         </div>
         <div class="hero__sub-text flow">
           {!! $hero_content !!}
