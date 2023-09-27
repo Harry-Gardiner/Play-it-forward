@@ -133,6 +133,7 @@ class ButtonBlock extends Block
             'btn_position' => get_field('position'),
 
             'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
         ];
     }
 
