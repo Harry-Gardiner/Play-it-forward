@@ -6,25 +6,24 @@
         $btn_type = $cta_button['type'];
     }
     
-    $button_colour = 'raspberry';
-    if ($btn_colour) {
-        $button_colour = $btn_colour = $btn_colour;
+    if ($cta_button['btn_colour'] !== '') {
+        $button_colour = $cta_button['btn_colour'];
     } else {
         switch ($background_colour) {
             case 'yellow':
-                $button_colour = 'black';
+                $button_colour = 'bg-yellow';
                 break;
     
             case 'dark-green':
-                $button_colour = 'white';
+                $button_colour = 'bg-green';
                 break;
     
             case 'raspberry':
-                $button_colour = 'white';
+                $button_colour = 'bg-raspberry';
                 break;
     
             default:
-                $button_colour = 'raspberry';
+                $button_colour = 'bg-raspberry';
                 break;
         }
     }

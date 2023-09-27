@@ -169,6 +169,7 @@ class ButtonBlock extends Block
                     'raspberry' => 'Raspberry',
                     'black' => 'Black',
                     'white' => 'White',
+                    'dark-green' => 'Dark Green',
                 ],
                 'default_value' => 'raspberry',
             ]);

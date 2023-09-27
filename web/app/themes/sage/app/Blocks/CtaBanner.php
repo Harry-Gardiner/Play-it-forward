@@ -153,7 +153,6 @@ class CtaBanner extends Block
             'layout' => get_field('layout'),
             'background_colour' => get_field('colour_picker'),
             'title_style' => get_field('title_style'),
-            'btn_colour' => get_field('btn_colour'),
         ];
     }
 
@@ -236,9 +235,8 @@ class CtaBanner extends Block
                 'choices' => [
                     'raspberry' => 'Raspberry',
                     'black' => 'Black',
-                    'white' => 'White',
+                    'dark-green' => 'Dark Green',
                 ],
-                'default_value' => 'raspberry',
             ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
             ->endGroup();
         return $ctaBanner->build();

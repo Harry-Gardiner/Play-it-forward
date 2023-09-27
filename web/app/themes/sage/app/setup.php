@@ -119,21 +119,6 @@ add_action('after_setup_theme', function () {
 add_action('after_setup_theme', function () {
     add_theme_support('editor-color-palette', [
         [
-            'name' => __('Red', 'PIF'),
-            'slug' => 'red',
-            'color' => '#a43939',
-        ],
-        [
-            'name' => __('Dark Red', 'PIF'),
-            'slug' => 'dark-red',
-            'color' => '#802727',
-        ],
-        [
-            'name' => __('Light Red', 'PIF'),
-            'slug' => 'light-red',
-            'color' => '#bd4c4c',
-        ],
-        [
             'name' => __('Off White', 'PIF'),
             'slug' => 'off-white',
             'color' => '#f8faf8',
