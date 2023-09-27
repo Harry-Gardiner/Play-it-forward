@@ -234,11 +234,11 @@ class CtaBanner extends Block
                 'label' => 'Colour',
                 'instructions' => 'Choose the background colour for the button.',
                 'choices' => [
-                    'red' => 'Red',
+                    'raspberry' => 'Raspberry',
                     'black' => 'Black',
                     'white' => 'White',
                 ],
-                'default_value' => 'red',
+                'default_value' => 'raspberry',
             ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
             ->endGroup();
         return $ctaBanner->build();
