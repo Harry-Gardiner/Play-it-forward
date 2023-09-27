@@ -150,6 +150,10 @@
     &__social {
         display: flex;
         gap: 2rem;
+
+        i {
+            color: $pf-charcoal;
+        }
     }
 
     &__upper {
@@ -186,13 +190,19 @@
         padding-bottom: 1rem;
 
         h3 {
-            font-weight: 700;
+            font-weight: 500;
             font-size: $size--md;
             text-transform: none;
         }
 
         a {
             font-weight: 300;
+            text-decoration: none;
+            color: $pf-charcoal;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -202,7 +212,7 @@
         }
 
         h3 {
-            font-weight: 700;
+            font-weight: 500;
             font-size: $size--md;
             text-transform: none;
         }

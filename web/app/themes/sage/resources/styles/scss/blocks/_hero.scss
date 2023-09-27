@@ -1,16 +1,16 @@
 // These values must match those in the accesssible-header.scss file.
 $header-height-mobile: 78px;
-$header-height-desktop: 106px;
+$header-height-desktop: 60px;
 
 .hero {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
     height: 100%;
-    
+
     @media (orientation: portrait) and (min-height: 700px) {
         height: calc(100vh - #{$header-height-mobile});
-      }
+    }
 
     @include media-breakpoint('lg') {
         display: flex;
@@ -59,7 +59,7 @@ $header-height-desktop: 106px;
 
     &__title {
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
-        border-left: 13px solid $pf-dark-red;
+        border-left: 13px solid $pf-raspberry;
         background-color: $pf-white;
         width: fit-content;
 
@@ -102,5 +102,5 @@ $header-height-desktop: 106px;
 }
 
 .highlight {
-    color: $pf-light-red;
+    color: $pf-raspberry;
 }

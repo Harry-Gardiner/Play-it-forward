@@ -1,42 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+// Primary font - Jost (weights 0 - 800)
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
+// Secondary font - Katibeh
 @import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
 
-body, 
-p, 
-div {
+p,
+li,
+a {
   font-family: $font--primary;
   font-size: $size--md;
+  font-weight: 300;
+  line-height: $spacing--md;
+}
+
+.standfirst {
+  font-family: $font--primary;
+  font-size: $size--lg;
+  font-weight: 400;
+  line-height: $spacing--lg;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5 {
-  line-height: 1.2;
-  font-family: $font--secondary;
+h5,
+h6 {
+  font-family: $font--primary;
   text-transform: uppercase;
+  font-weight: 400;
 }
 
-.h1 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $font--primary;
+}
+
+h2 {
+  letter-spacing: 2px;
+}
+
+.giant-h1 {
+
+  font-family: $font--primary;
+  font-weight: 600;
+
+  @include media-breakpoint('md') {
+    font-size: $size--xxl;
+    line-height: 1.2;
+  }
+
+  @include media-breakpoint('lg') {
+    font-size: $size--giant;
+    line-height: 1.2;
+  }
+}
+
+.h1,
+h1:not([class]) {
   font-size: $size--xxl;
 }
 
 .h2,
-.h3 {
+h2:not([class]) {
   font-size: $size--xl;
 }
 
+.h3,
+h3:not([class]) {
+  font-size: $size--lg;
+}
+
+.h4,
+h4:not([class]) {
+  font-size: $size--md;
+}
+
+.h5,
+h5:not([class]) {
+  font-size: $size--base;
+}
+
+.h6,
+h6:not([class]) {
+  font-size: $size--sm;
+}
+
 a {
-  color: currentColor;
+  color: $pf-raspberry;
+  text-decoration: underline;
+}
+
+ul {
+  li:not([class]) {
+    list-style: none;
+  }
+
+  li:not([class]):before {
+    content: "·";
+    font-size: 30px;
+    vertical-align: middle;
+    line-height: 20px;
+    padding-right: 0.5rem;
+  }
+}
+
+ol {
+  margin-left: 1rem;
+
+  li {
+    list-style-type: decimal;
+
+    li {
+      margin-left: 1rem;
+    }
+  }
 }
 
 .button {
   font-size: rem(18);
+  letter-spacing: 2px;
 
   @include media-breakpoint('lg') {
     font-size: rem(22);
@@ -44,12 +131,25 @@ a {
 }
 
 .nav {
-    font-size: $size--md;
+  ul {
+    li {
+      a {
+        font-size: $size--base;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 @include media-breakpoint('lg') {
   .nav {
     font-size: $size--md;
+
+    .menu-item:hover {
+      a {
+        color: $pf-white;
+      }
+    }
 
     .sub-menu {
       font-size: $size--md;

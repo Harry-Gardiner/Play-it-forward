@@ -16,9 +16,6 @@ $col--xl: 1140px; // (max-width: 1140px)
 $pf-off-white: #f8faf8;
 $pf-charcoal: #262626;
 $pf-white: #fff;
-$pf-red: #a43939;
-$pf-dark-red: #802727;
-$pf-light-red: #bd4c4c;
 $pf-raspberry: #993050;
 $pf-yellow: #FAB200;
 $pf-shadow: #464B44;
@@ -65,6 +62,8 @@ $size--xl: $pf-base-size * 1.875;
 // 30px
 $size--xxl: $pf-base-size * 3.125;
 //50px
+$size--giant: $pf-base-size * 4.6875;
+
 
 /**********************
  Spacing
@@ -77,9 +76,9 @@ $spacing--lg: $pf-base-size * 3;
 $spacing--xl: $pf-base-size * 4;
 
 /**********************
- Fonts
+Fonts
 ***********************/
 
-$font--primary: 'Josefin Sans', Helvetica, Arial, sans-serif;
-$font--secondary: 'Josefin Sans', Helvetica, Arial, sans-serif;
+$font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial, sans-serif;
+$font--secondary: 'Katibeh', 'Unna', 'Big Caslon', Georgia, serif;
 $font--tertiary: 'Montserrat', Helvetica, Arial, sans-serif;

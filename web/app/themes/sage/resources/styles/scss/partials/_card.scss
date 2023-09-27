@@ -32,6 +32,7 @@
     height: 100%;
     overflow: hidden;
     border-radius: 12px;
+
     img {
       object-fit: cover;
       object-position: center center;
@@ -51,7 +52,7 @@
 
   &__title {
     color: $pf-charcoal;
-    border-left: 8px solid $pf-red;
+    border-left: 8px solid $pf-raspberry;
 
     span {
       background: $pf-white;
@@ -82,10 +83,10 @@
           bottom: $spacing--sm;
         }
       }
-    } 
+    }
   }
 
   &:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
- } 
+  }
 }

@@ -1,6 +1,6 @@
 // Header specific variables
 $header-height-mobile: 78px;
-$header-height-desktop: 106px;
+$header-height-desktop: 60px;
 
 // TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
 
@@ -33,11 +33,12 @@ $header-height-desktop: 106px;
   }
 
   .nav {
+
     /*
   * MOBILE STYLING
   */
     @media screen and (max-width: 992px) {
-      background-color: $pf-dark-red;
+      background-color: $pf-raspberry;
       color: $pf-off-white;
       position: absolute;
       left: 0;
@@ -65,7 +66,7 @@ $header-height-desktop: 106px;
 
           &:hover,
           &:focus {
-            background: $pf-red;
+            background: $pf-raspberry;
           }
         }
 
@@ -80,7 +81,7 @@ $header-height-desktop: 106px;
 
           &:hover,
           &:focus {
-            background: $pf-red;
+            background: $pf-raspberry;
           }
         }
       }
@@ -90,7 +91,7 @@ $header-height-desktop: 106px;
         flex-wrap: wrap;
         align-items: center;
 
-        & > a {
+        &>a {
           flex: 1 0 80%;
         }
 
@@ -108,16 +109,17 @@ $header-height-desktop: 106px;
           flex-basis: 100%;
 
           a {
+
             &:hover,
             &:focus {
-              background: $pf-light-red;
+              background: $pf-raspberry;
               outline-offset: -0.25rem;
             }
           }
         }
 
         &.open {
-          background: $pf-red;
+          background: $pf-raspberry;
 
           .sub-menu {
             height: fit-content;
@@ -138,7 +140,7 @@ $header-height-desktop: 106px;
     @include media-breakpoint('lg') {
       display: none;
       height: 100%;
-      font-weight: bold;
+      font-weight: 500;
       text-transform: uppercase;
 
       ul.main-navigation {
@@ -147,7 +149,7 @@ $header-height-desktop: 106px;
         align-items: center;
         // gap: 1rem;
 
-        & > .menu-item {
+        &>.menu-item {
           height: 100%;
           display: flex;
           align-items: center;
@@ -155,7 +157,7 @@ $header-height-desktop: 106px;
 
           &:hover,
           &:focus-within {
-            background-color: $pf-dark-red;
+            background-color: $pf-raspberry;
             color: $pf-white;
 
             .caret {
@@ -164,8 +166,8 @@ $header-height-desktop: 106px;
           }
         }
 
-        & > li > a {
-          font-weight: bold;
+        &>li>a {
+          font-weight: 500;
         }
       }
 
@@ -181,7 +183,7 @@ $header-height-desktop: 106px;
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: $pf-dark-red;
+          background-color: $pf-raspberry;
           position: absolute;
           left: 50%;
           margin-left: -150px; // Has to be half the sub-menu width to centre.
@@ -190,9 +192,10 @@ $header-height-desktop: 106px;
           width: 300px;
 
           li {
+
             &:hover,
             &:focus {
-              background: $pf-red;
+              background: $pf-raspberry;
               color: $pf-white;
             }
 
@@ -207,7 +210,7 @@ $header-height-desktop: 106px;
         &.open,
         &:hover {
           color: $pf-off-white;
-          background: $pf-dark-red;
+          background: $pf-raspberry;
 
           .caret {
             pointer-events: none;
@@ -231,7 +234,7 @@ $header-height-desktop: 106px;
       }
     }
 
-  /*
+    /*
   * CHEVRON BUTTON
   */
     .sub-menu-btn {
@@ -258,7 +261,7 @@ $header-height-desktop: 106px;
       &:hover,
       &:focus {
         cursor: pointer;
-        background-color: $pf-dark-red;
+        background-color: $pf-raspberry;
       }
 
     }
