@@ -22,6 +22,10 @@
                 $button_colour = 'bg-raspberry';
                 break;
     
+            case 'charcoal':
+                $button_colour = 'white';
+                break;
+    
             default:
                 $button_colour = 'bg-raspberry';
                 break;
