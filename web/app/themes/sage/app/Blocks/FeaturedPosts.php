@@ -145,7 +145,7 @@ class FeaturedPosts extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
-           
+
             // Impact Word
             'impact_word_enable' => get_field('impact_word_enable'),
             'impact_word' => get_field('impact_word'),
@@ -173,6 +173,7 @@ class FeaturedPosts extends Block
         $featuredPosts
             ->addMessage('block_title', '', [
                 'label' => 'Featured Posts',
+                'message' => 'Display a list of featured posts. Posts shown can be chosen(featured) or set to display the latest posts. If an impact word is added it will show a 2x column layout, else it will show a 3x column layout.',
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addFields($this->get(ImpactWord::class))
@@ -194,12 +195,12 @@ class FeaturedPosts extends Block
                 'layout' => 'block',
                 'button_label' => 'Add Post',
             ])->conditional('featured_post_type', '==', 'featured')
-                ->addPostObject('post', [
-                    'label' => 'Post',
-                    'post_type' => ['post'],
-                    'return_format' => 'object',
-                    'ui' => 1,
-                ])
+            ->addPostObject('post', [
+                'label' => 'Post',
+                'post_type' => ['post'],
+                'return_format' => 'object',
+                'ui' => 1,
+            ])
             ->endRepeater()
             ->addSelect('latest_posts_type', [
                 'label' => 'Post Type',
@@ -211,8 +212,10 @@ class FeaturedPosts extends Block
                 'instructions' => 'Choose the number of posts to display. If set to "All" posts will be displayed with a load more button.',
                 'default_value' => '4',
                 'choices' => [
+                    '3' => '3',
                     '4' => '4',
                     '8' => '8',
+                    '9' => '9',
                     '10' => 'All',
                 ],
                 'return_format' => 'key',
@@ -221,8 +224,7 @@ class FeaturedPosts extends Block
                 'label' => 'Load More Text',
                 'instructions' => 'Enter the text to display on the load more button.',
                 'default_value' => 'Load More',
-            ])->conditional('number_of_posts', '==', 'All')
-            ;
+            ])->conditional('number_of_posts', '==', 'All');
         return $featuredPosts->build();
     }
 
