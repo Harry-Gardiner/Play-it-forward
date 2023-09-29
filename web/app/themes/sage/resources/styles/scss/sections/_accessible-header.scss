@@ -24,6 +24,11 @@ $header-height-desktop: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.125rem;
+
+    @include media-breakpoint('lg') {
+      padding: 0 2rem;
+    }
 
     &__nav {
       height: 100%;

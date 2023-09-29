@@ -1,5 +1,5 @@
 <header class="header full-bleed">
-    <div class="header__wrapper container">
+    <div class="header__wrapper">
         @include('partials.logo')
 
         <div class="header__wrapper__nav">
@@ -14,8 +14,9 @@
                 </nav>
             @endif
             <div class="header__buttons">
-                @include('partials.button', ['type' => 'donate', 'colour' => 'red'])
-                <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle Menu</span></button>
+                @include('partials.button', ['type' => 'donate', 'colour' => 'yellow'])
+                <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle
+                        Menu</span></button>
             </div>
         </div>
     </div>
