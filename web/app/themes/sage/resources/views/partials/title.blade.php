@@ -8,7 +8,7 @@
 
 @if (isset($title_style))
     <div class="title">
-        <{{ $title_style['heading_level'] }} {{ $heading_style }}>
+        <{{ $title_style['heading_level'] }} class="{{ $heading_style }}">
             {{ $title }}
             </{{ $title_style['heading_level'] }}>
     </div>
