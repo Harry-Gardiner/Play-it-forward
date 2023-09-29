@@ -6,12 +6,23 @@
   align-items: center;
 
   @include media-breakpoint('md') {
-    grid-template-columns: repeat(2, 1fr);
+    &.two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.three-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     justify-items: center;
   }
 
   @include media-breakpoint('lg') {
     gap: 2rem;
+
+    &.three-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
@@ -24,8 +35,8 @@
   opacity: 1;
   transition: box-shadow 0.3s ease-in-out;
 
-  @include media-breakpoint('lg') {
-    height: 400px;
+  @include media-breakpoint('md') {
+    height: 350px;
   }
 
   &__image {

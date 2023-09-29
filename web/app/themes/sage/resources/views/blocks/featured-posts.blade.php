@@ -26,7 +26,7 @@
             @isset($featured_post_type)
                 @if ($featured_post_type == 'featured')
                     <div class="featured-posts__featured">
-                        <div class="cards-wrapper">
+                        <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
                             @foreach ($featured_posts as $post)
                                 @include('partials.card', ['post' => $post['post']])
                             @endforeach
@@ -35,7 +35,7 @@
                 @endif
                 @if ($featured_post_type == 'latest')
                     <div class="featured-posts__latest">
-                        <div class="cards-wrapper">
+                        <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
                             @foreach ($latest_posts->posts as $post)
                                 @include('partials.card', ['post' => $post])
                             @endforeach
@@ -51,9 +51,6 @@
                 @endif
             @endisset
         </div>
-        {{-- @if ($impact_word_enable === 'yes')
-            </div>
-        @endif --}}
     </div>
 </section>
 
