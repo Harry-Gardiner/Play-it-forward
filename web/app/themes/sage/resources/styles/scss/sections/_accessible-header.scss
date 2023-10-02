@@ -71,7 +71,7 @@ $header-height-desktop: 60px;
 
           &:hover,
           &:focus {
-            background: $pf-raspberry;
+            background: $pf-secondary-raspberry;
           }
         }
 
@@ -86,8 +86,9 @@ $header-height-desktop: 60px;
           color: inherit;
 
           &:hover,
-          &:focus {
-            background: $pf-raspberry;
+          &:focus,
+          &[aria-expanded='true'] {
+            background: $pf-secondary-raspberry;
           }
         }
       }
@@ -102,9 +103,8 @@ $header-height-desktop: 60px;
         }
 
         .sub-menu-btn {
-          height: 100%;
           flex: 1 0 10%;
-          height: 56px;
+          height: 64px;
         }
 
         .sub-menu {
@@ -164,7 +164,10 @@ $header-height-desktop: 60px;
           &:hover,
           &:focus-within {
             background-color: $pf-raspberry;
-            color: $pf-white;
+
+            a {
+              color: $pf-white;
+            }
 
             .caret {
               background-image: url('../../../images/icons/caret_white.svg');
@@ -201,7 +204,7 @@ $header-height-desktop: 60px;
 
             &:hover,
             &:focus {
-              background: $pf-raspberry;
+              background: $pf-secondary-raspberry;
               color: $pf-white;
             }
 
