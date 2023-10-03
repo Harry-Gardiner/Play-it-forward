@@ -1,4 +1,20 @@
-<header class="header full-bleed">
+@php
+    $header_style;
+    
+    function is_blog()
+    {
+        return (is_author() || is_category() || is_tag() || is_date() || is_home() || is_single()) && 'post' == get_post_type();
+    }
+    
+    if (is_front_page()) {
+        $header_style = 'header--font-page';
+    } elseif (is_blog()) {
+        $header_style = 'header--blog';
+    } else {
+        $header_style = 'header--default';
+    }
+@endphp
+<header class="header full-bleed {{ $header_style }}">
     <div class="header__wrapper">
         @include('partials.logo')
 
