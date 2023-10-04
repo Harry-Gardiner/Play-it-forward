@@ -21,6 +21,20 @@
     border-radius: 100px;
   }
 
+  &--donate {
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    background-color: $pf-yellow;
+    color: $pf-charcoal;
+
+
+    &:hover {
+      border: 1px solid $pf-yellow;
+      background-color: transparent;
+      color: $pf-yellow;
+    }
+  }
+
   &--raspberry {
     background-color: $pf-raspberry;
     color: $pf-white;
@@ -109,20 +123,6 @@
       background-color: transparent;
       color: $pf-charcoal;
       border-color: $pf-charcoal;
-    }
-  }
-
-  &--donate {
-    border: 1px solid transparent;
-    letter-spacing: 2px;
-    background-color: $pf-yellow;
-    color: $pf-charcoal;
-
-
-    &:hover {
-      border: 1px solid $pf-yellow;
-      background-color: transparent;
-      color: $pf-yellow;
     }
   }
 }

@@ -8,10 +8,13 @@
     
     if (is_front_page()) {
         $header_style = 'header--font-page';
+        $btn_colour = 'white';
     } elseif (is_blog()) {
         $header_style = 'header--blog';
+        $btn_colour = 'white';
     } else {
         $header_style = 'header--default';
+        $btn_colour = 'donate';
     }
 @endphp
 <header class="header full-bleed {{ $header_style }}">
@@ -30,7 +33,7 @@
                 </nav>
             @endif
             <div class="header__buttons">
-                @include('partials.button', ['type' => 'donate', 'colour' => 'yellow'])
+                @include('partials.button', ['type' => 'donate', 'colour' => $btn_colour])
                 <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle
                         Menu</span></button>
             </div>
