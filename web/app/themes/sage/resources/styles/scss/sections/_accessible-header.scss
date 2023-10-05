@@ -29,11 +29,10 @@ $header-height-desktop: 60px;
         color: $pf-white;
       }
     }
-
   }
 
   position: sticky;
-  top: 0;
+  top: -1px;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
