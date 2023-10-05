@@ -2,18 +2,42 @@
 $header-height-mobile: 78px;
 $header-height-desktop: 60px;
 
-// TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
-
 .header {
-  color: $pf-charcoal;
-  background-color: $pf-white;
+  &--default {
+    color: $pf-charcoal;
+    background-color: $pf-white;
+
+    .menu-item {
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  &--blog {
+    color: $pf-white;
+    background-color: $pf-charcoal;
+
+    .logo__wrapper {
+      &__text {
+        color: $pf-white;
+      }
+    }
+
+    .menu-item {
+      a {
+        color: $pf-white;
+      }
+    }
+
+  }
+
   position: sticky;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;

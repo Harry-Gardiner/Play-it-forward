@@ -14,7 +14,7 @@
         $btn_colour = 'white';
     } else {
         $header_style = 'header--default';
-        $btn_colour = 'donate';
+        $btn_colour = 'raspberry';
     }
 @endphp
 <header class="header full-bleed {{ $header_style }}">
