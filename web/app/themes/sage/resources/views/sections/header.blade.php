@@ -34,7 +34,8 @@
             @endif
             <div class="header__buttons">
                 @include('partials.button', ['type' => 'donate', 'colour' => $btn_colour])
-                <button class="hamb"><span class="hamb-line"></span><span class="visually-hidden">Toggle
+                <button class="hamb {{ $header_style }}"><span class="hamb-line"></span><span
+                        class="visually-hidden">Toggle
                         Menu</span></button>
             </div>
         </div>
