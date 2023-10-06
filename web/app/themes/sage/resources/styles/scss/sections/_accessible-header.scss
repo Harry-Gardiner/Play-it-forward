@@ -2,6 +2,21 @@
 $header-height-mobile: 78px;
 $header-height-desktop: 60px;
 
+.caret {
+  background-image: url('../../../images/icons/caret_white.svg');
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0);
+  transition: rotate 300ms ease-out;
+  display: inline-block;
+
+  @include media-breakpoint('lg') {
+    background-image: url('../../../images/icons/caret_charcoal.svg');
+  }
+}
+
 .header {
   &--default {
     color: $pf-charcoal;
@@ -27,6 +42,12 @@ $header-height-desktop: 60px;
     .menu-item {
       a {
         color: $pf-white;
+      }
+    }
+
+    @include media-breakpoint('lg') {
+      .caret {
+        background-image: url('../../../images/icons/caret_white.svg');
       }
     }
   }
@@ -176,7 +197,6 @@ $header-height-desktop: 60px;
         height: 100%;
         display: flex;
         align-items: center;
-        // gap: 1rem;
 
         &>.menu-item {
           height: 100%;
@@ -296,21 +316,6 @@ $header-height-desktop: 60px;
         background-color: $pf-raspberry;
       }
 
-    }
-
-    .caret {
-      background-image: url('../../../images/icons/caret_white.svg');
-      height: 25px;
-      width: 25px;
-      background-repeat: no-repeat;
-      background-position: center;
-      transform: rotate(0);
-      transition: rotate 300ms ease-out;
-      display: inline-block;
-
-      @include media-breakpoint('lg') {
-        background-image: url('../../../images/icons/caret_charcoal.svg');
-      }
     }
   }
 
