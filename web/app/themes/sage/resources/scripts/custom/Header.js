@@ -79,7 +79,7 @@ Array.prototype.forEach.call(menuItems, function (el) {
 
 /*
 * Front page hero nav
-* Handles the front page hero nav width
+* Handle the front page hero nav width and style
 */
 function adjustHeroNavWidth() {
   const heroImage = document.querySelector('.hero__image');
@@ -111,3 +111,14 @@ window.addEventListener('resize', adjustHeroNavWidth);
 
 // Call the function on orientation change
 window.addEventListener('orientationchange', adjustHeroNavWidth);
+
+window.addEventListener('scroll', function () {
+  const header = document.querySelector('.header');
+  let scrollY = window.scrollY;
+
+  if (scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
