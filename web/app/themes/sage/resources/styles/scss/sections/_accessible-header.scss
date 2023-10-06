@@ -89,7 +89,7 @@ $header-height-desktop: 60px;
         background-image: url('../../../images/icons/caret_white.svg');
       }
 
-      &.narrow {
+      &.default {
         color: $pf-charcoal;
         background-color: $pf-white;
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
@@ -102,6 +102,10 @@ $header-height-desktop: 60px;
           a {
             color: inherit;
           }
+        }
+
+        .caret {
+          background-image: url('../../../images/icons/caret_charcoal.svg');
         }
       }
     }

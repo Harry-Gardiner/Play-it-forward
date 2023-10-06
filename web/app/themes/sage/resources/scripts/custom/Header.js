@@ -82,22 +82,20 @@ Array.prototype.forEach.call(menuItems, function (el) {
 * Handles the front page hero nav width
 */
 function adjustHeroNavWidth() {
-  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches) {
-    const heroImage = document.querySelector('.hero__image');
-    const heroNav = document.querySelector('.header__wrapper__nav');
-    const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
-    const header = document.querySelector('.header');
+  const heroImage = document.querySelector('.hero__image');
+  const heroNav = document.querySelector('.header__wrapper__nav');
+  const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
+  const header = document.querySelector('.header');
 
-    console.log(headerNavInner.offsetWidth);
-    console.log('heroImage', heroImage.offsetWidth);
-
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero__image')) {
     if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {
       heroNav.style.width = heroImage.offsetWidth + 'px';
-      header.classList.remove('narrow');
+      header.classList.remove('default');
     } else {
-      header.classList.add('narrow');
-      console.log('nav', heroNav.offsetWidth);
+      header.classList.add('default');
     }
+  } else {
+    header.classList.add('default');
   }
 
   if (window.matchMedia('(max-width: 992px)').matches) {
@@ -109,10 +107,7 @@ function adjustHeroNavWidth() {
 document.addEventListener('DOMContentLoaded', adjustHeroNavWidth);
 
 // Call the function on window resize
-window.addEventListener('resize', () => {
-  console.log('resize');
-  adjustHeroNavWidth();
-});
+window.addEventListener('resize', adjustHeroNavWidth);
 
 // Call the function on orientation change
 window.addEventListener('orientationchange', adjustHeroNavWidth);
