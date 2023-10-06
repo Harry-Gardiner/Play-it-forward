@@ -8,15 +8,15 @@ $header-height-desktop: 60px;
     flex-direction: column-reverse;
     height: 100%;
 
-    // @media (orientation: portrait) and (min-height: 700px) {
-    //     height: calc(100vh - #{$header-height-mobile});
-    // }
+    @media (orientation: portrait) and (min-height: 700px) {
+        height: calc(100vh - #{$header-height-mobile});
+    }
 
-    // @include media-breakpoint('lg') {
-    //     display: flex;
-    //     flex-direction: row;
-    //     height: calc(100vh - #{$header-height-desktop});
-    // }
+    @include media-breakpoint('lg') {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
 
     &__image {
         position: relative;

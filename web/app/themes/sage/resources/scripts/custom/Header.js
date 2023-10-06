@@ -1,3 +1,7 @@
+/*
+* Nav menu
+* Handles the header navigation drop down and hamburger menu
+*/
 let menuItems = document.querySelectorAll('li.menu-item-has-children');
 
 const hamb = document.querySelector('.hamb');
@@ -72,3 +76,43 @@ Array.prototype.forEach.call(menuItems, function (el) {
 
   el.querySelector('button').addEventListener('click', menuToggle);
 });
+
+/*
+* Front page hero nav
+* Handles the front page hero nav width
+*/
+function adjustHeroNavWidth() {
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches) {
+    const heroImage = document.querySelector('.hero__image');
+    const heroNav = document.querySelector('.header__wrapper__nav');
+    const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
+    const header = document.querySelector('.header');
+
+    console.log(headerNavInner.offsetWidth);
+    console.log('heroImage', heroImage.offsetWidth);
+
+    if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {
+      heroNav.style.width = heroImage.offsetWidth + 'px';
+      header.classList.remove('narrow');
+    } else {
+      header.classList.add('narrow');
+      console.log('nav', heroNav.offsetWidth);
+    }
+  }
+
+  if (window.matchMedia('(max-width: 992px)').matches) {
+    heroNav.style.width = 'auto';
+  }
+}
+
+// Call the function on page load
+document.addEventListener('DOMContentLoaded', adjustHeroNavWidth);
+
+// Call the function on window resize
+window.addEventListener('resize', () => {
+  console.log('resize');
+  adjustHeroNavWidth();
+});
+
+// Call the function on orientation change
+window.addEventListener('orientationchange', adjustHeroNavWidth);
