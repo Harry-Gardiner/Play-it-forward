@@ -77,16 +77,17 @@ Array.prototype.forEach.call(menuItems, function (el) {
   el.querySelector('button').addEventListener('click', menuToggle);
 });
 
+
 /*
 * Front page hero nav
 * Handle the front page hero nav width and style
 */
-function adjustHeroNavWidth() {
-  const heroImage = document.querySelector('.hero__image');
-  const heroNav = document.querySelector('.header__wrapper__nav');
-  const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
-  const header = document.querySelector('.header');
+const heroImage = document.querySelector('.hero__image');
+const heroNav = document.querySelector('.header__wrapper__nav');
+const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
+const header = document.querySelector('.header');
 
+function adjustHeroNavWidth() {
   if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero__image')) {
     if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {
       heroNav.style.width = heroImage.offsetWidth + 'px';
@@ -112,13 +113,26 @@ window.addEventListener('resize', adjustHeroNavWidth);
 // Call the function on orientation change
 window.addEventListener('orientationchange', adjustHeroNavWidth);
 
-window.addEventListener('scroll', function () {
-  const header = document.querySelector('.header');
-  let scrollY = window.scrollY;
+// Front page hero nav scroll variation
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      func.apply(context, args);
+    }, wait);
+  };
+}
 
-  if (scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+window.addEventListener('scroll', debounce(function () {
+  let scrollY = window.scrollY;
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && !header.classList.contains('default')) {
+    if (scrollY >= 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   }
-});
+}, 10));
