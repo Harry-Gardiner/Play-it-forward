@@ -53,11 +53,36 @@ $header-height-desktop: 60px;
   }
 
   &--front-page {
-    @extend .header--default;
+    // @extend .header--default;
+    box-shadow: none;
+    position: fixed;
+    left: 0;
+
+    .header__wrapper {
+      padding-right: 0;
+
+      &__nav {
+        background: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0.00) 100%);
+
+        @include media-breakpoint('lg') {
+          padding-right: 2rem;
+        }
+      }
+    }
+
+    .menu-item {
+      a {
+        color: $pf-white;
+      }
+    }
+
+    .caret {
+      background-image: url('../../../images/icons/caret_white.svg');
+    }
   }
 
   position: sticky;
-  top: -0.3px;
+  top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;

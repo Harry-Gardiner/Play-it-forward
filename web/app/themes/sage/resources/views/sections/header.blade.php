@@ -8,7 +8,7 @@
     
     if (is_front_page()) {
         $header_style = 'header--front-page';
-        $btn_colour = 'yellow';
+        $btn_colour = 'raspberry';
     } elseif (is_blog()) {
         $header_style = 'header--blog';
         $btn_colour = 'white';
