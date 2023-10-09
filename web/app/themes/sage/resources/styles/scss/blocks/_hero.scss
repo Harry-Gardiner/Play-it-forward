@@ -55,6 +55,11 @@ $header-height-desktop: 60px;
         width: 100%;
         z-index: 2;
         margin-bottom: $spacing--md;
+        padding: 0 1rem;
+
+        @include media-breakpoint('md') {
+            padding: 0 2rem;
+        }
 
         @include media-breakpoint('lg') {
             display: flex;
@@ -62,6 +67,7 @@ $header-height-desktop: 60px;
             justify-content: center;
             margin-top: 5rem;
             margin-bottom: 0;
+            padding: 0 4rem;
 
             &__content {
                 width: 35%;

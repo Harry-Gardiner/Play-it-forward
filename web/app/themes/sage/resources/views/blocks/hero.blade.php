@@ -32,7 +32,7 @@
     class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
 
     @if ($hero_title)
-        <div class="hero__inner container">
+        <div class="hero__inner">
             <div class="hero__inner__content flow">
                 <div class="hero__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
