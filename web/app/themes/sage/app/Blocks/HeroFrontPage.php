@@ -7,21 +7,21 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Button;
 
-class Hero extends Block
+class HeroFrontPage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Hero';
+    public $name = 'Hero Front Page';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'Hero block, displayed at the top of pages.';
+    public $description = 'Front page hero block';
 
     /**
      * The block category.
@@ -42,14 +42,16 @@ class Hero extends Block
      *
      * @var array
      */
-    public $keywords = ['hero', 'header', 'title', 'image'];
+    public $keywords = ['hero', 'header', 'title'];
 
     /**
      * The block post type allow list.
      *
      * @var array
      */
-    public $post_types = [];
+    public $post_types = [
+        'page'
+    ];
 
     /**
      * The parent block type allow list.
@@ -163,11 +165,11 @@ class Hero extends Block
      */
     public function fields()
     {
-        $hero = new FieldsBuilder('hero');
+        $hero_front_page = new FieldsBuilder('hero_front_page');
 
-        $hero
+        $hero_front_page
             ->addMessage('block_title', '', [
-                'label' => 'Hero',
+                'label' => 'Hero Front Page',
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Hero Image')
@@ -224,7 +226,7 @@ class Hero extends Block
             ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
             ->endGroup();;
 
-        return $hero->build();
+        return $hero_front_page->build();
     }
 
     /**
