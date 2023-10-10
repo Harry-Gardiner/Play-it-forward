@@ -6,19 +6,19 @@
         $alt_text = $hero_image['alt'] !== '' ? $hero_image['alt'] : 'hero image';
     }
     $image_position = $hero_image_position ?? 'center center';
-    
+
     // Content
     $hero_title = $hero_title ?? null;
     $highlighted_text = $highlighted_text ?? null;
     $hero_content = $hero_content ?? null;
-    
+
     if ($highlighted_text && !empty($highlighted_text)) {
         foreach ($highlighted_text as $word) {
             $word = $word['text_string'];
             $hero_title = str_replace($word, '<span class="highlight">' . $word . '</span>', $hero_title);
         }
     }
-    
+
     // Btn
     if ($show_button == 'yes') {
         $btn_link = $cta_button['link'] ?? null;
@@ -26,7 +26,7 @@
         $btn_colour = 'raspberry';
         $btn_type = $cta_button['type'] ?? null;
     }
-    
+
 @endphp
 <section
     class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
