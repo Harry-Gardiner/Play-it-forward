@@ -1,0 +1,41 @@
+.custom-grid {
+    .title {
+        margin-bottom: $spacing--xl;
+        text-align: center;
+    }
+
+    .body {
+        margin-bottom: $spacing--xl;
+        text-align: center;
+    }
+
+    &__content {
+        width: 100%;
+
+        &--default {
+            @include media-breakpoint('md') {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 2rem;
+
+            }
+        }
+    }
+
+    &__stat {
+        &>* {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        &__number {
+            color: $pf-charcoal;
+            font-size: rem(60);
+            margin-bottom: $spacing--xs;
+        }
+
+        &__description {
+            color: $pf-raspberry;
+        }
+    }
+}

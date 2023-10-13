@@ -51,31 +51,30 @@
 
 <section
     class="custom-grid {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
-    <div class="custom-grid__content {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
+    <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
-        <div>
+        <div class="custom-grid__content">
             @include('partials.title', [$title_style])
-            <p>{{ $body }}</p>
+            <p class="body">{{ $body }}</p>
             @if ($items)
-                @foreach ($items as $item)
-                    @if ($grid_type === 'icons')
-                        <div class="custom-grid__content--icons">
+                <div class="custom-grid__content--{{ $grid_type }}">
+                    @foreach ($items as $item)
+                        @if ($grid_type === 'icons')
                             {{-- @include('partials.icon', [
                               'icon' => $item['icon']
                           ]) --}}
-                        </div>
-                    @endif
-                    @if ($grid_type === 'default')
-                        <div class="custom-grid__content--default">
-                            <div>
-                                <p>{{ $item['item'] }}</p>
-                                <p>{{ $item['description'] }}</p>
+                        @endif
+                        @if ($grid_type === 'default')
+                            <div class="custom-grid__stat">
+                                <p id="custom-grid__stat__number-{{ $loop->index }}" class="custom-grid__stat__number">
+                                    {{ $item['item'] }}</p>
+                                <p class="custom-grid__stat__description">{{ $item['description'] }}</p>
                             </div>
-                        </div>
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
+                </div>
             @endif
         </div>
     </div>
