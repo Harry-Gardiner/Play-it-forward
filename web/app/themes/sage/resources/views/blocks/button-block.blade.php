@@ -1,5 +1,5 @@
-<section class="{{ $block->classes }} {{$wrapper ? $wrapper : ''}}">
-    <div class="button-block flow button-block--{{$btn_position}}">
+<section class="{{ $block->classes }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
+    <div class="button-block flow button-block--{{ $btn_position }}">
         @include('partials.button', [
             'type' => $btn_type,
             'link' => $btn_link,

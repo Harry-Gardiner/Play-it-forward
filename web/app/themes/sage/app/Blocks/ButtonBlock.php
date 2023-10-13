@@ -125,14 +125,15 @@ class ButtonBlock extends Block
     public function with()
     {
         return [
-             //deconstruct button
+            //deconstruct button
             'btn_link' => get_field('link'),
             'btn_text' => get_field('text'),
             'btn_type' => get_field('type'),
-            'btn_colour' => get_field('colour'),
+            'btn_colour' => get_field('btn_colour'),
             'btn_position' => get_field('position'),
-            
+
             'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
         ];
     }
 
@@ -146,12 +147,12 @@ class ButtonBlock extends Block
         $buttonBlock = new FieldsBuilder('button_block');
 
         $buttonBlock
-        ->addMessage('block_title', '', [
-            'label' => 'Button Block',
-        ])
-        ->addTab('General')
+            ->addMessage('block_title', '', [
+                'label' => 'Button Block',
+            ])
+            ->addTab('General')
             ->addFields($this->get(Wrapper::class))
-        ->addTab('Button')
+            ->addTab('Button')
             ->addSelect('position', [
                 'label' => 'Position',
                 'choices' => [
@@ -161,7 +162,18 @@ class ButtonBlock extends Block
                 ],
                 'default_value' => 'center',
             ])
-            ->addFields($this->get(Button::class));
+            ->addFields($this->get(Button::class))
+            ->addSelect('btn_colour', [
+                'label' => 'Colour',
+                'instructions' => 'Choose the background colour for the button.',
+                'choices' => [
+                    'raspberry' => 'Raspberry',
+                    'black' => 'Black',
+                    'white' => 'White',
+                    'dark-green' => 'Dark Green',
+                ],
+                'default_value' => 'raspberry',
+            ]);
         return $buttonBlock->build();
     }
 

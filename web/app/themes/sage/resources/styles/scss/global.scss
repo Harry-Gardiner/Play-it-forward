@@ -49,14 +49,14 @@
     footer {
         position: sticky;
         top: 100vh;
-      }
+    }
 }
 
 body {
     @extend .container;
     line-height: 1.5;
     overflow-x: hidden;
-    background-color: $pf-off-white;
+    background-color: $pf-white;
 }
 
 main {

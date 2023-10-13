@@ -1,7 +1,5 @@
-@import 'scss/global.scss';
-
-
 .editor-styles-wrapper {
+     @import 'scss/global.scss';
      padding-left: 2rem !important;
      padding-right: 2rem !important;
 
@@ -60,15 +58,15 @@
                               margin-bottom: 0.5rem;
 
                               &[value="red"] {
-                                   background-color: $pf-red;
+                                   background-color: $pf-raspberry;
                               }
 
                               &[value="dark-red"] {
-                                   background-color: $pf-dark-red;
+                                   background-color: $pf-raspberry;
                               }
 
                               &[value="light-red"] {
-                                   background-color: $pf-light-red;
+                                   background-color: $pf-raspberry;
                               }
 
                               &[value="off-white"] {
@@ -81,6 +79,22 @@
 
                               &[value="charcoal"] {
                                    background-color: $pf-charcoal;
+                              }
+
+                              &[value="raspberry"] {
+                                   background-color: $pf-raspberry;
+                              }
+
+                              &[value="yellow"] {
+                                   background-color: $pf-yellow;
+                              }
+
+                              // &[value="light-green"] {
+                              //      background-color: $pf-light-green;
+                              // }
+
+                              &[value="dark-green"] {
+                                   background-color: $pf-dark-green;
                               }
 
                               &:checked {

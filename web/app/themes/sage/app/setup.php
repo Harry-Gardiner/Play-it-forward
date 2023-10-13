@@ -8,6 +8,7 @@ namespace App;
 
 use function Roots\bundle;
 use function Roots\view;
+
 /**
  * Register the theme assets.
  *
@@ -118,21 +119,6 @@ add_action('after_setup_theme', function () {
 add_action('after_setup_theme', function () {
     add_theme_support('editor-color-palette', [
         [
-            'name' => __('Red', 'PIF'),
-            'slug' => 'red',
-            'color' => '#a43939',
-        ],
-        [
-            'name' => __('Dark Red', 'PIF'),
-            'slug' => 'dark-red',
-            'color' => '#802727',
-        ],
-        [
-            'name' => __('Light Red', 'PIF'),
-            'slug' => 'light-red',
-            'color' => '#bd4c4c',
-        ],
-        [
             'name' => __('Off White', 'PIF'),
             'slug' => 'off-white',
             'color' => '#f8faf8',
@@ -147,6 +133,21 @@ add_action('after_setup_theme', function () {
             'slug' => 'charcoal',
             'color' => '#262626',
         ],
+        [
+            'name' => __('Yellow', 'PIF'),
+            'slug' => 'yellow',
+            'color' => '#fab200',
+        ],
+        [
+            'name' => __('Dark Green', 'PIF'),
+            'slug' => 'dark-green',
+            'color' => '#2d6e51',
+        ],
+        [
+            'name' => __('Raspberry', 'PIF'),
+            'slug' => 'raspberry',
+            'color' => '#993050',
+        ]
     ]);
 });
 
@@ -232,7 +233,7 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu
 add_filter('acf/load_field/name=colour_picker', function ($field) {
     // get array of colors created using editor-color-palette
     $colors = get_theme_support('editor-color-palette');
-    
+
     if (!empty($colors)) {
         // loop over each color and create option
         foreach ($colors[0] as $color) {
@@ -252,32 +253,32 @@ add_filter('upload_mimes', function ($mimes) {
 });
 
 
-add_action('rest_api_init', function() {
-  register_rest_route('v1', 'posts/load_more', [
-    'methods' => 'GET', // or POST
-    'callback' => function($request) {
-      $page = $request->get_param('page');
-      $per_page = $request->get_param('per_page');
+add_action('rest_api_init', function () {
+    register_rest_route('v1', 'posts/load_more', [
+        'methods' => 'GET', // or POST
+        'callback' => function ($request) {
+            $page = $request->get_param('page');
+            $per_page = $request->get_param('per_page');
 
-      $args = [
-        'post_type' => 'post',
-        'posts_per_page' => $per_page,
-        'paged' => $page,
-        'orderby' => 'date',
-        'order' => 'DESC',
-      ];
+            $args = [
+                'post_type' => 'post',
+                'posts_per_page' => $per_page,
+                'paged' => $page,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ];
 
-      $query = get_posts($args);
-     
-      $posts = collect($query)->map(function($post) {
-        $cardHtml = view('partials.card', [
-            'post' => $post,
-        ])->render();
-        return $cardHtml;
-      });
+            $query = get_posts($args);
 
-      return $posts;
-    },
-    'permission_callback' => '__return_true'
-  ]);
+            $posts = collect($query)->map(function ($post) {
+                $cardHtml = view('partials.card', [
+                    'post' => $post,
+                ])->render();
+                return $cardHtml;
+            });
+
+            return $posts;
+        },
+        'permission_callback' => '__return_true'
+    ]);
 });

@@ -24,8 +24,7 @@ class GeneralTab extends Partial
                 'label' => 'Block settings',
                 'message' => 'This tab contains controls settings for the block appearance, such as background colour and block padding/spacing.',
             ])
-            ->addFields($this->get(Wrapper::class))
-            ->addFields($this->get(ColourPicker::class));
+            ->addFields($this->get(Wrapper::class));
         return $generalTab;
     }
 }

@@ -2,28 +2,26 @@
 
 namespace App\Blocks;
 
-use App\Fields\Partials\Button;
-use App\Fields\Partials\GeneralTab;
-use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Button;
 
-
-class CtaBanner extends Block
+class HeroFrontPage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Cta Banner';
+    public $name = 'Hero Front Page';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Cta Banner block.';
+    public $description = 'Front page hero block';
 
     /**
      * The block category.
@@ -37,21 +35,23 @@ class CtaBanner extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-contract';
+    public $icon = 'cover-image';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = ['cta', 'banner', 'call to action'];
+    public $keywords = ['hero', 'header', 'title'];
 
     /**
      * The block post type allow list.
      *
      * @var array
      */
-    public $post_types = [];
+    public $post_types = [
+        'page'
+    ];
 
     /**
      * The parent block type allow list.
@@ -142,17 +142,19 @@ class CtaBanner extends Block
     public function with()
     {
         return [
+            // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-            'title' => get_field('title'),
-            'body' => get_field('body'),
-            'image' => get_field('image'),
-            'image_position' => get_field('image_position'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Hero Content
+            'hero_image' => get_field('hero_image'),
+            'hero_image_position' => get_field('hero_image_position'),
+            'hero_title' => get_field('hero_title'),
+            'highlighted_text' => get_field('highlighted_text'),
+            'hero_content' => get_field('hero_content'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
-            'layout' => get_field('layout'),
-            'background_colour' => get_field('colour_picker'),
-            'title_style' => get_field('title_style'),
         ];
     }
 
@@ -163,60 +165,53 @@ class CtaBanner extends Block
      */
     public function fields()
     {
-        $ctaBanner = new FieldsBuilder('cta_banner');
+        $hero_front_page = new FieldsBuilder('hero_front_page');
 
-        $ctaBanner
+        $hero_front_page
             ->addMessage('block_title', '', [
-                'label' => 'CTA Banner',
+                'label' => 'Hero Front Page',
             ])
             ->addFields($this->get(GeneralTab::class))
-            ->addRadio('colour_picker', [
-                'label' => 'Select Colour',
-                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
-                'default_value' => 'off-white',
+            ->addTab('Hero Image')
+            ->addImage('hero_image', [
+                'label' => 'Hero Image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+                'mime_types' => 'jpg, jpeg, png, svg',
             ])
-            ->addTab('Content')
-            ->addFields($this->get(Title::class))
-            ->addWysiwyg('body')
-
-            ->addTab('Image')
-            ->addRadio('add_image', [
-                'label' => 'Add Image?',
-                'required' => 1,
-                'choices' => [
-                    'yes' => 'Yes',
-                    'no' => 'No',
-                ],
-                'default_value' => 'no',
-                'layout' => 'horizontal',
-            ])
-            ->addImage('image')->conditional('add_image', '==', 'yes')
-            ->addSelect('image_position', [
+            ->addSelect('hero_image_position', [
                 'label' => 'Image Position',
-                'required' => 0,
+                'instructions' => 'If required, use this to position the image.',
                 'choices' => [
+                    'center' => 'Center',
+                    'top' => 'Top',
+                    'bottom' => 'Bottom',
                     'left' => 'Left',
                     'right' => 'Right',
                 ],
-                'default_value' => 'left',
-                'layout' => 'horizontal',
-            ])->conditional('add_image', '==', 'yes')
-
-            ->addTab('Layout')->conditional('add_image', '==', 'no')
-            ->addSelect('layout', [
-                'label' => 'Layout',
-                'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Contained will be approx 70% page width. Default will be the default width of the content.',
-                'required' => 0,
-                'choices' => [
-                    'default' => 'Default',
-                    'full' => 'Full Width',
-                    'contained' => 'Contained'
-                ],
-                'default_value' => 'default',
-                'layout' => 'horizontal',
+                'default_value' => 'center',
             ])
-
-            ->addTab('Button')
+            ->addTab('Hero Content')
+            ->addText('hero_title', [
+                'label' => 'Hero Title',
+            ])
+            ->addRepeater('highlighted_text', [
+                'label' => 'Highlighted Title Text',
+                'instructions' => 'Highlighted text will be displayed in red. <br><br> Each word you wish to highlight needs to be added individually. The text string must be an exact match of the text string in the hero title above, inc any punctuation if that should also be highlighted.',
+                'layout' => 'table',
+                'button_label' => 'Add Highlighted Text',
+            ])
+            ->addText('text_string', [
+                'label' => 'Highlighted Text',
+            ])
+            ->endRepeater()
+            ->addWYSIWYG('hero_content', [
+                'label' => 'Hero Subtitle',
+                'media_upload' => 0,
+                'toolbar' => 'full',
+                'delay' => 1,
+            ])
             ->addRadio('show_button', [
                 'label' => 'Show Button?',
                 'required' => 1,
@@ -229,17 +224,9 @@ class CtaBanner extends Block
             ])
             ->addGroup('cta_button', ['label' => 'CTA Button'])
             ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
-            ->addSelect('btn_colour', [
-                'label' => 'Colour',
-                'instructions' => 'Choose the background colour for the button.',
-                'choices' => [
-                    'raspberry' => 'Raspberry',
-                    'black' => 'Black',
-                    'dark-green' => 'Dark Green',
-                ],
-            ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
-            ->endGroup();
-        return $ctaBanner->build();
+            ->endGroup();;
+
+        return $hero_front_page->build();
     }
 
     /**

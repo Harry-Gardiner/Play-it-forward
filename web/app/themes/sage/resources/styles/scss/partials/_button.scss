@@ -3,53 +3,81 @@
   line-height: 22px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: rem(8) rem(20);
-  font-weight: bold;
   display: inline-block;
-  transition: color 0.2s ease-in-out;
   min-width: fit-content;
-  height: fit-content;
+  height: 2.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: rem(10) rem(25);
 
   &:hover,
   &:focus {
     cursor: pointer;
   }
 
-  @include media-breakpoint('lg') {
-    padding: rem(19) rem(20);
-  }
-
-  &--primary {
+  &--primary,
+  &--donate {
     border-radius: 100px;
   }
 
-  &--secondary {
-    border-radius: 8px;
+  &--donate {
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    background-color: $pf-yellow;
+    color: $pf-charcoal;
+
+
+    &:hover {
+      border: 1px solid $pf-charcoal;
+      background-color: transparent;
+      color: $pf-charcoal;
+    }
   }
 
-  &--red {
-    background-color: $pf-red;
+  &--raspberry {
+    background-color: $pf-raspberry;
     color: $pf-white;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
-      background-color: $pf-dark-red;
+      border-color: $pf-raspberry;
+      background-color: $pf-white;
+      color: $pf-raspberry;
+    }
+  }
+
+  &--dark-green {
+    background-color: $pf-dark-green;
+    color: $pf-white;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-white;
+      color: $pf-dark-green;
+      border-color: $pf-dark-green;
     }
   }
 
   &--black {
     background-color: $pf-charcoal;
     color: $pf-white;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
-      background-color: $pf-charcoal; // TODO: Add this color to the color palette or some other on hover style
+      background-color: $pf-white;
+      color: $pf-charcoal;
+      border-color: $pf-charcoal;
     }
   }
 
   &--white {
     background-color: $pf-white;
     color: $pf-charcoal;
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
@@ -59,9 +87,42 @@
     }
   }
 
-  &--donate {
-    padding: rem(10) rem(25);
-    border: 1px solid $pf-white;
-    border-radius: 100px;
+  &--bg-green {
+    background-color: $pf-white;
+    color: $pf-dark-green;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-dark-green;
+      color: $pf-white;
+      border-color: $pf-white;
+    }
+  }
+
+  &--bg-raspberry {
+    background-color: $pf-white;
+    color: $pf-raspberry;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      border-color: $pf-white;
+      background-color: $pf-raspberry;
+      color: $pf-white;
+    }
+  }
+
+  &--bg-yellow {
+    background-color: $pf-charcoal;
+    color: $pf-white;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $pf-charcoal;
+      border-color: $pf-charcoal;
+    }
   }
 }

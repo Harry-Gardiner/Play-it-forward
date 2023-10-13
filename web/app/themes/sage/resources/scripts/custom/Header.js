@@ -1,3 +1,7 @@
+/*
+* Nav menu
+* Handles the header navigation drop down and hamburger menu
+*/
 let menuItems = document.querySelectorAll('li.menu-item-has-children');
 
 const hamb = document.querySelector('.hamb');
@@ -72,3 +76,63 @@ Array.prototype.forEach.call(menuItems, function (el) {
 
   el.querySelector('button').addEventListener('click', menuToggle);
 });
+
+
+/*
+* Front page hero nav
+* Handle the front page hero nav width and style
+*/
+const heroImage = document.querySelector('.hero__image');
+const heroNav = document.querySelector('.header__wrapper__nav');
+const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
+const header = document.querySelector('.header');
+
+function adjustHeroNavWidth() {
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero__image')) {
+    if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {
+      heroNav.style.width = heroImage.offsetWidth + 'px';
+      header.classList.remove('default');
+    } else {
+      header.classList.add('default');
+    }
+  } else {
+    header.classList.add('default');
+  }
+
+  if (window.matchMedia('(max-width: 992px)').matches) {
+    heroNav.style.width = 'auto';
+  }
+}
+
+// Call the function on page load
+document.addEventListener('DOMContentLoaded', adjustHeroNavWidth);
+
+// Call the function on window resize
+window.addEventListener('resize', adjustHeroNavWidth);
+
+// Call the function on orientation change
+window.addEventListener('orientationchange', adjustHeroNavWidth);
+
+// Front page hero nav scroll variation
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      func.apply(context, args);
+    }, wait);
+  };
+}
+
+window.addEventListener('scroll', debounce(function () {
+  let scrollY = window.scrollY;
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && !header.classList.contains('default')) {
+    if (scrollY >= 60) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+}, 10));

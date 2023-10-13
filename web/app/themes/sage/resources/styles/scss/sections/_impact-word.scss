@@ -1,7 +1,7 @@
 .impact {
-   display: flex;
-   gap: 5rem;
-   align-items: center;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
 
     &--right {
         flex-direction: row-reverse;
@@ -15,7 +15,7 @@
         display: none;
 
         @include media-breakpoint(xl) {
-            display: block;           
+            display: block;
         }
 
         font-family: 'Katibeh';
@@ -29,8 +29,8 @@
         text-transform: lowercase;
 
         // Hollow text
-        -webkit-text-stroke: 1px $pf-light-red;
-        text-stroke: 1px $pf-light-red;
+        -webkit-text-stroke: 1px $pf-raspberry;
+        text-stroke: 1px $pf-raspberry;
         color: transparent;
     }
 

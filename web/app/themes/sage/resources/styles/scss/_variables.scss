@@ -13,15 +13,16 @@ $col--xl: 1140px; // (max-width: 1140px)
 ***********************/
 
 // Brand colours
-/**
-  These colours are used for the primary brand colours. They must be entered in to the Restricted colour picker options in the WordPress admin.
-*/
 $pf-off-white: #f8faf8;
 $pf-charcoal: #262626;
 $pf-white: #fff;
-$pf-red: #a43939;
-$pf-dark-red: #802727;
-$pf-light-red: #bd4c4c;
+$pf-raspberry: #993050;
+$pf-secondary-raspberry: #882a47;
+$pf-yellow: #FAB200;
+$pf-shadow: #464B44;
+$pf-light-green: #60CE71;
+$pf-dark-green: #2D6E51;
+
 
 
 // Text colours
@@ -32,24 +33,19 @@ $body-text-color: $pf-charcoal;
 ***********************/
 
 $breakpoints: (
-  sm: (
-    breakpoint: 576px,
+  sm: (breakpoint: 576px,
     max-width: 540px,
   ),
-  md: (
-    breakpoint: 768px,
+  md: (breakpoint: 768px,
     max-width: 720px,
   ),
-  lg: (
-    breakpoint: 992px,
+  lg: (breakpoint: 992px,
     max-width: 960px,
   ),
-  xl: (
-    breakpoint: 1200px,
+  xl: (breakpoint: 1200px,
     max-width: 1140px,
   ),
-  xxl: (
-    breakpoint: 1650px,
+  xxl: (breakpoint: 1650px,
   ),
 );
 
@@ -67,6 +63,8 @@ $size--xl: $pf-base-size * 1.875;
 // 30px
 $size--xxl: $pf-base-size * 3.125;
 //50px
+$size--giant: $pf-base-size * 4.6875;
+
 
 /**********************
  Spacing
@@ -79,9 +77,9 @@ $spacing--lg: $pf-base-size * 3;
 $spacing--xl: $pf-base-size * 4;
 
 /**********************
- Fonts
+Fonts
 ***********************/
 
-$font--primary: 'Josefin Sans', Helvetica, Arial, sans-serif;
-$font--secondary: 'Josefin Sans', Helvetica, Arial, sans-serif;
+$font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial, sans-serif;
+$font--secondary: 'Katibeh', 'Unna', 'Big Caslon', Georgia, serif;
 $font--tertiary: 'Montserrat', Helvetica, Arial, sans-serif;

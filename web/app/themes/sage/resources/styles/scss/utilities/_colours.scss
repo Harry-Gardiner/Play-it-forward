@@ -4,17 +4,17 @@
  */
 
 .bg--red {
-    background-color: $pf-red;
+    background-color: $pf-raspberry;
     color: $pf-white;
 }
 
 .bg--dark-red {
-    background-color: $pf-dark-red;
+    background-color: $pf-raspberry;
     color: $pf-white;
 }
 
 .bg--light-red {
-    background-color: $pf-light-red;
+    background-color: $pf-raspberry;
     color: $pf-white;
 }
 
@@ -33,20 +33,35 @@
     color: $pf-white;
 }
 
+.bg--yellow {
+    background-color: $pf-yellow;
+    color: $pf-charcoal;
+}
+
+.bg--raspberry {
+    background-color: $pf-raspberry;
+    color: $pf-white;
+}
+
+.bg--dark-green {
+    background-color: $pf-dark-green;
+    color: $pf-white;
+}
+
 /**
  * Text Colours
  * -----------------------------------------------------------------------------
  */
 .red {
-    color: $pf-red;
+    color: $pf-raspberry;
 }
 
 .dark-red {
-    color: $pf-dark-red;
+    color: $pf-raspberry;
 }
 
 .light-red {
-    color: $pf-light-red;
+    color: $pf-raspberry;
 }
 
 .off-white {
@@ -60,4 +75,3 @@
 .charcoal {
     color: $pf-charcoal;
 }
-

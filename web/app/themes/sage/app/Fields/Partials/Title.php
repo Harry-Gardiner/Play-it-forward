@@ -18,9 +18,9 @@ class Title extends Partial
         $title = new FieldsBuilder('title');
 
         $title
-        ->addGroup('title_style', [
-            'label' => 'Block Title',
-        ])
+            ->addGroup('title_style', [
+                'label' => 'Block Title',
+            ])
             ->addText('title', [
                 'label' => 'Title',
                 'required' => 1,
@@ -51,8 +51,6 @@ class Title extends Partial
                 ],
                 'default_value' => 'h2',
             ])
-      
-            ->addFields($this->get(ColourPicker::class))
             ->endGroup();
         return $title;
     }

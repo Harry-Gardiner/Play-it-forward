@@ -1,19 +1,118 @@
 // Header specific variables
 $header-height-mobile: 78px;
-$header-height-desktop: 106px;
+$header-height-desktop: 60px;
 
-// TODO: add box shadow to bottom of header when nav is open on mobile as its hard to see if the section below it is the same colour
+.caret {
+  background-image: url('../../../images/icons/caret_white.svg');
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0);
+  transition: rotate 300ms ease-out;
+  display: inline-block;
+
+  @include media-breakpoint('lg') {
+    background-image: url('../../../images/icons/caret_charcoal.svg');
+  }
+}
 
 .header {
-  color: $pf-charcoal;
-  background-color: $pf-white;
   position: sticky;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+  background: $pf-white;
 
+  &--default {
+    color: $pf-charcoal;
+    background-color: $pf-white;
+
+    .menu-item {
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  &--blog {
+    color: $pf-white;
+    background-color: $pf-charcoal;
+
+    .logo__wrapper {
+      &__text {
+        color: $pf-white;
+      }
+    }
+
+    .menu-item {
+      a {
+        color: $pf-white;
+      }
+    }
+
+    @include media-breakpoint('lg') {
+      .caret {
+        background-image: url('../../../images/icons/caret_white.svg');
+      }
+    }
+  }
+
+  &--front-page {
+    @include media-breakpoint('lg') {
+      box-shadow: none;
+      position: fixed;
+      left: 0;
+      background: none;
+      // transition: background 0.8s ease;
+
+      .header__wrapper {
+        padding-right: 0;
+
+        &__nav {
+          // background: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0.00) 100%);
+
+          @include media-breakpoint('lg') {
+            padding-right: 2rem;
+          }
+        }
+      }
+
+      .menu-item {
+        a {
+          color: $pf-white;
+          // transition: color 0.3s ease;
+        }
+      }
+
+      .caret {
+        background-image: url('../../../images/icons/caret_white.svg');
+      }
+
+      &.default,
+      &.scrolled {
+        color: $pf-charcoal;
+        background-color: $pf-white;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+
+        .header__wrapper__nav {
+          background: inherit;
+        }
+
+        .menu-item {
+          a {
+            color: inherit;
+          }
+        }
+
+        .caret {
+          background-image: url('../../../images/icons/caret_charcoal.svg');
+        }
+      }
+    }
+  }
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;
@@ -24,20 +123,34 @@ $header-height-desktop: 106px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.125rem;
+
+    @include media-breakpoint('lg') {
+      padding: 0 2rem;
+    }
 
     &__nav {
       height: 100%;
       display: flex;
-      align-items: center;
+      justify-content: flex-end;
+
+      &__inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: fit-content;
+      }
     }
   }
 
   .nav {
+
     /*
   * MOBILE STYLING
   */
-    @media screen and (max-width: 992px) {
-      background-color: $pf-dark-red;
+    @media screen and (max-width: 991px) {
+      background-color: $pf-raspberry;
       color: $pf-off-white;
       position: absolute;
       left: 0;
@@ -65,7 +178,7 @@ $header-height-desktop: 106px;
 
           &:hover,
           &:focus {
-            background: $pf-red;
+            background: $pf-secondary-raspberry;
           }
         }
 
@@ -77,10 +190,12 @@ $header-height-desktop: 106px;
           padding: 1em 2em;
           display: inline-block;
           width: 100%;
+          color: inherit;
 
           &:hover,
-          &:focus {
-            background: $pf-red;
+          &:focus,
+          &[aria-expanded='true'] {
+            background: $pf-secondary-raspberry;
           }
         }
       }
@@ -90,14 +205,13 @@ $header-height-desktop: 106px;
         flex-wrap: wrap;
         align-items: center;
 
-        & > a {
+        &>a {
           flex: 1 0 80%;
         }
 
         .sub-menu-btn {
-          height: 100%;
           flex: 1 0 10%;
-          height: 56px;
+          height: 64px;
         }
 
         .sub-menu {
@@ -108,16 +222,17 @@ $header-height-desktop: 106px;
           flex-basis: 100%;
 
           a {
+
             &:hover,
             &:focus {
-              background: $pf-light-red;
+              background: $pf-raspberry;
               outline-offset: -0.25rem;
             }
           }
         }
 
         &.open {
-          background: $pf-red;
+          background: $pf-raspberry;
 
           .sub-menu {
             height: fit-content;
@@ -138,16 +253,15 @@ $header-height-desktop: 106px;
     @include media-breakpoint('lg') {
       display: none;
       height: 100%;
-      font-weight: bold;
+      font-weight: 500;
       text-transform: uppercase;
 
       ul.main-navigation {
         height: 100%;
         display: flex;
         align-items: center;
-        // gap: 1rem;
 
-        & > .menu-item {
+        &>.menu-item {
           height: 100%;
           display: flex;
           align-items: center;
@@ -155,8 +269,11 @@ $header-height-desktop: 106px;
 
           &:hover,
           &:focus-within {
-            background-color: $pf-dark-red;
-            color: $pf-white;
+            background-color: $pf-raspberry;
+
+            a {
+              color: $pf-white;
+            }
 
             .caret {
               background-image: url('../../../images/icons/caret_white.svg');
@@ -164,8 +281,8 @@ $header-height-desktop: 106px;
           }
         }
 
-        & > li > a {
-          font-weight: bold;
+        &>li>a {
+          font-weight: 500;
         }
       }
 
@@ -181,7 +298,7 @@ $header-height-desktop: 106px;
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: $pf-dark-red;
+          background-color: $pf-raspberry;
           position: absolute;
           left: 50%;
           margin-left: -150px; // Has to be half the sub-menu width to centre.
@@ -190,9 +307,10 @@ $header-height-desktop: 106px;
           width: 300px;
 
           li {
+
             &:hover,
             &:focus {
-              background: $pf-red;
+              background: $pf-secondary-raspberry;
               color: $pf-white;
             }
 
@@ -207,7 +325,7 @@ $header-height-desktop: 106px;
         &.open,
         &:hover {
           color: $pf-off-white;
-          background: $pf-dark-red;
+          background: $pf-raspberry;
 
           .caret {
             pointer-events: none;
@@ -231,7 +349,7 @@ $header-height-desktop: 106px;
       }
     }
 
-  /*
+    /*
   * CHEVRON BUTTON
   */
     .sub-menu-btn {
@@ -258,24 +376,9 @@ $header-height-desktop: 106px;
       &:hover,
       &:focus {
         cursor: pointer;
-        background-color: $pf-dark-red;
+        background-color: $pf-raspberry;
       }
 
-    }
-
-    .caret {
-      background-image: url('../../../images/icons/caret_white.svg');
-      height: 25px;
-      width: 25px;
-      background-repeat: no-repeat;
-      background-position: center;
-      transform: rotate(0);
-      transition: rotate 300ms ease-out;
-      display: inline-block;
-
-      @include media-breakpoint('lg') {
-        background-image: url('../../../images/icons/caret_charcoal.svg');
-      }
     }
   }
 
@@ -332,6 +435,23 @@ $header-height-desktop: 106px;
         top: -8px;
       }
     }
+
+    &.header--blog {
+      .hamb-line {
+        background: $pf-white;
+
+        &::before,
+        &::after {
+          background: $pf-white;
+        }
+      }
+
+      &.hamb-open {
+        .hamb-line {
+          background: transparent;
+        }
+      }
+    }
   }
 
   &__buttons {
@@ -340,6 +460,10 @@ $header-height-desktop: 106px;
 
     @include media-breakpoint('lg') {
       margin-left: 1rem;
+    }
+
+    .button--donate {
+      margin-right: 0.5rem;
     }
   }
 }

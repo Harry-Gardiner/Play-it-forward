@@ -68,8 +68,8 @@ $show_newsletter = get_field('show_newsletter_signup', 'option');
             <div class="footer__lower full-bleed">
                 <p>©
                     {{ date("Y") }} site & design by
-                    <a href="https://github.com/Harry-Gardiner" target="_blank">Harry</a>
-                    and <a href="https://github.com/Nelboh">Ellie</a>
+                    <a href="https://github.com/Harry-Gardiner" target="_blank" class="footer__lower link">Harry</a>
+                    and <a href="https://github.com/Nelboh" class="footer__lower link">Ellie</a>
                 </p>
             </div>
         </div>
