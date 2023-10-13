@@ -2,6 +2,7 @@
 
 namespace App\Blocks;
 
+use App\Fields\Partials\ImpactWord;
 use App\Fields\Partials\Button;
 use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Title;
@@ -190,6 +191,7 @@ class CustomGrid extends Block
                 ],
                 'default_value' => 'default',
             ])
+            ->addFields($this->get(ImpactWord::class))
             ->addTab('Content')
             ->addFields($this->get(Title::class))
             ->addTextarea('body', [

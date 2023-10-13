@@ -60,7 +60,21 @@
             <p>{{ $body }}</p>
             @if ($items)
                 @foreach ($items as $item)
-                    <p>Item</p>
+                    @if ($grid_type === 'icons')
+                        <div class="custom-grid__content--icons">
+                            {{-- @include('partials.icon', [
+                              'icon' => $item['icon']
+                          ]) --}}
+                        </div>
+                    @endif
+                    @if ($grid_type === 'default')
+                        <div class="custom-grid__content--default">
+                            <div>
+                                <p>{{ $item['item'] }}</p>
+                                <p>{{ $item['description'] }}</p>
+                            </div>
+                        </div>
+                    @endif
                 @endforeach
             @endif
         </div>
