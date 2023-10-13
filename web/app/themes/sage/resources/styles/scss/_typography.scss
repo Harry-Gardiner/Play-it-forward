@@ -48,11 +48,8 @@ h2 {
 
   font-family: $font--primary;
   font-weight: 600;
-
-  @include media-breakpoint('md') {
-    font-size: $size--xxl;
-    line-height: 1.2;
-  }
+  font-size: $size--xxl;
+  line-height: 1.2;
 
   @include media-breakpoint('lg') {
     font-size: $size--giant;
