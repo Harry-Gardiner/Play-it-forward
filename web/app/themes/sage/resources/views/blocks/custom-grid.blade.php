@@ -9,12 +9,10 @@
 
     if ($grid_type === 'icons') {
         # code...
-        dump('icons');
     }
 
     if ($grid_type === 'default') {
         # code...
-        dump('default');
     }
 
     // deconstruct button
@@ -49,7 +47,6 @@
             }
         }
     }
-
 @endphp
 
 <section
@@ -59,9 +56,13 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
-            @include('partials.title', [$title])
+            @include('partials.title', [$title_style])
             <p>{{ $body }}</p>
-            <p>TEST</p>
+            @if ($items)
+                @foreach ($items as $item)
+                    <p>Item</p>
+                @endforeach
+            @endif
         </div>
     </div>
 </section>

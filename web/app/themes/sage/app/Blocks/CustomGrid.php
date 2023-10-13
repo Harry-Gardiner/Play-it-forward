@@ -152,7 +152,7 @@ class CustomGrid extends Block
             'impact_word_position' => get_field('impact_word_position'),
 
             // Custom Grid
-            'title' => get_field('title'),
+            'title_style' => get_field('title_style'),
             'body' => get_field('body'),
             'grid_type' => get_field('grid_type'),
             'grid_sub_type' => get_field('grid_sub_type'),
