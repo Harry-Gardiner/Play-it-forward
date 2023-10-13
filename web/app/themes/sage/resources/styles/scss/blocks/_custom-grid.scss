@@ -13,10 +13,13 @@
         width: 100%;
 
         &--default {
+            display: grid;
+            grid-gap: 2rem;
+
             @include media-breakpoint('md') {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                grid-gap: 2rem;
+                gap: $spacing--xl;
 
             }
         }
