@@ -198,15 +198,6 @@ class CustomGrid extends Block
                 'label' => 'Sub Title/Body',
                 'rows' => 3,
             ])
-            // ->addSelect('grid_sub_type', [
-            //     'label' => 'Grid Sub Type',
-            //     'instructions' => 'Choose if the grid will contain icons with text or statistics(numbers) with text',
-            //     'choices' => [
-            //         'sub_icons' => 'Icons',
-            //         'sub_numbers' => 'Statistics',
-            //     ],
-            //     'default_value' => 'sub_numbers',
-            // ])->conditional('grid_type', '==', 'default')
             ->addRepeater('items', [
                 'label' => 'Grid Items',
                 'layout' => 'block',
