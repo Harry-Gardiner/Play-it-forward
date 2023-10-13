@@ -175,7 +175,7 @@ class CustomGrid extends Block
         $customGrid
             ->addMessage('block_title', '', [
                 'label' => 'Custom Grid',
-                'message' => 'A simple Custom Grid block. Can be used to display a grid of items. There are 2 grid options: icons or standard.<br><br>Standard allows you to add a title, description and a grid of items.<br><br>Icons allows you to add a title, description and a grid of icons.<br><br>Icons and Standard are mutually exclusive, you can only select one or the other.',
+                'message' => 'A simple Custom Grid block. Can be used to display a grid of items. There are 2 grid options: icons or standard.<br><br>Standard allows you to add a title, description and a grid of statistic items.<br><br>Icons allows you to add a title, description and a grid of icons.<br><br>Icons and Standard are mutually exclusive, you can only select one or the other.',
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addRadio('colour_picker', [
@@ -200,10 +200,10 @@ class CustomGrid extends Block
             ])
             ->addSelect('grid_sub_type', [
                 'label' => 'Grid Sub Type',
-                'instructions' => 'Choose if the grid will contain icons with text or numbers with text',
+                'instructions' => 'Choose if the grid will contain icons with text or statistics(numbers) with text',
                 'choices' => [
                     'sub_icons' => 'Icons',
-                    'sub_numbers' => 'Text',
+                    'sub_numbers' => 'Statistics',
                 ],
                 'default_value' => 'sub_numbers',
             ])->conditional('grid_type', '==', 'default')
@@ -212,9 +212,9 @@ class CustomGrid extends Block
                 'layout' => 'block',
                 'button_label' => 'Add Item',
             ])
-            ->addText('item', [
+            ->addNumber('item', [
                 'label' => 'Number',
-                'instructions' => 'Enter the number for this item',
+                'instructions' => 'Enter the statistic number',
             ])->conditional('grid_sub_type', '==', 'sub_numbers')
             ->addImage('icon', [
                 'label' => 'Icon',
