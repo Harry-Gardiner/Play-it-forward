@@ -57,14 +57,14 @@
         @endif
         <div class="custom-grid__content">
             @include('partials.title', [$title_style])
-            <p class="body">{{ $body }}</p>
+            @if ($body)
+                <p class="body">{{ $body }}</p>
+            @endif
             @if ($items)
                 <div class="custom-grid__content--{{ $grid_type }}">
                     @foreach ($items as $item)
                         @if ($grid_type === 'icons')
-                            {{-- @include('partials.icon', [
-                              'icon' => $item['icon']
-                          ]) --}}
+                            <img class="custom-grid__icon" src={{ $item['icon']['url'] }} alt={{ $item['icon']['alt'] }}>
                         @endif
                         @if ($grid_type === 'default')
                             <div class="custom-grid__stat">

@@ -198,15 +198,15 @@ class CustomGrid extends Block
                 'label' => 'Sub Title/Body',
                 'rows' => 3,
             ])
-            ->addSelect('grid_sub_type', [
-                'label' => 'Grid Sub Type',
-                'instructions' => 'Choose if the grid will contain icons with text or statistics(numbers) with text',
-                'choices' => [
-                    'sub_icons' => 'Icons',
-                    'sub_numbers' => 'Statistics',
-                ],
-                'default_value' => 'sub_numbers',
-            ])->conditional('grid_type', '==', 'default')
+            // ->addSelect('grid_sub_type', [
+            //     'label' => 'Grid Sub Type',
+            //     'instructions' => 'Choose if the grid will contain icons with text or statistics(numbers) with text',
+            //     'choices' => [
+            //         'sub_icons' => 'Icons',
+            //         'sub_numbers' => 'Statistics',
+            //     ],
+            //     'default_value' => 'sub_numbers',
+            // ])->conditional('grid_type', '==', 'default')
             ->addRepeater('items', [
                 'label' => 'Grid Items',
                 'layout' => 'block',
@@ -215,12 +215,12 @@ class CustomGrid extends Block
             ->addNumber('item', [
                 'label' => 'Number',
                 'instructions' => 'Enter the statistic number',
-            ])->conditional('grid_sub_type', '==', 'sub_numbers')
+            ])->conditional('grid_type', '==', 'default')
             ->addImage('icon', [
                 'label' => 'Icon',
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
-            ])->conditional('grid_sub_type', '==', 'sub_icons')
+            ])->conditional('grid_type', '==', 'icons')
             ->addTextarea('description', [
                 'label' => 'Description',
                 'rows' => 3,
