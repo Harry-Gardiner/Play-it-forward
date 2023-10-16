@@ -50,12 +50,12 @@
 @endphp
 
 <section
-    class="custom-grid {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+    class="custom-grid {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
     <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
-        <div class="custom-grid__content">
+        <div class="custom-grid__content container">
             @include('partials.title', [$title_style])
             @if ($body)
                 <p class="body">{{ $body }}</p>
@@ -74,6 +74,16 @@
                             </div>
                         @endif
                     @endforeach
+                </div>
+                <div class="button-container">
+                    @if ($show_button == 'yes')
+                        @include('partials.button', [
+                            'type' => $btn_type,
+                            'link' => $btn_link,
+                            'text' => $btn_text,
+                            'colour' => $button_colour,
+                        ])
+                    @endif
                 </div>
             @endif
         </div>
