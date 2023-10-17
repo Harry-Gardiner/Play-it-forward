@@ -231,6 +231,10 @@ class AWP_Menu_Walker extends \Walker_Nav_Menu
  *
  */
 add_filter('acf/load_field/name=colour_picker', function ($field) {
+    if (!empty($field['choices'])) {
+        return $field;
+    }
+
     // get array of colors created using editor-color-palette
     $colors = get_theme_support('editor-color-palette');
 

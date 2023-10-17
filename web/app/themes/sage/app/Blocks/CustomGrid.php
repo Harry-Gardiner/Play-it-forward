@@ -180,7 +180,10 @@ class CustomGrid extends Block
             ->addFields($this->get(GeneralTab::class))
             ->addRadio('colour_picker', [
                 'label' => 'Select Colour',
-                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                ],
                 'default_value' => 'white',
             ])
             ->addSelect('grid_type', [
