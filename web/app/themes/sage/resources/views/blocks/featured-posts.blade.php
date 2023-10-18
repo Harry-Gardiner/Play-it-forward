@@ -8,7 +8,7 @@
         ];
         $latest_posts = new WP_Query($args);
     }
-    
+
     if ($impact_word_enable === 'yes') {
         $impact = $impact_word_position;
     }

@@ -2,28 +2,28 @@
 
 namespace App\Blocks;
 
+use App\Fields\Partials\ImpactWord;
 use App\Fields\Partials\Button;
 use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-
-class CtaBanner extends Block
+class CustomGrid extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Cta Banner';
+    public $name = 'Custom Grid';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Cta Banner block.';
+    public $description = 'A simple Custom Grid block. Can be used to display a grid of items. There are 2 grid options: icons or text.';
 
     /**
      * The block category.
@@ -37,14 +37,14 @@ class CtaBanner extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-contract';
+    public $icon = 'editor-kitchensink';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = ['cta', 'banner', 'call to action'];
+    public $keywords = [];
 
     /**
      * The block post type allow list.
@@ -142,16 +142,24 @@ class CtaBanner extends Block
     public function with()
     {
         return [
+            // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Impact Word
+            'impact_word_enable' => get_field('impact_word_enable'),
+            'impact_word' => get_field('impact_word'),
+            'impact_word_position' => get_field('impact_word_position'),
+
+            // Custom Grid
+            'title_style' => get_field('title_style'),
             'body' => get_field('body'),
-            'image' => get_field('image'),
-            'image_position' => get_field('image_position'),
+            'grid_type' => get_field('grid_type'),
+            'grid_sub_type' => get_field('grid_sub_type'),
+            'items' => get_field('items'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
-            'layout' => get_field('layout'),
-            'background_colour' => get_field('colour_picker'),
-            'title_style' => get_field('title_style'),
         ];
     }
 
@@ -162,59 +170,56 @@ class CtaBanner extends Block
      */
     public function fields()
     {
-        $ctaBanner = new FieldsBuilder('cta_banner');
+        $customGrid = new FieldsBuilder('custom_grid');
 
-        $ctaBanner
+        $customGrid
             ->addMessage('block_title', '', [
-                'label' => 'CTA Banner',
+                'label' => 'Custom Grid',
+                'message' => 'A simple Custom Grid block. Can be used to display a grid of items. There are 2 grid options: icons or standard.<br><br>Standard allows you to add a title, description and a grid of statistic items.<br><br>Icons allows you to add a title, description and a grid of icons.<br><br>Icons and Standard are mutually exclusive, you can only select one or the other.',
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addRadio('colour_picker', [
                 'label' => 'Select Colour',
-                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
-                'default_value' => 'off-white',
-            ])
-            ->addTab('Content')
-            ->addFields($this->get(Title::class))
-            ->addWysiwyg('body')
-
-            ->addTab('Image')
-            ->addRadio('add_image', [
-                'label' => 'Add Image?',
-                'required' => 1,
                 'choices' => [
-                    'yes' => 'Yes',
-                    'no' => 'No',
+                    'white' => 'White',
+                    'off-white' => 'Off White',
                 ],
-                'default_value' => 'no',
-                'layout' => 'horizontal',
+                'default_value' => 'white',
             ])
-            ->addImage('image')->conditional('add_image', '==', 'yes')
-            ->addSelect('image_position', [
-                'label' => 'Image Position',
-                'required' => 0,
+            ->addSelect('grid_type', [
+                'label' => 'Grid Type',
                 'choices' => [
-                    'left' => 'Left',
-                    'right' => 'Right',
-                ],
-                'default_value' => 'left',
-                'layout' => 'horizontal',
-            ])->conditional('add_image', '==', 'yes')
-
-            ->addTab('Layout')->conditional('add_image', '==', 'no')
-            ->addSelect('layout', [
-                'label' => 'Layout',
-                'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Contained will be approx 70% page width. Default will be the default width of the content.',
-                'required' => 0,
-                'choices' => [
-                    'default' => 'Default',
-                    'full' => 'Full Width',
-                    'contained' => 'Contained'
+                    'icons' => 'Icons',
+                    'default' => 'Standard',
                 ],
                 'default_value' => 'default',
-                'layout' => 'horizontal',
             ])
-
+            ->addFields($this->get(ImpactWord::class))
+            ->addTab('Content')
+            ->addFields($this->get(Title::class))
+            ->addTextarea('body', [
+                'label' => 'Sub Title/Body',
+                'rows' => 3,
+            ])
+            ->addRepeater('items', [
+                'label' => 'Grid Items',
+                'layout' => 'block',
+                'button_label' => 'Add Item',
+            ])
+            ->addNumber('item', [
+                'label' => 'Number',
+                'instructions' => 'Enter the statistic number',
+            ])->conditional('grid_type', '==', 'default')
+            ->addImage('icon', [
+                'label' => 'Icon',
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
+            ])->conditional('grid_type', '==', 'icons')
+            ->addTextarea('description', [
+                'label' => 'Description',
+                'rows' => 3,
+            ])->conditional('grid_type', '==', 'default')
+            ->endRepeater()
             ->addTab('Button')
             ->addRadio('show_button', [
                 'label' => 'Show Button?',
@@ -238,7 +243,8 @@ class CtaBanner extends Block
                 ],
             ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
             ->endGroup();
-        return $ctaBanner->build();
+
+        return $customGrid->build();
     }
 
     /**

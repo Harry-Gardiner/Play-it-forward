@@ -4,34 +4,34 @@
         $btn_link = $cta_button['link'];
         $btn_text = $cta_button['text'];
         $btn_type = $cta_button['type'];
-    }
-    
-    if ($cta_button['btn_colour'] !== '') {
-        $button_colour = $cta_button['btn_colour'];
-    } else {
-        switch ($background_colour) {
-            case 'yellow':
-                $button_colour = 'bg-yellow';
-                break;
-    
-            case 'dark-green':
-                $button_colour = 'bg-green';
-                break;
-    
-            case 'raspberry':
-                $button_colour = 'bg-raspberry';
-                break;
-    
-            case 'charcoal':
-                $button_colour = 'white';
-                break;
-    
-            default:
-                $button_colour = 'bg-raspberry';
-                break;
+
+        if ($cta_button['btn_colour'] !== '') {
+            $button_colour = $cta_button['btn_colour'];
+        } else {
+            switch ($background_colour) {
+                case 'yellow':
+                    $button_colour = 'bg-yellow';
+                    break;
+
+                case 'dark-green':
+                    $button_colour = 'bg-green';
+                    break;
+
+                case 'raspberry':
+                    $button_colour = 'bg-raspberry';
+                    break;
+
+                case 'charcoal':
+                    $button_colour = 'white';
+                    break;
+
+                default:
+                    $button_colour = 'bg-raspberry';
+                    break;
+            }
         }
     }
-    
+
     // $layout switch statement
     switch ($layout) {
         case 'full':
@@ -43,7 +43,7 @@
         default:
             $layout = 'default';
     }
-    
+
 @endphp
 <section
     class="cta-wrapper {{ !$image ? $layout : 'full-bleed' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
