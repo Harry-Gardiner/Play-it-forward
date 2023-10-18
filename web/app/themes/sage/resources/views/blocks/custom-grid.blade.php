@@ -51,11 +51,11 @@
 
 <section
     class="custom-grid {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
-    <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }} block-padding">
+    <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }} block-padding container">
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
-        <div class="custom-grid__content container">
+        <div class="custom-grid__content">
             @include('partials.title', [$title_style])
             @if ($body)
                 <p class="body">{{ $body }}</p>

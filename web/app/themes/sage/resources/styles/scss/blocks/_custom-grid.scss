@@ -20,7 +20,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: $spacing--xl;
-
+                justify-content: center;
             }
         }
 
