@@ -43,6 +43,7 @@
         @extend .button;
         @extend .button--primary;
         @extend .button--raspberry;
+        background: $pf-raspberry !important;
         border-radius: 100px !important;
         border: 1px solid transparent !important;
 
@@ -51,6 +52,22 @@
             border-color: $pf-raspberry !important;
             background: $pf-white !important;
             color: $pf-raspberry !important;
+        }
+    }
+
+    input[type="email"] {
+        background: transparent !important;
+        border-bottom: 1px solid $pf-charcoal !important;
+        border-radius: 0 !important;
+        color: $pf-charcoal !important;
+
+        &::placeholder {
+            color: $pf-charcoal !important;
+            opacity: 1 !important;
+        }
+
+        &:focus {
+            box-shadow: none !important;
         }
     }
 }
