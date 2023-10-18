@@ -1,8 +1,4 @@
 @switch($type)
-    @case('secondary')
-        <a class="button button--secondary button--{{ $colour }}" href="{{ $link }}">{{ $text }}</a>
-    @break
-
     @case('donate')
         @php
             $donationsLink = get_field('donation_link', 'options');
