@@ -149,6 +149,7 @@
 
     &__social {
         display: flex;
+        justify-content: center;
         gap: 2rem;
 
         i {
@@ -159,10 +160,20 @@
     &__upper {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1rem;
         padding-bottom: 3rem;
 
-        @include media-breakpoint(lg) {
+        .button {
+            width: fit-content;
+            margin: 0 auto;
+
+            @include media-breakpoint(md) {
+                margin: 0;
+            }
+        }
+
+        @include media-breakpoint(md) {
             flex-direction: row;
             justify-content: space-between;
         }
@@ -178,8 +189,10 @@
         gap: 1rem;
 
         @include media-breakpoint(md) {
-            flex-direction: row;
-            justify-content: space-between;
+            // flex-direction: row;
+            // justify-content: space-between;
+            display: grid;
+
         }
     }
 
@@ -224,7 +237,8 @@
         text-align: center;
         padding: 2rem 0;
 
-        p, a {
+        p,
+        a {
             font-size: $size--sm;
         }
 

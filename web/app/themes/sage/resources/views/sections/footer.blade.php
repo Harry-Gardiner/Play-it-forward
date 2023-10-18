@@ -7,6 +7,7 @@
 
     $footer_columns = get_field('footer_columns', 'option');
     $show_newsletter = get_field('show_newsletter_signup', 'option');
+    $newsletter_shortcode = get_field('newsletter_shortcode', 'option');
 @endphp
 
 <footer class="footer">
@@ -54,6 +55,7 @@
                             <div class="footer__newsletter">
                                 <h3>Get the newsletter</h3>
                                 <div class="footer__newsletter__form">
+                                    {!! do_shortcode($newsletter_shortcode) !!}
                                 </div>
                             </div>
                         @endif
