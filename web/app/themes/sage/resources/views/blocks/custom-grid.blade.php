@@ -51,7 +51,7 @@
 
 <section
     class="custom-grid {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
-    <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }}">
+    <div class="{{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }} block-padding">
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
