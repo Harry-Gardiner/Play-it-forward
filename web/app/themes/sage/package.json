@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001488",
+    "countup.js": "^2.8.0",
     "swiffy-slider": "^1.6.0"
   }
 }

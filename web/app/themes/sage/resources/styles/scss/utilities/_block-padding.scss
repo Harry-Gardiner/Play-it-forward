@@ -1,4 +1,9 @@
 .block-padding {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: $spacing--lg;
+    padding-bottom: $spacing--lg;
+
+    @include media-breakpoint('md') {
+        padding-top: $spacing--xl;
+        padding-bottom: $spacing--xl;
+    }
 }
