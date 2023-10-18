@@ -1,60 +1,56 @@
 @php
-$facebook = get_field('facebook_link', 'option');
-$instagram = get_field('instagram_link', 'option');
-$twitter = get_field('twitter_link', 'option');
-$youtube = get_field('youtube_link', 'option');
-$linkedin = get_field('linkedin_link', 'option');
+    $facebook = get_field('facebook_link', 'option');
+    $instagram = get_field('instagram_link', 'option');
+    $twitter = get_field('twitter_link', 'option');
+    $youtube = get_field('youtube_link', 'option');
+    $linkedin = get_field('linkedin_link', 'option');
 
-$footer_columns = get_field('footer_columns', 'option');
-$show_newsletter = get_field('show_newsletter_signup', 'option');
+    $footer_columns = get_field('footer_columns', 'option');
+    $show_newsletter = get_field('show_newsletter_signup', 'option');
 @endphp
 
 <footer class="footer">
     <div class="footer__top full-bleed">
-        <div class="container">
+        <div class="container block-padding--top">
             <div class="footer__upper">
-                <button>Temporary button here</button>
-                {{-- @include('partials.button', [
-                'button' => [
-                    'type' => 'primary',
+                @include('partials.button', [
+                    'type' => 'donate',
                     'link' => 'https://www.google.co.uk',
                     'text' => 'Donate',
-                    'colour' => 'red',
-                    ]
-                ]) --}}
+                    'colour' => 'raspberry',
+                ])
                 <div class="footer__social">
                     @if ($facebook != '')
-                    <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     @endif
                     @if ($instagram != '')
-                    <a href={{ $instagram }}target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href={{ $instagram }}target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     @endif
                     @if ($twitter != '')
-                    <a href={{ $twitter }} target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href={{ $twitter }} target="_blank"><i class="fa-brands fa-twitter"></i></a>
                     @endif
                     @if ($youtube != '')
-                    <a href={{ $youtube }} target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href={{ $youtube }} target="_blank"><i class="fa-brands fa-youtube"></i></a>
                     @endif
                     @if ($linkedin != '')
-                    <a href={{ $linkedin }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
+                        <a href={{ $linkedin }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
                     @endif
                 </div>
             </div>
 
             <div class="footer__middle">
-                @if($footer_columns)
+                @if ($footer_columns)
                     <div class="footer__columns-wrapper">
                         @foreach ($footer_columns as $column)
                             <div class="footer__column">
                                 <h3>{{ $column['footer_column_title'] }}</h3>
                                 @foreach ($column['column_links'] as $link)
-                                
                                     <a href="{{ $link['column_link']['url'] }}">{{ $link['column_link']['title'] }}</a>
                                 @endforeach
                             </div>
                         @endforeach
 
-                        @if($show_newsletter)
+                        @if ($show_newsletter)
                             <div class="footer__newsletter">
                                 <h3>Get the newsletter</h3>
                                 <div class="footer__newsletter__form">
@@ -67,7 +63,7 @@ $show_newsletter = get_field('show_newsletter_signup', 'option');
 
             <div class="footer__lower full-bleed">
                 <p>©
-                    {{ date("Y") }} site & design by
+                    {{ date('Y') }} site & design by
                     <a href="https://github.com/Harry-Gardiner" target="_blank" class="footer__lower link">Harry</a>
                     and <a href="https://github.com/Nelboh" class="footer__lower link">Ellie</a>
                 </p>
