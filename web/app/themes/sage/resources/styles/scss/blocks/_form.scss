@@ -1,0 +1,97 @@
+.form-block {
+    &.bg--yellow {
+
+        button[value='wpforms-submit'],
+        button[type='submit'] {
+            background-color: $pf-charcoal !important;
+            color: $pf-white !important;
+            border: 1px solid transparent !important;
+
+            &:hover,
+            &:focus {
+                background-color: $pf-white !important;
+                color: $pf-charcoal !important;
+                border-color: $pf-charcoal !important;
+            }
+        }
+    }
+
+    &.bg--charcoal {
+
+        button[value='wpforms-submit'],
+        button[type='submit'] {
+            background-color: $pf-white !important;
+            color: $pf-charcoal !important;
+            border: 1px solid transparent !important;
+
+            &:hover,
+            &:focus {
+                background-color: $pf-charcoal !important;
+                color: $pf-white !important;
+                border-color: $pf-white !important;
+            }
+        }
+    }
+
+    &.bg--dark-green {
+
+        button[value='wpforms-submit'],
+        button[type='submit'] {
+            background-color: $pf-white !important;
+            color: $pf-dark-green !important;
+            border: 1px solid transparent !important;
+
+            &:hover,
+            &:focus {
+                background-color: $pf-dark-green !important;
+                color: $pf-white !important;
+                border-color: $pf-white !important;
+            }
+        }
+    }
+
+    &.bg--raspberry {
+        button[value='wpforms-submit'] {
+            background-color: $pf-white !important;
+            color: $pf-raspberry !important;
+            border: 1px solid transparent !important;
+
+            &:hover,
+            &:focus {
+                border-color: $pf-white !important;
+                background-color: $pf-raspberry !important;
+                color: $pf-white !important;
+            }
+        }
+    }
+
+    &.bg--raspberry,
+    &.bg--charcoal,
+    &.bg--dark-green {
+        input {
+            color: $pf-white !important;
+            border-bottom-color: $pf-white !important;
+
+            &::placeholder {
+                color: $pf-white !important;
+            }
+        }
+
+        .wpforms-error {
+            color: $pf-white !important;
+
+            &::before {
+                background-color: $pf-white !important;
+            }
+        }
+    }
+
+    .wpforms-container input {
+        border-bottom-width: 4px !important;
+        font-size: 17px !important;
+
+        &::placeholder {
+            text-transform: uppercase !important;
+        }
+    }
+}
