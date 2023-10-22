@@ -2,6 +2,7 @@ import domReady from '@roots/sage/client/dom-ready';
 import Header from './custom/Header.js';
 import SwiffySlider from './custom/SwiffySlider.js';
 import StatsCounter from './custom/StatsCounter.js';
+import Footer from './custom/Footer.js';
 
 /**
  * Application entrypoint
