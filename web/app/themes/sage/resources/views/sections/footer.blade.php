@@ -72,5 +72,5 @@
             </div>
         </div>
     </div>
-
 </footer>
+<button id="backToTopBtn" class="hide"><span>&#8593;</span>back<br> to top</button>

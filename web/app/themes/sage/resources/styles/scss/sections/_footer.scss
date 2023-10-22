@@ -241,3 +241,74 @@
         }
     }
 }
+
+#backToTopBtn {
+    position: fixed;
+    visibility: hidden;
+    z-index: 899;
+    bottom: 4rem;
+    right: 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: $pf-charcoal;
+    color: $pf-white;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
+    text-transform: uppercase;
+    font-size: $size--sm;
+    padding: 0.5rem;
+    padding-top: 0;
+
+    span {
+        display: block;
+        font-size: $size--md;
+    }
+
+    @include media-breakpoint(md) {
+        width: 105px;
+        height: 105px;
+        right: 2rem;
+        font-size: $size--base;
+
+        span {
+            font-size: $size--lg;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.show {
+        visibility: visible;
+        animation: slideIn 0.3s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    &.hide {
+        animation: slideOut 0.3s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+/* Define slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(150%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Define slide-out animation */
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(150%);
+    }
+}
