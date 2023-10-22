@@ -240,4 +240,41 @@
             text-decoration: underline;
         }
     }
+
+    #backToTopBtn {
+        position: fixed;
+        bottom: 4rem;
+        right: 1rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $pf-charcoal;
+        color: $pf-white;
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
+        text-transform: uppercase;
+        font-size: $size--sm;
+        padding: 0.5rem;
+        transition: transform 0.3s ease-in-out;
+
+        span {
+            display: block;
+            font-size: $size--md;
+        }
+
+        @include media-breakpoint(md) {
+            width: 95px;
+            height: 95px;
+            right: 2rem;
+            font-size: $pf-base-size;
+            padding: 0;
+
+            span {
+                font-size: $size--lg;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 }
