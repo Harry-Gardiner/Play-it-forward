@@ -94,4 +94,34 @@
             text-transform: uppercase !important;
         }
     }
+
+    @include media-breakpoint('lg') {
+        position: relative;
+
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 40%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &__content {
+            display: flex;
+            justify-content: flex-end;
+
+            &__body {
+                padding-left: $spacing--lg;
+                width: 60%;
+
+                @include media-breakpoint('xl') {
+                    width: 65%;
+                }
+            }
+        }
+    }
+
 }

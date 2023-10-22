@@ -55,11 +55,12 @@
         }
     }
 
-    input[type="email"] {
+    input[id*="wpform"] {
         background: transparent !important;
         border-bottom: 1px solid $pf-charcoal !important;
         border-radius: 0 !important;
         color: $pf-charcoal !important;
+        padding-left: 0 !important;
 
         &::placeholder {
             color: $pf-charcoal !important;

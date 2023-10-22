@@ -29,8 +29,8 @@
     @if ($image)
         <div class="form-block__image">
             <img src="{{ $image['url'] }}"" alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
-            <div class="form-block__image__content container {{ $wrapper ? $wrapper : '' }} block-padding">
-                <div class="form-block__image__content__body">
+            <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
+                <div class="form-block__content__body">
                     <div class="flow">
                         @include('partials.title', [$title_style])
                         {!! $body !!}
