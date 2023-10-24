@@ -2,27 +2,27 @@
 
 namespace App\Blocks;
 
-use App\Fields\Partials\Button;
-use App\Fields\Partials\GeneralTab;
-use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
+use App\Fields\Partials\ImpactWord;
 
-class Form extends Block
+class Partners extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Form';
+    public $name = 'Partners';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'Block used to add form shortcode from wpforms';
+    public $description = 'List partners.';
 
     /**
      * The block category.
@@ -36,14 +36,14 @@ class Form extends Block
      *
      * @var string|array
      */
-    public $icon = 'clipboard';
+    public $icon = 'groups';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = ['form', 'embed', 'wpform'];
+    public $keywords = ['partners', 'corporate', 'logos'];
 
     /**
      * The block post type allow list.
@@ -141,13 +141,20 @@ class Form extends Block
     public function with()
     {
         return [
+            // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+
+            // Impact Word
+            'impact_word_enable' => get_field('impact_word_enable'),
+            'impact_word' => get_field('impact_word'),
+            'impact_word_position' => get_field('impact_word_position'),
+
+            // Partners
             'title_style' => get_field('title_style'),
             'body' => get_field('body'),
-            'form_type' => get_field('form_type'),
-            'image' => get_field('image'),
+            'partners' => get_field('partners'),
         ];
     }
 
@@ -158,36 +165,49 @@ class Form extends Block
      */
     public function fields()
     {
-        $form = new FieldsBuilder('form');
+        $partners = new FieldsBuilder('partners');
 
-        $form
+        $partners
             ->addMessage('block_title', '', [
-                'label' => 'Form block',
+                'label' => 'Partners block',
+                'message' => 'Display a list of partners in a staggered column layout.',
             ])
             ->addFields($this->get(GeneralTab::class))
-            ->addRadio('colour_picker', [
-                'label' => 'Select Colour',
-                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
-                'default_value' => 'off-white',
+            ->addFields($this->get(ImpactWord::class))
+            ->addTab('partners', [
+                'label' => 'Partners',
             ])
-            ->addTab('Content')
             ->addFields($this->get(Title::class))
-            ->addWysiwyg('body')
-            ->addSelect('form_type', [
-                'label' => 'Form type',
-                'instructions' => 'Choose form option.',
-                'choices' => [
-                    'newsletter' => 'Newsletter',
-                    'other' => 'Other'
-                ]
+            ->addWYSIWYG('body', [
+                'label' => 'Content',
+                'media_upload' => 0,
+                'tabs' => 'visual',
+                'toolbar' => 'basic',
+                'delay' => 1,
             ])
-            ->addText('form_shortcode', [
-                'label' => 'Form shortcode',
-                'instructions' => 'Add shortcode snippet from wpforms'
-            ])->conditional('form_type', '==', 'other')
-            ->addImage('image');
-
-        return $form->build();
+            ->addRepeater('partners', [
+                'label' => 'Partners',
+                'layout' => 'row',
+                'button_label' => 'Add Partner',
+            ])
+            ->addImage('logo', [
+                'label' => 'Logo',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ])
+            ->addText('name', [
+                'label' => 'Name',
+            ])
+            ->addTextarea('description', [
+                'label' => 'Description',
+                'rows' => 2,
+            ])
+            ->addUrl('url', [
+                'label' => 'URL',
+            ])
+            ->endRepeater();
+        return $partners->build();
     }
 
     /**
