@@ -173,6 +173,14 @@ class Partners extends Block
                 'message' => 'Display a list of partners in a staggered column layout.',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                ],
+                'default_value' => 'white',
+            ])
             ->addFields($this->get(ImpactWord::class))
             ->addTab('partners', [
                 'label' => 'Partners',
