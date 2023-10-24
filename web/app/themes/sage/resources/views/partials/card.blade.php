@@ -12,7 +12,7 @@
     <a href="{{ get_permalink($post->ID) }}">
         <div class="card__image">
             @if ($thumbnail_id)
-                <img src="{{ get_the_post_thumbnail_url($post->ID) }}" alt="{{ $thumbnail_alt }}">
+                <img src="{{ get_the_post_thumbnail_url($post->ID, 'large') }}" alt="{{ $thumbnail_alt }}">
             @else
                 <img src="{{ asset('images/placeholder.png') }}" alt="Placeholder image">
             @endif
