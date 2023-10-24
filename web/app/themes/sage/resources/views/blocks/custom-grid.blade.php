@@ -64,7 +64,8 @@
                 <div class="custom-grid__content--{{ $grid_type }}">
                     @foreach ($items as $item)
                         @if ($grid_type === 'icons' && $item['icon'])
-                            <img class="custom-grid__icon" src={{ $item['icon']['url'] }} alt={{ $item['icon']['alt'] }}>
+                            <img class="custom-grid__icon" src={{ $item['icon']['sizes']['thumbnail'] }}
+                                alt={{ $item['icon']['alt'] }}>
                         @endif
                         @if ($grid_type === 'default')
                             <div class="custom-grid__stat">
