@@ -1,0 +1,9 @@
+.stacked-media {
+    &__content {
+        &--column {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing--lg;
+        }
+    }
+}
