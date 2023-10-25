@@ -12,7 +12,9 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div class="stacked-media__content">
-            @include('partials.title', [$title_style])
+            @if ($title_style)
+                @include('partials.title', [$title_style])
+            @endif
             @if ($items)
                 <div class="stacked-media__content--column">
                     @foreach ($items as $item)
