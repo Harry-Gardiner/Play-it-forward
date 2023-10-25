@@ -22,7 +22,9 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
-            @include('partials.title', [$title_style])
+            @if ($title_style)
+                @include('partials.title', [$title_style])
+            @endif
             @isset($featured_post_type)
                 @if ($featured_post_type == 'featured')
                     <div class="featured-posts__featured">

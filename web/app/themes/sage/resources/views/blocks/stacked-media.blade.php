@@ -16,11 +16,34 @@
                 @include('partials.title', [$title_style])
             @endif
             @if ($items)
-                <div class="stacked-media__content--column">
+                <div class="stacked-media__content__column">
                     @foreach ($items as $item)
                         @if ($item['media_type'] === 'image')
+                            @php
+                                $image_sizes = [];
+                                foreach ($item['image']['sizes'] as $key => $value) {
+                                    if (is_string($value)) {
+                                        $image_sizes[$key] = [
+                                            'url' => $value,
+                                            'width' => $item['image']['sizes'][$key . '-width'],
+                                        ];
+                                    }
+                                }
+                                $srcset = [];
+                                foreach ($image_sizes as $size => $data) {
+                                    // Extract width and URL from the data array
+                                    $width = $data['width'];
+                                    $url = $data['url'];
+                                    $srcset[] = $url . ' ' . $width . 'w';
+                                }
+
+                                // Convert the srcset array to a comma-separated string
+                                $srcset_string = implode(', ', $srcset);
+                            @endphp
                             <div class="stacked-media__content--image">
-                                <img src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] }}">
+                                <img class="equal-height-image" src="{{ $item['image']['url'] }}"
+                                    srcset="{{ $srcset_string }}" sizes="(min-width: 768px) 50vw, 100vw"
+                                    alt="{{ $item['image']['alt'] }}">
                             </div>
                         @endif
                         @if ($item['media_type'] === 'video')

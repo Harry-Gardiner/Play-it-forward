@@ -202,7 +202,8 @@ class StackedMedia extends Block
                 'return_format' => 'array',
                 'preview_size' => 'medium',
                 'library' => 'all',
-                'mime_types' => 'jpg, jpeg, png, gif, svg',
+                'mime_types' => 'jpg, jpeg, png',
+                'instructions' => 'Minimum image width of 1000px is recommended. Also landscape images work best.',
             ])->conditional('media_type', '==', 'image')
             ->addOembed('video', [
                 'label' => 'Video',
