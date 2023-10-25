@@ -42,8 +42,7 @@
                             @endphp
                             <div class="stacked-media__content--image">
                                 <img class="equal-height-image" src="{{ $item['image']['url'] }}"
-                                    srcset="{{ $srcset_string }}" sizes="(min-width: 768px) 50vw, 100vw"
-                                    alt="{{ $item['image']['alt'] }}">
+                                    srcset="{{ $srcset_string }}" sizes="100vw" alt="{{ $item['image']['alt'] }}">
                             </div>
                         @endif
                         @if ($item['media_type'] === 'video')
