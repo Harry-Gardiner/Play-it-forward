@@ -24,7 +24,6 @@ class Title extends Partial
             ->addText('title', [
                 'label' => 'Title',
                 'required' => 1,
-                'default_value' => 'Title',
             ])
             ->addSelect('heading_level', [
                 'label' => 'Heading Level',
