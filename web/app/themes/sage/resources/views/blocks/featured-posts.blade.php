@@ -33,7 +33,7 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
-            @if ($title_style)
+            @if ($title_style['title'])
                 @include('partials.title', [$title_style])
             @endif
             @isset($featured_post_type)

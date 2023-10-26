@@ -13,7 +13,7 @@
 
 <section class="featured-posts {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
     <div class="featured-posts__latest block-padding">
-        @if ($title_style)
+        @if ($title_style['title'])
             @include('partials.title', [$title_style])
         @endif
         <div class="cards-wrapper three-col">
