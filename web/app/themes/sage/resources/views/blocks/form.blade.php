@@ -32,8 +32,12 @@
             <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
                 <div class="form-block__content__body">
                     <div class="flow">
-                        @include('partials.title', [$title_style])
-                        {!! $body !!}
+                        @if ($title_style['title'])
+                            @include('partials.title', [$title_style])
+                        @endif
+                        @if ($body)
+                            {!! $body !!}
+                        @endif
                         <div class="form-block__form btn-{{ $button_colour }}">
                             @if ($form_type === 'newsletter')
                                 {!! do_shortcode($newsletter_shortcode) !!}

@@ -51,8 +51,12 @@
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
                 <div class="flow">
-                    @include('partials.title', [$title_style])
-                    {!! $body !!}
+                    @if ($title_style['title'])
+                        @include('partials.title', [$title_style])
+                    @endif
+                    @if ($body)
+                        {!! $body !!}
+                    @endif
                 </div>
                 @if ($show_button == 'yes')
                     @include('partials.button', [
@@ -76,8 +80,12 @@
                 class="cta-banner__image__content container image--{{ $image_position }} {{ $wrapper ? $wrapper : '' }} block-padding">
                 <div class="cta-banner__image__content__body flow">
                     <div class="flow">
-                        @include('partials.title', [$title_style])
-                        {!! $body !!}
+                        @if ($title_style['title'])
+                            @include('partials.title', [$title_style])
+                        @endif
+                        @if ($body)
+                            {!! $body !!}
+                        @endif
                     </div>
                     @if ($show_button == 'yes')
                         @include('partials.button', [

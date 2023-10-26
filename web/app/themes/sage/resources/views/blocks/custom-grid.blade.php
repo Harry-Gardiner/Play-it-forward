@@ -56,7 +56,9 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div class="custom-grid__content">
-            @include('partials.title', [$title_style])
+            @if ($title_style['title'])
+                @include('partials.title', [$title_style])
+            @endif
             @if ($body)
                 <p class="body">{{ $body }}</p>
             @endif

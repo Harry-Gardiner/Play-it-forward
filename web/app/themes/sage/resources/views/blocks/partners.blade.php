@@ -12,7 +12,9 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
-            @include('partials.title', [$title_style])
+            @if ($title_style['title'])
+                @include('partials.title', [$title_style])
+            @endif
             @if ($body)
                 <div class="partners__body">{!! $body !!}</div>
             @endif
