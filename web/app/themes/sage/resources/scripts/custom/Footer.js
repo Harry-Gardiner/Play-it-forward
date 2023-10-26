@@ -17,7 +17,6 @@ function debounce(func, wait, immediate) {
 const backToTopBtn = document.getElementById("backToTopBtn");
 
 const scrollHandler = debounce(function () {
-    console.log(document.body.scrollTop);
     if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
         backToTopBtn.classList.add("show");
         backToTopBtn.classList.remove("hide");

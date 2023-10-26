@@ -218,7 +218,7 @@ class FeaturedPosts extends Block
                     '9' => '9',
                     '10' => 'All',
                 ],
-                'return_format' => 'key',
+                'return_format' => 'value',
             ])->conditional('featured_post_type', '==', 'latest')
             ->addText('load_more_text', [
                 'label' => 'Load More Text',

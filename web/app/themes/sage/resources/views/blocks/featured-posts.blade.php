@@ -1,4 +1,15 @@
 @php
+    $load_more = false;
+
+    if ($number_of_posts == 'All') {
+        $load_more = true;
+        if ($impact_word_enable === 'yes') {
+            $number_of_posts = 10;
+        } else {
+            $number_of_posts = 9;
+        }
+    }
+
     if ($featured_post_type == 'latest') {
         $args = [
             'post_type' => 'post',
@@ -22,7 +33,7 @@
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
         <div>
-            @if ($title_style)
+            @if ($title_style['title'])
                 @include('partials.title', [$title_style])
             @endif
             @isset($featured_post_type)
@@ -43,10 +54,10 @@
                             @endforeach
                         </div>
                         <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
-                        @if ($latest_posts->post_count >= 10)
+                        @if ($load_more && $latest_posts->post_count >= $number_of_posts)
                             <div class="btn__wrapper">
-                                <button class="button button--primary button--raspberry"
-                                    id="load-more">{{ $load_more_text }}</button>
+                                <button class="button button--primary button--raspberry" id="load-more"
+                                    data-num="{{ intval($number_of_posts) }}">{{ $load_more_text }}</button>
                             </div>
                         @endif
                     </div>

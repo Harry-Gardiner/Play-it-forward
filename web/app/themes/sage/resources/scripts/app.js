@@ -25,7 +25,9 @@ const spinner = document.querySelector('.spinner');
 let currentPage = 1;
 let isLoading = false;
 if (loadMoreButton) {
-  loadMoreButton.addEventListener('click', async () => {
+  loadMoreButton.addEventListener('click', async (e) => {
+    const num = e.target.getAttribute('data-num');
+
     // Increment the current page
     currentPage++;
 
@@ -42,7 +44,7 @@ if (loadMoreButton) {
       spinner.style.display = 'flex';
     }, 500);
 
-    const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=10`);
+    const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}`);
     const newPosts = await response.json();
     // Check if there are new posts
     if (newPosts.length > 0) {
@@ -71,7 +73,7 @@ if (loadMoreButton) {
     // Set the isLoading flag to false
     isLoading = false;
 
-    if (newPosts.length < 10) {
+    if (newPosts.length < num) {
       loadMoreButton.remove();
     }
   });
