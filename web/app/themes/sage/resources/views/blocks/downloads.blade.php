@@ -18,9 +18,9 @@
             @if ($download_grid)
                 <div class="downloads__grid">
                     @foreach ($download_grid as $download)
-                        <div class="downloads__item flow">
+                        <div class="downloads__item {{ $download['download_image_orientation'] }} flow">
                             @if ($download['download_image'])
-                                <div class="downloads__image {{ $download['download_image_orientation'] }}">
+                                <div class="downloads__image">
                                     <img src="{{ $download['download_image']['sizes']['medium_large'] }}"
                                         alt="{{ $download['download_image']['alt'] }}">
                                 </div>
@@ -32,7 +32,7 @@
                                 <p class="downloads__description">{{ $download['description'] }}</p>
                             @endif
                             <a href="{{ $download['download_file']['url'] }}" download
-                                class="downloads__link btn btn--download"
+                                class="downloads__link button button--primary button--download"
                                 title="Download {{ $download['title'] }} in PDF format"
                                 aria-label="Download {{ $download['title'] }} in PDF format">
                                 Download
