@@ -47,6 +47,7 @@
 @import 'blocks/form';
 @import 'blocks/partners';
 @import 'blocks/stacked-media';
+@import 'blocks/donate';
 
 #app {
     min-height: 100vh;
@@ -62,10 +63,6 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     background-color: $pf-white;
-}
-
-main {
-    margin-bottom: $spacing--lg;
 }
 
 table {
