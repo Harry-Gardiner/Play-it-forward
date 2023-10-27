@@ -1,4 +1,4 @@
-<script>
+{{-- <script>
     ! function(e, t) {
         if (!e.getElementById(t)) {
             var c = e.createElement("script");
@@ -6,7 +6,7 @@
                 .getElementsByTagName("head")[0].appendChild(c)
         }
     }(document, "beacon-js-sdk")
-</script>
+</script> --}}
 
 <section class="donate {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--off-white full-bleed">
     <div class="block-padding container">
