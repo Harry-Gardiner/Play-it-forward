@@ -125,4 +125,17 @@
       border-color: $pf-charcoal;
     }
   }
+
+  &--download {
+    background-color: transparent;
+    color: $pf-charcoal;
+    border: 1px solid $pf-charcoal;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal;
+      color: $pf-white;
+      border-color: $pf-white;
+    }
+  }
 }
