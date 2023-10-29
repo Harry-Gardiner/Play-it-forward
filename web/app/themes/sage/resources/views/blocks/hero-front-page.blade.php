@@ -29,12 +29,30 @@
 
 @endphp
 <section
-    class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+    class="hero-fp full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
 
     @if ($hero_title)
-        <div class="hero__inner">
-            <div class="hero__inner__content flow">
-                <div class="hero__title">
+        <div class="hero-fp__inner container">
+            <div class="hero-fp__inner__content flow">
+                <div class="hero-fp__title">
+                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
+                </div>
+                <div class="hero__sub-text flow">
+                    {!! $hero_content !!}
+                    @if ($show_button == 'yes')
+                        @include('partials.button', [
+                            'type' => $btn_type,
+                            'link' => $btn_link,
+                            'text' => $btn_text,
+                            'colour' => $btn_colour,
+                        ])
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="hero-fp__inner">
+            <div class="hero-fp__inner__content flow">
+                <div class="hero-fp__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
                 </div>
                 <div class="hero__sub-text flow">
@@ -53,7 +71,7 @@
     @endif
 
     @if ($hero_image)
-        <div class="hero__image">
+        <div class="hero-fp__image">
             <img src="{{ $hero_image['url'] }}" alt="{{ $alt_text }}"
                 style="object-position:{{ $hero_image_position }}">
         </div>

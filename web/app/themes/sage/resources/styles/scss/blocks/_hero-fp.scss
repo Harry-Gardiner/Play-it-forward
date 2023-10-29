@@ -2,7 +2,7 @@
 $header-height-mobile: 78px;
 $header-height-desktop: 60px;
 
-.hero {
+.hero-fp {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
@@ -57,11 +57,17 @@ $header-height-desktop: 60px;
         margin-bottom: $spacing--md;
         padding: 0 1rem;
 
-        @include media-breakpoint('md') {
-            padding: 0 2rem;
+        display: none;
+
+        &.container {
+            display: flex;
         }
 
         @include media-breakpoint('lg') {
+            &.container {
+                display: none;
+            }
+
             display: flex;
             flex-direction: column;
             justify-content: center;
