@@ -1,16 +1,12 @@
 .downloads {
     &__grid {
         display: grid;
-        gap: 2rem;
+        gap: 4rem;
 
         @include media-breakpoint('sm') {
             grid-template-columns: repeat(2, 1fr);
             align-items: end;
             gap: 4rem;
-        }
-
-        @include media-breakpoint('xl') {
-            grid-template-columns: repeat(3, 1fr);
         }
     }
 
@@ -31,10 +27,6 @@
 
             @include media-breakpoint('sm') {
                 grid-column: span 2;
-            }
-
-            @include media-breakpoint('xl') {
-                grid-column: span 3;
             }
 
         }
