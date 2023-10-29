@@ -8,9 +8,9 @@ $header-height-desktop: 60px;
     flex-direction: column-reverse;
     height: 100%;
 
-    @media (orientation: portrait) and (min-height: 700px) {
-        height: calc(100vh - #{$header-height-mobile});
-    }
+    // @media (orientation: portrait) and (min-height: 700px) {
+    //     height: calc(100vh - #{$header-height-mobile});
+    // }
 
     @include media-breakpoint('lg') {
         display: flex;

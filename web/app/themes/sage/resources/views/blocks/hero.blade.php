@@ -36,17 +36,16 @@
                 <div class="hero__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
                 </div>
-                <div class="hero__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
+                @if ($show_button == 'yes')
+                    <div class="hero__sub-text flow">
                         @include('partials.button', [
                             'type' => $btn_type,
                             'link' => $btn_link,
                             'text' => $btn_text,
                             'colour' => $btn_colour,
                         ])
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     @endif

@@ -37,7 +37,7 @@
                 <div class="hero-fp__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
                 </div>
-                <div class="hero__sub-text flow">
+                <div class="hero-fp__sub-text flow">
                     {!! $hero_content !!}
                     @if ($show_button == 'yes')
                         @include('partials.button', [
@@ -55,7 +55,7 @@
                 <div class="hero-fp__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
                 </div>
-                <div class="hero__sub-text flow">
+                <div class="hero-fp__sub-text flow">
                     {!! $hero_content !!}
                     @if ($show_button == 'yes')
                         @include('partials.button', [
