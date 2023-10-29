@@ -143,7 +143,6 @@ class Hero extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-            'background_colour' => get_field('colour_picker'),
 
             // Hero Content
             'hero_image' => get_field('hero_image'),
@@ -199,6 +198,7 @@ class Hero extends Block
                 'instructions' => 'Highlighted text will be displayed in red. <br><br> Each word you wish to highlight needs to be added individually. The text string must be an exact match of the text string in the hero title above, inc any punctuation if that should also be highlighted.',
                 'layout' => 'table',
                 'button_label' => 'Add Highlighted Text',
+                'max' => 1,
             ])
             ->addText('text_string', [
                 'label' => 'Highlighted Text',

@@ -28,8 +28,7 @@
     }
 
 @endphp
-<section
-    class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+<section class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
 
     @if ($hero_title)
         <div class="hero__inner">
