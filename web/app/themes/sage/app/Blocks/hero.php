@@ -49,7 +49,7 @@ class Hero extends Block
      *
      * @var array
      */
-    public $post_types = [];
+    public $post_types = ['page'];
 
     /**
      * The parent block type allow list.

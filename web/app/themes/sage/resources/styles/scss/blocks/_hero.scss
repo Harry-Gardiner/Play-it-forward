@@ -3,6 +3,10 @@
     min-height: 50vh;
     height: 100%;
 
+    @include media-breakpoint('lg') {
+        height: 70vh;
+    }
+
     @media (orientation: landscape) and (max-height: 700px) {
         height: calc(100vh - #{$header-height-mobile});
     }
@@ -24,7 +28,32 @@
     }
 
     &__inner {
-        position: relative;
+        position: absolute;
         z-index: 1;
+        bottom: 2rem;
+        left: 2rem;
+
+        @include media-breakpoint('lg') {
+            bottom: 4rem;
+            left: 4rem;
+        }
+    }
+
+    &__title {
+        @extend .hero-fp__title;
+        top: unset;
+        width: min-content;
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
+        border-left: 13px solid $pf-raspberry;
+        background-color: $pf-white;
+        width: fit-content;
+
+        h1 {
+            display: inline;
+            padding: 0.4px 1rem 0.4px 0.5rem;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            text-transform: none;
+        }
     }
 }
