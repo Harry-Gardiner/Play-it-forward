@@ -222,7 +222,7 @@ class Hero extends Block
             ])
             ->addGroup('cta_button', ['label' => 'CTA Button'])
             ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
-            ->endGroup();;
+            ->endGroup();
 
         return $hero->build();
     }
