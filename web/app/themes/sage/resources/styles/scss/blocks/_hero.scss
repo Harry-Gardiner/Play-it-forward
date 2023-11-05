@@ -42,15 +42,19 @@
     &__title {
         @extend .hero-fp__title;
         top: unset;
-        width: min-content;
+        width: 75%;
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
         border-left: 13px solid $pf-raspberry;
         background-color: $pf-white;
-        width: fit-content;
+        padding: 1rem 0;
+
+        @include media-breakpoint('md') {
+            width: fit-content;
+        }
 
         h1 {
             display: inline;
-            padding: 0.4px 1rem 0.4px 0.5rem;
+            padding: 1rem;
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
             text-transform: none;
