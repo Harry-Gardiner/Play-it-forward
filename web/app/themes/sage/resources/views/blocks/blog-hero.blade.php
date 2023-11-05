@@ -7,8 +7,9 @@
     if ($show_hero_image == 'yes') {
         $hero_image = get_the_post_thumbnail_url(null, 'medium_large') ?? null;
         $alt_text = '';
-        if (is_array($hero_image) && isset($hero_image['alt'])) {
-            $alt_text = $hero_image['alt'] !== '' ? $hero_image['alt'] : 'hero image';
+        if ($hero_image) {
+            $post_thumbnail_id = get_post_thumbnail_id();
+            $alt_text = get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true);
         }
         $image_position = $hero_image_position ?? 'center center';
     }
@@ -19,6 +20,12 @@
 
 <section class="blog-hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
 
+    @if ($hero_image)
+        <div class="blog-hero__image">
+            <img src="{{ $hero_image }}" alt="{{ $alt_text }}" style="object-position:{{ $hero_image_position }}">
+        </div>
+    @endif
+
     @if ($hero_title)
         <div class="blog-hero__inner container">
             <div class="blog-hero__inner__content flow">
@@ -28,12 +35,4 @@
             </div>
         </div>
     @endif
-
-    @if ($hero_image)
-        <div class="blog-hero__image">
-            <img src="{{ $hero_image['url'] }}" alt="{{ $alt_text }}"
-                style="object-position:{{ $hero_image_position }}">
-        </div>
-    @endif
-
 </section>
