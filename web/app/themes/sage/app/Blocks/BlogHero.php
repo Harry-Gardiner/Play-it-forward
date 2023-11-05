@@ -49,7 +49,7 @@ class BlogHero extends Block
      *
      * @var array
      */
-    public $post_types = ['blog'];
+    public $post_types = ['post'];
 
     /**
      * The parent block type allow list.
@@ -139,7 +139,16 @@ class BlogHero extends Block
      */
     public function with()
     {
-        return [];
+        return [
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Hero Image
+            'show_hero_image' => get_field('show_hero_image'),
+            'hero_image_position' => get_field('hero_image_position'),
+        ];
     }
 
     /**
@@ -156,10 +165,19 @@ class BlogHero extends Block
                 'label' => 'Hero',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                    'raspberry' => 'Raspberry',
+                ],
+                'default_value' => 'white',
+            ])
             ->addTab('Hero Image')
             ->addMessage('hero_image', '', [
                 'label' => 'Hero Image',
-                'instructions' => 'If you choose to show the hero image, it will be displayed 50/50 with the hero content. The image used is the featured image of the blog post.',
+                'message' => 'If you choose to show the hero image, it will be displayed 50/50 with the hero content. The image used is the featured image of the blog post.',
             ])
             ->addSelect('show_hero_image', [
                 'label' => 'Show Hero Image',
@@ -170,10 +188,22 @@ class BlogHero extends Block
                 ],
                 'default_value' => 'no',
             ])
+            ->addSelect('hero_image_position', [
+                'label' => 'Image Position',
+                'instructions' => 'If required, use this to position the image.',
+                'choices' => [
+                    'center' => 'Center',
+                    'top' => 'Top',
+                    'bottom' => 'Bottom',
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'center',
+            ])->conditional('show_hero_image', '==', 'yes')
             ->addTab('Hero Content')
             ->addMessage('hero_title', '', [
                 'label' => 'Hero Title',
-                'instructions' => 'The title of the blog post will be used as the hero title.',
+                'message' => 'The title of the blog post will be used as the hero title.',
             ]);
 
         return $blogHero->build();
