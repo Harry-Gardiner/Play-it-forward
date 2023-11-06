@@ -26,7 +26,7 @@ class Wrapper extends Partial
                     'block-spacing--auto' => 'Auto',
                     'block-spacing--none' => 'None',
                 ],
-                'default' => 'block-spacing--both',
+                'default' => 'block-spacing--none',
                 'wpml_cf_preferences' => 0,
             ])
             ->addSelect('spacing_size', [

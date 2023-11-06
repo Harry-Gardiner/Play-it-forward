@@ -1,1 +1,21 @@
-.blog-hero {}
+.blog-hero {
+    &__title {
+        padding-bottom: $spacing--md;
+    }
+
+    &__inner {
+        padding-top: $spacing--md;
+
+        &__content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        &__categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+    }
+}
