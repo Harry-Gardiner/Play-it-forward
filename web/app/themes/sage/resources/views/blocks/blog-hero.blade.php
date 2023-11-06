@@ -21,7 +21,7 @@
     $hero_title = get_the_title() ?? null;
 @endphp
 
-<section
+<header
     class="blog-hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
     @if ($hero_image)
         <div class="blog-hero__image">
@@ -47,4 +47,4 @@
             </div>
         </div>
     @endif
-</section>
+</header>
