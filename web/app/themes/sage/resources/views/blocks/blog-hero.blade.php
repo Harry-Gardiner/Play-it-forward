@@ -31,7 +31,7 @@
 
     @if ($hero_title)
         <div class="blog-hero__inner container">
-            <div class="flow">
+            <div class="blog-hero__wrapper flow">
                 <div class="blog-hero__inner__content">Blog <span>|</span>
                     @if (!empty($categories))
                         <div class="blog-hero__inner__categories">
@@ -42,7 +42,7 @@
                     @endif
                 </div>
                 <div class="blog-hero__title">
-                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
+                    <h1 class="h1">{!! $hero_title !!}</h1>
                 </div>
             </div>
         </div>
