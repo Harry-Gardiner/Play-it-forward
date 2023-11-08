@@ -23,14 +23,16 @@
 
 <header
     class="blog-hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
-    @if ($hero_image)
+    @if ($show_hero_image == 'yes' && $hero_image)
         <div class="blog-hero__image">
             <img src="{{ $hero_image }}" alt="{{ $alt_text }}" style="object-position:{{ $hero_image_position }}">
         </div>
+    @else
+        NO IMAGE
     @endif
 
     @if ($hero_title)
-        <div class="blog-hero__inner container">
+        <div class="blog-hero__inner container {{ $show_hero_image !== 'yes' ? 'base' : 'has-image' }}">
             <div class="blog-hero__wrapper flow">
                 <div class="blog-hero__inner__content">Blog <span>|</span>
                     @if (!empty($categories))
