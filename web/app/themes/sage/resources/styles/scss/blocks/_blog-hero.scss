@@ -79,6 +79,8 @@
 
   &__inner {
     padding-top: $spacing--md;
+    position: relative;
+    z-index: 1;
 
     &__content {
       display: flex;
