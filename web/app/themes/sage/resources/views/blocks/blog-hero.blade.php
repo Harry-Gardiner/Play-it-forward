@@ -22,17 +22,10 @@
 @endphp
 
 <header
-    class="blog-hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
-    @if ($show_hero_image == 'yes' && $hero_image)
-        <div class="blog-hero__image">
-            <img src="{{ $hero_image }}" alt="{{ $alt_text }}" style="object-position:{{ $hero_image_position }}">
-        </div>
-    @else
-        NO IMAGE
-    @endif
-
+    class="blog-hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} {{ $show_hero_image !== 'yes' ? 'base' : 'has-image' }}">
+    
     @if ($hero_title)
-        <div class="blog-hero__inner container {{ $show_hero_image !== 'yes' ? 'base' : 'has-image' }}">
+        <div class="blog-hero__inner container">
             <div class="blog-hero__wrapper flow">
                 <div class="blog-hero__inner__content">Blog <span>|</span>
                     @if (!empty($categories))
@@ -48,5 +41,16 @@
                 </div>
             </div>
         </div>
+    @endif
+
+    @if ($show_hero_image == 'yes' && $hero_image)
+        <div class="blog-hero__image">
+            <img src="{{ $hero_image }}" alt="{{ $alt_text }}" style="object-position:{{ $hero_image_position }}">
+        </div>
+    @else
+       <div class="blog-hero__image--base">
+        <img src="{{ asset('images/pif_logo_lrg_white.png') }}"
+        alt="Play it forward logo">
+       </div>
     @endif
 </header>

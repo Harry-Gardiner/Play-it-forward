@@ -1,66 +1,100 @@
 .blog-hero {
-    position: relative;
-    min-height: 50vh;
+  position: relative;
+  min-height: 50vh;
+
+  &.base {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .blog-hero__wrapper {
+      width: 80%;
+    }
+  }
+
+  @include media-breakpoint('lg') {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    padding-bottom: $spacing--md;
+
+    h1 {
+      font-style: normal;
+      text-transform: none;
+      word-wrap: break-word;
+    }
+  }
+
+  &__image {
+    @media screen and (orientation: landscape) and (max-width: 992px) {
+      img {
+        max-height: 300px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     @include media-breakpoint('lg') {
-        display: flex;
-        align-items: center;
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
 
-    &__title {
-        padding-bottom: $spacing--md;
+    &--base {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
 
-        h1 {
-            font-style: normal;
-            text-transform: none;
-            word-wrap: break-word;
-        }
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include media-breakpoint('lg') {
+      width: 50%;
+    }
+  }
+
+  &__inner {
+    padding-top: $spacing--md;
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      text-transform: uppercase;
+
+      @include media-breakpoint('lg') {
+        gap: 2rem;
+        font-size: 20px;
+      }
     }
 
-    &__image {
-        @include media-breakpoint('lg') {
-            img {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 50%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
+    &__categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-
-        @include media-breakpoint('lg') {
-            width: 50%;
-        }
-    }
-
-    &__inner {
-        padding-top: $spacing--md;
-
-        &__content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            text-transform: uppercase;
-
-            @include media-breakpoint('lg') {
-                gap: 2rem;
-                font-size: 20px;
-            }
-        }
-
-        &__categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-    }
+  }
 }
