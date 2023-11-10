@@ -1,4 +1,8 @@
 @php
+    // Wrapper
+    $wrapper = $wrapper ?? null;
+    $spacing_size = $spacing_size ?? null;
+
     // Image
     $hero_image = $hero_image ?? null;
     $alt_text = '';
