@@ -1,0 +1,54 @@
+.football-team {
+    &__header {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__featured-image {
+        max-height: 70vh;
+        object-fit: cover;
+    }
+
+    &__logo {
+        &__img {
+            position: relative;
+            z-index: 1;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            object-fit: contain;
+
+            @include media-breakpoint('sm') {
+                width: 240px;
+            }
+
+            @include media-breakpoint('md') {
+                width: 280px;
+            }
+
+            @include media-breakpoint('xl') {
+                width: 340px;
+            }
+        }
+    }
+
+    &__intro {
+        position: relative;
+        margin-top: -4rem;
+        text-align: center;
+
+        @include media-breakpoint('sm') {
+            margin-top: -7rem;
+        }
+
+        @include media-breakpoint('md') {
+            margin-top: -9rem;
+        }
+
+        @include media-breakpoint('xl') {
+            margin-top: -11rem;
+        }
+    }
+}

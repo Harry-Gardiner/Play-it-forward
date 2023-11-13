@@ -15,22 +15,27 @@
 
     // Featured image
     $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    $image_position = get_field('image_position') ?? 'center center';
 
-    dump($team_logo, $team_bio, $team_keepers, $team_defenders, $team_midfielders, $team_forwards, $team_staff);
+    // dump($team_logo, $team_bio, $team_keepers, $team_defenders, $team_midfielders, $team_forwards, $team_staff);
 @endphp
-<article @php(post_class('h-entry'))>
-    <header class="football-teams__header">          
+<article @php(post_class('football-team h-entry'))>
+    <header class="football-team__header full-bleed">          
             @if($featured_image)
-                <img src="{{ $featured_image }}" alt="{{ get_the_title() }}" class="u-photo">
+                <img src="{{ $featured_image }}" alt="{{ get_the_title() }}" class="football-team__featured-image" style="object-position:{{$image_position}}">
             @endif
-            @if($team_logo)
-                <img src="{{ $team_logo['url'] }}" alt="{{ $team_logo['alt'] }}" class="u-photo">
-            @endif
-            <div class="football-teams__intro">
-                <h1 class="p-name">@php(the_title())</h1>
-                @if($team_bio)
-                    <p>{{ $team_bio }}</p>
-                @endif
+            <div class="container">
+                <div class="football-team__logo">
+                    @if($team_logo)
+                        <img src="{{ $team_logo['url'] }}" alt="{{ $team_logo['alt'] }}" class="football-team__logo__img">
+                    @endif
+                </div>
+                <div class="football-team__intro">
+                    <h1 class="h1">@php(the_title())</h1>
+                    @if($team_bio)
+                        <p>{{ $team_bio }}</p>
+                    @endif
+                </div>
             </div>
     </header>
     <div class="e-content flow">

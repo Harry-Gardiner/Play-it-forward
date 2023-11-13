@@ -48,6 +48,21 @@ class Teams extends Field
                 ->addDatePicker('match_date', ['title' => 'Date'])
                 ->addText('match_opponent', ['title' => 'Opponent'])
                 ->addText('match_score', ['title' => 'Score', 'instructions' => 'Enter the score in the format: 1-0. Play It Forward FC first, opponent second.'])
+            ->endRepeater()
+            ->addTab('Image')
+            ->addMessage('general_tab_message', 'message', [
+                'label' => 'Image settings',
+                'message' => 'The image is pulled from the teams featured image. If you would like to change the image, please do so in the featured image section of the page.',
+            ])
+            ->addSelect('image_position', [
+                'title' => 'Image Position', 
+                'choices' => [
+                    'top' => 'Top',
+                    'bottom' => 'Bottom',
+                    'center' => 'Center'
+                ], 
+                'default_value' => 'center'
+                ])
             ;
 
         return $teams->build();
