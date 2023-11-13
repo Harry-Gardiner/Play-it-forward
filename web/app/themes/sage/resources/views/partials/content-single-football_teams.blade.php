@@ -19,7 +19,7 @@
 
     // dump($team_logo, $team_bio, $team_keepers, $team_defenders, $team_midfielders, $team_forwards, $team_staff);
 @endphp
-<article @php(post_class('football-team h-entry'))>
+<article @php(post_class('football-team h-entry block-padding--bottom'))>
     <header class="football-team__header full-bleed">          
             @if($featured_image)
                 <img src="{{ $featured_image }}" alt="{{ get_the_title() }}" class="football-team__featured-image" style="object-position:{{$image_position}}">
