@@ -36,7 +36,7 @@
 
     &__intro {
         position: relative;
-        margin-top: -4rem;
+        margin-top: -5rem;
         text-align: center;
 
         @include media-breakpoint('sm') {
@@ -49,6 +49,130 @@
 
         @include media-breakpoint('xl') {
             margin-top: -11rem;
+        }
+    }
+
+    &__results {
+        &__heading {
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: 1.8px;
+            text-align: center;
+        }
+    }
+
+    &__latest {
+        text-transform: uppercase;
+        
+        p {
+            font-weight: 700;
+        }
+
+        &__content {
+            @include media-breakpoint('lg') {
+                max-width: 70%;
+             }
+        }
+        
+        &__last {
+            text-align: center;
+            .score-top {
+                margin-bottom: $spacing--md;
+                letter-spacing: 1.44px;
+                line-height: 100px;
+            }
+
+            .team {
+                display: none;
+            }
+
+            @include media-breakpoint('sm') {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+                flex-direction: row;
+
+                .score-top {
+                    display: none;
+                }
+
+                .team {
+                    display: block;
+                }
+            }
+
+            @include media-breakpoint('lg') {
+                margin: 0 auto;
+                max-width: 70%;
+             }
+        }
+
+        &__score {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .team {
+                line-height: 100px;
+            }
+
+            .h3 {
+                text-align: center;
+            }
+        }
+        
+    }
+    
+    .vs {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 40px;
+    }
+    
+    &__matches {
+        &__content {
+            @include media-breakpoint('lg') {
+                max-width: 70%;
+             }
+        }
+
+        &__results {
+            margin-top: $spacing--md;
+        }
+
+        &__result {
+            margin-bottom: $spacing--md;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @include media-breakpoint('sm') {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .score {
+                font-size: 24px;
+                margin-bottom: $spacing--xs;
+                letter-spacing: 1.44px;
+                flex-shrink: 0;
+
+                @include media-breakpoint('sm') {
+                    margin-bottom: 0;
+                }
+            }
+
+            p {
+                font-size: 20px;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 1.2px;
+            }
         }
     }
 }
