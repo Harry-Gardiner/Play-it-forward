@@ -13,11 +13,14 @@ a {
   line-height: $spacing--md;
 }
 
-.standfirst {
-  font-family: $font--primary;
-  font-size: $size--lg;
-  font-weight: 400;
-  line-height: $spacing--lg;
+.text__standfirst {
+  li, p, a {
+    font-family: $font--primary;
+    font-size: $size--lg;
+    font-weight: 400;
+    line-height: $spacing--md;
+    padding-bottom: 1.5rem;
+  }
 }
 
 h1,
@@ -58,32 +61,38 @@ h2 {
 }
 
 .h1,
-h1:not([class]) {
+h1:not([class]),
+.heading__h1 {
   font-size: $size--xxl;
 }
 
 .h2,
-h2:not([class]) {
+h2:not([class]),
+.heading__h2 {
   font-size: $size--xl;
 }
 
 .h3,
-h3:not([class]) {
+h3:not([class]),
+.heading__h3 {
   font-size: $size--lg;
 }
 
 .h4,
-h4:not([class]) {
+h4:not([class]),
+.heading__h4 {
   font-size: $size--md;
 }
 
 .h5,
-h5:not([class]) {
+h5:not([class]),
+.heading__h5 {
   font-size: $size--base;
 }
 
 .h6,
-h6:not([class]) {
+h6:not([class]),
+.heading__h6 {
   font-size: $size--sm;
 }
 
