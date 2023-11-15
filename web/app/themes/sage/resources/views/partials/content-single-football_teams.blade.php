@@ -83,7 +83,7 @@
                     <div class="football-team__matches__content container block-padding">
                         <h2 class="h2 football-team__results__heading">Recent matches</h2>
                         <div class="football-team__matches__results">
-                            @foreach ($matches as $match)
+                            {{-- @foreach ($matches as $match)
                                 @if ($match['match_score'] !== '' && $match['match_opponent'] !== '')
                                     <div class="football-team__matches__result">
                                         <p class="score">{{ $match['match_score'] }}</p>
@@ -92,8 +92,21 @@
                                         <p class="team">{{ $match['match_opponent'] }}</p>
                                     </div>                                   
                                 @endif
-                            @endforeach      
+                            @endforeach     --}}
+                            @foreach ($matches as $index => $match)
+                                @if ($match['match_score'] !== '' && $match['match_opponent'] !== '')
+                                    <div class="football-team__matches__result" style="{{ $index >= 3 ? 'display: none;' : '' }}">
+                                        <p class="score">{{ $match['match_score'] }}</p>
+                                        <p class="team">Play it forward fc</p>
+                                        <p class="vs--small">vs</p>
+                                        <p class="team">{{ $match['match_opponent'] }}</p>
+                                    </div>                                   
+                                @endif
+                            @endforeach  
                         </div>
+                        @if (count($matches) > 3)
+                            <button id="loadMoreMatches" class="button button--primary button--transparent">See more match results</button>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -134,6 +134,9 @@
     
     &__matches {
         &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             @include media-breakpoint('lg') {
                 max-width: 70%;
              }
@@ -141,6 +144,10 @@
 
         &__results {
             margin-top: $spacing--md;
+
+            .loaded {
+                opacity: 0;
+            }
         }
 
         &__result {
@@ -174,5 +181,9 @@
                 letter-spacing: 1.2px;
             }
         }
+    }
+
+    .button {
+        margin: 0 auto;
     }
 }

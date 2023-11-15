@@ -138,4 +138,16 @@
       border-color: $pf-white;
     }
   }
+
+  &--transparent {
+    background-color: transparent;
+    color: $pf-charcoal;
+    border: 1px solid $pf-charcoal;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal;
+      color: $pf-yellow;
+    }
+  }
 }
