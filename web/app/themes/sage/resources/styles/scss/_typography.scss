@@ -147,6 +147,71 @@ ol {
   }
 }
 
+.quote {
+  &__short {
+    font-size: $size--lg;
+    font-weight: 600;
+    line-height: $spacing--md;
+    text-transform: uppercase;
+    width: 40%;
+    margin: auto;
+    margin-top: 4rem;
+
+    &::before {
+      content: "“";
+      font-size: 100px;
+      position: absolute;
+      left: 17rem;
+      color: $pf-raspberry;
+    }
+
+    &::after {
+      content: "”";
+      font-size: 100px;
+      position: absolute;
+      right: 17rem;
+      color: $pf-raspberry;
+    }
+  }
+
+  &__long {
+    font-size: $size--lg;
+    font-weight: 400;
+    line-height: $spacing--md;
+    width: 40%;
+    margin: auto;
+    margin-top: 4rem;
+
+    &::before {
+      content: "“";
+      font-size: 100px;
+      position: absolute;
+      left: 17rem;
+      color: $pf-raspberry;
+    }
+
+    &::after {
+      content: "”";
+      font-size: 100px;
+      position: absolute;
+      right: 17rem;
+      color: $pf-raspberry;
+    }
+  }
+
+  &__author {
+    font-size: $size--lg;
+    font-weight: 400;
+    line-height: $spacing--md;
+    width: 40%;
+    margin: auto;
+    margin-top: 2rem;
+    color: $pf-raspberry;
+  }
+}
+
+
+
 @include media-breakpoint('lg') {
   .nav {
     font-size: $size--md;
