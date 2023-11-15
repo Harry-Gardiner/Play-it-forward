@@ -4,6 +4,5 @@
         @if(isset($author))
             <p class="quote__author">{!! $author !!}</p>
         @endif
-
     @endif
 </div>
