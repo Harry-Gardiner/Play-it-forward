@@ -256,7 +256,9 @@ add_filter('upload_mimes', function ($mimes) {
     return $mimes;
 });
 
-
+/**
+ * REST API to register a new route that fetches posts for a "load more" functionality.
+ */
 add_action('rest_api_init', function () {
     register_rest_route('v1', 'posts/load_more', [
         'methods' => 'GET', // or POST
@@ -284,5 +286,29 @@ add_action('rest_api_init', function () {
             return $posts;
         },
         'permission_callback' => '__return_true'
+    ]);
+});
+
+
+/**
+ * Register custom post types
+ */
+// register a custom post type called 'Football Teams'
+add_action('init', function () {
+    register_post_type('football_teams', [
+        'labels' => [
+            'name' => __('Football Teams'),
+            'singular_name' => __('Football Team'),
+        ],
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-groups',
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions'],
+        'show_in_rest' => true,
+        'taxonomies' => ['category', 'post_tag'],
+        'rewrite' => [
+            'slug' => 'football-teams',
+            'with_front' => false,
+        ],
     ]);
 });
