@@ -122,13 +122,15 @@
                     @if ($team_players)
                         @foreach ($team_players as $position => $players)
                             <div class="football-team__players__position">
-                                <h3 class="h2 football-team__players__header">{{ $position }}</h3>
+                                <h3 class="h2 football-team__players__header full-bleed">
+                                    {{ $position }}
+                                </h3>
                                 <div class="football-team__players__list">
                                     @foreach ($players as $index => $player)
                                         <div class="football-team__player">
                                             @if ($player['player_image'])
                                                 <div class="football-team__player__image">
-                                                    <img src="{{ $player['player_image']['url'] }}"
+                                                    <img src="{{ $player['player_image']['sizes']['medium_large'] }}"
                                                         alt="{{ $player['player_image']['alt'] }}">
                                                 </div>
                                             @else
