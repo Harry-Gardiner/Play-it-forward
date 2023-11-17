@@ -196,6 +196,20 @@
         }
 
         &__content {
+            .football-team__players__position {
+                position: relative;
+            }
+
+            .football-team__players__header {
+                align-self: flex-start;
+                position: -webkit-sticky; /* For Safari */
+                position: sticky;
+                top: 78px; // needs to match the height of the header
+                z-index: 1;
+            }
+        }
+
+        &__list {
             display: flex;
             flex-direction: column;
             align-items: center;

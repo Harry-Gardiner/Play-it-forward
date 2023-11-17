@@ -10,6 +10,15 @@
     $team_forwards = !empty(get_field('forwards')) ? get_field('forwards') : null;
     $team_staff = !empty(get_field('coaching_staff')) ? get_field('coaching_staff') : null;
 
+    // Array of all players
+    $team_players = [
+        'keepers' => $team_keepers,
+        'defenders' => $team_defenders,
+        'midfielders' => $team_midfielders,
+        'forwards' => $team_forwards,
+        'staff' => $team_staff,
+    ];
+
     // Match results
     $matches = !empty(get_field('matches')) ? get_field('matches') : null;
     usort($matches, function ($a, $b) {
@@ -30,7 +39,7 @@
     $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
     $image_position = get_field('image_position') ?? 'center center';
 
-    dump($team_keepers);
+    // dump($team_players);
 
 @endphp
 <article @php(post_class('football-team h-entry block-padding--bottom'))>
@@ -109,38 +118,33 @@
                 <div class="title">
                     <h2 class="h2">Meet the team</h2>
                 </div>
-                <h3 class="h2 football-team__players__header">Goalkeepers</h3>
                 <div class="football-team__players__content">
-                    <div class="football-team__goalkeepers">
-                        @if ($team_keepers)
-                            <div class="football-team__players__content">
-                                @foreach ($team_keepers as $index => $player)
-                                    <div class="football-team__player">
-                                        @if ($player['goal_keeper_image'])
-                                            <div class="football-team__player__image">
-                                                <img src="{{ $player['goal_keeper_image']['url'] }}"
-                                                    alt="{{ $player['goal_keeper_image']['alt'] }}">
-                                            </div>
-                                        @else
-                                            <div class="football-team__player__image placeholder">
-                                            </div>
-                                        @endif
-                                        <p class="football-team__player__name">{{ $player['goal_keeper_name'] }}</p>
-                                    </div>
-                                @endforeach
+                    @if ($team_players)
+                        @foreach ($team_players as $position => $players)
+                            <div class="football-team__players__position">
+                                <h3 class="h2 football-team__players__header">{{ $position }}</h3>
+                                <div class="football-team__players__list">
+                                    @foreach ($players as $index => $player)
+                                        <div class="football-team__player">
+                                            @if ($player['player_image'])
+                                                <div class="football-team__player__image">
+                                                    <img src="{{ $player['player_image']['url'] }}"
+                                                        alt="{{ $player['player_image']['alt'] }}">
+                                                </div>
+                                            @else
+                                                <div class="football-team__player__image placeholder">
+                                                </div>
+                                            @endif
+                                            <p class="football-team__player__name">{{ $player['player_name'] }}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-                        @endif
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
+            </section>
         </div>
-        <div class="football-team__defenders"></div>
-        <div class="football-team__midfielders"></div>
-        <div class="football-team__forwards"></div>
-        <div class="football-team__coaching"></div>
-    </div>
-    </section>
-    </div>
     </div>
     @php(the_content())
-    </div>
 </article>
