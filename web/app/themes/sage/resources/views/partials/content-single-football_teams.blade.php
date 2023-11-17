@@ -38,11 +38,9 @@
     // Featured image
     $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
     $image_position = get_field('image_position') ?? 'center center';
-
-    // dump($team_players);
-
 @endphp
-<article @php(post_class('football-team h-entry block-padding--bottom'))>
+
+<article @php(post_class('football-team h-entry'))>
     <header class="football-team__header full-bleed block-padding--bottom">
         @if ($featured_image)
             <img src="{{ $featured_image }}" alt="{{ get_the_title() }}" class="football-team__featured-image"
