@@ -10,6 +10,10 @@
     background-color: $pf-secondary-raspberry;
     padding: 1rem;
 
+    @include media-breakpoint('lg') {
+      padding: 2rem;
+    }
+
     &.active {
       background-color: $pf-raspberry;
       color: $pf-white;
@@ -18,6 +22,10 @@
     span {
       text-transform: uppercase;
       font-weight: 700;
+
+      @include media-breakpoint('lg') {
+        font-size: $size--xl;
+      }
     }
   }
 
@@ -47,6 +55,12 @@
     text-transform: uppercase;
     p {
       font-weight: 600;
+    }
+  }
+
+  .football-team__latest__content {
+    @include media-breakpoint('lg') {
+      margin: 0 auto;
     }
   }
 }
