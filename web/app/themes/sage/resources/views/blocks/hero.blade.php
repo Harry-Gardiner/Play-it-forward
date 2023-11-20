@@ -1,4 +1,8 @@
 @php
+    // Wrapper
+    $wrapper = $wrapper ?? null;
+    $spacing_size = $spacing_size ?? null;
+
     // Image
     $hero_image = $hero_image ?? null;
     $alt_text = '';
@@ -28,8 +32,7 @@
     }
 
 @endphp
-<section
-    class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+<section class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
 
     @if ($hero_title)
         <div class="hero__inner">
@@ -37,17 +40,16 @@
                 <div class="hero__title">
                     <h1 class="giant-h1">{!! $hero_title !!}</h1>
                 </div>
-                <div class="hero__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
+                @if ($show_button == 'yes')
+                    <div class="hero__sub-text flow">
                         @include('partials.button', [
                             'type' => $btn_type,
                             'link' => $btn_link,
                             'text' => $btn_text,
                             'colour' => $btn_colour,
                         ])
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     @endif

@@ -143,9 +143,9 @@ class ArchivePosts extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-            'background_colour' => get_field('colour_picker'),
 
             // Post type
+            'title_style' => get_field('title_style'),
             'latest_posts_type' => get_field('latest_posts_type'),
         ];
     }
@@ -160,17 +160,17 @@ class ArchivePosts extends Block
         $archivePosts = new FieldsBuilder('archive_posts');
 
         $archivePosts
-        ->addMessage('block_title', 'Displays the latest 10 posts, with the ability to load more.', [
-            'label' => 'Posts Archive',
-        ])
-        ->addFields($this->get(GeneralTab::class))
-        ->addTab('Archive posts')
+            ->addMessage('block_title', 'Displays the latest 10 posts, with the ability to load more.', [
+                'label' => 'Posts Archive',
+            ])
+            ->addFields($this->get(GeneralTab::class))
+            ->addTab('Archive posts')
+            ->addFields($this->get(Title::class))
             ->addSelect('latest_posts_type', [
                 'label' => 'Post Type',
                 'instructions' => 'Choose the post type to display.',
                 'default_value' => 'post',
-            ])
-        ;
+            ]);
         return $archivePosts->build();
     }
 

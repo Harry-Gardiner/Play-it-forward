@@ -5,7 +5,7 @@
   text-transform: uppercase;
   display: inline-block;
   min-width: fit-content;
-  height: 2.5rem;
+  // height: 2.5rem;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -123,6 +123,31 @@
       background-color: transparent;
       color: $pf-charcoal;
       border-color: $pf-charcoal;
+    }
+  }
+
+  &--download {
+    background-color: transparent;
+    color: $pf-charcoal;
+    border: 1px solid $pf-charcoal;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal;
+      color: $pf-white;
+      border-color: $pf-white;
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    color: $pf-charcoal;
+    border: 1px solid $pf-charcoal;
+
+    &:hover,
+    &:focus {
+      background-color: $pf-charcoal;
+      color: $pf-yellow;
     }
   }
 }

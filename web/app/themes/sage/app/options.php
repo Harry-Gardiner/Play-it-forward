@@ -1,4 +1,5 @@
 <?php
+
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 $theme_options = new FieldsBuilder('theme_options');
@@ -35,6 +36,12 @@ $theme_options
         'instructions' => 'Add a link to the LinkedIn page.',
     ])
 
+    ->addTab('Newsletter Signup')
+    ->addText('newsletter_shortcode', [
+        'label' => 'Newsletter signup shortcode',
+        'instructions' => 'Add the shortcode for the WPF newsletter signup form.',
+    ])
+
     ->addTab('Footer')
     ->addTrueFalse('show_newsletter_signup', [
         'label' => 'Show newsletter signup',
@@ -46,22 +53,21 @@ $theme_options
         'layout' => 'block',
         'button_label' => 'Add new column',
     ])
-        ->addText('footer_column_title', [
-            'label' => 'Column title',
-            'instructions' => 'Add a title for the column.',
-        ])
-        ->addRepeater('column_links', [
-            'label' => 'Column links',
-            'layout' => 'block',
-            'button_label' => 'Add new link',
-        ])
-            ->addLink('column_link', [
-                'label' => 'Link',
-                'instructions' => 'Add a link for the column.',
-            ])
-        ->endRepeater()
+    ->addText('footer_column_title', [
+        'label' => 'Column title',
+        'instructions' => 'Add a title for the column.',
+    ])
+    ->addRepeater('column_links', [
+        'label' => 'Column links',
+        'layout' => 'block',
+        'button_label' => 'Add new link',
+    ])
+    ->addLink('column_link', [
+        'label' => 'Link',
+        'instructions' => 'Add a link for the column.',
+    ])
     ->endRepeater()
-    ;
+    ->endRepeater();
 
 
 acf_add_local_field_group($theme_options->build());

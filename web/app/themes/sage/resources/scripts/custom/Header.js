@@ -82,13 +82,13 @@ Array.prototype.forEach.call(menuItems, function (el) {
 * Front page hero nav
 * Handle the front page hero nav width and style
 */
-const heroImage = document.querySelector('.hero__image');
+const heroImage = document.querySelector('.hero-fp__image');
 const heroNav = document.querySelector('.header__wrapper__nav');
 const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
 const header = document.querySelector('.header');
 
 function adjustHeroNavWidth() {
-  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero__image')) {
+  if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero-fp__image')) {
     if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {
       heroNav.style.width = heroImage.offsetWidth + 'px';
       header.classList.remove('default');

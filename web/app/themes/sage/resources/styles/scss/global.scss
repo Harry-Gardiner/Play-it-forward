@@ -29,20 +29,31 @@
 @import 'sections/footer';
 @import 'sections/wpforms';
 @import 'sections/impact-word';
+@import 'sections/football-team';
+@import 'sections/error';
 
 // Partials
 @import 'partials/button';
 @import 'partials/wrapper';
 @import 'partials/logo';
 @import 'partials/card';
+@import 'partials/title';
 
 // Blocks
 @import 'blocks/button-block';
 @import 'blocks/cta-banner';
+@import 'blocks/hero-fp';
 @import 'blocks/hero';
 @import 'blocks/carousel';
 @import 'blocks/featured-posts';
 @import 'blocks/two-column-content';
+@import 'blocks/custom-grid';
+@import 'blocks/form';
+@import 'blocks/partners';
+@import 'blocks/stacked-media';
+@import 'blocks/donate';
+@import 'blocks/downloads';
+@import 'blocks/blog-hero';
 
 #app {
     min-height: 100vh;
@@ -58,10 +69,6 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
     background-color: $pf-white;
-}
-
-main {
-    margin-bottom: $spacing--lg;
 }
 
 table {

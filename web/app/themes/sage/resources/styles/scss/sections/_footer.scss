@@ -149,6 +149,7 @@
 
     &__social {
         display: flex;
+        justify-content: center;
         gap: 2rem;
 
         i {
@@ -159,10 +160,20 @@
     &__upper {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1rem;
         padding-bottom: 3rem;
 
-        @include media-breakpoint(lg) {
+        .button {
+            width: fit-content;
+            margin: 0 auto;
+
+            @include media-breakpoint(md) {
+                margin: 0;
+            }
+        }
+
+        @include media-breakpoint(md) {
             flex-direction: row;
             justify-content: space-between;
         }
@@ -178,8 +189,8 @@
         gap: 1rem;
 
         @include media-breakpoint(md) {
-            flex-direction: row;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr);
         }
     }
 
@@ -207,10 +218,6 @@
     }
 
     &__newsletter {
-        @include media-breakpoint(lg) {
-            width: 33%;
-        }
-
         h3 {
             font-weight: 500;
             font-size: $size--md;
@@ -224,12 +231,84 @@
         text-align: center;
         padding: 2rem 0;
 
-        p, a {
+        p,
+        a {
             font-size: $size--sm;
         }
 
         a {
             text-decoration: underline;
         }
+    }
+}
+
+#backToTopBtn {
+    position: fixed;
+    visibility: hidden;
+    z-index: 899;
+    bottom: 4rem;
+    right: 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: $pf-charcoal;
+    color: $pf-white;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
+    text-transform: uppercase;
+    font-size: $size--sm;
+    padding: 0.5rem;
+    padding-top: 0;
+
+    span {
+        display: block;
+        font-size: $size--md;
+    }
+
+    @include media-breakpoint(md) {
+        width: 105px;
+        height: 105px;
+        right: 2rem;
+        font-size: $size--base;
+
+        span {
+            font-size: $size--lg;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.show {
+        visibility: visible;
+        animation: slideIn 0.3s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    &.hide {
+        animation: slideOut 0.3s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+/* Define slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(150%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Define slide-out animation */
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(150%);
     }
 }

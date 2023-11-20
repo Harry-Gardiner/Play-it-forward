@@ -1,4 +1,25 @@
 .block-padding {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: $spacing--lg;
+    padding-bottom: $spacing--lg;
+
+    @include media-breakpoint('md') {
+        padding-top: $spacing--xl;
+        padding-bottom: $spacing--xl;
+    }
+}
+
+.block-padding--top {
+    padding-top: $spacing--lg;
+
+    @include media-breakpoint('md') {
+        padding-top: $spacing--xl;
+    }
+}
+
+.block-padding--bottom {
+    padding-bottom: $spacing--lg;
+
+    @include media-breakpoint('md') {
+        padding-bottom: $spacing--xl;
+    }
 }

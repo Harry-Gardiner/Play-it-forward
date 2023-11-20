@@ -19,9 +19,11 @@ $pf-white: #fff;
 $pf-raspberry: #993050;
 $pf-secondary-raspberry: #882a47;
 $pf-yellow: #FAB200;
+$pf-yellow--alt: #E0A000;
 $pf-shadow: #464B44;
 $pf-light-green: #60CE71;
 $pf-dark-green: #2D6E51;
+$pf-grey: #D9D9D9;
 
 
 
@@ -83,3 +85,10 @@ Fonts
 $font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial, sans-serif;
 $font--secondary: 'Katibeh', 'Unna', 'Big Caslon', Georgia, serif;
 $font--tertiary: 'Montserrat', Helvetica, Arial, sans-serif;
+
+
+/**********************
+Header
+***********************/
+$header-height-mobile: 78px;
+$header-height-desktop: 60px;
