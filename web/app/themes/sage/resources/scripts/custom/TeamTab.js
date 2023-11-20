@@ -19,8 +19,6 @@ function showTeam(evt, team) {
   evt.currentTarget.className += ' active';
 }
 
-document.getElementById("defaultOpen").click();
-
 const teamTabs = document.querySelectorAll('.results__tab');
 
 if (teamTabs) {

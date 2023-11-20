@@ -49,6 +49,12 @@
                 <div class="results__content flow">
                     <p class="h2 results__content__title">{{ $team_one_title }}</p>
                     <div class="results__body">{!! $team_one_body !!}</div>
+                    @include('partials.button', [
+                      'type' => 'button',
+                      'link' => get_permalink($team_one->ID),
+                      'text' => 'Find out more',
+                      'colour' => 'white',
+                        ])
                 </div>
                 <div class="results__recent">
                     <div class="football-team__latest__content block-padding">
@@ -79,6 +85,12 @@
               <div class="results__content flow">
                   <p class="h2 results__content__title">{{ $team_two_title }}</p>
                   <div class="results__body">{!! $team_two_body !!}</div>
+                  @include('partials.button', [
+                    'type' => 'button',
+                    'link' => get_permalink($team_two->ID),
+                    'text' => 'Find out more',
+                    'colour' => 'white',
+                      ])
               </div>
               <div class="results__recent">
                   <div class="football-team__latest__content block-padding">
