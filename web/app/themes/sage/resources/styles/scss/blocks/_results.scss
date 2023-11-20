@@ -1,0 +1,52 @@
+.results {
+  &__tabs {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tab {
+    overflow: hidden;
+    width: 50%;
+    background-color: $pf-secondary-raspberry;
+    padding: 1rem;
+
+    &.active {
+      background-color: $pf-raspberry;
+      color: $pf-white;
+    }
+
+    span {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  &__team {
+    display: none;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+
+    /* Go from zero to full opacity */
+    @keyframes fadeEffect {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    &__title {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  .football-team__latest__last {
+    text-transform: uppercase;
+    p {
+      font-weight: 600;
+    }
+  }
+}
