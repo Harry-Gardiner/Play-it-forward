@@ -176,6 +176,14 @@ class FeaturedPosts extends Block
                 'message' => 'Display a list of featured posts. Posts shown can be chosen(featured) or set to display the latest posts. If an impact word is added it will show a 2x column layout, else it will show a 3x column layout.',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                ],
+                'default_value' => 'white',
+            ])
             ->addFields($this->get(ImpactWord::class))
             ->addTab('featured_posts', [
                 'label' => 'Featured Posts',

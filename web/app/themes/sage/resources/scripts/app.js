@@ -4,6 +4,7 @@ import './custom/SwiffySlider.js';
 import './custom/StatsCounter.js';
 import './custom/Footer.js';
 import './custom/Beacon.js';
+import './custom/TeamTab.js';
 
 /**
  * Application entrypoint
