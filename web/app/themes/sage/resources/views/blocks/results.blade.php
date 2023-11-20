@@ -3,6 +3,7 @@
     $team_two_matches = !empty(get_field('matches', $team_two->ID)) ? get_field('matches', $team_two->ID) : null;
 
     // Match function
+    if (!function_exists('getLastValidMatch')) {
     function getLastValidMatch($matches)
     {
         usort($matches, function ($a, $b) {
@@ -25,6 +26,7 @@
 
         return $last_match;
     }
+  }
 
     // Lates match results
     $team_one_last_match = getLastValidMatch($team_one_matches);
