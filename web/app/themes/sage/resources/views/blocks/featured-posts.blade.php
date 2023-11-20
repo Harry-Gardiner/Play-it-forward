@@ -23,6 +23,8 @@
     if ($impact_word_enable === 'yes') {
         $impact = $impact_word_position;
     }
+
+    $background_colour = $background_colour ? $background_colour : 'white';
 @endphp
 
 <section
