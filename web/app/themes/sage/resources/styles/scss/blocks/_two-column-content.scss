@@ -1,0 +1,30 @@
+.two-column-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+
+    &__align-top {
+        align-items: flex-start;
+    }
+
+    &__align-middle {
+        align-items: center;
+    }
+
+    &__align-bottom {
+        align-items: flex-end;
+    }
+    
+    &__column-1, &__column-2 {
+        width: 50%;
+
+        iframe {
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+    }
+}
