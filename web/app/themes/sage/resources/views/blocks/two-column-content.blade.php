@@ -1,4 +1,4 @@
-<section class="two-column-content two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }}">
+<section class="two-column-content two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
     @foreach([1, 2] as $i)
         @if(isset(${'content_'.$i}))
             <div class="two-column-content__column-{{ $i }}">

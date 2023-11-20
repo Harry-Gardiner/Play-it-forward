@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Fields\Partials\GeneralTab;
 
 class twoColumnContent extends Block
 {
@@ -155,8 +156,10 @@ class twoColumnContent extends Block
             'video_url_1' => get_field('video_url_1'),
             'video_url_2' => get_field('video_url_2'),
 
+            // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
         ];
     }
 
@@ -170,7 +173,7 @@ class twoColumnContent extends Block
         $twoColumnContent = new FieldsBuilder('twoColumnContent');
 
         $twoColumnContent
-            ->addTab('General')
+            ->addFields($this->get(GeneralTab::class))
             ->addTab('Layout', [
                 'label' => 'Block layout'
             ])
