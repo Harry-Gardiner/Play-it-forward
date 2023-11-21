@@ -21,7 +21,7 @@
                           <div class="person__image placeholder">
                           </div>
                       @endif
-                      <p class="person__name">{{ $person['name'] }}</p>
+                      <p class="person__name h3">{{ $person['name'] }}</p>
                       <div class="person_bio">
                         {!! $person['bio'] !!}
                       </div>
