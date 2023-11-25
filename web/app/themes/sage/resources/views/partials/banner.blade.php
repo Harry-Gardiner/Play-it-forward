@@ -4,7 +4,7 @@
 --}}
 
 @if (!empty($content))
-    <div class='info-banner container'>
+    <div class='info-banner full-bleed'>
         <span class="info-banner__icon info-banner__info-icon">
             <img src="{{ asset('images/icons/info-circle.svg') }}" alt="information">
         </span>
