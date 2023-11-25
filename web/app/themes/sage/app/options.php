@@ -42,6 +42,19 @@ $theme_options
         'instructions' => 'Add the shortcode for the WPF newsletter signup form.',
     ])
 
+    ->addTab('Info Banner')
+    ->addMessage(
+        'Use information',
+        'The info banner is a full width banner that appears at the top of the page. It is used to display important information to the user. It can be used to display a message about the site, or to display a message about a particular page. It can also be used to display a message about a particular event. The banner will only display if there is content in the content field.'
+    )
+    ->addWysiwyg(
+        'info-banner-content',
+        array(
+            'label'        => 'Content',
+            'instructions' => 'Add some content to the banner. Leave blank to cause the banner not to display.',
+        )
+    )
+
     ->addTab('Footer')
     ->addTrueFalse('show_newsletter_signup', [
         'label' => 'Show newsletter signup',

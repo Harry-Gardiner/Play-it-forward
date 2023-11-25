@@ -16,7 +16,10 @@
         $header_style = 'header--default';
         $btn_colour = 'raspberry';
     }
+
+    $banner = get_field('info-banner-content', 'options');
 @endphp
+@include('partials.banner', ['content' => $banner])
 <header class="header full-bleed {{ $header_style }}">
     <div class="header__wrapper">
         @include('partials.logo')
