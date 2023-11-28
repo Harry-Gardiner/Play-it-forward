@@ -47,7 +47,7 @@
     <div class="hero-fp__mid">
         <div class="container">
             @if ($impact_text)
-            <div class="embla">
+            <div class="embla hero-fp__slider">
                 <div class="embla__container">
                     @foreach ($impact_text as $item)
                     <div class="embla__slide">
