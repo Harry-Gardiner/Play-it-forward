@@ -4,6 +4,9 @@
 // Secondary font - Katibeh
 @import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
 
+// Tertiary font - Knewave
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
 p,
 li,
 a {
@@ -45,7 +48,6 @@ h2 {
 }
 
 .giant-h1 {
-
   font-family: $font--primary;
   font-weight: 600;
   font-size: $size--xxl;
@@ -98,7 +100,7 @@ ul {
   }
 
   li:not([class]):before {
-    content: "·";
+    content: '·';
     font-size: 30px;
     vertical-align: middle;
     line-height: 20px;

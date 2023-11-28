@@ -26,8 +26,8 @@
     "json-to-scss": "^1.6.2"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001488",
+    "caniuse-lite": "^1.0.30001565",
     "countup.js": "^2.8.0",
-    "swiffy-slider": "^1.6.0"
+    "embla-carousel": "^8.0.0-rc15"
   }
 }
