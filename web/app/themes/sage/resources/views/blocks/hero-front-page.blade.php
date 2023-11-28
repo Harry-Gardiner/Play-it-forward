@@ -39,7 +39,7 @@
             </div>
         @endif
         @if ($hero_title)
-            <div class="hero-fp__title">
+            <div class="hero-fp__title container">
                 <h1 class="giant-h1">{!! $hero_title !!}</h1>
             </div>
         @endif
