@@ -1,5 +1,4 @@
 .carousel {
-  // Most of this is overriding swiffy-slider styles
   .slider-content {
     position: relative;
 
@@ -26,7 +25,7 @@
   &__container {
     display: flex;
   }
-  
+
   &__slide {
     flex: 0 0 100%;
     min-width: 0;
