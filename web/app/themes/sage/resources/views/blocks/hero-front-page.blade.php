@@ -47,10 +47,10 @@
     <div class="hero-fp__mid">
         <div class="container">
             @if ($impact_text)
-            <div class="embla hero-fp__slider">
+            <div class="embla hero-fp__mid__slider">
                 <div class="embla__container">
                     @foreach ($impact_text as $item)
-                    <div class="embla__slide">
+                    <div class="embla__slide hero-fp__mid__slider__item">
                         {{ $item['text_string'] }}
                     </div>
                     @endforeach
