@@ -6,14 +6,14 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 
-class full_image extends Block
+class FullImage extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Full Width Image';
+    public $name = 'Full Image';
 
     /**
      * The block description.
@@ -62,7 +62,7 @@ class full_image extends Block
      *
      * @var string
      */
-    public $mode = 'edit';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
@@ -106,17 +106,17 @@ class full_image extends Block
      *
      * @var array
      */
-    // public $styles = [
-    //     [
-    //         'name' => 'light',
-    //         'label' => 'Light',
-    //         'isDefault' => true,
-    //     ],
-    //     [
-    //         'name' => 'dark',
-    //         'label' => 'Dark',
-    //     ]
-    // ];
+    public $styles = [
+        [
+            'name' => 'light',
+            'label' => 'Light',
+            'isDefault' => true,
+        ],
+        [
+            'name' => 'dark',
+            'label' => 'Dark',
+        ]
+    ];
 
     /**
      * The block preview example data.
