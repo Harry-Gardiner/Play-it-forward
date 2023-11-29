@@ -1,0 +1,1 @@
+@include('partials.image', ['image' => $image])
