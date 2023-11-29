@@ -139,8 +139,13 @@ class quote extends Block
     public function with()
     {
         return [
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Image
             'image' => get_field('image'),
-            'bleed' => get_field('bleed'),
         ];
     }
 
@@ -154,9 +159,11 @@ class quote extends Block
         $fullImage = new FieldsBuilder('full_image');
 
         $fullImage
+            ->addFields($this->get(GeneralTab::class))
+            ->addTab('Full Width Image')
             ->addImage('image', [
-                'label' => 'Image',
-                'instructions' => 'Don\'t forget to add alt text for better accessibility and SEO. You can add this in the media library.',
+                'label' => 'Full Width Image',
+                'instructions' => 'This image will be the entire width of the screen, ignoring the container that houses most of the other content.<br><br>Don\'t forget to add alt text for better accessibility and SEO. You can add this in the media library.',
             ]);
 
         return $fullImage->build();

@@ -139,6 +139,12 @@ class heading extends Block
     public function with()
     {
         return [
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Content
             'text' => get_field('text'),
             'heading_style' => get_field('heading_style'),
             'heading_semantics' => get_field('heading_semantics'),
@@ -155,6 +161,7 @@ class heading extends Block
         $heading = new FieldsBuilder('heading');
 
         $heading
+            ->addFields($this->get(GeneralTab::class))
             ->addTextarea('text', [
                 'label' => 'Heading text',
             ])
