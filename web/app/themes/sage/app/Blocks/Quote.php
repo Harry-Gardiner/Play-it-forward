@@ -139,6 +139,12 @@ class quote extends Block
     public function with()
     {
         return [
+            // General
+            'wrapper' => get_field('block_spacing'),
+            'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
+
+            // Quote
             'text' => get_field('text'),
             'style' => get_field('style'),
             'author' => get_field('author'),
@@ -155,6 +161,7 @@ class quote extends Block
         $quote = new FieldsBuilder('quote');
 
         $quote
+            ->addFields($this->get(GeneralTab::class))
             ->addRadio('style', [
                 'label' => 'Quote style',
                 'instructions' => 'Choose the style of quote you would like to use. \'Short\' should be reserved for very short, punchy quotes, ideally of less than 100 characters. Longer quotes should use the \'Long\' style.',
