@@ -26,7 +26,6 @@
         $btn_colour = 'raspberry';
         $btn_type = $cta_button['type'] ?? null;
     }
-    // dd($hero_image);
 @endphp
 <section
     class="hero-fp full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
