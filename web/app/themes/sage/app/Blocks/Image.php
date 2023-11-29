@@ -6,7 +6,7 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 
-class quote extends Block
+class fullImage extends Block
 {
     /**
      * The block name.
@@ -41,7 +41,7 @@ class quote extends Block
      *
      * @var array
      */
-    public $keywords = ['image', 'img', 'picture', 'media'];
+    public $keywords = ['image', 'img', 'picture', 'media', 'full width'];
 
     /**
      * The block post type allow list.
@@ -62,7 +62,7 @@ class quote extends Block
      *
      * @var string
      */
-    public $mode = 'edit';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
@@ -142,7 +142,6 @@ class quote extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-            'background_colour' => get_field('colour_picker'),
 
             // Image
             'image' => get_field('image'),
@@ -156,7 +155,7 @@ class quote extends Block
      */
     public function fields()
     {
-        $fullImage = new FieldsBuilder('full_image');
+        $fullImage = new FieldsBuilder('fullImage');
 
         $fullImage
             ->addFields($this->get(GeneralTab::class))

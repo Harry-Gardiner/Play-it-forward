@@ -101,12 +101,12 @@ a {
   text-decoration: underline;
 }
 
-ul {
+ul:not(.acf-radio-list):not(.acf-tab-group) {
   li:not([class]) {
     list-style: none;
   }
 
-  li:not([class]):before {
+  li:not([class]):not(.editor-styles-wrapper):before {
     content: "·";
     font-size: 30px;
     vertical-align: middle;

@@ -62,7 +62,7 @@ class text extends Block
      *
      * @var string
      */
-    public $mode = 'edit';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
