@@ -1,26 +1,26 @@
 <?php
 
 namespace App\Blocks;
-
+use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Fields\Partials\GeneralTab;
 
-class text extends Block
+class People extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Text';
+    public $name = 'People';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'Add text to your blog posts.';
+    public $description = 'Block for displaying a list of people.';
 
     /**
      * The block category.
@@ -34,14 +34,14 @@ class text extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-alignleft';
+    public $icon = 'groups';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = ['text', 'standfirst', 'feature', 'copy', 'body'];
+    public $keywords = ['people', 'people list', 'person list', 'staff', 'team'];
 
     /**
      * The block post type allow list.
@@ -62,7 +62,7 @@ class text extends Block
      *
      * @var string
      */
-    public $mode = 'edit';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
@@ -106,17 +106,17 @@ class text extends Block
      *
      * @var array
      */
-    // public $styles = [
-    //     [
-    //         'name' => 'light',
-    //         'label' => 'Light',
-    //         'isDefault' => true,
-    //     ],
-    //     [
-    //         'name' => 'dark',
-    //         'label' => 'Dark',
-    //     ]
-    // ];
+    public $styles = [
+        [
+            'name' => 'light',
+            'label' => 'Light',
+            'isDefault' => true,
+        ],
+        [
+            'name' => 'dark',
+            'label' => 'Dark',
+        ]
+    ];
 
     /**
      * The block preview example data.
@@ -139,13 +139,14 @@ class text extends Block
     public function with()
     {
         return [
-            'text' => get_field('text'),
-            'style' => get_field('style'),
-
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+            
+            // People
+            'title_style' => get_field('title_style'),
+            'people' => get_field('people')
         ];
     }
 
@@ -156,32 +157,57 @@ class text extends Block
      */
     public function fields()
     {
-        $text = new FieldsBuilder('text');
+        $people = new FieldsBuilder('people');
 
-        $text
-            ->addFields($this->get(GeneralTab::class))
-            ->addTab('Content', [
-                'label' => 'Text content'
+        $people
+        ->addMessage('block_title', '', [
+            'label' => 'People block',
+            'message' => 'This block is for displaying a list of people.',
+        ])
+        ->addFields($this->get(GeneralTab::class))
+        ->addRadio('colour_picker', [
+            'label' => 'Select Colour',
+            'choices' => [
+                'white' => 'White',
+                'off-white' => 'Off White',
+            ],
+            'default_value' => 'white',
+        ])
+        ->addTab('People')
+        ->addFields($this->get(Title::class))
+        ->addRepeater('people', [
+            'label' => 'People',
+            'layout' => 'block',
+        ])
+            ->addText('name', [
+                'label' => 'Name',
             ])
-            ->addRadio('style', [
-                'label' => 'Text style',
-                'instructions' => 'Choose the style of the text. Default is regular text, while Standfirst is a larger, bolder style for introductory text, e.g. for the first paragraph of a blog post.',
-                'choices' => [
-                    'body' => 'Default',
-                    'standfirst' => 'Standfirst'
-                ],
-                'default_value' => 'default',
-            ])
-            ->addWysiwyg('text', [
-                'label' => 'Text',
+            ->addWYSIWYG('bio', [
+                'label' => 'Bio',
                 'media_upload' => 0,
-                'tabs' => 'visual',
                 'toolbar' => 'basic',
-                'instructions' => 'Add the text for this block. You can also add bullet lists, numbered lists, bold text, italic text, links and more.',
-            ]);
+                'delay' => 1,
+            ])
+            ->addImage('image', [
+                'label' => 'Image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+                'mime_types' => 'jpg, jpeg, png, svg',
+            ])
+        ;
 
+        return $people->build();
+    }
 
-        return $text->build();
+    /**
+     * Return the items field.
+     *
+     * @return array
+     */
+    public function items()
+    {
+        return get_field('items') ?: $this->example['items'];
     }
 
     /**

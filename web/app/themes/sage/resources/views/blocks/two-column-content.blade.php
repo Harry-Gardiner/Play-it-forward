@@ -1,5 +1,5 @@
-<section class="two-column-content two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
-    <div class="container block-padding">
+<section class="two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
+    <div class="two-column-content container block-padding">
         @foreach([1, 2] as $i)
             @if(isset(${'content_'.$i}))
                 <div class="two-column-content__column-{{ $i }}">

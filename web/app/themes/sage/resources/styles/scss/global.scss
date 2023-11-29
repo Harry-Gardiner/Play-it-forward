@@ -38,6 +38,7 @@
 @import 'partials/logo';
 @import 'partials/card';
 @import 'partials/title';
+@import 'partials/info-banner';
 
 // Blocks
 @import 'blocks/button-block';
@@ -54,6 +55,8 @@
 @import 'blocks/donate';
 @import 'blocks/downloads';
 @import 'blocks/blog-hero';
+@import 'blocks/results';
+@import 'blocks/people';
 
 #app {
     min-height: 100vh;

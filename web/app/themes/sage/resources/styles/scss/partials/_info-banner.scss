@@ -1,0 +1,31 @@
+.info-banner {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: $pf-yellow;
+    display: flex;
+    justify-content: center;
+    z-index: 10001;
+    text-transform: uppercase;
+    padding: 0.8rem 4rem;
+
+    @include media-breakpoint('md') {
+        position: fixed;
+    }
+
+    &__icon {
+        position: absolute;
+        width: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__info-icon { 
+        left: 1rem;  
+        width: 40px;
+    }
+
+    &__close-btn {
+        right: 1rem;
+    }
+}

@@ -4,6 +4,8 @@ import './custom/SwiffySlider.js';
 import './custom/StatsCounter.js';
 import './custom/Footer.js';
 import './custom/Beacon.js';
+import './custom/TeamTab.js';
+import InfoBannerCookies from './custom/Banner.js';
 
 /**
  * Application entrypoint
@@ -37,12 +39,19 @@ domReady(async () => {
         spinner.style.display = 'flex';
       }, 500);
 
-      const response = await fetch(`/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}`);
+      const response = await fetch(
+        `/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}`
+      );
       const newPosts = await response.json();
       // Check if there are new posts
       if (newPosts.length > 0) {
         // Convert the posts to HTML
-        const postsHtml = newPosts.map(post => `<div class="card new-card" style="opacity: 0">${post}</div>`).join('');
+        const postsHtml = newPosts
+          .map(
+            (post) =>
+              `<div class="card new-card" style="opacity: 0">${post}</div>`
+          )
+          .join('');
         // Render the new cards
         cardsWrapper.insertAdjacentHTML('beforeend', postsHtml);
 
@@ -72,41 +81,52 @@ domReady(async () => {
     });
   }
 
-
   /**
    * Load more matches
    */
-  document.addEventListener('DOMContentLoaded', function() {
-    var loadMoreMatchesButton = document.getElementById('loadMoreMatches');
-    var matchResults = Array.from(document.querySelectorAll('.football-team__matches__result'));
 
-    loadMoreMatchesButton.addEventListener('click', function() {
-        var hiddenMatches = matchResults.filter(function(result) {
-            return result.style.display === 'none';
-        });
+  const loadMoreMatchesButton = document.getElementById('loadMoreMatches');
+  const matchResults = Array.from(
+    document.querySelectorAll('.football-team__matches__result')
+  );
+  if (loadMoreMatchesButton) {
+    loadMoreMatchesButton.addEventListener('click', function () {
+      const hiddenMatches = matchResults.filter(function (result) {
+        return result.style.display === 'none';
+      });
 
-        hiddenMatches.slice(0, 3).forEach(function(match) {
-            match.style.display = 'flex';
-            match.classList.add('loaded');
-        });
+      hiddenMatches.slice(0, 3).forEach(function (match) {
+        match.style.display = 'flex';
+        match.classList.add('loaded');
+      });
 
-        // Fade in the new cards in order
-        const moreMatches = document.querySelectorAll('.loaded');
-        moreMatches.forEach((card, index) => {
+      // Fade in the new cards in order
+      const moreMatches = document.querySelectorAll('.loaded');
+      moreMatches.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transition = 'opacity 0.5s ease-in-out';
           setTimeout(() => {
-            card.style.opacity = 1;
-            card.style.transition = 'opacity 0.5s ease-in-out';
-            setTimeout(() => {
-              card.classList.remove('new-card');
-            }, 500);
-          }, index * 100);
-        });
+            card.classList.remove('new-card');
+          }, 500);
+        }, index * 100);
+      });
 
-        if (hiddenMatches.length <= 3) {
-            loadMoreMatchesButton.style.display = 'none';
-        }
+      if (hiddenMatches.length <= 3) {
+        loadMoreMatchesButton.style.display = 'none';
+      }
     });
-  });
+  }
+
+
+  /**
+   * Info Banner Cookies
+   */
+  const infoBannerElement = document.querySelector('.info-banner');
+
+  if (infoBannerElement) {
+    new InfoBannerCookies(infoBannerElement);
+  }
 });
 
 /**
