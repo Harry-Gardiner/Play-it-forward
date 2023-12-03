@@ -18,21 +18,23 @@
 }
 
 .header {
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-  background: $pf-white;
+  // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+
+  background-color: rgba(153, 48, 80,0);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(153, 48, 80, 0) 50%);
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
 
   &--default {
-    color: $pf-charcoal;
-    background-color: $pf-white;
-
     .menu-item {
       a {
-        color: inherit;
+        color: $pf-white;
       }
     }
   }
@@ -56,60 +58,6 @@
     @include media-breakpoint('lg') {
       .caret {
         background-image: url('../../../images/icons/caret_white.svg');
-      }
-    }
-  }
-
-  &--front-page {
-    @include media-breakpoint('lg') {
-      box-shadow: none;
-      position: fixed;
-      left: 0;
-      background: none;
-      // transition: background 0.8s ease;
-
-      .header__wrapper {
-        padding-right: 0;
-
-        &__nav {
-          // background: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0.00) 100%);
-
-          @include media-breakpoint('lg') {
-            padding-right: 2rem;
-          }
-        }
-      }
-
-      .menu-item {
-        a {
-          color: $pf-white;
-          // transition: color 0.3s ease;
-        }
-      }
-
-      .caret {
-        background-image: url('../../../images/icons/caret_white.svg');
-      }
-
-      &.default,
-      &.scrolled {
-        color: $pf-charcoal;
-        background-color: $pf-white;
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-
-        .header__wrapper__nav {
-          background: inherit;
-        }
-
-        .menu-item {
-          a {
-            color: inherit;
-          }
-        }
-
-        .caret {
-          background-image: url('../../../images/icons/caret_charcoal.svg');
-        }
       }
     }
   }
@@ -410,7 +358,7 @@
     }
 
     .hamb-line {
-      background: $pf-charcoal;
+      background: $pf-white;
       display: block;
       height: 2px;
       position: relative;
@@ -418,7 +366,7 @@
 
       &::before,
       &::after {
-        background: $pf-charcoal;
+        background: $pf-white;
         content: '';
         display: block;
         height: 100%;

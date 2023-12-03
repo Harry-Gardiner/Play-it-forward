@@ -5,17 +5,13 @@
     {
         return (is_author() || is_category() || is_tag() || is_date() || is_home() || is_single()) && 'post' == get_post_type();
     }
+
+    $header_style = 'header--default';
     
-    if (is_front_page()) {
-        $header_style = 'header--front-page';
-        $btn_colour = 'raspberry';
-    } elseif (is_blog()) {
+    if (is_blog()) {
         $header_style = 'header--blog';
         $btn_colour = 'white';
-    } else {
-        $header_style = 'header--default';
-        $btn_colour = 'raspberry';
-    }
+    } 
 
     $banner = get_field('info-banner-content', 'options');
 @endphp
@@ -37,7 +33,7 @@
                     </nav>
                 @endif
                 <div class="header__buttons">
-                    @include('partials.button', ['type' => 'donate', 'colour' => $btn_colour])
+                    @include('partials.button', ['type' => 'donate', 'colour' => 'white'])
                     <button class="hamb {{ $header_style }}"><span class="hamb-line"></span><span
                             class="visually-hidden">Toggle
                             Menu</span></button>
