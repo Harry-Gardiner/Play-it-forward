@@ -11,10 +11,6 @@
   transform: rotate(0);
   transition: rotate 300ms ease-out;
   display: inline-block;
-
-  @include media-breakpoint('lg') {
-    background-image: url('../../../images/icons/caret_charcoal.svg');
-  }
 }
 
 .header {
