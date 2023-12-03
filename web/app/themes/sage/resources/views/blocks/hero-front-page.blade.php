@@ -57,11 +57,6 @@
             </div>
             @endif
         </div>
-        <div class="hero-fp__mid__vector block-padding-bottom">
-            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="35" viewBox="0 0 70 35" fill="none">
-                <path d="M35 34.759L0.37207 0.131104H69.6279L35 34.759Z" fill="#FAB200"/>
-                </svg>
-        </div>
     </div>
     <div class="hero-fp__bottom block-padding--bottom">
         <div class="container">
@@ -79,47 +74,5 @@
             </div>
             @endif
         </div>
-    </div>
-
-    {{-- @if ($hero_title)
-        <div class="hero-fp__inner container">
-            <div class="hero-fp__inner__content flow">
-                <div class="hero-fp__title">
-                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
-                </div>
-                <div class="hero-fp__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
-                        @include('partials.button', [
-                            'type' => $btn_type,
-                            'link' => $btn_link,
-                            'text' => $btn_text,
-                            'colour' => $btn_colour,
-                        ])
-                    @endif
-                </div>
-            </div>
-        </div>
-        <div class="hero-fp__inner">
-            <div class="hero-fp__inner__content flow">
-                <div class="hero-fp__title">
-                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
-                </div>
-                <div class="hero-fp__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
-                        @include('partials.button', [
-                            'type' => $btn_type,
-                            'link' => $btn_link,
-                            'text' => $btn_text,
-                            'colour' => $btn_colour,
-                        ])
-                    @endif
-                </div>
-            </div>
-        </div>
-    @endif --}}
-
-    
-
+    </div>  
 </section>
