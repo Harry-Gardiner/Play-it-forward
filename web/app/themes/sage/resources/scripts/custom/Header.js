@@ -3,7 +3,10 @@
 * Handles the header navigation drop down and hamburger menu
 */
 let menuItems = document.querySelectorAll('li.menu-item-has-children');
-
+const heroImage = document.querySelector('.hero-fp__image');
+const heroNav = document.querySelector('.header__wrapper__nav');
+const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
+const header = document.querySelector('.header');
 const hamb = document.querySelector('.hamb');
 const dropdown = document.querySelector('.nav');
 let subMenuItems = Array.from(
@@ -14,7 +17,8 @@ hamb.addEventListener('click', function (e) {
   e.preventDefault();
   if (dropdown) {
     dropdown.classList.toggle('drop-open');
-    this.classList.toggle('hamb-open')
+    this.classList.toggle('hamb-open');
+    header.classList.toggle('open');
   }
 });
 
@@ -82,11 +86,6 @@ Array.prototype.forEach.call(menuItems, function (el) {
 * Front page hero nav
 * Handle the front page hero nav width and style
 */
-const heroImage = document.querySelector('.hero-fp__image');
-const heroNav = document.querySelector('.header__wrapper__nav');
-const headerNavInner = document.querySelector('.header__wrapper__nav__inner');
-const header = document.querySelector('.header');
-
 function adjustHeroNavWidth() {
   if (document.body.classList.contains('home') && window.matchMedia('(min-width: 992px)').matches && document.querySelector('.hero-fp__image')) {
     if ((headerNavInner.offsetWidth + 33) <= heroImage.offsetWidth) {

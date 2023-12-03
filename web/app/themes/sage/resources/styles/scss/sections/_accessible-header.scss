@@ -26,10 +26,20 @@
   z-index: 10000;
   // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
 
-  background-color: rgba(153, 48, 80,0);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(153, 48, 80, 0) 50%);
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
+  transition: background-color 250ms ease-in-out,background-position 250ms ease-in-out,box-shadow 250ms ease-in-out,padding 250ms ease-in-out;
+  background-color: $pf-raspberry;
+
+  &__transparent-start {
+    background-color: rgba(153, 48, 80,0);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(153, 48, 80, 0) 50%);
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+  }
+  
+  &.open {
+    background-color: $pf-raspberry;
+    background-position: 0% 100%;
+  }
 
   &--default {
     .menu-item {
@@ -102,7 +112,7 @@
       color: $pf-off-white;
       position: absolute;
       left: 0;
-      top: $header-height-mobile;
+      top: $header-height-mobile - 1;
       width: 100%;
       max-height: 0;
       transition: max-height 1s;
@@ -113,7 +123,7 @@
         height: fit-content;
         max-height: 2000px;
         transition: max-height 1s;
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+        // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
       }
 
       .main-navigation {

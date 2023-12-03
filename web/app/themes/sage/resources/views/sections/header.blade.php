@@ -16,7 +16,7 @@
     $banner = get_field('info-banner-content', 'options');
 @endphp
 @include('partials.banner', ['content' => $banner])
-<header class="header full-bleed {{ $header_style }}">
+<header class="header full-bleed {{ $header_style }} header__transparent-start">
     <div class="header__wrapper">
         @include('partials.logo')
 
