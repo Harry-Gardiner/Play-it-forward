@@ -20,7 +20,6 @@
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
-  // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
 
   transition: background-color 250ms ease-in-out,background-position 250ms ease-in-out,box-shadow 250ms ease-in-out,padding 250ms ease-in-out;
   background-color: $pf-raspberry;
@@ -35,6 +34,7 @@
   &.js-menu-scrolled {
     background-color: $pf-raspberry;
     background-position-y: 100%;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
   }
 
   &--default {
@@ -454,10 +454,7 @@
 
     @include media-breakpoint('lg') {
       margin-left: 1rem;
-    }
-
-    .button--donate {
-      margin-right: 0.5rem;
+      height: 100%;
     }
   }
 }

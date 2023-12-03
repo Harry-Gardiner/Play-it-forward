@@ -33,7 +33,7 @@
                     </nav>
                 @endif
                 <div class="header__buttons">
-                    @include('partials.button', ['type' => 'donate', 'colour' => 'white'])
+                    @include('partials.button', ['type' => 'header'])
                     <button class="hamb {{ $header_style }}"><span class="hamb-line"></span><span
                             class="visually-hidden">Toggle
                             Menu</span></button>
