@@ -252,11 +252,12 @@
           height: 0;
           border: 10px solid rgba(0,0,0,0);
           border-bottom-color: $pf-white;
-          bottom: -1px;
+          bottom: 0;
           left: 50%;
           margin-left: -10px;
+          visibility: hidden;
           opacity: 0;
-          // transition: opacity 250ms ease-in-out;
+          transition: opacity 300ms linear;
         }
 
         .sub-menu {
@@ -270,6 +271,8 @@
           width: 100vw;
           margin-left: calc((100vw - 100%) / -2);
           padding: 2rem 10rem;
+          opacity: 0;
+          transition: opacity 300ms linear;
 
           // Add a ::before that is full window width and height to allow for a full bleed background
           &::before {
@@ -286,7 +289,6 @@
           }
 
           li {
-
             &:hover,
             &:focus {
               a {
@@ -306,10 +308,8 @@
 
         &.open,
         &:hover {
-          // color: $pf-off-white;
-          // background: $pf-raspberry;
-
           &::after {
+            visibility: visible;
             opacity: 1;
           }
 
@@ -321,8 +321,9 @@
           }
 
           .sub-menu {
-            transition: all 400ms ease;
+            // transition: all 400ms ease;
             visibility: visible;
+            opacity: 1;
             max-height: 2000px;
           }
         }
