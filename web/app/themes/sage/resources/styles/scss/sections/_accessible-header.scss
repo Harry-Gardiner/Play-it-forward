@@ -221,11 +221,10 @@
           display: flex;
           align-items: center;
           padding: 0 1rem;
+          position: relative;
 
           &:hover,
           &:focus-within {
-            background-color: $pf-raspberry;
-
             .caret {
               background-image: url('../../../images/icons/caret_white.svg');
             }
@@ -243,8 +242,22 @@
 
       // Has submenu
       .menu-item-has-children {
-        position: relative;
         width: fit-content;
+        
+        &::after {
+          position: absolute;
+          z-index: 921;
+          content: "";
+          width: 0;
+          height: 0;
+          border: 10px solid rgba(0,0,0,0);
+          border-bottom-color: $pf-white;
+          bottom: -1px;
+          left: 50%;
+          margin-left: -10px;
+          opacity: 0;
+          // transition: opacity 250ms ease-in-out;
+        }
 
         .sub-menu {
           display: block;
@@ -286,14 +299,19 @@
               padding: 1em 2em;
               width: 100%;
               color: $pf-charcoal;
+              width: fit-content;
             }
           }
         }
 
         &.open,
         &:hover {
-          color: $pf-off-white;
-          background: $pf-raspberry;
+          // color: $pf-off-white;
+          // background: $pf-raspberry;
+
+          &::after {
+            opacity: 1;
+          }
 
           .caret {
             pointer-events: none;
