@@ -152,6 +152,7 @@ class HeroFrontPage extends Block
             'hero_image_position' => get_field('hero_image_position'),
             'hero_title' => get_field('hero_title'),
             'highlighted_text' => get_field('highlighted_text'),
+            'impact_text' => get_field('impact_text'),
             'hero_content' => get_field('hero_content'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
@@ -204,6 +205,16 @@ class HeroFrontPage extends Block
             ])
             ->addText('text_string', [
                 'label' => 'Highlighted Text',
+            ])
+            ->endRepeater()
+            ->addRepeater('impact_text', [
+                'label' => 'Impact Text',
+                'instructions' => 'Impact text will be displayed in a sliding carousel',
+                'layout' => 'table',
+                'button_label' => 'Add Impact Text',
+            ])
+            ->addText('text_string', [
+                'label' => 'Impact Text',
             ])
             ->endRepeater()
             ->addWYSIWYG('hero_content', [

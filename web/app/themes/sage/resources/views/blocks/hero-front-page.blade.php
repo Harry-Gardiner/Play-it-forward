@@ -26,55 +26,53 @@
         $btn_colour = 'raspberry';
         $btn_type = $cta_button['type'] ?? null;
     }
-
 @endphp
 <section
     class="hero-fp full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
 
-    @if ($hero_title)
-        <div class="hero-fp__inner container">
-            <div class="hero-fp__inner__content flow">
-                <div class="hero-fp__title">
-                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
-                </div>
-                <div class="hero-fp__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
-                        @include('partials.button', [
-                            'type' => $btn_type,
-                            'link' => $btn_link,
-                            'text' => $btn_text,
-                            'colour' => $btn_colour,
-                        ])
-                    @endif
+    <div class="hero-fp__top">
+        @if ($hero_image)
+            <div class="hero-fp__image">
+                <img src="{{ $hero_image['sizes']['2048x2048'] }}" alt="{{ $alt_text }}"
+                    style="object-position:{{ $hero_image_position }}">
+            </div>
+        @endif
+        @if ($hero_title)
+            <div class="hero-fp__title container">
+                <h1 class="giant-h1">{!! $hero_title !!}</h1>
+            </div>
+        @endif
+    </div>
+    <div class="hero-fp__mid">
+        <div class="container">
+            @if ($impact_text)
+            <div class="embla hero-fp__mid__slider">
+                <div class="embla__container">
+                    @foreach ($impact_text as $item)
+                    <div class="embla__slide hero-fp__mid__slider__item">
+                        {{ $item['text_string'] }}
+                    </div>
+                    @endforeach
                 </div>
             </div>
+            @endif
         </div>
-        <div class="hero-fp__inner">
-            <div class="hero-fp__inner__content flow">
-                <div class="hero-fp__title">
-                    <h1 class="giant-h1">{!! $hero_title !!}</h1>
-                </div>
-                <div class="hero-fp__sub-text flow">
-                    {!! $hero_content !!}
-                    @if ($show_button == 'yes')
-                        @include('partials.button', [
-                            'type' => $btn_type,
-                            'link' => $btn_link,
-                            'text' => $btn_text,
-                            'colour' => $btn_colour,
-                        ])
-                    @endif
-                </div>
+    </div>
+    <div class="hero-fp__bottom block-padding--bottom">
+        <div class="container">
+            @if ($hero_content)
+            <div class="hero-fp__bottom__sub-text flow">
+                {!! $hero_content !!}
+                @if ($show_button == 'yes')
+                    @include('partials.button', [
+                        'type' => $btn_type,
+                        'link' => $btn_link,
+                        'text' => $btn_text,
+                        'colour' => 'transparent',
+                    ])
+                @endif
             </div>
+            @endif
         </div>
-    @endif
-
-    @if ($hero_image)
-        <div class="hero-fp__image">
-            <img src="{{ $hero_image['url'] }}" alt="{{ $alt_text }}"
-                style="object-position:{{ $hero_image_position }}">
-        </div>
-    @endif
-
+    </div>  
 </section>
