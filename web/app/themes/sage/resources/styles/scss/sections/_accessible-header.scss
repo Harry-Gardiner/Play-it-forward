@@ -61,6 +61,14 @@
       padding: 0 2rem;
     }
 
+    @include media-breakpoint('xl') {
+      padding: 0 3rem;
+    }
+
+    @include media-breakpoint('xxl') {
+      padding: 0 8rem;
+    }
+
     &__nav {
       height: 100%;
       display: flex;

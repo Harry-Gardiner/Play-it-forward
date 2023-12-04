@@ -28,7 +28,7 @@
     }
 @endphp
 <section
-    class="hero-fp full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+    class="hero-fp full-bleed">
 
     <div class="hero-fp__top">
         @if ($hero_image)

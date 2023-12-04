@@ -31,6 +31,7 @@
 @import 'sections/impact-word';
 @import 'sections/football-team';
 @import 'sections/error';
+@import 'sections/layout';
 
 // Partials
 @import 'partials/button';
@@ -59,6 +60,13 @@
 @import 'blocks/people';
 @import 'blocks/full-image';
 
+body {
+    @extend .container;
+    line-height: 1.5;
+    overflow-x: hidden;
+    background-color: $pf-white;
+}
+
 #app {
     min-height: 100vh;
 
@@ -66,13 +74,6 @@
         position: sticky;
         top: 100vh;
     }
-}
-
-body {
-    @extend .container;
-    line-height: 1.5;
-    overflow-x: hidden;
-    background-color: $pf-white;
 }
 
 table {

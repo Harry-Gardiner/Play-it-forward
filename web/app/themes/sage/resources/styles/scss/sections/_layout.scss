@@ -1,0 +1,7 @@
+main {
+    margin-top: $header-height-mobile - 1;
+
+    @include media-breakpoint('lg') {
+        margin-top: $header-height-desktop - 1;
+    }
+}

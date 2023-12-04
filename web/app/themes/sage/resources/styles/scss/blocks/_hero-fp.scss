@@ -1,10 +1,11 @@
-// These values must match those in the accesssible-header.scss file.
-$header-height-mobile: 78px;
-$header-height-desktop: 60px;
-
 .hero-fp {
   position: relative;
   height: 100%;
+  margin-top: -$header-height-mobile - 1;
+
+  @include media-breakpoint('lg') {
+    margin-top: -$header-height-desktop - 1;
+  }
 
   &__top {
     position: relative;
