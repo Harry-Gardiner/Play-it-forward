@@ -17,10 +17,10 @@
     $hero_content = $hero_content ?? null;
 
 @endphp
-<section class="hero full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
+<section class="hero {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
 
     @if ($hero_title)
-        <div class="hero__inner container flow">
+        <div class="hero__inner flow">
                 <div class="hero__title">
                     <h1 class="h1">{!! $hero_title !!}</h1>
                 </div>
