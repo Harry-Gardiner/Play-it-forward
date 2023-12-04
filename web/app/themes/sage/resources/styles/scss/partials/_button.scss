@@ -51,7 +51,8 @@
       padding: 0 1rem;
       transition: transform 0.3s ease-in-out;
 
-      &:hover {
+      &:hover,
+      &:focus-within {
         transform: translateY(10px);
       }
 
