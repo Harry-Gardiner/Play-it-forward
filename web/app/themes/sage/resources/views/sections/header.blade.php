@@ -8,7 +8,7 @@
 
     $header_style = 'header--default';
     
-    if (is_blog()) {
+    if (!is_front_page()) {
         $header_style = 'header--blog';
         $btn_colour = 'white';
     } 

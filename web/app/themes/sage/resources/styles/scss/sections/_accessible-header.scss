@@ -30,7 +30,7 @@
   &.js-menu-scrolled {
     background-color: $pf-raspberry;
     background-position-y: 100%;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
   }
 
   &--default {
@@ -98,7 +98,7 @@
         height: fit-content;
         max-height: 2000px;
         transition: max-height 1s;
-        // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
       }
 
       .main-navigation {
