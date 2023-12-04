@@ -27,11 +27,48 @@
     background-color: $pf-yellow;
     color: $pf-charcoal;
 
-
     &:hover {
       border: 1px solid $pf-charcoal;
       background-color: transparent;
       color: $pf-charcoal;
+    }
+  }
+
+  &--header {
+    background-color: $pf-white;
+    color: $pf-charcoal;
+    border: 1px solid transparent;
+    border-radius: 100px;
+
+    @include media-breakpoint('lg') {
+      position: relative;
+      background-color: transparent;
+      border: none;
+      height: 100%;
+      border-radius: unset;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover,
+      &:focus-within {
+        transform: translateY(10px);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -42px;
+        left: -5px;
+        width: 110%;
+        height: 200%;
+        background-image: url('../../../images/flag_w_shadow.png');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+      }
     }
   }
 

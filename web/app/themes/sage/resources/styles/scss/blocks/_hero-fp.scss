@@ -4,32 +4,20 @@ $header-height-desktop: 60px;
 
 .hero-fp {
   position: relative;
-  // display: flex;
-  // flex-direction: column-reverse;
   height: 100%;
-
-  // @media (orientation: portrait) and (min-height: 700px) {
-  //     height: calc(100vh - #{$header-height-mobile});
-  // }
-
-  // @include media-breakpoint('lg') {
-  //     display: flex;
-  //     flex-direction: row;
-  //     height: 100vh;
-  // }
 
   &__top {
     position: relative;
     height: 100%;
     width: 100%;
-    min-height: 30vh;
+    min-height: 50vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include media-breakpoint('md') {
-      min-height: 40vh;
+      min-height: 60vh;
     }
 
     @include media-breakpoint('lg') {
