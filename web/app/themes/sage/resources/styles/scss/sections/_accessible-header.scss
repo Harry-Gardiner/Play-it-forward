@@ -43,25 +43,7 @@
 
   &--blog {
     color: $pf-white;
-    background-color: $pf-charcoal;
-
-    .logo__wrapper {
-      &__text {
-        color: $pf-white;
-      }
-    }
-
-    .menu-item {
-      a {
-        color: $pf-white;
-      }
-    }
-
-    @include media-breakpoint('lg') {
-      .caret {
-        background-image: url('../../../images/icons/caret_white.svg');
-      }
-    }
+    @extend .js-menu-scrolled;
   }
 
   @include media-breakpoint('lg') {
@@ -229,6 +211,7 @@
 
         &>li>a {
           font-weight: 500;
+          color: $pf-white;
         }
       }
 
