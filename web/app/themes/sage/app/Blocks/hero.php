@@ -143,7 +143,7 @@ class Hero extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-
+            'background_colour' => get_field('colour_picker'),
             // Hero Content
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
@@ -169,6 +169,15 @@ class Hero extends Block
                 'label' => 'Hero',
             ])
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                    'yellow' => 'Yellow',
+                ],
+                'default_value' => 'white',
+            ])
             ->addTab('Hero Image')
             ->addImage('hero_image', [
                 'label' => 'Hero Image',
@@ -193,36 +202,12 @@ class Hero extends Block
             ->addText('hero_title', [
                 'label' => 'Hero Title',
             ])
-            ->addRepeater('highlighted_text', [
-                'label' => 'Highlighted Title Text',
-                'instructions' => 'Highlighted text will be displayed in red. <br><br> Each word you wish to highlight needs to be added individually. The text string must be an exact match of the text string in the hero title above, inc any punctuation if that should also be highlighted.',
-                'layout' => 'table',
-                'button_label' => 'Add Highlighted Text',
-                'max' => 1,
-            ])
-            ->addText('text_string', [
-                'label' => 'Highlighted Text',
-            ])
-            ->endRepeater()
             ->addWYSIWYG('hero_content', [
                 'label' => 'Hero Subtitle',
                 'media_upload' => 0,
                 'toolbar' => 'full',
                 'delay' => 1,
-            ])
-            ->addRadio('show_button', [
-                'label' => 'Show Button?',
-                'required' => 1,
-                'choices' => [
-                    'yes' => 'Yes',
-                    'no' => 'No',
-                ],
-                'default_value' => 'no',
-                'layout' => 'horizontal',
-            ])
-            ->addGroup('cta_button', ['label' => 'CTA Button'])
-            ->addFields($this->get(Button::class))->conditional('show_button', '==', 'yes')
-            ->endGroup();
+            ]);
 
         return $hero->build();
     }

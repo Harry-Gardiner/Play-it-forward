@@ -2,6 +2,7 @@
     // Wrapper
     $wrapper = $wrapper ?? null;
     $spacing_size = $spacing_size ?? null;
+    $background_colour = $background_colour ? $background_colour : 'white';
 
     // Image
     $hero_image = $hero_image ?? null;
