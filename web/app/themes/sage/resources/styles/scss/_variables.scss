@@ -77,6 +77,8 @@ $spacing--sm: $pf-base-size * 1.5;
 $spacing--md: $pf-base-size * 2;
 $spacing--lg: $pf-base-size * 3;
 $spacing--xl: $pf-base-size * 4;
+$spacing--xxl: $pf-base-size * 5;
+$spacing--header: $pf-base-size * 8;
 
 /**********************
 Fonts
@@ -92,4 +94,4 @@ $font--fun: 'Knewave', Helvetica, Arial, sans-serif;
 Header
 ***********************/
 $header-height-mobile: 60px;
-$header-height-desktop: 60px;
+$header-height-desktop: 100px;
