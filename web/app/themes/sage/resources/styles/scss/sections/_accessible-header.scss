@@ -1,7 +1,3 @@
-// // Header specific variables
-// $header-height-mobile: 78px;
-// $header-height-desktop: 60px;
-
 .caret {
   background-image: url('../../../images/icons/caret_white.svg');
   height: 25px;
@@ -321,7 +317,7 @@
           }
 
           .sub-menu {
-            // transition: all 400ms ease;
+            z-index: -1;
             visibility: visible;
             opacity: 1;
             max-height: 2000px;
