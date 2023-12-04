@@ -31,7 +31,7 @@
     @endif
 
     @if ($hero_image)
-        <div class="hero__image">
+        <div class="hero__image bg--{{ $background_colour }} full-bleed">
             <img src="{{ $hero_image['url'] }}" alt="{{ $alt_text }}"
                 style="object-position:{{ $hero_image_position }}">
         </div>

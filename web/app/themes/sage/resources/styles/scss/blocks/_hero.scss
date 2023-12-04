@@ -1,6 +1,5 @@
 .hero {
     position: relative;
-    // min-height: 50vh;
     height: 100%;
     margin-top: $spacing--header;
 
@@ -40,11 +39,12 @@
 
         @include media-breakpoint('lg') {
             margin-top: $spacing--xl;
-            margin-left: unset;
-            width: auto;
+            padding: $spacing--lg 0;
 
             img {
                 max-height: 40vh;
+                max-width: $col--xl;
+                margin: 0 auto;
             }
         }
     }
