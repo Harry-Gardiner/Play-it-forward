@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Fields\Partials\GeneralTab;
 
 class Author extends Block
 {
@@ -33,14 +34,14 @@ class Author extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-ul';
+    public $icon = 'admin-users';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = [];
+    public $keywords = ['author'];
 
     /**
      * The block post type allow list.
@@ -61,7 +62,7 @@ class Author extends Block
      *
      * @var string
      */
-    public $mode = 'preview';
+    public $mode = 'auto';
 
     /**
      * The default block alignment.
@@ -138,7 +139,12 @@ class Author extends Block
     public function with()
     {
         return [
-            'items' => $this->items(),
+             // General
+             'wrapper' => get_field('block_spacing'),
+             'spacing_size' => get_field('spacing_size'),
+
+            // Author
+            'selected_user' => get_field('selected_user'),
         ];
     }
 
@@ -152,21 +158,15 @@ class Author extends Block
         $author = new FieldsBuilder('author');
 
         $author
-            ->addRepeater('items')
-                ->addText('item')
-            ->endRepeater();
+        ->addMessage('block_title', '', [
+            'label' => 'Hero',
+        ])
+        ->addFields($this->get(GeneralTab::class))
+        ->addTab('Author')
+        ->addSelect('selected_user', 'Select User')
+        ->addChoices(get_users(['fields' => ['ID', 'display_name']]));
 
         return $author->build();
-    }
-
-    /**
-     * Return the items field.
-     *
-     * @return array
-     */
-    public function items()
-    {
-        return get_field('items') ?: $this->example['items'];
     }
 
     /**
