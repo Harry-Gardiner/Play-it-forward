@@ -159,12 +159,13 @@ class Author extends Block
 
         $author
         ->addMessage('block_title', '', [
-            'label' => 'Hero',
+            'label' => 'Author',
         ])
         ->addFields($this->get(GeneralTab::class))
         ->addTab('Author')
-        ->addSelect('selected_user', 'Select User')
-        ->addChoices(get_users(['fields' => ['ID', 'display_name']]));
+        ->addSelect('selected_user', [
+            'label' => 'Select User',
+        ]);
 
         return $author->build();
     }

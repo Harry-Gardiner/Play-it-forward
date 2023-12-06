@@ -249,6 +249,23 @@ add_filter('acf/load_field/name=colour_picker', function ($field) {
 });
 
 /**
+ * ACF WP User Select *
+ * Dynamically populates any ACF field with selected_user Field Name with wp users
+ *
+ */
+add_filter('acf/load_field/name=selected_user', function ($field) {
+    $users = get_users(['fields' => ['ID', 'display_name']]);
+    $choices = [];
+    foreach ($users as $user) {
+        $choices[$user->ID] = $user->display_name;
+    }
+
+    $field['choices'] = $choices;
+
+    return $field;
+});
+
+/**
  * Add the SVG mime type to the allowed media types in WordPress
  */
 add_filter('upload_mimes', function ($mimes) {
