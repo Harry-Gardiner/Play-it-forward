@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f1213073c9a1ab7d71b91f497096658",
+    "content-hash": "8ba18958503661a88ed48f38f75a088b",
     "packages": [
         {
             "name": "brick/math",
@@ -4815,6 +4815,24 @@
             "time": "2022-01-24T18:55:24+00:00"
         },
         {
+            "name": "wpackagist-plugin/simple-local-avatars",
+            "version": "2.7.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/simple-local-avatars/",
+                "reference": "tags/2.7.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/simple-local-avatars.2.7.6.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/simple-local-avatars/"
+        },
+        {
             "name": "wpackagist-theme/twentytwentythree",
             "version": "1.0",
             "source": {
@@ -5317,5 +5335,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
