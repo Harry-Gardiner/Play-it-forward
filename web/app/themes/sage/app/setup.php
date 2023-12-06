@@ -249,18 +249,25 @@ add_filter('acf/load_field/name=colour_picker', function ($field) {
 });
 
 /**
- * ACF WP User Select *
+ * ACF WP User Select
+ * 
  * Dynamically populates any ACF field with selected_user Field Name with wp users
  *
  */
 add_filter('acf/load_field/name=selected_user', function ($field) {
     $users = get_users(['fields' => ['ID', 'display_name']]);
     $choices = [];
+    
     foreach ($users as $user) {
         $choices[$user->ID] = $user->display_name;
     }
 
+    // Optionally, you can find and set the blog user as the default choice
+    $blog_user = get_user_by('ID', get_current_user_id()); // Assuming you want the current logged-in user
+    $default_user_id = $blog_user ? $blog_user->ID : ''; // Set default to the blog user ID if found, otherwise empty string
+
     $field['choices'] = $choices;
+    $field['default_value'] = $default_user_id; // Set the default value
 
     return $field;
 });
