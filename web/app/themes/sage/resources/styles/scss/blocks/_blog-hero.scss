@@ -88,6 +88,8 @@
       flex-wrap: wrap;
       gap: 1rem;
       text-transform: uppercase;
+      font: 1em sans-serif;
+      font-weight: 700;
 
       @include media-breakpoint('lg') {
         gap: 2rem;

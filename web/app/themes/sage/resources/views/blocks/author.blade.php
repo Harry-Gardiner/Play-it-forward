@@ -20,7 +20,7 @@
         <img src="{{ $author_avatar }}" alt="{{ $author }}" />
     </div>
     <div class="author__info">
-        <div class="author__name">{{ $author }}</div>
+        <div class="author__name">by {{ $author }}</div>
         <div class="author__date">{{ $date_posted }}</div>
     </div>
 </section>
