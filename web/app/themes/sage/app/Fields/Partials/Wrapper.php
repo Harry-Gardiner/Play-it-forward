@@ -20,13 +20,13 @@ class Wrapper extends Partial
             ->addSelect('block_spacing', [
                 'label' => 'White space above/below this block',
                 'choices' => [
+                    'block-spacing--none' => 'None',
                     'block-spacing--both' => 'Both',
                     'block-spacing--top' => 'Above',
                     'block-spacing--bottom' => 'Below',
                     'block-spacing--auto' => 'Auto',
-                    'block-spacing--none' => 'None',
                 ],
-                'default' => 'block-spacing--none',
+                'default' => 'None',
                 'wpml_cf_preferences' => 0,
             ])
             ->addSelect('spacing_size', [
