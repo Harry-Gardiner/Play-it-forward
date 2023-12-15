@@ -126,7 +126,5 @@ return $dateA <=> $dateB;
                 @endif
             </div>
         </div>
-
-        </div>
     </section>
     {{-- @endif --}}
