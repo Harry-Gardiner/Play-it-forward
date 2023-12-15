@@ -5,3 +5,9 @@ main {
         margin-top: $header-height-desktop - 1;
     }
 }
+
+.e-content {
+    & > p:first-of-type {
+       padding-top: $spacing--xl;
+    }
+}
