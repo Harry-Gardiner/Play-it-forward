@@ -61,7 +61,7 @@ return $dateA <=> $dateB;
                     'colour' => 'white',
                     ])
                 </div>
-                @if ($team_one_matches && $team_two_matches)
+                @if ($team_one_matches)
                 <div class="results__recent">
                     <div class="football-team__latest__content block-padding--top">
                         <div class="title">
@@ -99,7 +99,7 @@ return $dateA <=> $dateB;
                     'colour' => 'white',
                     ])
                 </div>
-                @if ($team_one_matches && $team_two_matches)
+                @if ($team_two_matches)
                 <div class="results__recent">
                     <div class="football-team__latest__content block-padding--top">
                         <div class="title">
