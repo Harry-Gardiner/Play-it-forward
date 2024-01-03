@@ -151,8 +151,6 @@ class Hero extends Block
             'hero_title' => get_field('hero_title'),
             'highlighted_text' => get_field('highlighted_text'),
             'hero_content' => get_field('hero_content'),
-            'show_button' => get_field('show_button'),
-            'cta_button' => get_field('cta_button'),
         ];
     }
 
