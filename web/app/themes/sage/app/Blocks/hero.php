@@ -145,13 +145,12 @@ class Hero extends Block
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
             // Hero Content
+            'show_hero_image' => get_field('show_hero_image'),
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
             'hero_title' => get_field('hero_title'),
             'highlighted_text' => get_field('highlighted_text'),
             'hero_content' => get_field('hero_content'),
-            'show_button' => get_field('show_button'),
-            'cta_button' => get_field('cta_button'),
         ];
     }
 
@@ -179,13 +178,22 @@ class Hero extends Block
                 'default_value' => 'white',
             ])
             ->addTab('Hero Image')
+            ->addSelect('show_hero_image', [
+                'label' => 'Show Hero Image',
+                'instructions' => 'If you would like to add a hero image, select "Yes". Else a default image will be used.',
+                'choices' => [
+                    'yes' => 'Yes',
+                    'no' => 'No',
+                ],
+                'default_value' => 'no',
+            ])
             ->addImage('hero_image', [
                 'label' => 'Hero Image',
                 'return_format' => 'array',
                 'preview_size' => 'medium',
                 'library' => 'all',
                 'mime_types' => 'jpg, jpeg, png, svg',
-            ])
+            ])->conditional('show_hero_image', '==', 'yes')
             ->addSelect('hero_image_position', [
                 'label' => 'Image Position',
                 'instructions' => 'If required, use this to position the image.',
@@ -197,7 +205,7 @@ class Hero extends Block
                     'right' => 'Right',
                 ],
                 'default_value' => 'center',
-            ])
+            ])->conditional('show_hero_image', '==', 'yes')
             ->addTab('Hero Content')
             ->addText('hero_title', [
                 'label' => 'Hero Title',

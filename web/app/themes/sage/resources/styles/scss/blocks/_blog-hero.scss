@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   min-height: 50vh;
-  padding-top: $spacing--header;
 
   &.base {
     overflow: hidden;
@@ -20,8 +19,6 @@
   }
 
   &__title {
-    padding-bottom: $spacing--md;
-
     h1 {
       font-style: normal;
       text-transform: none;
@@ -72,9 +69,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-bottom: 2rem;
 
     @include media-breakpoint('lg') {
       width: 50%;
+      padding-right: 2rem;
+      margin-bottom: 0;
     }
   }
 
