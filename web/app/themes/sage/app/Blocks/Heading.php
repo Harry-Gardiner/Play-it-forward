@@ -149,8 +149,11 @@ class heading extends Block
             'heading_style' => get_field('heading_style'),
             'heading_semantics' => get_field('heading_semantics'),
             'text_alignment' => get_field('text_alignment'),
+            'enable_text_colour' => get_field('enable_text_colour'),
             'text_colour' => get_field('colour_picker'),
+            'enable_text_background' => get_field('enable_text_background'),
             'text_background_colour' => get_field('text_background_colour'),
+
         ];
     }
 
@@ -204,16 +207,24 @@ class heading extends Block
                 ],
                 'default_value' => 'left',
             ])
+            ->addTrueFalse('enable_text_colour', [
+                'label' => 'Select custom text colour',
+                'default_value' => 0,
+            ])
             ->addRadio('colour_picker', [
                 'label' => 'Text colour',
                 // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
                 'default_value' => 'charcoal',
+            ])->conditional('enable_text_colour', '==', 1)
+            ->addTrueFalse('enable_text_background', [
+                'label' => 'Select custom background colour',
+                'default_value' => 0,
             ])
             ->addRadio('text_background_colour', [
                 'label' => 'Heading background colour',
                 // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
                 'default_value' => 'white',
-            ])
+            ])->conditional('enable_text_background', '==', 1)
             ;
 
         return $heading->build();
