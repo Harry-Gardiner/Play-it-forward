@@ -149,6 +149,7 @@ class heading extends Block
             'heading_style' => get_field('heading_style'),
             'heading_semantics' => get_field('heading_semantics'),
             'text_alignment' => get_field('text_alignment'),
+            'text_colour' => get_field('colour_picker'),
         ];
     }
 
@@ -201,6 +202,11 @@ class heading extends Block
                     'right' => 'Right',
                 ],
                 'default_value' => 'left',
+            ])
+            ->addRadio('colour_picker', [
+                'label' => 'Text Colour',
+                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
+                'default_value' => 'charcoal',
             ]);
 
         return $heading->build();
