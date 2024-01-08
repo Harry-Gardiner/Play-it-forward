@@ -162,6 +162,7 @@ class quote extends Block
 
         $quote
             ->addFields($this->get(GeneralTab::class))
+            ->addTab('Quote')
             ->addRadio('style', [
                 'label' => 'Quote style',
                 'instructions' => 'Choose the style of quote you would like to use. \'Short\' should be reserved for very short, punchy quotes, ideally of less than 100 characters. Longer quotes should use the \'Long\' style.',
