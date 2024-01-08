@@ -32,12 +32,24 @@
 }
 
 .two-column-quote {
+   @include media-breakpoint('md') {
+        padding-right: 2rem;
+    }
+
+    @include media-breakpoint('lg') {
+        padding-right: 4rem;
+    }
+
+    @include media-breakpoint('xl') {
+        padding-right: 8rem;
+    }
+
     &__short {
         font-size: $size--lg;
         font-weight: 600;
         line-height: $spacing--md;
         text-transform: uppercase;
-        width: 80%;
+        width: 100%;
         margin: auto;
     
         &::before {
@@ -50,22 +62,15 @@
     &__long {
         font-size: $size--lg;
         font-weight: 400;
-        line-height: $spacing--md;
-        width: 80%;
         margin: auto;
-    
-        &::before {
-            content: "“";
-            font-size: 100px;
-            color: $pf-raspberry;
-        }
+        width: 100%;
     }
     
     &__author {
+        width: 100%;
+        text-align: right;
         font-size: $size--lg;
         font-weight: 400;
-        line-height: $spacing--md;
-        width: 80%;
         margin: auto;
         margin-top: 2rem;
         color: $pf-raspberry;
