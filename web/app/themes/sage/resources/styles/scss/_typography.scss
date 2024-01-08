@@ -150,65 +150,64 @@ ol {
 }
 
 .quote {
+  font-size: $size--lg;
+  line-height: $spacing--md;
+  margin: auto;
+  margin-top: 4rem;
+  line-height: 3rem;
+
+  @include media-breakpoint('sm') {
+    width: 80%;
+  }
+
+  @include media-breakpoint('md') {
+    width: 60%;
+  }
+
+
+
+  &__mark {
+    display: inline-block;
+    width: 3rem;
+    height: 1rem;
+    position: relative;
+    
+    span {
+      color: $pf-raspberry;
+      font-size: 100px;
+      position: absolute;
+    }
+
+    &--before {
+      left: -5px;
+    }
+  }
+  
   &__short {
-    font-size: $size--lg;
     font-weight: 600;
-    line-height: $spacing--md;
     text-transform: uppercase;
-    width: 40%;
-    margin: auto;
-    margin-top: 4rem;
-
-    &::before {
-      content: "“";
-      font-size: 100px;
-      position: absolute;
-      left: 17rem;
-      color: $pf-raspberry;
-    }
-
-    &::after {
-      content: "”";
-      font-size: 100px;
-      position: absolute;
-      right: 17rem;
-      color: $pf-raspberry;
-    }
   }
 
   &__long {
-    font-size: $size--lg;
     font-weight: 400;
-    line-height: $spacing--md;
-    width: 40%;
-    margin: auto;
-    margin-top: 4rem;
-
-    &::before {
-      content: "“";
-      font-size: 100px;
-      position: absolute;
-      left: 17rem;
-      color: $pf-raspberry;
-    }
-
-    &::after {
-      content: "”";
-      font-size: 100px;
-      position: absolute;
-      right: 17rem;
-      color: $pf-raspberry;
-    }
   }
 
   &__author {
     font-size: $size--lg;
     font-weight: 400;
     line-height: $spacing--md;
-    width: 40%;
     margin: auto;
     margin-top: 2rem;
     color: $pf-raspberry;
+    text-align: right;
+
+    @include media-breakpoint('sm') {
+      width: 80%;
+    }
+
+    @include media-breakpoint('md') {
+      width: 60%;
+    }
   }
 }
 

@@ -1,8 +1,8 @@
 <div class="two-column-quote">
     @if(isset($text))
-        <p class="two-column-quote__{{ $style }}">{!! $text !!}</p>
+        <p class="quote two-column-quote__{{ $style }}"><span class="quote__mark"><span class="quote__mark--before">“</span></span>{!! $text !!}<span class="quote__mark"><span class="quote__mark--after">”</span></span></p>
         @if(isset($author))
-            <p class="quote__author">{!! $author !!}</p>
+            <p class="two-column-quote__author">{!! $author !!}</p>
         @endif
     @endif
 </div>
