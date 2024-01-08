@@ -248,6 +248,24 @@ add_filter('acf/load_field/name=colour_picker', function ($field) {
     return $field;
 });
 
+add_filter('acf/load_field/name=text_background_colour', function ($field) {
+    if (!empty($field['choices'])) {
+        return $field;
+    }
+
+    // get array of colors created using editor-color-palette
+    $colors = get_theme_support('editor-color-palette');
+
+    if (!empty($colors)) {
+        // loop over each color and create option
+        foreach ($colors[0] as $color) {
+            $field['choices'][$color['slug']] = $color['name'];
+        }
+    }
+
+    return $field;
+});
+
 /**
  * ACF WP User Select
  * 
