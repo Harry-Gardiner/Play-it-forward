@@ -148,6 +148,7 @@ class heading extends Block
             'text' => get_field('text'),
             'heading_style' => get_field('heading_style'),
             'heading_semantics' => get_field('heading_semantics'),
+            'text_alignment' => get_field('text_alignment'),
         ];
     }
 
@@ -162,6 +163,7 @@ class heading extends Block
 
         $heading
             ->addFields($this->get(GeneralTab::class))
+            ->addTab('Heading')
             ->addTextarea('text', [
                 'label' => 'Heading text',
             ])
@@ -169,6 +171,7 @@ class heading extends Block
                 'label' => 'Heading style',
                 'instructions' => 'Choose the heading style. This will only affect the appearance of the heading, not its semantic level.',
                 'choices' => [
+                    'h1' => 'H1',
                     'h2' => 'H2',
                     'h3' => 'H3',
                     'h4' => 'H4',
@@ -181,6 +184,7 @@ class heading extends Block
                 'label' => 'Heading level',
                 'instructions' => 'Choose the heading level. You should aim to use progressively smaller headings across blocks as you go down the page, e.g. the hero should always contain an H1, so start at H2 in the next block and decrease the heading level by 1 for every subsequent heading from there. This will not affect the appearance of the heading, only its semantic level, and is for both SEO and accessibility purposes.',
                 'choices' => [
+                    'h1' => 'H1',
                     'h2' => 'H2',
                     'h3' => 'H3',
                     'h4' => 'H4',
@@ -188,6 +192,15 @@ class heading extends Block
                     'h6' => 'H6',
                 ],
                 'default_value' => 'h2',
+            ])
+            ->addRadio('text_alignment', [
+                'label' => 'Text alignment',
+                'choices' => [
+                    'left' => 'Left',
+                    'center' => 'Center',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
             ]);
 
         return $heading->build();
