@@ -124,11 +124,14 @@ class heading extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'text' => 'Example heading text',
+        'heading_style' => 'h2',
+        'heading_semantics' => 'h2',
+        'text_alignment' => 'left',
+        'enable_text_colour' => 0,
+        'text_colour' => 'charcoal',
+        'enable_text_background' => 0,
+        'text_background_colour' => 'white',
     ];
 
     /**
