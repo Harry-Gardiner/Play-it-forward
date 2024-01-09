@@ -323,7 +323,7 @@
       }
     }
 
-    /*
+  /*
   * CHEVRON BUTTON
   */
     .sub-menu-btn {
@@ -334,10 +334,11 @@
       @include media-breakpoint('lg') {
         position: absolute;
         right: -10px;
+        top: 0;
         transform: translateY(-100%);
-        transition: transform 0.3s ease-out;
 
         &:focus-within {
+          transition: transform 0.3s ease-out;
           transform: translateY(0);
         }
       }
