@@ -29,8 +29,8 @@ add_filter('acf/load_field/name=latest_posts_type', function ($field) {
 add_filter('allowed_block_types_all', function ($block_editor_context, $editor_context) {
     // Core Gutenberg blocks.
     $core_blocks = array(
-        'core/paragraph',
-        'core/heading',
+        // 'core/paragraph',
+        // 'core/heading',
         'core/table',
         'core/image',
         'core/video',
