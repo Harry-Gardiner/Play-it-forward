@@ -59,7 +59,6 @@ Template Name: Pattern Library
     Image: A tab containing an option to add an image (yes/no), an image field that is displayed if 'yes' is selected, and a select field for choosing the image position (left/right).
     Layout: A tab containing a select field for choosing the layout of the CTA Banner. This tab is displayed if 'no' is selected for the 'add_image' field.
     Button: A tab containing an option to show a button (yes/no), and a group of fields for the button that are displayed if 'yes' is selected.</p>
-</section>
 {{-- CTA - contained --}}
 @include('blocks.cta-banner', [
   'layout' => 'contained',
@@ -100,7 +99,48 @@ Template Name: Pattern Library
   'image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'], 'image_position' => 'left','show_button' => 'yes',
   'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
 ])
+</section>
 
+<section class="flow block-padding--bottom">
+  <h2>Blog Hero</h2>
+  <p>Added to the top of each blog post. Option to pick background colour and display the blogs featured image. Hero title is auto generated from the page title. If no custom image selected the PIF logo will be displayed as a large image instead. Any categories assigned to the blog post will also show next to Blog | category 1, category 2 etc.</p>
+  @include('blocks.blog-hero', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'show_hero_image' => 'no',
+  ])
+
+@include('blocks.blog-hero', [
+  'wrapper' => '',
+  'spacing_size' => '',
+  'background_colour' => 'yellow',
+  'show_hero_image' => 'yes',
+  'hero_image_position' => 'center center',
+  'hero_image' => 'https://placehold.co/800x800',
+])
+</section>
+
+<section class="flow block-padding--bottom">
+  <h2>Page Hero</h2>
+  <p>Added to the top of pages. Consists of colour_picker: A radio button field for selecting a color. The choices are 'White', 'Off White', and 'Yellow', with 'White' as the default value.
+    show_hero_image: A select field for choosing whether to show the hero image (default is 'No').
+    hero_image: An image field for uploading the hero image. This field is only displayed if 'Yes' is selected for 'show_hero_image'.
+    hero_image_position: A select field for choosing the image position. This field is also only displayed if 'Yes' is selected for 'show_hero_image'.
+    hero_title: A text field for entering the hero title.
+    hero_content: A WYSIWYG (What You See Is What You Get) field for entering the hero subtitle.</p>
+  @include('blocks.hero', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'yellow',
+    'show_hero_image' => 'yes',
+    'hero_image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'],
+    'hero_image_position' => 'center center',
+    'hero_title' => 'Hero title',
+    'hero_content' => 'Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing.',
+    'hero_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
+  ])
+</section>
 
 @endwhile
 @endsection
