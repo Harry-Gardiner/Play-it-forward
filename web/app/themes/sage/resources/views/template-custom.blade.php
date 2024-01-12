@@ -73,6 +73,41 @@ Template Name: Pattern Library
   ])
 </section>
 
+{{-- section for button examples --}}
+<section class="flow block-padding--bottom">
+  <h2>Buttons</h2>
+  <p>Example buttons. Two options primary or donate. Donate auto populates the button text and url(donate link set in Theme options). Able to choose button position, left, center, right. Different colour options.</p>
+  @include('blocks.button-block', [
+    'block' => (object) ['classes' => 'block-padding--bottom'],
+    'wrapper' => '',
+    'spacing_size' => '',
+    'btn_position' => 'center',
+    'btn_type' => 'primary',
+    'btn_colour' => 'raspberry',
+    'btn_link' => '#',
+    'btn_text' => 'Raspberry button'
+  ])
+  @include('blocks.button-block', [
+    'block' => (object) ['classes' => 'block-padding--bottom'],
+    'wrapper' => '',
+    'spacing_size' => '',
+    'btn_position' => 'left',
+    'btn_type' => 'primary',
+    'btn_colour' => 'black',
+    'btn_link' => '#',
+    'btn_text' => 'black button'
+  ])
+@include('blocks.button-block', [
+  'block' => (object) ['classes' => 'block-padding--bottom'],
+  'wrapper' => '',
+  'spacing_size' => '',
+  'btn_position' => 'right',
+  'btn_type' => 'donate',
+  'btn_colour' => 'dark-green',
+  'btn_link' => '#',
+  'btn_text' => 'Donate'
+])
+
 <section class="flow block-padding--bottom">
   <h2>Page Hero</h2>
   <p>Added to the top of pages. Consists of colour_picker: A radio button field for selecting a color. The choices are 'White', 'Off White', and 'Yellow', with 'White' as the default value.

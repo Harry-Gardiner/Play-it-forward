@@ -108,13 +108,13 @@ class ButtonBlock extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            "position" => "center",
-            "type" => "primary",
-            "colour" => "red",
-            "text" => "Get involved",
-            "link" => "/"
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'btn_position' => 'center',
+        'btn_type' => 'primary',
+        'btn_colour' => 'raspberry',
+        'btn_link' => '#',
+        'btn_text' => 'Raspberry button'
     ];
 
     /**
