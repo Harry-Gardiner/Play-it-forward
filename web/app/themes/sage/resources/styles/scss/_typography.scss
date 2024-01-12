@@ -4,6 +4,9 @@
 // Secondary font - Katibeh
 @import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
 
+// Tertiary font - Knewave
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
 p,
 li,
 a {
@@ -13,11 +16,14 @@ a {
   line-height: $spacing--md;
 }
 
-.standfirst {
-  font-family: $font--primary;
-  font-size: $size--lg;
-  font-weight: 400;
-  line-height: $spacing--lg;
+.text__standfirst {
+  li, p, a {
+    font-family: $font--primary;
+    font-size: $size--lg;
+    font-weight: 400;
+    line-height: $spacing--md;
+    padding-bottom: 1.5rem;
+  }
 }
 
 h1,
@@ -45,7 +51,6 @@ h2 {
 }
 
 .giant-h1 {
-
   font-family: $font--primary;
   font-weight: 600;
   font-size: $size--xxl;
@@ -58,32 +63,38 @@ h2 {
 }
 
 .h1,
-h1:not([class]) {
+h1:not([class]),
+.heading__h1 {
   font-size: $size--xxl;
 }
 
 .h2,
-h2:not([class]) {
+h2:not([class]),
+.heading__h2 {
   font-size: $size--xl;
 }
 
 .h3,
-h3:not([class]) {
+h3:not([class]),
+.heading__h3 {
   font-size: $size--lg;
 }
 
 .h4,
-h4:not([class]) {
+h4:not([class]),
+.heading__h4 {
   font-size: $size--md;
 }
 
 .h5,
-h5:not([class]) {
+h5:not([class]),
+.heading__h5 {
   font-size: $size--base;
 }
 
 .h6,
-h6:not([class]) {
+h6:not([class]),
+.heading__h6 {
   font-size: $size--sm;
 }
 
@@ -92,12 +103,12 @@ a {
   text-decoration: underline;
 }
 
-ul {
+ul:not(.acf-radio-list):not(.acf-tab-group) {
   li:not([class]) {
     list-style: none;
   }
 
-  li:not([class]):before {
+  li:not([class]):not(.editor-styles-wrapper):before {
     content: "·";
     font-size: 30px;
     vertical-align: middle;
@@ -137,6 +148,70 @@ ol {
     }
   }
 }
+
+.quote {
+  font-size: $size--lg;
+  line-height: $spacing--md;
+  margin: auto;
+  margin-top: 4rem;
+  line-height: 3rem;
+
+  @include media-breakpoint('sm') {
+    width: 80%;
+  }
+
+  @include media-breakpoint('md') {
+    width: 60%;
+  }
+
+
+
+  &__mark {
+    display: inline-block;
+    width: 3rem;
+    height: 1rem;
+    position: relative;
+    
+    span {
+      color: $pf-raspberry;
+      font-size: 100px;
+      position: absolute;
+    }
+
+    &--before {
+      left: -5px;
+    }
+  }
+  
+  &__short {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__long {
+    font-weight: 400;
+  }
+
+  &__author {
+    font-size: $size--lg;
+    font-weight: 400;
+    line-height: $spacing--md;
+    margin: auto;
+    margin-top: 2rem;
+    color: $pf-raspberry;
+    text-align: right;
+
+    @include media-breakpoint('sm') {
+      width: 80%;
+    }
+
+    @include media-breakpoint('md') {
+      width: 60%;
+    }
+  }
+}
+
+
 
 @include media-breakpoint('lg') {
   .nav {

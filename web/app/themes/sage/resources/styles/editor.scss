@@ -12,7 +12,8 @@
           padding: 1rem 0;
      }
 
-     .acf-field[data-name="colour_picker"] {
+     .acf-field[data-name="colour_picker"],
+     .acf-field[data-name="text_background_colour"] {
           ul.acf-radio-list {
                display: flex;
                flex-wrap: wrap;

@@ -1,6 +1,6 @@
 import domReady from '@roots/sage/client/dom-ready';
 import './custom/Header.js';
-import './custom/SwiffySlider.js';
+import './custom/Slider.js';
 import './custom/StatsCounter.js';
 import './custom/Footer.js';
 import './custom/Beacon.js';

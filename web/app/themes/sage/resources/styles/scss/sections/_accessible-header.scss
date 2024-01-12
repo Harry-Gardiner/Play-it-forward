@@ -1,7 +1,3 @@
-// // Header specific variables
-// $header-height-mobile: 78px;
-// $header-height-desktop: 60px;
-
 .caret {
   background-image: url('../../../images/icons/caret_white.svg');
   height: 25px;
@@ -11,107 +7,43 @@
   transform: rotate(0);
   transition: rotate 300ms ease-out;
   display: inline-block;
-
-  @include media-breakpoint('lg') {
-    background-image: url('../../../images/icons/caret_charcoal.svg');
-  }
 }
 
 .header {
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-  background: $pf-white;
+
+  transition: background-color 250ms ease-in-out,background-position 250ms ease-in-out,box-shadow 250ms ease-in-out,padding 250ms ease-in-out;
+  background-color: $pf-raspberry;
+
+  &__transparent-start {
+    background-color: rgba(153, 48, 80,0);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(35, 47, 74, 0) 50%);
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+  }
+
+  &.js-menu-scrolled {
+    background-color: $pf-raspberry;
+    background-position-y: 100%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  }
 
   &--default {
-    color: $pf-charcoal;
-    background-color: $pf-white;
-
     .menu-item {
       a {
-        color: inherit;
+        color: $pf-white;
       }
     }
   }
 
   &--blog {
     color: $pf-white;
-    background-color: $pf-charcoal;
-
-    .logo__wrapper {
-      &__text {
-        color: $pf-white;
-      }
-    }
-
-    .menu-item {
-      a {
-        color: $pf-white;
-      }
-    }
-
-    @include media-breakpoint('lg') {
-      .caret {
-        background-image: url('../../../images/icons/caret_white.svg');
-      }
-    }
-  }
-
-  &--front-page {
-    @include media-breakpoint('lg') {
-      box-shadow: none;
-      position: fixed;
-      left: 0;
-      background: none;
-      // transition: background 0.8s ease;
-
-      .header__wrapper {
-        padding-right: 0;
-
-        &__nav {
-          // background: linear-gradient(180deg, #262626 0%, rgba(38, 38, 38, 0.00) 100%);
-
-          @include media-breakpoint('lg') {
-            padding-right: 2rem;
-          }
-        }
-      }
-
-      .menu-item {
-        a {
-          color: $pf-white;
-          // transition: color 0.3s ease;
-        }
-      }
-
-      .caret {
-        background-image: url('../../../images/icons/caret_white.svg');
-      }
-
-      &.default,
-      &.scrolled {
-        color: $pf-charcoal;
-        background-color: $pf-white;
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-
-        .header__wrapper__nav {
-          background: inherit;
-        }
-
-        .menu-item {
-          a {
-            color: inherit;
-          }
-        }
-
-        .caret {
-          background-image: url('../../../images/icons/caret_charcoal.svg');
-        }
-      }
-    }
+    @extend .js-menu-scrolled;
   }
 
   @include media-breakpoint('lg') {
@@ -127,6 +59,14 @@
 
     @include media-breakpoint('lg') {
       padding: 0 2rem;
+    }
+
+    @include media-breakpoint('xl') {
+      padding: 0 3rem;
+    }
+
+    @include media-breakpoint('xxl') {
+      padding: 0 8rem;
     }
 
     &__nav {
@@ -154,10 +94,11 @@
       color: $pf-off-white;
       position: absolute;
       left: 0;
-      top: $header-height-mobile;
+      top: $header-height-mobile - 1;
       width: 100%;
       max-height: 0;
       transition: max-height 1s;
+      transition-delay: 0.2s;
       overflow: hidden;
       @include full-bleed;
 
@@ -165,7 +106,7 @@
         height: fit-content;
         max-height: 2000px;
         transition: max-height 1s;
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
       }
 
       .main-navigation {
@@ -266,15 +207,10 @@
           display: flex;
           align-items: center;
           padding: 0 1rem;
+          position: relative;
 
           &:hover,
           &:focus-within {
-            background-color: $pf-raspberry;
-
-            a {
-              color: $pf-white;
-            }
-
             .caret {
               background-image: url('../../../images/icons/caret_white.svg');
             }
@@ -283,6 +219,7 @@
 
         &>li>a {
           font-weight: 500;
+          color: $pf-white;
         }
       }
 
@@ -292,40 +229,76 @@
 
       // Has submenu
       .menu-item-has-children {
-        position: relative;
         width: fit-content;
+        
+        &::after {
+          position: absolute;
+          z-index: 921;
+          content: "";
+          width: 0;
+          height: 0;
+          border: 10px solid rgba(0,0,0,0);
+          border-bottom-color: $pf-white;
+          bottom: 0;
+          left: 50%;
+          margin-left: -10px;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 300ms linear;
+        }
 
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: $pf-raspberry;
+          background-color: $pf-white;
           position: absolute;
-          left: 50%;
-          margin-left: -150px; // Has to be half the sub-menu width to centre.
+          left: 0;
           top: 100%;
           max-height: 0;
-          width: 300px;
+          width: 100vw;
+          margin-left: calc((100vw - 100%) / -2);
+          padding: 2rem 10rem;
+          opacity: 0;
+          transition: opacity 300ms linear;
+
+          // Add a ::before that is full window width and height to allow for a full bleed background
+          &::before {
+            content: '';
+            position: absolute;
+            left: -4000px;
+            top: 0;
+            width: 10000px;
+            height: 100%;
+            background-color: $pf-white;
+            z-index: -1;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+
+          }
 
           li {
-
             &:hover,
             &:focus {
-              background: $pf-secondary-raspberry;
-              color: $pf-white;
+              a {
+                text-decoration: underline;
+              }
             }
 
             a {
               display: inline-block;
               padding: 1em 2em;
               width: 100%;
+              color: $pf-charcoal;
+              width: fit-content;
             }
           }
         }
 
         &.open,
         &:hover {
-          color: $pf-off-white;
-          background: $pf-raspberry;
+          &::after {
+            visibility: visible;
+            opacity: 1;
+          }
 
           .caret {
             pointer-events: none;
@@ -335,8 +308,9 @@
           }
 
           .sub-menu {
-            transition: all 400ms ease;
+            z-index: -1;
             visibility: visible;
+            opacity: 1;
             max-height: 2000px;
           }
         }
@@ -349,7 +323,7 @@
       }
     }
 
-    /*
+  /*
   * CHEVRON BUTTON
   */
     .sub-menu-btn {
@@ -358,7 +332,15 @@
       height: 100%;
 
       @include media-breakpoint('lg') {
-        margin-left: 0.25em;
+        position: absolute;
+        right: -10px;
+        top: 0;
+        transform: translateY(-100%);
+
+        &:focus-within {
+          transition: transform 0.3s ease-out;
+          transform: translateY(0);
+        }
       }
 
       &:disabled {
@@ -410,7 +392,7 @@
     }
 
     .hamb-line {
-      background: $pf-charcoal;
+      background: $pf-white;
       display: block;
       height: 2px;
       position: relative;
@@ -418,7 +400,7 @@
 
       &::before,
       &::after {
-        background: $pf-charcoal;
+        background: $pf-white;
         content: '';
         display: block;
         height: 100%;
@@ -460,10 +442,7 @@
 
     @include media-breakpoint('lg') {
       margin-left: 1rem;
-    }
-
-    .button--donate {
-      margin-right: 0.5rem;
+      height: 100%;
     }
   }
 }

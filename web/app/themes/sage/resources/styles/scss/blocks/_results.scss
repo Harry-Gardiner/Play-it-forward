@@ -22,6 +22,7 @@
     span {
       text-transform: uppercase;
       font-weight: 700;
+      font-family: $font--primary;
 
       @include media-breakpoint('lg') {
         font-size: $size--xl;
@@ -32,6 +33,7 @@
   &__team {
     display: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    padding-bottom: $spacing--xl;
 
     /* Go from zero to full opacity */
     @keyframes fadeEffect {
@@ -48,6 +50,8 @@
     &__title {
       text-transform: uppercase;
       font-weight: 700;
+      line-height: 40px;
+      letter-spacing: 1.8px;
     }
   }
 

@@ -57,11 +57,13 @@
  * Text Colours
  * -----------------------------------------------------------------------------
  */
-.red {
+.red,
+.raspberry {
     color: $pf-raspberry;
 }
 
-.dark-red {
+.dark-red,
+.dark-raspberry {
     color: $pf-raspberry;
 }
 
@@ -79,4 +81,12 @@
 
 .charcoal {
     color: $pf-charcoal;
+}
+
+.dark-green {
+    color: $pf-dark-green;
+}
+
+.yellow {
+    color: $pf-yellow;
 }

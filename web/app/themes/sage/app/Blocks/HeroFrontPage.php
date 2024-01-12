@@ -4,7 +4,6 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
-use App\Fields\Partials\GeneralTab;
 use App\Fields\Partials\Button;
 
 class HeroFrontPage extends Block
@@ -142,16 +141,12 @@ class HeroFrontPage extends Block
     public function with()
     {
         return [
-            // General
-            'wrapper' => get_field('block_spacing'),
-            'spacing_size' => get_field('spacing_size'),
-            'background_colour' => get_field('colour_picker'),
-
             // Hero Content
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
             'hero_title' => get_field('hero_title'),
             'highlighted_text' => get_field('highlighted_text'),
+            'impact_text' => get_field('impact_text'),
             'hero_content' => get_field('hero_content'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
@@ -171,7 +166,6 @@ class HeroFrontPage extends Block
             ->addMessage('block_title', '', [
                 'label' => 'Hero Front Page',
             ])
-            ->addFields($this->get(GeneralTab::class))
             ->addTab('Hero Image')
             ->addImage('hero_image', [
                 'label' => 'Hero Image',
@@ -204,6 +198,16 @@ class HeroFrontPage extends Block
             ])
             ->addText('text_string', [
                 'label' => 'Highlighted Text',
+            ])
+            ->endRepeater()
+            ->addRepeater('impact_text', [
+                'label' => 'Impact Text',
+                'instructions' => 'Impact text will be displayed in a sliding carousel',
+                'layout' => 'table',
+                'button_label' => 'Add Impact Text',
+            ])
+            ->addText('text_string', [
+                'label' => 'Impact Text',
             ])
             ->endRepeater()
             ->addWYSIWYG('hero_content', [

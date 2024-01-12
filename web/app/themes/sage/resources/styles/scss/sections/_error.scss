@@ -1,34 +1,35 @@
 .error-404 {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-top: $spacing--xl;
 
-   &__circle {
-      border-radius: 50%;
-      background: $pf-raspberry;
-      width: 250px;
-      height: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: $pf-white;
-      text-align: center;
+    &__circle {
+        border-radius: 50%;
+        background: $pf-raspberry;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $pf-white;
+        text-align: center;
 
-      @include media-breakpoint('md') {
-         width: 400px;
-         height: 400px;
-       }
+        @include media-breakpoint('md') {
+            width: 400px;
+            height: 400px;
+        }
 
 
-      p:first-of-type {
-         margin-bottom: 1rem;
-      }
-   }
+        p:first-of-type {
+            margin-bottom: 1rem;
+        }
+    }
 
 }
 
 .home-button {
-   text-align: center;
+    text-align: center;
 }

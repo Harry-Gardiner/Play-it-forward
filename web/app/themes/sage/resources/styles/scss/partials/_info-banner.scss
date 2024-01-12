@@ -1,16 +1,18 @@
 .info-banner {
-    position: relative;
-    top: 0;
+    position: fixed;
+    top: $header-height-mobile;
     left: 0;
     background-color: $pf-yellow;
     display: flex;
     justify-content: center;
-    z-index: 10001;
+    z-index: 10000;
     text-transform: uppercase;
     padding: 0.8rem 4rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
 
-    @include media-breakpoint('md') {
-        position: fixed;
+    @include media-breakpoint('lg') {
+        top: $header-height-desktop;
+        z-index: 10001;
     }
 
     &__icon {

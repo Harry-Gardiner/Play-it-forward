@@ -19,8 +19,6 @@
   }
 
   &__title {
-    padding-bottom: $spacing--md;
-
     h1 {
       font-style: normal;
       text-transform: none;
@@ -71,9 +69,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-bottom: 2rem;
 
     @include media-breakpoint('lg') {
       width: 50%;
+      padding-right: 2rem;
+      margin-bottom: 0;
     }
   }
 
@@ -87,6 +88,8 @@
       flex-wrap: wrap;
       gap: 1rem;
       text-transform: uppercase;
+      font: 1em sans-serif;
+      font-weight: 700;
 
       @include media-breakpoint('lg') {
         gap: 2rem;

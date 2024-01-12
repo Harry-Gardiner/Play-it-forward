@@ -186,6 +186,8 @@ class CustomGrid extends Block
                 ],
                 'default_value' => 'white',
             ])
+            ->addFields($this->get(ImpactWord::class))
+            ->addTab('Content')
             ->addSelect('grid_type', [
                 'label' => 'Grid Type',
                 'choices' => [
@@ -194,8 +196,6 @@ class CustomGrid extends Block
                 ],
                 'default_value' => 'default',
             ])
-            ->addFields($this->get(ImpactWord::class))
-            ->addTab('Content')
             ->addFields($this->get(Title::class))
             ->addTextarea('body', [
                 'label' => 'Sub Title/Body',

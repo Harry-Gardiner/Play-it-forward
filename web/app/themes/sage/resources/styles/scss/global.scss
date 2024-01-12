@@ -20,6 +20,7 @@
 @import 'utilities/block-padding';
 @import 'utilities/colours';
 @import 'utilities/overlay';
+@import 'utilities/text-alignment';
 
 
 @import 'typography';
@@ -31,6 +32,7 @@
 @import 'sections/impact-word';
 @import 'sections/football-team';
 @import 'sections/error';
+@import 'sections/layout';
 
 // Partials
 @import 'partials/button';
@@ -47,6 +49,7 @@
 @import 'blocks/hero';
 @import 'blocks/carousel';
 @import 'blocks/featured-posts';
+@import 'blocks/two-column-content';
 @import 'blocks/custom-grid';
 @import 'blocks/form';
 @import 'blocks/partners';
@@ -56,7 +59,16 @@
 @import 'blocks/blog-hero';
 @import 'blocks/results';
 @import 'blocks/people';
+@import 'blocks/full-image';
+@import 'blocks/author';
 @import 'blocks/text-with-media';
+
+body {
+    @extend .container;
+    line-height: 1.5;
+    overflow-x: hidden;
+    background-color: $pf-white;
+}
 
 #app {
     min-height: 100vh;
@@ -65,13 +77,6 @@
         position: sticky;
         top: 100vh;
     }
-}
-
-body {
-    @extend .container;
-    line-height: 1.5;
-    overflow-x: hidden;
-    background-color: $pf-white;
 }
 
 table {
