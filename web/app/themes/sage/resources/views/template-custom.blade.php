@@ -73,7 +73,6 @@ Template Name: Pattern Library
   ])
 </section>
 
-{{-- section for button examples --}}
 <section class="flow block-padding--bottom">
   <h2>Buttons</h2>
   <p>Example buttons. Two options primary or donate. Donate auto populates the button text and url(donate link set in Theme options). Able to choose button position, left, center, right. Different colour options.</p>
@@ -200,7 +199,34 @@ Template Name: Pattern Library
 ])
 </section>
 
-
+<section class="flow block-padding--bottom">
+  <h2>People</h2>
+  <p>Displays a list of people. Consists of title: A message field.
+    people: A repeater field for adding people. Each person consists of a name field, a WYSIWYG (What You See Is What You Get) editor for entering the person's bio, and an image field for uploading the person's photo.</p>
+  @include('blocks.people', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'title_style' => ['title' => 'People Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'people' => [
+      [
+        'name' => 'Person 1',
+        'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+      ],
+      [
+        'name' => 'Person 2',
+        'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet amet in explicabo!',
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+      ],
+      [
+        'name' => 'Person 3',
+        'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+      ]
+    ]
+  ])
+</section>
 
 @endwhile
 @endsection
