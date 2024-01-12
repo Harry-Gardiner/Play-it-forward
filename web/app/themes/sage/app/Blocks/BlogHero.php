@@ -126,11 +126,11 @@ class BlogHero extends Block
      */
     public $example = [
         'wrapper' => '',
-          'spacing_size' => '',
-          'background_colour' => 'yellow',
-          'show_hero_image' => 'yes',
-          'hero_image_position' => 'center center',
-          'hero_image' => 'https://placehold.co/800x800',
+        'spacing_size' => '',
+        'background_colour' => 'yellow',
+        'show_hero_image' => 'yes',
+        'hero_image_position' => 'center center',
+        'hero_image' => 'https://placehold.co/800x800',
     ];
 
     /**
