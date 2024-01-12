@@ -3,6 +3,7 @@
     if ($impact_word_enable === 'yes') {
         $impact = $impact_word_position;
     }
+
 @endphp
 
 <section class="text-with-media {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
@@ -23,10 +24,12 @@
                 </div>
             @endif
 
-            @if($media_type === 'image') 
-                <img class="text-with-media__content__image" src={{ $image['url'] }} alt={{ $image['alt'] }}/>
+            @if($media_type === 'image')
+                <img class="text-with-media__content__image" src={{ $image['url'] }} alt={{ $image['alt'] }} />
             @elseif($media_type === 'video')
-                {{-- <video/> --}}
+                <div class="text-with-media__content__video embed-container">
+                    {!! $video !!}
+                </div>
             @endif
 
         </div>

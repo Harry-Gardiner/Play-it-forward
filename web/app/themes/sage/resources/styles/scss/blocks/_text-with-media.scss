@@ -3,5 +3,35 @@
         &__image {
             border-radius: 4px;
         }
+
+        &__title {
+            &.title-right > .title > * {
+                text-align: right;
+            }
+
+            &.title-left > .title > * {
+                text-align: left;
+            }
+
+            &.title-centre > .title > * {
+                text-align: center;
+            }
+
+            .title {
+                margin-bottom: 2rem;
+            }
+        }
+
+        &__body {
+            margin-bottom: 2rem;
+        }
+
+        &__video {
+            iframe {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+        }
     }
 }
