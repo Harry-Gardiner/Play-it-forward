@@ -309,5 +309,32 @@ Template Name: Pattern Library
   ])
 </section>
 
+<section class="flow block-padding--bottom">
+  <h2>Featured posts</h2>
+  <p>Displays a grid of featured posts. Consists of Title: This is a set of fields defined in the Title class.
+
+    featured_post_type: A select field for choosing whether to display the latest posts or specific featured posts.
+
+    featured_posts: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a post object field for selecting a post. This field is only shown if featured_post_type is set to 'featured'.
+
+    latest_posts_type: A select field for choosing the post type to display. This field is only shown if featured_post_type is set to 'latest'.
+
+    number_of_posts: A select field for choosing the number of posts to display. This field is only shown if featured_post_type is set to 'latest'.
+
+    load_more_text: A text field for entering the text to display on the load more button. This field is only shown if number_of_posts is set to 'All'.</p>
+    @include('blocks.featured-posts', [
+      'wrapper' => '',
+      'spacing_size' => '',
+      'background_colour' => 'off-white',
+      'impact_word_enable' => 'yes',
+      'impact_word' => 'Impact word',
+      'impact_word_position' => 'left',
+      'title_style' => ['title' => 'Featured Posts Title - 4 example', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+      'featured_post_type' => 'latest',
+      'latest_posts_type' => 'posts',
+      'number_of_posts' => '4',
+    ])
+</section>
+
 @endwhile
 @endsection

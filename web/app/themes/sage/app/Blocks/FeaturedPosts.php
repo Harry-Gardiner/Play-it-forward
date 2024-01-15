@@ -126,11 +126,16 @@ class FeaturedPosts extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+          'wrapper' => '',
+          'spacing_size' => '',
+          'background_colour' => 'off-white',
+          'impact_word_enable' => 'yes',
+          'impact_word' => 'Impact word',
+          'impact_word_position' => 'left',
+          'title_style' => ['title' => 'Featured Posts Title - 4 example', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+          'featured_post_type' => 'latest',
+          'latest_posts_type' => 'posts',
+          'number_of_posts' => '4',
     ];
 
     /**
