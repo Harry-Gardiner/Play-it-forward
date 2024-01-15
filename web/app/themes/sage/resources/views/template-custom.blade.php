@@ -228,5 +228,37 @@ Template Name: Pattern Library
   ])
 </section>
 
+<section class="flow block-padding--bottom">
+<h2>Stacked Media</h2>
+<p>Displays upto 3 items of media(image or video). Content is stacked vertically. Consists of Enable impact word: Optional - select if you want to displat an impact word. The impact word is a large word that appears to the left or right of the block.
+  impact_word: A text field for entering the impact word.
+  impact_word_position: A select field for choosing the position of the impact word. The choices are 'Left' and 'Right', with 'Left' as the default value.
+  block_title: Text input for the block title.
+  items: A repeater field for adding items. Each item consists of a select field for choosing the type of media (image/video), an image field for uploading an image, and a URL field for entering the video url</p>
+</p>
+@include('blocks.stacked-media', [
+  'wrapper' => '',
+  'spacing_size' => '',
+  'background_colour' => 'off-white',
+  'impact_word_enable' => 'yes',
+  'impact_word' => 'Impact word',
+  'impact_word_position' => 'left',
+  'title_style' => ['title' => 'Stacked Media Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+  'items' => [
+    [
+      'media_type' => 'image',
+      'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text']
+    ],
+    [
+      'media_type' => 'video',
+      'video' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/r98ColIPrNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    ],
+    [
+      'media_type' => 'image',
+      'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text']
+    ]
+  ]
+])
+</section>
 @endwhile
 @endsection

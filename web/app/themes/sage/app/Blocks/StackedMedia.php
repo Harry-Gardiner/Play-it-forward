@@ -127,11 +127,27 @@ class StackedMedia extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+          'spacing_size' => '',
+          'background_colour' => 'off-white',
+          'impact_word_enable' => 'yes',
+          'impact_word' => 'Impact word',
+          'impact_word_position' => 'left',
+          'title_style' => ['title' => 'Stacked Media Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+          'items' => [
+            [
+              'media_type' => 'image',
+              'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text']
+            ],
+            [
+              'media_type' => 'video',
+              'video' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/r98ColIPrNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+            ],
+            [
+              'media_type' => 'image',
+              'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text']
+            ]
+          ]
     ];
 
     /**
