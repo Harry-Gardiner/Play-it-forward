@@ -126,11 +126,43 @@ class Downloads extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'impact_word_enable' => 'yes',
+        'impact_word' => 'Impact word',
+        'impact_word_position' => 'left',
+        'title_style' => ['title' => 'Downloads Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'download_grid' => [
+          [
+            'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+            'download_image_orientation' => 'portrait',
+            'title' => 'Download portrait title',
+            'description' => 'Download description',
+            'download_file' => ['url' => 'https://placehold.co/800x800']
+          ],
+          [
+            'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+            'download_image_orientation' => 'portrait',
+            'title' => 'Download portrait title',
+            'description' => 'Download description',
+            'download_file' => ['url' => 'https://placehold.co/800x800']
+          ],
+          [
+            'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+            'download_image_orientation' => 'portrait',
+            'title' => 'Download portrait title',
+            'description' => 'Download description',
+                'download_file' => ['url' => 'https://placehold.co/800x800']
+          ],
+          [
+            'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/400x400'], 'alt' => 'alt text'],
+            'download_image_orientation' => 'landscape',
+            'title' => 'Download landscape title',
+            'description' => 'Download description',
+            'download_file' => ['url' => 'https://placehold.co/400x400']
+          ]
+        ]
     ];
 
     /**
@@ -181,11 +213,11 @@ class Downloads extends Block
             ])
             ->addFields($this->get(ImpactWord::class))
             ->addTab('downloads', [
-                'label' => 'Grid',
+                'label' => 'Document Grid',
             ])
             ->addFields($this->get(Title::class))
             ->addRepeater('download_grid', [
-                'label' => 'Downloads',
+                'label' => 'Documents',
                 'layout' => 'block',
                 'button_label' => 'Add item',
             ])

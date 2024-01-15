@@ -230,7 +230,7 @@ Template Name: Pattern Library
 
 <section class="flow block-padding--bottom">
 <h2>Stacked Media</h2>
-<p>Displays upto 3 items of media(image or video). Content is stacked vertically. Consists of Enable impact word: Optional - select if you want to displat an impact word. The impact word is a large word that appears to the left or right of the block.
+<p>Displays upto 3 items of media(image or video). Content is stacked vertically. Consists of Enable impact_word_enable: A true/false field for selecting whether to display an impact word. The default value is '0' (false).
   impact_word: A text field for entering the impact word.
   impact_word_position: A select field for choosing the position of the impact word. The choices are 'Left' and 'Right', with 'Left' as the default value.
   block_title: Text input for the block title.
@@ -260,5 +260,54 @@ Template Name: Pattern Library
   ]
 ])
 </section>
+
+<section class="flow block-padding--bottom">
+  <h2>Downloads</h2>
+  <p>Displays a grid of downloadable files. Consists of impact_word_enable: A true/false field for selecting whether to display an impact word. The default value is '0' (false).
+    impact_word: A text field for entering the impact word.
+    impact_word_position: A select field for choosing the position of the impact word. The choices are 'Left' and 'Right', with 'Left' as the default value.
+    title: A group of fields for the title. This group consits of title text field, heading level and heading style.
+    documents: A repeater field for adding downloads. Each download consists of an image field for uploading a cover image of the document, a text field for entering the document title and an upload field for adding the document.</p>
+  @include('blocks.downloads', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'yes',
+    'impact_word' => 'Impact word',
+    'impact_word_position' => 'left',
+    'title_style' => ['title' => 'Downloads Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'download_grid' => [
+      [
+        'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'download_image_orientation' => 'portrait',
+        'title' => 'Download portrait title',
+        'description' => 'Download description',
+        'download_file' => ['url' => 'https://placehold.co/800x800']
+      ],
+      [
+        'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'download_image_orientation' => 'portrait',
+        'title' => 'Download portrait title',
+        'description' => 'Download description',
+        'download_file' => ['url' => 'https://placehold.co/800x800']
+      ],
+      [
+        'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'download_image_orientation' => 'portrait',
+        'title' => 'Download portrait title',
+        'description' => 'Download description',
+            'download_file' => ['url' => 'https://placehold.co/800x800']
+      ],
+      [
+        'download_image' => ['sizes' => ['medium_large' => 'https://placehold.co/400x400'], 'alt' => 'alt text'],
+        'download_image_orientation' => 'landscape',
+        'title' => 'Download landscape title',
+        'description' => 'Download description',
+        'download_file' => ['url' => 'https://placehold.co/400x400']
+      ]
+    ]
+  ])
+</section>
+
 @endwhile
 @endsection
