@@ -335,7 +335,42 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Partners</h2>
+  <p>Displays a grid of partner logos. Consists of Title: This is a set of fields defined in the Title class.
 
+    body: A WYSIWYG (What You See Is What You Get) editor field for entering content. Media upload is disabled, and it uses the 'basic' toolbar.
+  
+    partners: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes an image field for uploading a logo, a text field for entering a name, a textarea field for entering a description, and a URL field for entering a URL.</p>
+  @include('blocks.partners', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'yes',
+    'impact_word' => 'partners.',
+    'impact_word_position' => 'right',
+    'title_style' => ['title' => 'Partners Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'partners' => [
+      [
+        'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+        'name' => 'Partner 1',
+        'description' => 'Partner description with an external link',
+        'url' => '#'
+      ],
+      [
+        'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+        'name' => 'Partner 2',
+        'description' => 'Partner description with an external link',
+        'url' => '#'
+      ],
+      [
+        'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+        'name' => 'Partner 3',
+        'description' => 'Partner description with no link',
+        'url' => ''
+      ]
+    ]
+  ])
 </section>
 
 @endwhile
