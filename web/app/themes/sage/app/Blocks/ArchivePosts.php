@@ -28,7 +28,7 @@ class ArchivePosts extends Block
      *
      * @var string
      */
-    public $category = 'archive';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.

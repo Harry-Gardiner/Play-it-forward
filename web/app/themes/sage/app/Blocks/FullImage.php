@@ -27,7 +27,7 @@ class FullImage extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'media';
 
     /**
      * The block icon.
