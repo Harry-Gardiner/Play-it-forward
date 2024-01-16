@@ -373,5 +373,50 @@ Template Name: Pattern Library
   ])
 </section>
 
+<section class="flow block-padding--bottom">
+  <h2>Text with media</h2>
+  <p>
+    Text with media block Consists of title: This is a set of fields defined in the Title class.
+
+    title_align: A radio button field for selecting the alignment of the title. The choices are 'Left', 'Centre', and 'Right', with 'Left' as the default value.
+
+    body: A WYSIWYG (What You See Is What You Get) editor field for entering content. Media upload is disabled, and it uses the 'basic' toolbar.
+
+    media_type: A radio button field for selecting the type of media to display. The choices are 'Image' and 'Video', with 'Image' as the default value.
+
+    image: An image field for uploading an image. This field is only shown if media_type is set to 'image'.
+
+    video: An oEmbed field for entering a video URL. This field is only shown if media_type is set to 'video'.
+  </p>
+  @include('blocks.text-with-media', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'yes',
+    'impact_word' => 'Impact word',
+    'impact_word_position' => 'left',
+    'title_style' => ['title' => 'Text with media - image', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'title_align' => 'left',
+    'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'media_type' => 'image',
+    'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text'],
+    'video' => ''
+  ])
+  @include('blocks.text-with-media', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'no',
+    'impact_word' => '',
+    'impact_word_position' => '',
+    'title_style' => ['title' => 'Text with media - video - no impact word', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'title_align' => 'left',
+    'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'media_type' => 'video',
+    'image' => '',
+    'video' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/r98ColIPrNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+  ])
+</section>
+
 @endwhile
 @endsection
