@@ -127,11 +127,38 @@ class CustomGrid extends Block
      * @var array
      */
     public $example = [
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'impact_word_enable' => 'no',
+        'impact_word' => '',
+        'impact_word_position' => '',
+        'title_style' => ['title' => 'Custom Grid - standard', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'grid_type' => 'default',
         'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
+          [
+            'item' => '156',
+            'description' => 'Description 1'
+          ],
+          [
+            'item' => '24',
+            'description' => 'Description 2'
+          ],
+          [
+            'item' => '3101',
+            'description' => 'Description 3'
+          ],
+          [
+            'item' => '455',
+            'description' => 'Description 4'
+          ]
         ],
+        'show_button' => 'no',
+        'btn_type' => '',
+        'btn_link' => '',
+        'btn_text' => '',
+        'btn_colour' => ''
     ];
 
     /**

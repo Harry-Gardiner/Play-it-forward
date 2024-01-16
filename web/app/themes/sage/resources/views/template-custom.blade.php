@@ -428,5 +428,99 @@ Template Name: Pattern Library
   ])
 </section>
 
+<section class="flow block-padding--bottom">
+  <h2>Custom Grid</h2>
+  <p>A simple Custom Grid block. Can be used to display a grid of items. 
+
+  Consists of grid type: A select field for choosing the type of grid to display. The choices are 'Icons' and 'Standard', with 'Standard' as the default value.
+  Standard allows you to add a title, description and a grid of statistic items.
+  
+  Icons allows you to add a title, description and a grid of icons.
+  
+
+  title: This is a set of fields defined in the Title class.
+
+  body: A textarea field for entering a subtitle or body text.
+
+  items: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a number field for entering a statistic number (shown if grid_type is 'Standard'), an image field for uploading an icon (shown if grid_type is 'Icons'), and a textarea field for entering a description (shown if grid_type is 'Standard').</p>
+  @include('blocks.custom-grid', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'no',
+    'impact_word' => '',
+    'impact_word_position' => '',
+    'title_style' => ['title' => 'Custom Grid - standard', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'grid_type' => 'default',
+    'items' => [
+      [
+        'item' => '156',
+        'description' => 'Description 1'
+      ],
+      [
+        'item' => '24',
+        'description' => 'Description 2'
+      ],
+      [
+        'item' => '3101',
+        'description' => 'Description 3'
+      ],
+      [
+        'item' => '455',
+        'description' => 'Description 4'
+      ]
+    ],
+    'show_button' => 'no',
+    'btn_type' => '',
+    'btn_link' => '',
+    'btn_text' => '',
+    'btn_colour' => ''
+  ])
+
+  @include('blocks.custom-grid', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'impact_word_enable' => 'no',
+    'impact_word' => '',
+    'impact_word_position' => '',
+    'title_style' => ['title' => 'Custom Grid - icons', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'grid_type' => 'icons',
+    'items' => [
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text']
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text']
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ],
+      [
+        'icon' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+      ]
+    ],
+    'show_button' => 'no',
+    'btn_type' => '',
+    'btn_link' => '',
+    'btn_text' => '',
+    'btn_colour' => ''
+  ])
+</section>
+
 @endwhile
 @endsection
