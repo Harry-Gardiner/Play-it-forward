@@ -200,6 +200,16 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Author</h2>
+  <p>Displays the author of the blog. This block should be used immediately after each blog hero. Consists of select user: A drop down select. Default is the blog author, but able to select another author if adding content for other users.</p>
+  @include('blocks.author', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'selected_user' => '',
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>People</h2>
   <p>Displays a list of people. Consists of title: A message field.
     people: A repeater field for adding people. Each person consists of a name field, a WYSIWYG (What You See Is What You Get) editor for entering the person's bio, and an image field for uploading the person's photo.</p>
