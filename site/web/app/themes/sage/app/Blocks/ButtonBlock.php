@@ -110,11 +110,11 @@ class ButtonBlock extends Block
     public $example = [
         'wrapper' => '',
         'spacing_size' => '',
-        'btn_position' => 'center',
-        'btn_type' => 'primary',
+        'position' => 'center',
+        'type' => 'primary',
         'btn_colour' => 'raspberry',
-        'btn_link' => '#',
-        'btn_text' => 'Raspberry button'
+        'link' => '#',
+        'text' => 'Raspberry button'
     ];
 
     /**
