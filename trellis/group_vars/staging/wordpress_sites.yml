@@ -1,0 +1,40 @@
+# Created by trellis-cli v0.9.0
+# Documentation: https://roots.io/trellis/docs/wordpress-sites/
+
+wordpress_sites:
+  staging.travelwest.info:
+    site_hosts:
+      - canonical: staging.travelwest.info
+        redirects:
+          - staging.sourcewest.info
+          - staging.metrobusbristol.co.uk
+          - staging.westlink.app
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: git@github.com:lunar-build/travelwest.git # replace with your Git repo URL
+    repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
+    branch: staging
+    multisite:
+      enabled: true
+    ssl:
+      enabled: true
+      # OCSP stapling must be disabled
+      stapling_enabled: false
+      # Use this role to generate Cloudflare Origin CA certificate
+      provider: cloudflare-origin-ca
+    cloudflare_origin_ca:
+      # Number of days for which the issued cert will be valid. Acceptable options are: 7, 30, 90, 365 (1y), 730 (2y), 1095 (3y), 5475 (15y).
+      # Default: 5475
+      days: 90
+      # List of fully-qualified domain names to include on the certificate as Subject Alternative Names.
+      # Default: All canonical and redirect domains
+      hostnames:
+        - staging.travelwest.info
+        - staging.sourcewest.info
+        - staging.metrobusbristol.co.uk
+        - staging.westlink.app
+    cache:
+      enabled: false
+    xmlrpc:
+      enabled: false
+    nginx_embed_security: false
+    deploy_keep_releases: 3
