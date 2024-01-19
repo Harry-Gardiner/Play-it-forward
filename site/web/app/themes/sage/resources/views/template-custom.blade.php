@@ -2,6 +2,10 @@
 Template Name: Pattern Library
 --}}
 
+@php
+  $query = new WP_Query(['post_type' => 'post']);
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -659,6 +663,23 @@ Template Name: Pattern Library
     'quote_2' => 'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
     'author_2' => 'Quote author, author job title etc'
   ])
+</section>
+
+<section class="flow block-padding--bottom">
+  <h2>Archive Posts</h2>
+  <p>Displays a grid of posts. Consists of title: This is a set of fields defined in the Title class.
+
+    body: A WYSIWYG (What You See Is What You Get) editor field for entering content. Media upload is disabled, and it uses the 'basic' toolbar.
+
+    posts: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a post object field for selecting a post.</p>
+  @if($query->have_posts())
+    @include('blocks.archive-posts', [
+      'wrapper' => '',
+      'spacing_size' => '',
+      'title_style' => ['title' => 'Archive Posts Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+      'latest_posts_type' => 'post',
+    ])
+  @endif
 </section>
 
 @endwhile

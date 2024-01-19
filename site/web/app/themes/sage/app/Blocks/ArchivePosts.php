@@ -125,11 +125,10 @@ class ArchivePosts extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'title_style' => ['title' => 'Archive Posts Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'latest_posts_type' => 'post',
     ];
 
     /**
