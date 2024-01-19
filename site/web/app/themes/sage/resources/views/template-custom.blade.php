@@ -554,6 +554,28 @@ Template Name: Pattern Library
     'content_2' => 'text',
     'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
   ])
+
+  <h3>Two column - image</h3>
+  @include('blocks.two-column-content', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'align_layout' => 'align-to-top',
+    'content_1' => 'image',
+    'image_1' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'],
+    'content_2' => 'text',
+    'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+  ])
+
+  <h3>Two column - video</h3>
+  @include('blocks.two-column-content', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'align_layout' => 'align-to-top',
+    'content_1' => 'video',
+    'video_url_1' => 'https://www.youtube.com/watch?v=KuiidoLf8_g',
+    'content_2' => 'text',
+    'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+  ])
 </section>
 
 @endwhile
