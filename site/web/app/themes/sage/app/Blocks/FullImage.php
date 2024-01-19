@@ -124,11 +124,10 @@ class FullImage extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'image' => ['url' => 'https://picsum.photos/2000/800', 'alt' => 'alt text']
     ];
 
     /**

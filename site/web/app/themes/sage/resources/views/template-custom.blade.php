@@ -345,6 +345,17 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Full Image</h2>
+  <p>Displays a full width image. Consists of image: An image field for uploading an image.</p>
+  @include('blocks.full-image', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text']
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Partners</h2>
   <p>Displays a grid of partner logos. Consists of Title: This is a set of fields defined in the Title class.
 
