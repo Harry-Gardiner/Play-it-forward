@@ -124,11 +124,12 @@ class quote extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'style' => 'short',
+        'text' => 'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'author' => 'Quote author, author job title etc'
     ];
 
     /**

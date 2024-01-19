@@ -429,6 +429,24 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Quote</h2>
+  <p>Displays a quote. Consists of quote style: A radio button field for selecting the style of quote to use. The choices are 'Short' and 'Long'.
+
+    quote text: A textarea field for entering the quote text. 
+
+    quote author: A text field for entering the quote author.</p>
+  @include('blocks.quote', [
+    'block' => (object) ['classes' => ''],
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'off-white',
+    'style' => 'short',
+    'text' => 'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'author' => 'Quote author, author job title etc'
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Custom Grid</h2>
   <p>A simple Custom Grid block. Can be used to display a grid of items. 
 
@@ -575,6 +593,21 @@ Template Name: Pattern Library
     'video_url_1' => 'https://www.youtube.com/watch?v=KuiidoLf8_g',
     'content_2' => 'text',
     'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+  ])
+
+  <h3>Two column - quote</h3>
+  @include('blocks.two-column-content', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'align_layout' => 'align-to-top',
+    'background_colour' => 'off-white',
+    'content_1' => 'text',
+    'text_1' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+    'content_2' => 'quote',
+    'style_2' => 'short',
+    'style' => 'short',
+    'quote_2' => 'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+    'author_2' => 'Quote author, author job title etc'
   ])
 </section>
 
