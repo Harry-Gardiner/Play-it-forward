@@ -126,11 +126,20 @@ class HeroFrontPage extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
+        'hero_image' => ['sizes' => ['2048x2048' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'hero_image_position' => 'center center',
+        'hero_title' => 'Hero title example.',
+        'highlighted_text' => [
+          ['text_string' => 'example.'],
         ],
+        'impact_text' => [
+          ['text_string' => 'Impact text 1'],
+          ['text_string' => 'Impact text 2'],
+          ['text_string' => 'Impact text 3']
+        ],
+        'hero_content' => '<p>Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>',
+        'show_button' => 'yes',
+        'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
     ];
 
     /**

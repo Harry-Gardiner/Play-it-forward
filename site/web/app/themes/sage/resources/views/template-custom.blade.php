@@ -108,6 +108,45 @@ Template Name: Pattern Library
 ])
 
 <section class="flow block-padding--bottom">
+  <h2>Hero Front Page</h2>
+  <p>Added to the top of the front page. Consists of hero_image: An image field for uploading a hero image. The image can be of the types 'jpg', 'jpeg', 'png', or 'svg'.
+
+    hero image position: A select field for choosing the position of the hero image. The choices are 'Center', 'Top', 'Bottom', 'Left', and 'Right', with 'Center' as the default value.
+  
+    Hero Content: This is a tab for organizing the fields in the WordPress editor.
+  
+    hero title: A text field for entering the hero title.
+  
+    highlighted text: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a text field for entering highlighted text.
+  
+    impact text: This is another repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a text field for entering impact text.
+  
+    hero content: A WYSIWYG (What You See Is What You Get) editor field for entering the hero subtitle. Media upload is disabled.
+  
+    show button: A radio button field for choosing whether to show a button. The choices are 'Yes' and 'No', with 'No' as the default value.
+  
+    cta button: This is a group of fields for defining a call-to-action (CTA) button. It includes a set of fields defined in the Button class (shown if show_button is 'Yes').
+  </p>
+  @include('blocks.hero-front-page', [
+    'hero_image' => ['sizes' => ['2048x2048' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+    'hero_image_position' => 'center center',
+    'hero_title' => 'Hero title example.',
+    'highlighted_text' => [
+      ['text_string' => 'example.'],
+    ],
+    'impact_text' => [
+      ['text_string' => 'Impact text 1'],
+      ['text_string' => 'Impact text 2'],
+      ['text_string' => 'Impact text 3']
+    ],
+    'hero_content' => '<p>Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>',
+    'show_button' => 'yes',
+    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
+  ])
+  
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Page Hero</h2>
   <p>Added to the top of pages. Consists of colour_picker: A radio button field for selecting a color. The choices are 'White', 'Off White', and 'Yellow', with 'White' as the default value.
     show_hero_image: A select field for choosing whether to show the hero image (default is 'No').
