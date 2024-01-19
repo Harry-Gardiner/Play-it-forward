@@ -1,0 +1,34 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.js",
+      "js/app.js"
+    ],
+    "png": [
+      "images/flag_tall.png"
+    ],
+    "svg": [
+      "images/icons/caret_charcoal.svg",
+      "images/icons/caret_white.svg",
+      "images/icons/colour-chevron.svg"
+    ],
+    "dependencies": []
+  },
+  "editor": {
+    "js": [
+      "js/runtime.js",
+      "js/editor.js"
+    ],
+    "png": [
+      "images/flag_tall.png"
+    ],
+    "svg": [
+      "images/icons/caret_charcoal.svg",
+      "images/icons/caret_white.svg",
+      "images/icons/colour-chevron.svg"
+    ],
+    "dependencies": [
+      "wp-blocks"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+<div class="<?php echo e($block->classes); ?> <?php echo e($text_alignment ? $text_alignment : 'left'); ?> <?php echo e($wrapper ? $wrapper : ''); ?> <?php echo e($enable_text_background ? 'bg--' . $text_background_colour : ''); ?> <?php echo e($enable_text_colour ? $text_colour : 'charcoal'); ?> <?php echo e($spacing_size ? $spacing_size : ''); ?>  <?php echo e($enable_text_background ? 'full-bleed block-padding' : ''); ?>">
+    <?php if(!empty($text)): ?>
+        <<?php echo e($heading_semantics); ?> class="heading__<?php echo e($heading_style); ?> <?php echo e($text_background_colour ? 'container' : ''); ?>"><?php echo e($text); ?></<?php echo e($heading_semantics); ?>>
+    <?php endif; ?>
+</div><?php /**PATH /Users/elliehobbs/Documents/Personal-dev/play-it-forward/play_it_forward/web/app/themes/sage/resources/views/blocks/heading.blade.php ENDPATH**/ ?>

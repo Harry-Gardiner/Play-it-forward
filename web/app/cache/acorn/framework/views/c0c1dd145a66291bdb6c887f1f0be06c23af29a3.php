@@ -1,0 +1,1 @@
+<img src="<?php echo e($image['url']); ?>" alt="<?php echo e($image['alt']); ?>"/><?php /**PATH /Users/elliehobbs/Documents/Personal-dev/play-it-forward/play_it_forward/web/app/themes/sage/resources/views/partials/image.blade.php ENDPATH**/ ?>
