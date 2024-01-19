@@ -450,7 +450,7 @@ Template Name: Pattern Library
     'impact_word_enable' => 'no',
     'impact_word' => '',
     'impact_word_position' => '',
-    'title_style' => ['title' => 'Custom Grid - standard', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'title_style' => ['title' => 'Custom Grid - stats', 'heading_level' => 'h2', 'heading_style' => 'h2'],
     'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
     'grid_type' => 'default',
     'items' => [
@@ -519,6 +519,40 @@ Template Name: Pattern Library
     'btn_link' => '',
     'btn_text' => '',
     'btn_colour' => ''
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
+  <h2>Two Column Content</h2>
+  <p>
+    Two column content block. Consists of block layout: A radio button field for selecting the vertical alignment of content when one column is taller than the other. The choices are 'Align to top', 'Align to centre', and 'Align to bottom', with 'Align to centre' as the default value.
+
+    Column 1 and Column 2: These are tabs for organizing the fields in the WordPress editor. Each column has the following fields:
+
+    content: A select field for choosing the type of content to add to the column. The choices are 'Text', 'Image', 'Video', and 'Quote', with 'Text' as the default value.
+
+    quote style: A radio button field for selecting the style of quote to use. The choices are 'Short' and 'Long'. This field is only shown if the content type is 'Quote'.
+
+    quote text: A textarea field for entering the quote text. This field is only shown if the content type is 'Quote'.
+
+    quote author: A text field for entering the quote author. This field is only shown if the content type is 'Quote'.
+
+    text: A WYSIWYG (What You See Is What You Get) editor field for entering text. This field is only shown if the content type is 'Text'.
+
+    image: An image field for uploading an image. This field is only shown if the content type is 'Image'.
+
+    video: A text field for entering a video URL. This field is only shown if the content type is 'Video'.</p>
+  </p>
+
+  <h3>Two column - text</h3>
+  @include('blocks.two-column-content', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'align_layout' => 'align-to-top',
+    'content_1' => 'text',
+    'text_1' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+    'content_2' => 'text',
+    'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
   ])
 </section>
 
