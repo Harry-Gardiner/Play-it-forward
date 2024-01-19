@@ -20,7 +20,7 @@ roles:
     src: roots.mailpit
     version: v1.0.0
 
-  # WordFence adjustments role
-  - name: trellis-wordfence
-    src: https://github.com/adleviton/trellis-wordfence
-    version: "1.0"
+  # # WordFence adjustments role
+  # - name: trellis-wordfence
+  #   src: https://github.com/adleviton/trellis-wordfence
+  #   version: "1.0"

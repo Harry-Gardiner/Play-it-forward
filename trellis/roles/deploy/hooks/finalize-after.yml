@@ -35,27 +35,3 @@
 
 - name: Reload php-fpm
   shell: sudo service php{{ php_version }}-fpm reload
-
-# Uncomment as needed
-
-# WP Rocket
-# - name: Clear WP Rocket Cache
-#   shell: wp rocket clean --confirm && wp rocket preload
-#   args:
-#     chdir: "{{ deploy_helper.current_path }}"
-
-# Cloudflare
-# - name: Clear Cloudflare cache
-#   shell: wp cloudflare cache_purge
-#   args:
-#     chdir: "{{ deploy_helper.current_path }}"
-
-# Travelwest
-# - name: Clear WP Fastest Cache
-#   shell: wp fastest-cache clear all
-#   args:
-#     chdir: "{{ deploy_helper.current_path }}"
-
-- name: Send deployment notification
-  include_role:
-    name: slack-deployment-notification
