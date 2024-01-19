@@ -124,11 +124,12 @@ class Results extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'team_one' => 'Manchester United',
+        'team_one_title' => 'Manchester United',
+        'team_one_body' => 'Manchester United Football Club is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football.',
+        'team_two' => 'Manchester City',
+        'team_two_title' => 'Manchester City',
+        'team_two_body' => 'Manchester City Football Club is an English football club based in Manchester that competes in the Premier League, the top flight of English football.',
     ];
 
     /**

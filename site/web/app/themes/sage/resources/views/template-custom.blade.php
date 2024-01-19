@@ -4,6 +4,17 @@ Template Name: Pattern Library
 
 @php
   $query = new WP_Query(['post_type' => 'post']);
+
+  wp_reset_postdata();
+
+  $args = array(
+    'post_type' => 'football_teams',
+    'posts_per_page' => 2, // Adjust this value as needed
+  );
+
+  $football_query = new WP_Query($args);
+  // dd($football_query->posts[0]->ID);
+  wp_reset_postdata();
 @endphp
 
 @extends('layouts.app')
@@ -131,6 +142,10 @@ Template Name: Pattern Library
   
     cta button: This is a group of fields for defining a call-to-action (CTA) button. It includes a set of fields defined in the Button class (shown if show_button is 'Yes').
   </p>
+  <br>
+  <br>
+  <br>
+  <br>
   @include('blocks.hero-front-page', [
     'hero_image' => ['sizes' => ['2048x2048' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
     'hero_image_position' => 'center center',
@@ -680,6 +695,33 @@ Template Name: Pattern Library
       'latest_posts_type' => 'post',
     ])
   @endif
+</section>
+
+<section>
+  <h2>Results</h2>
+  <p>Displays the latest results of 2 selected football teams. Consists of Team One and Team Two: These are tabs for organizing the fields in the WordPress editor. Each team has the following fields:
+
+    team one and team two: A post object field for selecting a post of the 'football teams' post type. The selected post is returned as an object.
+  
+    team one title and team two title: A text field for entering a title.
+  
+    team one body and team two body: A WYSIWYG (What You See Is What You Get) editor field for entering sub text. Media upload is disabled, and it uses the 'basic' toolbar.</p>
+    <br>
+  @if ($football_query->have_posts() && $football_query->post_count > 1)
+    @include('blocks.results', [
+      'wrapper' => '',
+      'spacing_size' => '',
+      'team_one' => $football_query->posts[0],
+      'team_one_title' => 'Team One',
+      'team_one_body' => 'Team One body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      'team_two' => $football_query->posts[1],
+      'team_two_title' => 'Team Two',
+      'team_two_body' => 'Team Two body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    ])
+  @else
+    <p>Not enough teams to display results. Add at least 2 teams under the football teams post type</p>
+  @endif
+  
 </section>
 
 @endwhile
