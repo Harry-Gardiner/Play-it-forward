@@ -30,7 +30,7 @@ class CtaBanner extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -127,11 +127,14 @@ class CtaBanner extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'layout' => 'full', 
+        'background_colour' => 'raspberry', 
+        'wrapper' => '', 
+        'spacing_size' => '', 
+        'title_style' => ['title' => 'CTA - variation full', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!', 
+        'image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'], 'image_position' => 'left','show_button' => 'yes',
+        'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
     ];
 
     /**

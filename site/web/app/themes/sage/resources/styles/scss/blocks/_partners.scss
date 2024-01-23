@@ -71,7 +71,7 @@
 .arrow-line {
     width: 25px;
     height: 2px;
-    background-color: black;
+    background-color: $pf-raspberry;
     transition: width 0.3s ease;
 }
 
@@ -80,7 +80,7 @@
     height: 0;
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
-    border-left: 10px solid black;
+    border-left: 10px solid $pf-raspberry;
     transition: margin-left 0.3s ease;
 }
 

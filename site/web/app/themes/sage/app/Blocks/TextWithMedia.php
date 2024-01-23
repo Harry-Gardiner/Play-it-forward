@@ -29,7 +29,7 @@ class TextWithMedia extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -126,11 +126,18 @@ class TextWithMedia extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'impact_word_enable' => 'yes',
+        'impact_word' => 'Impact word',
+        'impact_word_position' => 'left',
+        'title_style' => ['title' => 'Text with media - image', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'title_align' => 'left',
+        'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'media_type' => 'image',
+        'image' => ['url' => 'https://placehold.co/1000x1000', 'alt' => 'alt text'],
+        'video' => ''
     ];
 
     /**

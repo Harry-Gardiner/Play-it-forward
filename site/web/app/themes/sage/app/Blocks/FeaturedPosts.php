@@ -29,7 +29,7 @@ class FeaturedPosts extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -126,11 +126,15 @@ class FeaturedPosts extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+          'wrapper' => '',
+          'spacing_size' => '',
+          'background_colour' => 'off-white',
+          'impact_word_enable' => 'yes',
+          'impact_word' => 'Impact word',
+          'impact_word_position' => 'left',
+          'title_style' => ['title' => 'Featured Posts Title - 4 example', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+          'featured_post_type' => 'latest',
+          'number_of_posts' => '4',
     ];
 
     /**
@@ -155,7 +159,6 @@ class FeaturedPosts extends Block
             'title_style' => get_field('title_style'),
             'featured_post_type' => get_field('featured_post_type'),
             'featured_posts' => get_field('featured_posts'),
-            'latest_posts_type' => get_field('latest_posts_type'),
             'number_of_posts' => get_field('number_of_posts'),
             'load_more_text' => get_field('load_more_text'),
         ];
@@ -210,11 +213,6 @@ class FeaturedPosts extends Block
                 'ui' => 1,
             ])
             ->endRepeater()
-            ->addSelect('latest_posts_type', [
-                'label' => 'Post Type',
-                'instructions' => 'Choose the post type to display.',
-                'default_value' => 'post',
-            ])->conditional('featured_post_type', '==', 'latest')
             ->addSelect('number_of_posts', [
                 'label' => 'Number of Posts',
                 'instructions' => 'Choose the number of posts to display. If set to "All" posts will be displayed with a load more button.',

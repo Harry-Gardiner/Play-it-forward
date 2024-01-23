@@ -27,7 +27,7 @@ class twoColumnContent extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -124,11 +124,13 @@ class twoColumnContent extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'align_layout' => 'align-to-top',
+        'content_1' => 'image',
+        'image_1' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'],
+        'content_2' => 'text',
+        'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
     ];
 
     /**

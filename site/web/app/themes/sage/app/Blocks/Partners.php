@@ -29,7 +29,7 @@ class Partners extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -126,11 +126,34 @@ class Partners extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'off-white',
+        'impact_word_enable' => 'yes',
+        'impact_word' => 'partners.',
+        'impact_word_position' => 'right',
+        'title_style' => ['title' => 'Partners Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'body' => 'Body text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
+        'partners' => [
+          [
+            'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'name' => 'Partner 1',
+            'description' => 'Partner description with an external link',
+            'url' => '#'
+          ],
+          [
+            'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'name' => 'Partner 2',
+            'description' => 'Partner description with an external link',
+            'url' => '#'
+          ],
+          [
+            'logo' => ['sizes' => ['thumbnail' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'name' => 'Partner 3',
+            'description' => 'Partner description with no link',
+            'url' => ''
+          ]
+        ]
     ];
 
     /**

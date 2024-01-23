@@ -21,14 +21,14 @@ class Donate extends Block
      *
      * @var string
      */
-    public $description = 'Donation block using Beacon CRM donation form.';
+    public $description = 'Donation block - adds the Beacon CRM donation form to the flow of the page.';
 
     /**
      * The block category.
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -125,11 +125,10 @@ class Donate extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'title_style' => 'Donate',
+        'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget ultricies aliquam, nunc sapien aliquet nunc, quis aliquam nisl nunc vitae nisl. Sed vitae nisl euismod, aliquam nisl quis, aliquam nisl. Sed vitae nisl euismod, aliquam nisl quis, aliquam nisl.',
     ];
 
     /**

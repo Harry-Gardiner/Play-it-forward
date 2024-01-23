@@ -25,48 +25,64 @@
     }
 
     $background_colour = $background_colour ? $background_colour : 'white';
+
+    $have_posts = false;
+    if ($featured_post_type == 'featured') {
+        if ($featured_posts) {
+            $have_posts = true;
+        }
+    } else {
+        if ($latest_posts->have_posts()) {
+            $have_posts = true;
+        }
+    }
 @endphp
 
 <section
     class="featured-posts {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} full-bleed">
-    <div
-        class="featured-posts__content container {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }} block-padding">
-        @if ($impact_word_enable === 'yes')
-            <div class="impact__word">{{ $impact_word }}</div>
-        @endif
-        <div>
-            @if ($title_style['title'])
-                @include('partials.title', [$title_style])
+    @if ($have_posts)
+        <div
+            class="featured-posts__content container {{ $impact_word_enable === 'yes' ? 'impact impact--' . $impact : '' }} block-padding">
+            @if ($impact_word_enable === 'yes')
+                <div class="impact__word">{{ $impact_word }}</div>
             @endif
-            @isset($featured_post_type)
-                @if ($featured_post_type == 'featured')
-                    <div class="featured-posts__featured">
-                        <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
-                            @foreach ($featured_posts as $post)
-                                @include('partials.card', ['post' => $post['post']])
-                            @endforeach
-                        </div>
-                    </div>
+            <div>
+                @if ($title_style['title'])
+                    @include('partials.title', [$title_style])
                 @endif
-                @if ($featured_post_type == 'latest')
-                    <div class="featured-posts__latest">
-                        <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
-                            @foreach ($latest_posts->posts as $post)
-                                @include('partials.card', ['post' => $post])
-                            @endforeach
-                        </div>
-                        <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
-                        @if ($load_more && $latest_posts->post_count >= $number_of_posts)
-                            <div class="btn__wrapper">
-                                <button class="button button--primary button--raspberry" id="load-more"
-                                    data-num="{{ intval($number_of_posts) }}">{{ $load_more_text }}</button>
+                @isset($featured_post_type)
+                    @if ($featured_post_type == 'featured')
+                        <div class="featured-posts__featured">
+                            <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
+                                @foreach ($featured_posts as $post)
+                                    @include('partials.card', ['post' => $post['post']])
+                                @endforeach
                             </div>
-                        @endif
-                    </div>
-                @endif
-            @endisset
+                        </div>
+                    @endif
+                    @if ($featured_post_type == 'latest')
+                        <div class="featured-posts__latest">
+                            <div class="cards-wrapper {{ $impact_word_enable === 'yes' ? 'two-col' : 'three-col' }}">
+                                @foreach ($latest_posts->posts as $post)
+                                    @include('partials.card', ['post' => $post])
+                                @endforeach
+                            </div>
+                            <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
+                            @if ($load_more && $latest_posts->post_count >= $number_of_posts)
+                                <div class="btn__wrapper">
+                                    <button class="button button--primary button--raspberry" id="load-more"
+                                        data-num="{{ intval($number_of_posts) }}">{{ $load_more_text }}</button>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+                @endisset
+            </div>
         </div>
-    </div>
+    @else
+        <div class="container">No posts!</div>
+    @endif
+    
 </section>
 
 @php

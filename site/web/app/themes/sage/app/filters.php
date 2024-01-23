@@ -60,3 +60,17 @@ add_filter('allowed_block_types_all', function ($block_editor_context, $editor_c
 
     return $block_editor_context;
 }, 10, 2);
+
+add_filter( 'block_categories_all' , function( $categories ) {
+
+    // Adding a new category.
+    $new_category = array(
+        'slug'  => 'custom_blocks',
+        'title' => 'Custom blocks'
+    );
+
+    // Insert the new category at the beginning of the array.
+    array_unshift($categories, $new_category);
+
+    return $categories;
+} );

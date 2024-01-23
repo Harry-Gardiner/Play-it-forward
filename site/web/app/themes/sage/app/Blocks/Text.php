@@ -27,7 +27,7 @@ class text extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'text';
 
     /**
      * The block icon.
@@ -124,11 +124,10 @@ class text extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'text' => '<p>EXAMPLE Default style - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
+        'wrapper' => '',
+        'spacing_size' => '',
+        'style' => 'body',
     ];
 
     /**

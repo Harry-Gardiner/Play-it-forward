@@ -28,7 +28,7 @@ class BlogHero extends Block
      *
      * @var string
      */
-    public $category = 'formatting';
+    public $category = 'custom_blocks';
 
     /**
      * The block icon.
@@ -125,11 +125,12 @@ class BlogHero extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'yellow',
+        'show_hero_image' => 'yes',
+        'hero_image_position' => 'center center',
+        'hero_image' => 'https://placehold.co/800x800',
     ];
 
     /**

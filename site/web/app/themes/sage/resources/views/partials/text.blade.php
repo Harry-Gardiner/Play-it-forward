@@ -1,5 +1,5 @@
-<div class="text">
+<div class="text flow">
     @if(isset($text))
-        <div>{!! $text !!}</div>
+        {!! $text !!}
     @endif
 </div>
