@@ -27,7 +27,7 @@ class heading extends Block
      *
      * @var string
      */
-    public $category = 'text';
+    public $category = 'formatting';
 
     /**
      * The block icon.

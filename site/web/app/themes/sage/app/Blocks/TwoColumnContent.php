@@ -27,7 +27,7 @@ class twoColumnContent extends Block
      *
      * @var string
      */
-    public $category = 'custom_blocks';
+    public $category = 'formatting';
 
     /**
      * The block icon.
