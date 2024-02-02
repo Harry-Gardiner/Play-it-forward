@@ -21,25 +21,26 @@
             @if ($partners)
                 <div class="partners__list">
                     @foreach ($partners as $partner)
-                        {{-- @dump($partner) --}}
+
                         <div class="partners__item">
-                            <img src="{{ $partner['logo']['sizes']['thumbnail'] }}" alt="{{ $partner['logo']['alt'] }}">
-                            <div class="partners__item__info">
-                                <p class="h3">{{ $partner['name'] }}</p>
-                                <p>{{ $partner['description'] }}</p>
-                                @if ($partner['url'])
-                                    <a href="{{ $partner['url'] }}" target="_blank">
-                                        <div class="arrow-container">
-                                            <p>Find out more</p>
-                                            <div class="arrow">
-                                                <div class="arrow-line"></div>
-                                                <div class="arrow-head">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                @endif
-                            </div>
+                            @if(!empty($partner['logo']))
+                                <img src="{{ $partner['logo']['sizes']['thumbnail'] ? $partner['logo']['sizes']['thumbnail'] : $partner['url'] }}" alt="{{ $partner['logo']['alt'] ? $partner['logo']['alt'] : $partner['name'] . ' logo' }}">
+                            @endif
+
+                            @if($partner['name'] || $partner['description'] || $partner['url'])
+                                <div class="partners__item__info">
+
+                                    @if($partner['description'])
+                                        <p class="partners__item__info__desc">{{ $partner['description'] }}</p>
+                                    @endif
+
+                                    @if ($partner['url'])
+                                        <a class="partners__item__info__link" href="{{ $partner['url'] }}" target="_blank">
+                                            Find out more <span class="visually-hidden">about {{ $partner['name'] }}</span>
+                                        </a>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
