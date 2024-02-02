@@ -172,7 +172,10 @@ class Form extends Block
             ])
             ->addTab('Content')
             ->addFields($this->get(Title::class))
-            ->addWysiwyg('body')
+            ->addWysiwyg('body', [
+                'media_upload' => 0,
+                'toolbar'      => 'basic',
+            ])
             ->addSelect('form_type', [
                 'label' => 'Form type',
                 'instructions' => 'Choose form option.',

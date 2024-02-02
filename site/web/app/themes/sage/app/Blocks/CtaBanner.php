@@ -179,7 +179,10 @@ class CtaBanner extends Block
             ])
             ->addTab('Content')
             ->addFields($this->get(Title::class))
-            ->addWysiwyg('body')
+            ->addWysiwyg('body', [
+                'media_upload' => 0,
+                'toolbar'      => 'basic',
+            ])
 
             ->addTab('Image')
             ->addRadio('add_image', [

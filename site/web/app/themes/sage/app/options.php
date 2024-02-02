@@ -52,6 +52,8 @@ $theme_options
         array(
             'label'        => 'Content',
             'instructions' => 'Add some content to the banner. Leave blank to cause the banner not to display.',
+            'media_upload' => 0,
+            'toolbar'      => 'basic',
         )
     )
 

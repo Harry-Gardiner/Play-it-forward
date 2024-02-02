@@ -166,7 +166,10 @@ class Donate extends Block
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Content')
             ->addFields($this->get(Title::class))
-            ->addWYSIWYG('body')
+            ->addWYSIWYG('body', [
+                'media_upload' => 0,
+                'toolbar'      => 'basic',
+            ])
             ->addMessage('donate_message', '', [
                 'label' => 'Info',
                 'message' => 'The Beacon CRM donation form will be automatically embedded.',
