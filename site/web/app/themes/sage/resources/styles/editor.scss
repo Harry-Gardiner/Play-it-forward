@@ -102,6 +102,10 @@
                                    background-color: $pf-dark-green;
                               }
 
+                              &[value="dark-raspberry"] {
+                                   background-color: $pf-dark-raspberry;
+                              }
+
                               &:checked {
                                    &::before {
                                         display: none;

@@ -107,17 +107,17 @@ class Hero extends Block
      *
      * @var array
      */
-    public $styles = [
-        [
-            'name' => 'light',
-            'label' => 'Light',
-            'isDefault' => true,
-        ],
-        [
-            'name' => 'dark',
-            'label' => 'Dark',
-        ]
-    ];
+    // public $styles = [
+    //     [
+    //         'name' => 'light',
+    //         'label' => 'Light',
+    //         'isDefault' => true,
+    //     ],
+    //     [
+    //         'name' => 'dark',
+    //         'label' => 'Dark',
+    //     ]
+    // ];
 
     /**
      * The block preview example data.
@@ -174,19 +174,30 @@ class Hero extends Block
                     'white' => 'White',
                     'off-white' => 'Off White',
                     'yellow' => 'Yellow',
+                    'dark-raspberry' => 'Dark Raspberry',
+                    'dark-green' => 'Green',
                 ],
                 'default_value' => 'white',
             ])
             ->addTab('Hero Image')
+            ->addRadio('hero_type', [
+                'label' => 'Hero Type',
+                'choices' => [
+                    'image' => 'Image background',
+                    'colour' => 'Plain colour background',
+                ],
+                'instructions' => 'You can select the colour in the General tab',
+                'default_value' => 'image',
+            ])
             ->addSelect('show_hero_image', [
                 'label' => 'Show Hero Image',
-                'instructions' => 'If you would like to add a hero image, select "Yes". Else a default image will be used.',
+                'instructions' => 'If you would like to add a custom hero image, select "Yes". Else a default image will be used.',
                 'choices' => [
                     'yes' => 'Yes',
                     'no' => 'No',
                 ],
                 'default_value' => 'no',
-            ])
+            ])->conditional('hero_type', '==', 'image')
             ->addImage('hero_image', [
                 'label' => 'Hero Image',
                 'return_format' => 'array',
