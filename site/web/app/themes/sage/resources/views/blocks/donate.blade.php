@@ -11,9 +11,9 @@
 <section class="donate {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--off-white full-bleed">
     <div class="block-padding container">
         <div class="donate__content">
-            @if ($title_style['title'])
+            {{-- @if ($title_style['title'])
                 @include('partials.title', [$title_style])
-            @endif
+            @endif --}}
             @if ($body)
                 {!! $body !!}
             @endif
