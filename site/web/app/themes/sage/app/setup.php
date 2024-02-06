@@ -147,6 +147,11 @@ add_action('after_setup_theme', function () {
             'name' => __('Raspberry', 'PIF'),
             'slug' => 'raspberry',
             'color' => '#993050',
+        ],
+        [
+            'name' => __('Dark Raspberry', 'PIF'),
+            'slug' => 'dark-raspberry',
+            'color' => '#77203A',
         ]
     ]);
 });
