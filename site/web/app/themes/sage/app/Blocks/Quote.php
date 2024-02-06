@@ -6,7 +6,7 @@ use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
 
-class quote extends Block
+class Quote extends Block
 {
     /**
      * The block name.
