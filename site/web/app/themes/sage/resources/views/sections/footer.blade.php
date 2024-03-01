@@ -63,6 +63,8 @@
                 @endif
             </div>
 
+            <div class="footer__banner full-bleed"></div>
+
             <div class="footer__lower full-bleed">
                 <p>©
                     {{ date('Y') }} site & design by

@@ -126,6 +126,13 @@
         }
     }
 
+    &__banner {
+        background-image: url(../../../images/allTheGreens.png);
+        width: 100vw;
+        height: 1.5rem;
+        background-repeat: repeat-x;
+        background-size: contain;
+    }
 
     &__bottom {
         background-color: black;
