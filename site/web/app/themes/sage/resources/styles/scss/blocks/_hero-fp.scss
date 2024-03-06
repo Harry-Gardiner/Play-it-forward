@@ -124,6 +124,24 @@
     z-index: 3;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 150px;
+
+      @include media-breakpoint('md') {
+        max-width: 200px;
+      }
+
+      @include media-breakpoint('lg') {
+        max-width: 250px;
+      }
+    }
 
     h1 {
       margin-top: $spacing--md;

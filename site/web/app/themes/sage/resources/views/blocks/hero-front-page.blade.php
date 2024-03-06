@@ -39,6 +39,9 @@
         @endif
         @if ($hero_title)
             <div class="hero-fp__title container">
+                @if ($hero_icon)
+                    <img src="{{ $hero_icon['sizes']['medium'] }}" alt="{{ $hero_icon['alt'] }}">
+                @endif
                 <h1 class="giant-h1">{!! $hero_title !!}</h1>
             </div>
         @endif
