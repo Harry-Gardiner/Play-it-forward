@@ -220,6 +220,7 @@ class CustomGrid extends Block
                 'choices' => [
                     'icons' => 'Icons',
                     'default' => 'Standard',
+                    'combined' => 'Combined',
                 ],
                 'default_value' => 'default',
             ])
@@ -236,16 +237,16 @@ class CustomGrid extends Block
             ->addNumber('item', [
                 'label' => 'Number',
                 'instructions' => 'Enter the statistic number',
-            ])->conditional('grid_type', '==', 'default')
+            ])->conditional('grid_type', '==', 'default')->orCondition('grid_type', '==', 'combined')
             ->addImage('icon', [
                 'label' => 'Icon',
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
-            ])->conditional('grid_type', '==', 'icons')
+            ])->conditional('grid_type', '==', 'icons')->orCondition('grid_type', '==', 'combined')
             ->addTextarea('description', [
                 'label' => 'Description',
                 'rows' => 3,
-            ])->conditional('grid_type', '==', 'default')
+            ])->conditional('grid_type', '==', 'default')->orCondition('grid_type', '==', 'combined')
             ->endRepeater()
             ->addTab('Button')
             ->addRadio('show_button', [
