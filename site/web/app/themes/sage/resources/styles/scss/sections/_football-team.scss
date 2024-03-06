@@ -106,6 +106,10 @@
         }
       }
 
+      @include media-breakpoint('md') {
+        gap: 6rem;
+      }
+
       @include media-breakpoint('lg') {
         margin: 0 auto;
         max-width: 70%;
@@ -117,6 +121,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      flex: 1;
 
       .team {
         margin-bottom: $spacing--md;
@@ -125,6 +130,10 @@
       .h3 {
         text-align: center;
       }
+    }
+
+    &__date {
+      text-align: center;
     }
   }
 

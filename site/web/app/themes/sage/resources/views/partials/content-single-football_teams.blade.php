@@ -71,6 +71,7 @@
                                     Last match results
                                 </h2>
                             </div>
+                            <p class="football-team__latest__date">{{ $last_match['match_date'] }}</p>
                             <div class="football-team__latest__last">
                                 <p class="h1 score-top">{{ $home_score }}-{{ $away_score }}</p>
                                 <div class="football-team__latest__score">
