@@ -153,6 +153,7 @@ class HeroFrontPage extends Block
             // Hero Content
             'hero_image' => get_field('hero_image'),
             'hero_image_position' => get_field('hero_image_position'),
+            'hero_icon' => get_field('hero_icon'),
             'hero_title' => get_field('hero_title'),
             'highlighted_text' => get_field('highlighted_text'),
             'impact_text' => get_field('impact_text'),
@@ -196,6 +197,13 @@ class HeroFrontPage extends Block
                 'default_value' => 'center',
             ])
             ->addTab('Hero Content')
+            ->addImage('hero_icon', [
+                'label' => 'Hero Icon',
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+                'mime_types' => 'jpg, jpeg, png, svg',
+            ])
             ->addText('hero_title', [
                 'label' => 'Hero Title',
             ])
