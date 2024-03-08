@@ -73,4 +73,4 @@
         </div>
     </div>
 </footer>
-<button id="backToTopBtn" class="hide"><span>&#8593;</span>back<br> to top</button>
+<button id="backToTopBtn" class="hide" aria-label="Back to top"><span>&#8593;</span>back<br> to top</button>

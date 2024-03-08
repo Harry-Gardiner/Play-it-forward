@@ -248,35 +248,24 @@
     z-index: 899;
     bottom: 4rem;
     right: 1rem;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: $pf-charcoal;
     color: $pf-white;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
     text-transform: uppercase;
-    font-size: $size--sm;
+    font-size: 9px;
     padding: 0.5rem;
     padding-top: 0;
 
     span {
         display: block;
-        font-size: $size--md;
+        font-size: $size--xs;
     }
 
     @include media-breakpoint(md) {
-        width: 105px;
-        height: 105px;
         right: 2rem;
-        font-size: $size--base;
-
-        span {
-            font-size: $size--lg;
-        }
-    }
-
-    &:hover {
-        transform: scale(1.05);
     }
 
     &.show {
