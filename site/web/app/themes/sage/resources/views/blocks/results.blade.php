@@ -51,7 +51,7 @@ return $dateA <=> $dateB;
             </div>
 
             <div id="team-one" class="results__team block-padding--top">
-                <div class="container">
+                <div class="results__team__wrapper container">
                     <div class="results__content flow">
                         <p class="h2 results__content__title">{{ $team_one_title }}</p>
                         <div class="results__body">{!! $team_one_body !!}</div>
@@ -92,7 +92,7 @@ return $dateA <=> $dateB;
             </div>
 
             <div id="team-two" class="results__team block-padding--top">
-                <div class="container">
+                <div class="results__team__wrapper container">
                     <div class="results__content flow">
                         <p class="h2 results__content__title">{{ $team_two_title }}</p>
                         <div class="results__body">{!! $team_two_body !!}</div>

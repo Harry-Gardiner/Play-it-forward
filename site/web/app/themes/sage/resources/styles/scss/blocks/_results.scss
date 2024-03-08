@@ -49,11 +49,13 @@
         opacity: 1;
       }
     }
+
+    &__wrapper {
+      animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    }
   }
 
   &__content {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-    
     &__title {
       text-transform: uppercase;
       font-weight: 700;
