@@ -98,7 +98,7 @@
                                 @if ($match['match_score'] !== '' && $match['match_opponent'] !== '')
                                 <div class="football-team__matches__result"
                                 style="{{ $index >= 3 ? 'display: none;' : '' }}">
-                                        <p>{{ $match['match_date'] }}</p>
+                                        <p class="match-date">{{ $match['match_date'] }}</p>
                                         <p class="score">{{ $match['match_score'] }}</p>
                                         <p class="team">Play it forward fc</p>
                                         <p class="vs--small">vs</p>

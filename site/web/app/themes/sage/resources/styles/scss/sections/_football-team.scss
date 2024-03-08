@@ -133,6 +133,7 @@
     }
 
     &__date {
+      margin-bottom: 1rem;
       text-align: center;
     }
   }
@@ -156,6 +157,14 @@
     &__results {
       .loaded {
         opacity: 0;
+      }
+
+      .match-date {
+        margin-bottom: 1rem;
+
+        @include media-breakpoint('sm') {
+          margin-bottom: 0;
+        }
       }
     }
 
