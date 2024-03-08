@@ -71,6 +71,7 @@
                                     Last match results
                                 </h2>
                             </div>
+                            <p class="football-team__latest__date">{{ $last_match['match_date'] }}</p>
                             <div class="football-team__latest__last">
                                 <p class="h1 score-top">{{ $home_score }}-{{ $away_score }}</p>
                                 <div class="football-team__latest__score">
@@ -95,8 +96,9 @@
                         <div class="football-team__matches__results">
                             @foreach ($matches as $index => $match)
                                 @if ($match['match_score'] !== '' && $match['match_opponent'] !== '')
-                                    <div class="football-team__matches__result"
-                                        style="{{ $index >= 3 ? 'display: none;' : '' }}">
+                                <div class="football-team__matches__result"
+                                style="{{ $index >= 3 ? 'display: none;' : '' }}">
+                                        <p>{{ $match['match_date'] }}</p>
                                         <p class="score">{{ $match['match_score'] }}</p>
                                         <p class="team">Play it forward fc</p>
                                         <p class="vs--small">vs</p>

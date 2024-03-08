@@ -68,6 +68,7 @@ return $dateA <=> $dateB;
                             <h2 class="h2 football-team__results__heading">
                                 Recent match results
                             </h2>
+                            <p class="football-team__latest__date">{{ $team_one_last_match['match_date'] }}</p>
                         </div>
                         <div class="football-team__latest__last">
                             <p class="h1 score-top">
@@ -106,6 +107,7 @@ return $dateA <=> $dateB;
                             <h2 class="h2 football-team__results__heading">
                                 Recent match results
                             </h2>
+                            <p class="football-team__latest__date">{{ $team_two_last_match['match_date'] }}</p>
                         </div>
                         <div class="football-team__latest__last">
                             <p class="h1 score-top">
