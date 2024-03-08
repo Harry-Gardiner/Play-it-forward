@@ -40,7 +40,7 @@ return $dateA <=> $dateB;
     {{-- @if ($team_one_matches && $team_two_matches) --}}
     <section
         class="results {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--raspberry full-bleed">
-        <div class="results__wrapper container">
+        <div class="results__wrapper">
             <div class="results__tabs full-bleed">
                 <button id="defaultOpen" class="results__tab active" data-team="team-one">
                     <span class="results__tab__text">{{ $team_one->post_title }}</span>
@@ -51,81 +51,85 @@ return $dateA <=> $dateB;
             </div>
 
             <div id="team-one" class="results__team block-padding--top">
-                <div class="results__content flow">
-                    <p class="h2 results__content__title">{{ $team_one_title }}</p>
-                    <div class="results__body">{!! $team_one_body !!}</div>
-                    @include('partials.button', [
-                    'type' => 'button',
-                    'link' => get_permalink($team_one->ID),
-                    'text' => 'Find out more',
-                    'colour' => 'white',
-                    ])
-                </div>
-                @if ($team_one_matches)
-                <div class="results__recent">
-                    <div class="football-team__latest__content block-padding--top">
-                        <div class="title">
-                            <h2 class="h2 football-team__results__heading">
-                                Recent match results
-                            </h2>
-                            <p class="football-team__latest__date">{{ $team_one_last_match['match_date'] }}</p>
-                        </div>
-                        <div class="football-team__latest__last">
-                            <p class="h1 score-top">
-                                {{ $team_one_last_match['home_score'] }}-{{ $team_one_last_match['away_score'] }}
-                            </p>
-                            <div class="football-team__latest__score">
-                                <p class="team h1">{{ $team_one_last_match['home_score'] }}</p>
-                                <p class="h3">Play it forward fc</p>
+                <div class="results__team__wrapper container">
+                    <div class="results__content flow">
+                        <p class="h2 results__content__title">{{ $team_one_title }}</p>
+                        <div class="results__body">{!! $team_one_body !!}</div>
+                        @include('partials.button', [
+                        'type' => 'button',
+                        'link' => get_permalink($team_one->ID),
+                        'text' => 'Find out more',
+                        'colour' => 'white',
+                        ])
+                    </div>
+                    @if ($team_one_matches)
+                    <div class="results__recent">
+                        <div class="football-team__latest__content block-padding--top">
+                            <div class="title">
+                                <h2 class="h2 football-team__results__heading">
+                                    Recent match results
+                                </h2>
+                                <p class="football-team__latest__date">{{ $team_one_last_match['match_date'] }}</p>
                             </div>
-                            <p class="vs">VS</p>
-                            <div class="football-team__latest__score">
-                                <p class="team h1">{{ $team_one_last_match['away_score'] }}</p>
-                                <p class="h3">{{ $team_one_last_match['match_opponent'] }}</p>
+                            <div class="football-team__latest__last">
+                                <p class="h1 score-top">
+                                    {{ $team_one_last_match['home_score'] }}-{{ $team_one_last_match['away_score'] }}
+                                </p>
+                                <div class="football-team__latest__score">
+                                    <p class="team h1">{{ $team_one_last_match['home_score'] }}</p>
+                                    <p class="h3">Play it forward fc</p>
+                                </div>
+                                <p class="vs">VS</p>
+                                <div class="football-team__latest__score">
+                                    <p class="team h1">{{ $team_one_last_match['away_score'] }}</p>
+                                    <p class="h3">{{ $team_one_last_match['match_opponent'] }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
-                @endif
             </div>
 
             <div id="team-two" class="results__team block-padding--top">
-                <div class="results__content flow">
-                    <p class="h2 results__content__title">{{ $team_two_title }}</p>
-                    <div class="results__body">{!! $team_two_body !!}</div>
-                    @include('partials.button', [
-                    'type' => 'button',
-                    'link' => get_permalink($team_two->ID),
-                    'text' => 'Find out more',
-                    'colour' => 'white',
-                    ])
-                </div>
-                @if ($team_two_matches)
-                <div class="results__recent">
-                    <div class="football-team__latest__content block-padding--top">
-                        <div class="title">
-                            <h2 class="h2 football-team__results__heading">
-                                Recent match results
-                            </h2>
-                            <p class="football-team__latest__date">{{ $team_two_last_match['match_date'] }}</p>
-                        </div>
-                        <div class="football-team__latest__last">
-                            <p class="h1 score-top">
-                                {{ $team_two_last_match['home_score'] }}-{{ $team_two_last_match['away_score'] }}
-                            </p>
-                            <div class="football-team__latest__score">
-                                <p class="team h1">{{ $team_two_last_match['home_score'] }}</p>
-                                <p class="h3">Play it forward fc</p>
+                <div class="results__team__wrapper container">
+                    <div class="results__content flow">
+                        <p class="h2 results__content__title">{{ $team_two_title }}</p>
+                        <div class="results__body">{!! $team_two_body !!}</div>
+                        @include('partials.button', [
+                        'type' => 'button',
+                        'link' => get_permalink($team_two->ID),
+                        'text' => 'Find out more',
+                        'colour' => 'white',
+                        ])
+                    </div>
+                    @if ($team_two_matches)
+                    <div class="results__recent">
+                        <div class="football-team__latest__content block-padding--top">
+                            <div class="title">
+                                <h2 class="h2 football-team__results__heading">
+                                    Recent match results
+                                </h2>
+                                <p class="football-team__latest__date">{{ $team_two_last_match['match_date'] }}</p>
                             </div>
-                            <p class="vs">VS</p>
-                            <div class="football-team__latest__score">
-                                <p class="team h1">{{ $team_two_last_match['away_score'] }}</p>
-                                <p class="h3">{{ $team_two_last_match['match_opponent'] }}</p>
+                            <div class="football-team__latest__last">
+                                <p class="h1 score-top">
+                                    {{ $team_two_last_match['home_score'] }}-{{ $team_two_last_match['away_score'] }}
+                                </p>
+                                <div class="football-team__latest__score">
+                                    <p class="team h1">{{ $team_two_last_match['home_score'] }}</p>
+                                    <p class="h3">Play it forward fc</p>
+                                </div>
+                                <p class="vs">VS</p>
+                                <div class="football-team__latest__score">
+                                    <p class="team h1">{{ $team_two_last_match['away_score'] }}</p>
+                                    <p class="h3">{{ $team_two_last_match['match_opponent'] }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
     </section>
