@@ -1,0 +1,17 @@
+.divider {
+    height: 1rem;
+    background-repeat: repeat-x;
+    background-size: cover;
+
+    &__green {
+        background-image: url(../../../images/allTheGreens.png);
+    }
+
+    &__everything {
+        background-image: url(../../../images/bitOfEverything.png);
+    }
+
+    &__yellow {
+        background-image: url(../../../images/mellowYellow.png);
+    }
+}
