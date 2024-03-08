@@ -243,50 +243,21 @@
       // Has submenu
       .menu-item-has-children {
         width: fit-content;
-        
-        &::after {
-          position: absolute;
-          z-index: 921;
-          content: "";
-          width: 0;
-          height: 0;
-          border: 10px solid rgba(0,0,0,0);
-          border-bottom-color: $pf-white;
-          bottom: 0;
-          left: 50%;
-          margin-left: -10px;
-          visibility: hidden;
-          opacity: 0;
-          transition: opacity 300ms linear;
-        }
 
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: $pf-white;
+          background-color: $pf-charcoal;
+          color: $pf-white;
           position: absolute;
-          left: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 250px;
           top: 100%;
           max-height: 0;
-          width: 100vw;
-          margin-left: calc((100vw - 100%) / -2);
-          padding: 2rem 10rem;
+          padding: 2rem;
           opacity: 0;
           transition: opacity 300ms linear;
-
-          // Add a ::before that is full window width and height to allow for a full bleed background
-          &::before {
-            content: '';
-            position: absolute;
-            left: -4000px;
-            top: 0;
-            width: 10000px;
-            height: 100%;
-            background-color: $pf-white;
-            z-index: -1;
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-
-          }
 
           li {
             &:hover,
@@ -300,7 +271,7 @@
               display: inline-block;
               padding: 1em 2em;
               width: 100%;
-              color: $pf-charcoal;
+              color: $pf-white;
               width: fit-content;
             }
           }
