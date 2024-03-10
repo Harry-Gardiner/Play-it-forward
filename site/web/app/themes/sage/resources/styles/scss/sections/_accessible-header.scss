@@ -9,28 +9,37 @@
   display: inline-block;
 }
 
+.header-banner {
+  position: relative;
+  z-index: 10001;
+  
+  img {
+    object-fit: cover;
+    height: 30px;
+    width: 100%;
+  }
+
+  @include media-breakpoint('lg') {
+    max-height: 67px;
+
+    img {
+      height: 47px;
+      }
+  }
+}
+
 .header {
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
   height: $header-height-mobile;
   font-size: $size--base;
   z-index: 10000;
+  background-color: $pf-charcoal;
+  border-top:8px solid $pf-dark-green;
 
-  transition: background-color 250ms ease-in-out,background-position 250ms ease-in-out,box-shadow 250ms ease-in-out,padding 250ms ease-in-out;
-  background-color: $pf-raspberry;
-
-  &__transparent-start {
-    background-color: rgba(153, 48, 80,0);
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(35, 47, 74, 0) 50%);
-    background-size: 100% 200%;
-    background-repeat: no-repeat;
-  }
-
-  &.js-menu-scrolled {
-    background-color: $pf-raspberry;
-    background-position-y: 100%;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  &--front-page {
+    margin-top: -8px;
   }
 
   &--default {
@@ -43,11 +52,15 @@
 
   &--blog {
     color: $pf-white;
-    @extend .js-menu-scrolled;
   }
 
   @include media-breakpoint('lg') {
     height: $header-height-desktop;
+    border-top: 10px solid $pf-dark-green;
+
+    &--front-page {
+      margin-top: -10px;
+    }
   }
 
   &__wrapper {
@@ -94,7 +107,7 @@
       color: $pf-off-white;
       position: absolute;
       left: 0;
-      top: $header-height-mobile - 1;
+      top: $header-height-mobile - 9;
       width: 100%;
       max-height: 0;
       transition: max-height 1s;
@@ -230,50 +243,21 @@
       // Has submenu
       .menu-item-has-children {
         width: fit-content;
-        
-        &::after {
-          position: absolute;
-          z-index: 921;
-          content: "";
-          width: 0;
-          height: 0;
-          border: 10px solid rgba(0,0,0,0);
-          border-bottom-color: $pf-white;
-          bottom: 0;
-          left: 50%;
-          margin-left: -10px;
-          visibility: hidden;
-          opacity: 0;
-          transition: opacity 300ms linear;
-        }
 
         .sub-menu {
           display: block;
           visibility: hidden;
-          background-color: $pf-white;
+          background-color: $pf-charcoal;
+          color: $pf-white;
           position: absolute;
-          left: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 250px;
           top: 100%;
           max-height: 0;
-          width: 100vw;
-          margin-left: calc((100vw - 100%) / -2);
-          padding: 2rem 10rem;
+          padding: 2rem;
           opacity: 0;
           transition: opacity 300ms linear;
-
-          // Add a ::before that is full window width and height to allow for a full bleed background
-          &::before {
-            content: '';
-            position: absolute;
-            left: -4000px;
-            top: 0;
-            width: 10000px;
-            height: 100%;
-            background-color: $pf-white;
-            z-index: -1;
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
-
-          }
 
           li {
             &:hover,
@@ -287,7 +271,7 @@
               display: inline-block;
               padding: 1em 2em;
               width: 100%;
-              color: $pf-charcoal;
+              color: $pf-white;
               width: fit-content;
             }
           }
@@ -358,7 +342,6 @@
       &:hover,
       &:focus {
         cursor: pointer;
-        background-color: $pf-raspberry;
       }
 
     }
