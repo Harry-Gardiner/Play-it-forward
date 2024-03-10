@@ -147,6 +147,7 @@ Template Name: Pattern Library
   <br>
   <br>
   @include('blocks.hero-front-page', [
+    'hero_icon' => null,
     'hero_image' => ['sizes' => ['2048x2048' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
     'hero_image_position' => 'center center',
     'hero_title' => 'Hero title example.',
