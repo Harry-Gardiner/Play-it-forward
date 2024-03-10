@@ -411,6 +411,7 @@ Template Name: Pattern Library
     'spacing_size' => '',
     'background_colour' => 'off-white',
     'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text'],
+    'full_image_position' => 'center',
     'image_height' => 800
   ])
 </section>
