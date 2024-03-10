@@ -147,6 +147,7 @@ Template Name: Pattern Library
   <br>
   <br>
   @include('blocks.hero-front-page', [
+    'hero_icon' => null,
     'hero_image' => ['sizes' => ['2048x2048' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
     'hero_image_position' => 'center center',
     'hero_title' => 'Hero title example.',
@@ -409,7 +410,8 @@ Template Name: Pattern Library
     'wrapper' => '',
     'spacing_size' => '',
     'background_colour' => 'off-white',
-    'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text']
+    'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text'],
+    'image_height' => 800
   ])
 </section>
 

@@ -1,7 +1,13 @@
 .full-image {
+    max-height: 400px;
+
+    @include media-breakpoint(lg) {
+      max-height: unset;
+    }
+
     img {
         width: 100%;
-        height: auto;
         object-fit: cover;
+        height: 100%;
     }
 }

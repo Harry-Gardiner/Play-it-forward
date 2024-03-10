@@ -144,6 +144,7 @@ class FullImage extends Block
 
             // Image
             'image' => get_field('image'),
+            'image_height' => get_field('image_height'),
         ];
     }
 
@@ -162,6 +163,14 @@ class FullImage extends Block
             ->addImage('image', [
                 'label' => 'Full Width Image',
                 'instructions' => 'This image will be the entire width of the screen, ignoring the container that houses most of the other content.<br><br>Don\'t forget to add alt text for better accessibility and SEO. You can add this in the media library.',
+            ])
+            ->addRange('image_height', [
+                'label' => 'Image Height',
+                'instructions' => 'Set the height of the image in pixels. The width will always be 100% of the screen. This will only apply to the image on larger screens.',
+                'default_value' => 400,
+                'min' => 100,
+                'max' => 1000,
+                'step' => 100,
             ]);
 
         return $fullImage->build();
