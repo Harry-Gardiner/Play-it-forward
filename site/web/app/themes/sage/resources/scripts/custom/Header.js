@@ -21,19 +21,6 @@ hamb.addEventListener('click', function (e) {
   }
 });
 
-let isScrolled = false;
-
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 0 && !isScrolled) {
-    header.classList.add('js-menu-scrolled');
-    isScrolled = true;
-  } else if (window.scrollY === 0 && isScrolled) {
-    header.classList.remove('js-menu-scrolled');
-    isScrolled = false;
-  }
-});
-
-
 window.addEventListener('click', function (event) {
   if (!dropdown.contains(event.target) && !hamb.contains(event.target)) {
     hamb.classList.remove('hamb-open')
