@@ -410,7 +410,8 @@ Template Name: Pattern Library
     'wrapper' => '',
     'spacing_size' => '',
     'background_colour' => 'off-white',
-    'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text']
+    'image' => ['url' => 'https://picsum.photos/1000/400', 'alt' => 'alt text'],
+    'image_height' => 800
   ])
 </section>
 
