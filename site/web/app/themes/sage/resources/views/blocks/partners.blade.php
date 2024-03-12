@@ -21,9 +21,10 @@
             @if ($partners)
                 <div class="partners__list">
                     @foreach ($partners as $partner)
-                        {{-- @dump($partner) --}}
                         <div class="partners__item">
+                            @if (is_array($partner['logo']))
                             <img src="{{ $partner['logo']['sizes']['thumbnail'] }}" alt="{{ $partner['logo']['alt'] }}">
+                            @endif
                             <div class="partners__item__info">
                                 <p class="h3">{{ $partner['name'] }}</p>
                                 <p>{{ $partner['description'] }}</p>

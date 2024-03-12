@@ -78,8 +78,7 @@
                         @endif
                         @if ($grid_type === 'combined')
                             <div class="custom-grid__combined">
-                                <img class="custom-grid__icon" src={{ $item['icon']['sizes']['thumbnail'] }}
-                                alt={{ $item['icon']['alt'] }}>
+                                <img class="custom-grid__icon" src={{ $item['icon']['sizes']['thumbnail'] }} alt={{ $item['icon']['alt'] }}>
                                 <div class="custom-grid__stat">
                                     <p id="custom-grid__stat__number-{{ $loop->index }}" class="custom-grid__stat__number">
                                         {{ $item['item'] }}</p>

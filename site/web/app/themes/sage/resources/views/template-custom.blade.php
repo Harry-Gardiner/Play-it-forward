@@ -455,6 +455,37 @@ Template Name: Pattern Library
   ])
 </section>
 
+{{-- <section class="flow block-padding--bottom">
+  <h2>Carousel</h2>
+  <p>Displays a carousel of images. Consists of images: A repeater field for adding images. Each image consists of an image field for uploading an image, a text field for entering a title, and a textarea field for entering a description.</p>
+  @include('blocks.carousel', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'title_style' => ['title' => 'Image Carousel', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'slider_type' => 'slider-images',
+    'slides' => [
+        [
+            'image' => ['sizes' => ['medium_large' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'title' => 'Slide 1',
+            'subtitle' => 'Subtitle 1',
+            'content' => 'Content 1',
+        ],
+        [
+            'image' => ['sizes' => ['medium_large' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'title' => 'Slide 2',
+            'subtitle' => 'Subtitle 2',
+            'content' => 'Content 2',
+        ],
+        [
+            'image' => ['sizes' => ['medium_large' => 'https://placehold.co/150x150'], 'alt' => 'alt text'],
+            'title' => 'Slide 3',
+            'subtitle' => 'Subtitle 3',
+            'content' => 'Content 3',
+        ],
+    ],
+  ])
+</section> --}}
+
 <section class="flow block-padding--bottom">
   <h2>Text with media</h2>
   <p>

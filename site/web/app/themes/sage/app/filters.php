@@ -41,8 +41,6 @@ add_filter('allowed_block_types_all', function ($block_editor_context, $editor_c
 
     // Fetch all ACF blocks.
     $block_files = glob(__DIR__ . '/Blocks/*.php');
-    // remove Carousel.php from the array
-    $block_files = array_diff($block_files, array(__DIR__ . '/Blocks/Carousel.php'));
  
     $acf_blocks = array();
     foreach ($block_files as $block_file) {
