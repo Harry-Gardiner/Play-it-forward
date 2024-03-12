@@ -124,10 +124,29 @@ class Carousel extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
+        'wrapper' => '', 
+        'spacing_size' => '', 
+        'title_style' => ['title' => 'Carousel', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'slider_type' => 'slider-images',
+        'slides' => [
+            [
+                'image' => 'https://via.placeholder.com/800x400',
+                'title' => 'Slide 1',
+                'subtitle' => 'Subtitle 1',
+                'content' => 'Content 1',
+            ],
+            [
+                'image' => 'https://via.placeholder.com/800x400',
+                'title' => 'Slide 2',
+                'subtitle' => 'Subtitle 2',
+                'content' => 'Content 2',
+            ],
+            [
+                'image' => 'https://via.placeholder.com/800x400',
+                'title' => 'Slide 3',
+                'subtitle' => 'Subtitle 3',
+                'content' => 'Content 3',
+            ],
         ],
     ];
 
@@ -142,7 +161,6 @@ class Carousel extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
-            'background_colour' => get_field('colour_picker'),
 
             // Carousel
             'title_style' => get_field('title_style'),
