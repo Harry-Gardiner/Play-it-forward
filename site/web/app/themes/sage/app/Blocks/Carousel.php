@@ -171,7 +171,7 @@ class Carousel extends Block
             ->addFields($this->get(Title::class))
             ->addSelect('slider_type', [
                 'label' => 'Slider Type',
-                'instructions' => 'Choose between icons or images.',
+                'instructions' => 'Select the type of slider and add slides. Images can be used to create a carousel of images with title and subtext. Icons can be used to create a carousel of just icons for example logos (min requirement 7).',
                 'choices' => [
                     'slider-icons' => 'Icons',
                     'slider-images' => 'Images',
