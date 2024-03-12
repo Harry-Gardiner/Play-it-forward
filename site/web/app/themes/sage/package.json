@@ -29,6 +29,7 @@
     "caniuse-lite": "^1.0.30001579",
     "countup.js": "^2.8.0",
     "embla-carousel": "^8.0.0-rc15",
-    "embla-carousel-autoplay": "^8.0.0-rc15"
+    "embla-carousel-autoplay": "^8.0.0-rc15",
+    "glider-js": "^1.7.8"
   }
 }
