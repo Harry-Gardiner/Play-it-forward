@@ -10,7 +10,17 @@ if (emblaNode) {
 
 // Carousel slider
 const carouselNode = document.querySelector('.carousel')
-const carouselOptions = { loop: true, slidesToScroll: 1, slidesToShow: 3 }
 if (carouselNode) {
-    const carousel = EmblaCarousel(carouselNode, carouselOptions, [Autoplay()])
+    const viewportNode = emblaNode.querySelector('.embla__viewport')
+    const carouselOptions = { 
+        loop: true, 
+        slidesToScroll: 1, 
+        slidesToShow: 3,
+        
+        breakpoints: {
+            '(min-width: 768px)': {  },
+          },
+       
+    }
+    const carousel = EmblaCarousel(viewportNode, carouselOptions, [Autoplay()])
 }

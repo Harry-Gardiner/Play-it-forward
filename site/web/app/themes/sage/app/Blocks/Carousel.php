@@ -5,6 +5,7 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
 class Carousel extends Block
 {
     /**
@@ -144,6 +145,7 @@ class Carousel extends Block
             'background_colour' => get_field('colour_picker'),
 
             // Carousel
+            'title_style' => get_field('title_style'),
             'slides' => get_field('slides'),
             'slider_type' => get_field('slider_type'), 
                       
@@ -165,6 +167,7 @@ class Carousel extends Block
             ])
             ->addFields($this->get(GeneralTab::class))  
             ->addTab('Slider Options')
+            ->addFields($this->get(Title::class))
             ->addSelect('slider_type', [
                 'label' => 'Slider Type',
                 'instructions' => 'Choose between icons or images.',
