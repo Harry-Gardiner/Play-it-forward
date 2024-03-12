@@ -20,8 +20,9 @@
                     @foreach ($items as $item)
                         @if ($item['media_type'] === 'image')
                             <div class="stacked-media__content--image">
-                                <img class="equal-height-image" src="{{ $item['image']['url'] }}"
-                                   alt="{{ $item['image']['alt'] }}">
+                                @if (is_array($item['image']))
+                                    <img class="equal-height-image" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] }}">
+                                @endif
                             </div>
                         @endif
                         @if ($item['media_type'] === 'video')
