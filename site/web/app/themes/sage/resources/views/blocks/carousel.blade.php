@@ -10,31 +10,39 @@
             @if ($title_style['title'] !== '')
                 @include('partials.title', [$title_style])
             @endif
-            <div class="carousel embla">
+            <div class="carousel embla {{ $slider_type }}">
                 <div class="embla__viewport">
                     <div class="embla__container">
-                        @if ($slider_type === 'slider-type-images')
+                        @if ($slider_type === 'slider-images')
+                            @foreach ($slides as $slide)
+                                <div class="embla__slide">
+                                    @if ($slide['image'])
+                                        <img src="{{ $slide['image']['sizes']['medium_large'] }}" alt="{{ $slide['image']['alt'] }}">
+                                        <div>
+                                            <img src="@asset('images/bitOfEverything.png')" alt="hero banner">
+                                        </div>
+                                    @endif
+
+                                    <div class="carousel__body">
+                                        @if ($slide['title'])
+                                            <h3>{{ $slide['title'] }}</h3>
+                                        @endif
+                                        @if ($slide['subtitle'])
+                                            <p class="carousel__subtitle">{{ $slide['subtitle'] }}</p>
+                                        @endif
+                                        @if ($slide['content'])
+                                            <p class="carousel__content">{{ $slide['content'] }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                        @if ($slider_type === 'slider-icons')
                             @foreach ($slides as $slide)
                                 <div class="embla__slide">
                                     @if ($slide['image'])
                                         <img src="{{ $slide['image']['sizes']['medium_large'] }}" alt="{{ $slide['image']['alt'] }}">
                                     @endif
-                                    @if ($slide['title'])
-                                        <h3>{{ $slide['title'] }}</h3>
-                                    @endif
-                                    @if ($slide['subtitle'])
-                                        <p>{{ $slide['subtitle'] }}</p>
-                                    @endif
-                                    @if ($slide['link'])
-                                        <a href="{{ $slide['link'] }}" class="button">{{ $slide['link_text'] }}</a>
-                                    @endif
-                                </div>
-                            @endforeach
-                        @endif
-                        @if ($slider_type === 'slider-type-icons')
-                            @foreach ($slides as $slide)
-                                <div class="embla__slide">
-                                    <img src="{{ $slide['icon']['sizes']['medium'] }}" alt="{{ $slide['icon']['alt'] }}">
                                 </div>
                             @endforeach
                         @endif

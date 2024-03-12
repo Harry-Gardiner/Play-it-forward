@@ -148,6 +148,7 @@ class Carousel extends Block
             'title_style' => get_field('title_style'),
             'slides' => get_field('slides'),
             'slider_type' => get_field('slider_type'), 
+            'content' => get_field('content'),
                       
         ];
     }
@@ -172,10 +173,10 @@ class Carousel extends Block
                 'label' => 'Slider Type',
                 'instructions' => 'Choose between icons or images.',
                 'choices' => [
-                    'slider-type-icons' => 'Icons',
-                    'slider-type-images' => 'Images',
+                    'slider-icons' => 'Icons',
+                    'slider-images' => 'Images',
                 ],
-                'default_value' => 'slider-type-images',
+                'default_value' => 'slider-images',
                 'multiple' => 0,
                 'return_format' => 'value',
             ])
@@ -192,23 +193,20 @@ class Carousel extends Block
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
                 'mime_types' => 'jpg, jpeg, png, gif',
-            ])
+            ])->conditional('slider_type', '==', 'slider-images')->or('slider_type', '==', 'slider-icons')
             ->addText('title', [
                 'label' => 'Title',
                 'instructions' => 'Add a title for the slide.',
-            ])
+            ])->conditional('slider_type', '==', 'slider-images')
             ->addText('subtitle', [
                 'label' => 'Subtitle',
                 'instructions' => 'Add a subtitle for the slide.',
-            ])
-            ->addText('link', [
-                'label' => 'Link',
-                'instructions' => 'Add a link for the slide.',
-            ])
-            ->addText('link_text', [
-                'label' => 'Link Text',
-                'instructions' => 'Add a link text for the slide.',
-            ])
+            ])->conditional('slider_type', '==', 'slider-images')
+            ->addTextarea('content', [
+                'label' => 'Content',
+                'instructions' => 'Add content for the slide.',
+                'rows' => 4,
+            ])->conditional('slider_type', '==', 'slider-images')
             ->endRepeater()
         ;
         return $carousel->build();
