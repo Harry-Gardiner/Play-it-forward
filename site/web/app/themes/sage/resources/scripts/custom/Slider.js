@@ -27,13 +27,6 @@ if (carouselIcons) {
     const carouselOptions = { 
         loop: true, 
         slidesToScroll: 1, 
-
-        breakpoints: {
-            '(min-width: 992px)': { 
-                loop: true,
-                slidesToShow: 4,
-            },
-          }
     }
     const carousel = EmblaCarousel(viewportNode, carouselOptions, [Autoplay()])
 }
