@@ -1,0 +1,37 @@
+.card-row {
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing--lg;
+
+        @include media-breakpoint('sm') {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        @include media-breakpoint('lg') {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__item {
+        text-align: center;
+
+        @include media-breakpoint('sm') {
+            flex: 0 0 45%;
+        }
+
+        @include media-breakpoint('lg') {
+            flex: unset;
+        }
+
+        &__image {
+            border-radius: 12px;
+        }
+
+        .button {
+            margin-top: $spacing--xs;
+        }
+    }
+}
