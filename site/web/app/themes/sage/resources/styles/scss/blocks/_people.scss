@@ -1,11 +1,12 @@
 .people {
   &__list {
     display: grid;
-    gap: 2rem;
+    gap: 4rem;
 
     @include media-breakpoint('sm') {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       row-gap: 4rem;
     }
 
@@ -19,6 +20,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .person__bio {
+        transform: translateY(0);
+      }
+    }
 
     &__image {
       width: 225px;
@@ -40,9 +49,36 @@
     }
 
     &__name {
+      margin-top: $spacing--xs;
       text-transform: uppercase;
       font-weight: 700;
       text-align: center;
+    }
+
+    &__bio-prompt {
+      margin-top: 0;
+      width: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__bio {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+      padding: $spacing--xs;
+      background-color: rgba(217, 217, 217, 0.95);
+
+      overflow-y: scroll;
+      max-height: 317px;
+
+      * {
+        font-size: $size--md;
+      }
     }
   }
 }
