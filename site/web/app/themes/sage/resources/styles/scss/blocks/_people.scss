@@ -1,11 +1,12 @@
 .people {
   &__list {
     display: grid;
-    gap: 2rem;
+    gap: 4rem;
 
     @include media-breakpoint('sm') {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       row-gap: 4rem;
     }
 
@@ -48,6 +49,7 @@
     }
 
     &__name {
+      margin-top: $spacing--xs;
       text-transform: uppercase;
       font-weight: 700;
       text-align: center;
