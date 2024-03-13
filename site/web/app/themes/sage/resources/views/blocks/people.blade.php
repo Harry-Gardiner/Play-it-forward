@@ -22,9 +22,15 @@
                           </div>
                       @endif
                       <p class="person__name h3">{{ $person['name'] }}</p>
-                      <div class="person_bio">
-                        {!! $person['bio'] !!}
-                      </div>
+                      @if ($person['bio'])
+                        <div class="person__bio-prompt">
+                            <p>BIO</p>
+                            <img src="@asset('images/down-arrow-pif.png')" alt="arrow">
+                        </div>
+                        <div class="person__bio">
+                            {!! $person['bio'] !!}
+                        </div>
+                      @endif
                   </div>
               @endforeach
             </div>
