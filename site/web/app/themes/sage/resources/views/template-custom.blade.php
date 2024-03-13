@@ -487,6 +487,43 @@ Template Name: Pattern Library
 </section> --}}
 
 <section class="flow block-padding--bottom">
+  <h2>Card row</h2>
+  <p>Display a row of card upto 4 max. Card inc image, title, and link/button. Title and link/button are optional.
+
+  @include('blocks.card-row', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'title_style' => ['title' => 'Card row title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'items' => [
+      [
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+        'title' => 'Card title',
+        'link' => '#', 
+        'text' => 'Button text', 
+        'type' => 'primary', 
+        'btn_colour' => 'dark-green'
+      ],
+      [
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+        'title' => 'Card title 2',
+        'link' => '#', 
+        'text' => 'Button text', 
+        'type' => 'primary', 
+        'btn_colour' => 'black'
+      ],
+      [
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+        'title' => 'Card title 3',
+        'link' => '#', 
+        'text' => 'Button text', 
+        'type' => 'primary', 
+        'btn_colour' => 'raspberry'
+      ],
+    ]
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Text with media</h2>
   <p>
     Text with media block Consists of title: This is a set of fields defined in the Title class.

@@ -126,11 +126,35 @@ class CardRow extends Block
      * @var array
      */
     public $example = [
+        'wrapper' => '', 
+        'spacing_size' => '', 
+        'title_style' => ['title' => 'Card row', 'heading_level' => 'h2', 'heading_style' => 'h2'],
         'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+            [
+              'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+              'title' => 'Card title',
+              'link' => '#', 
+              'text' => 'Button text', 
+              'type' => 'primary', 
+              'btn_colour' => 'dark-green'
+            ],
+            [
+              'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+              'title' => 'Card title 2',
+              'link' => '#', 
+              'text' => 'Button text', 
+              'type' => 'primary', 
+              'btn_colour' => 'black'
+            ],
+            [
+              'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
+              'title' => 'Card title 3',
+              'link' => '#', 
+              'text' => 'Button text', 
+              'type' => 'primary', 
+              'btn_colour' => 'raspberry'
+            ],
+          ]
     ];
 
     /**
