@@ -6,6 +6,7 @@
 
 <main id="main" class="main flow">
     @yield('content')
+    @include('partials.socialstab')
 </main>
 
 @hasSection('sidebar')
