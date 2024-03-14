@@ -4,7 +4,15 @@
     $twitter = get_field('twitter_link', 'option');
     $youtube = get_field('youtube_link', 'option');
     $linkedin = get_field('linkedin_link', 'option');
+
+    // check if there are socials from the above
+    $socials = array($facebook, $instagram, $twitter, $youtube, $linkedin);
+    $socials = array_filter($socials);
+    $socials = count($socials);
+    $socials = $socials > 0 ? true : false;
+
 @endphp
+@if ($socials)
 <aside class="socials-tab">
     <p class="socials-tab__text">Socials</p>
     <div class="socials-tab__socials">
@@ -25,3 +33,4 @@
         @endif
     </div>
 </aside>
+@endif
