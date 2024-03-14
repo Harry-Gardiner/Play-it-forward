@@ -11,7 +11,7 @@
             @endif
             <div class="people__list">
               @foreach ($people as $person)
-                  <div class="person flow">
+                  <div class="person">
                       @if ($person['image'])
                           <div class="person__image">
                             @if ($person['linkedin'])
