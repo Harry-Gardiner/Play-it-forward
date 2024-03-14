@@ -1,0 +1,71 @@
+.socials-tab {
+  position: fixed;
+  z-index: 999;
+  top: 40%;
+  transform: translateY(-40%);
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  right: -2.5rem; // Change this line
+  transition: right 0.3s ease-in-out; // Add this line
+
+  &:hover,
+  &:active {
+    right: 0;
+
+    .socials-tab__socials {
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__text {
+    position: relative;
+    top: 1rem;
+    right: -1px;
+    background-color: $pf-yellow;
+    padding: 0.5rem;
+    color: $pf-white;
+    
+    font-weight: 400;
+
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    text-align: center;
+    width: fit-content;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 1;
+
+    box-shadow: 9px 0 10px -5px rgba(0, 0, 0, 0.2);
+    
+  }
+
+  &__socials {
+    width: 2.5rem;
+    background-color: $pf-yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    transition: box-shadow 0.3s ease-in-out;
+
+    a {
+      color: $pf-white;
+      padding: 0.5rem;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
