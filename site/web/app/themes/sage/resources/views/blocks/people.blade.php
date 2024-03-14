@@ -14,6 +14,11 @@
                   <div class="person flow">
                       @if ($person['image'])
                           <div class="person__image">
+                            @if ($person['linkedin'])
+                                <div class="person__linkedin">
+                                    <a href={{ $person['linkedin'] }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>     
+                                </div>    
+                            @endif
                               <img src="{{ $person['image']['sizes']['medium_large'] }}"
                                   alt="{{ $person['image']['alt'] }}">
                           </div>
@@ -21,16 +26,18 @@
                           <div class="person__image placeholder">
                           </div>
                       @endif
-                      <p class="person__name h3">{{ $person['name'] }}</p>
-                      @if ($person['bio'])
-                        <div class="person__bio-prompt">
-                            <p>BIO</p>
-                            <img src="@asset('images/down-arrow-pif.png')" alt="arrow">
-                        </div>
-                        <div class="person__bio">
-                            {!! $person['bio'] !!}
-                        </div>
-                      @endif
+                      <div class="person__info">
+                          <p class="person__name h3">{{ $person['name'] }}</p>
+                          @if ($person['bio'])
+                            <div class="person__bio-prompt">
+                                <p>BIO</p>
+                                <img src="@asset('images/down-arrow-pif.png')" alt="arrow">
+                            </div>
+                            <div class="person__bio">
+                                {!! $person['bio'] !!}
+                            </div>
+                          @endif
+                      </div>
                   </div>
               @endforeach
             </div>

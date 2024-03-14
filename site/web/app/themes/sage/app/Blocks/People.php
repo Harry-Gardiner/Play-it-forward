@@ -211,6 +211,11 @@ class People extends Block
                 'library' => 'all',
                 'mime_types' => 'jpg, jpeg, png, svg',
             ])
+            ->addText('linkedin', [
+                'label' => 'LinkedIn',
+                'instructions' => 'Enter the LinkedIn URL',
+                'placeholder' => 'https://www.linkedin.com/in/username',
+            ])
         ;
 
         return $people->build();
