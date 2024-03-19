@@ -50,7 +50,7 @@
     @if (!$image)
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
-                <div>
+                <div class="flow">
                     <div class="flow">
                         @if ($title_style['title'])
                             @include('partials.title', [$title_style])
@@ -85,7 +85,7 @@
             <div
                 class="cta-banner__image__content container image--{{ $image_position }} {{ $wrapper ? $wrapper : '' }} block-padding">
                 <div class="cta-banner__image__content__body">
-                    <div>
+                    <div class="flow">
                         <div class="flow">
                             @if ($title_style['title'])
                                 @include('partials.title', [$title_style])
