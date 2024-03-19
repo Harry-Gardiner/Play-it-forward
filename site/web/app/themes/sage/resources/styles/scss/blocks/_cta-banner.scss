@@ -59,7 +59,7 @@
 .cta-banner__image {
   position: relative;
 
-  img {
+  & > img {
     object-fit: cover;
     max-height: 40vh;
     width: 100%;
@@ -87,9 +87,24 @@
   }
 
   &__content {
-    min-height: 400px;
+    &__download {
+      margin-top: $spacing--sm;
+      max-width: 300px;
+    }
+
+    @include media-breakpoint('md') {
+     &__body {
+       display: flex;
+      }
+
+      &__download {
+        margin-top: 0;
+        margin-left: auto;
+      }
+    }
 
     @include media-breakpoint('lg') {
+      min-height: 400px;
       display: flex;
       justify-content: flex-end;
       align-items: flex-start;
@@ -106,6 +121,11 @@
       &__body {
         width: 50%;
         padding-left: rem(74);
+        gap: $spacing--sm;
+      }
+
+      &__download {
+        max-width: 200px;
       }
     }
   }

@@ -50,35 +50,7 @@
     @if (!$image)
         <div class="cta-banner">
             <div class="cta-banner__content flow container block-padding">
-                <div class="flow">
-                    @if ($title_style['title'])
-                        @include('partials.title', [$title_style])
-                    @endif
-                    @if ($body)
-                        {!! $body !!}
-                    @endif
-                </div>
-                @if ($show_button == 'yes')
-                    @include('partials.button', [
-                        'type' => $btn_type,
-                        'link' => $btn_link,
-                        'text' => $btn_text,
-                        'colour' => $button_colour,
-                    ])
-                @endif
-
-            </div>
-        </div>
-    @endif
-
-
-    @if ($image)
-        <div class="cta-banner__image">
-            <img class="image--{{ $image_position }}" src="{{ $image['url'] }}""
-                alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
-            <div
-                class="cta-banner__image__content container image--{{ $image_position }} {{ $wrapper ? $wrapper : '' }} block-padding">
-                <div class="cta-banner__image__content__body flow">
+                <div>
                     <div class="flow">
                         @if ($title_style['title'])
                             @include('partials.title', [$title_style])
@@ -94,6 +66,47 @@
                             'text' => $btn_text,
                             'colour' => $button_colour,
                         ])
+                    @endif
+                </div>
+                @if ($featured_download_image)
+                <div class="cta-banner__image__content__download">
+                    <img src="{{ $featured_download_image['url'] }}" alt="{{ $featured_download_image['alt'] }}">
+                </div>
+                @endif
+            </div>
+        </div>
+    @endif
+
+
+    @if ($image)
+        <div class="cta-banner__image">
+            <img class="image--{{ $image_position }}" src="{{ $image['url'] }}""
+                alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
+            <div
+                class="cta-banner__image__content container image--{{ $image_position }} {{ $wrapper ? $wrapper : '' }} block-padding">
+                <div class="cta-banner__image__content__body">
+                    <div>
+                        <div class="flow">
+                            @if ($title_style['title'])
+                                @include('partials.title', [$title_style])
+                            @endif
+                            @if ($body)
+                                {!! $body !!}
+                            @endif
+                        </div>
+                        @if ($show_button == 'yes')
+                            @include('partials.button', [
+                                'type' => $btn_type,
+                                'link' => $btn_link,
+                                'text' => $btn_text,
+                                'colour' => $button_colour,
+                            ])
+                        @endif
+                    </div>
+                   @if ($featured_download_image)
+                    <div class="cta-banner__image__content__download">
+                        <img src="{{ $featured_download_image['url'] }}" alt="{{ $featured_download_image['alt'] }}">
+                    </div>
                     @endif
                 </div>
             </div>

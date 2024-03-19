@@ -155,6 +155,7 @@ class CtaBanner extends Block
             'layout' => get_field('layout'),
             'background_colour' => get_field('colour_picker'),
             'title_style' => get_field('title_style'),
+            'featured_download_image' => get_field('featured_download_image'),
         ];
     }
 
@@ -240,7 +241,10 @@ class CtaBanner extends Block
                     'dark-green' => 'Dark Green',
                 ],
             ])->conditional('colour_picker', '==', 'white')->or('colour_picker', '==', 'off-white')
-            ->endGroup();
+            ->endGroup()
+            ->addTab('Featured Download')
+            ->addImage('featured_download_image')
+            ;
         return $ctaBanner->build();
     }
 
