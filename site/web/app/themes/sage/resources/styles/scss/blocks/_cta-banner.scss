@@ -58,7 +58,6 @@
 
 .cta-banner__image {
   position: relative;
-  min-height: 400px;
 
   img {
     object-fit: cover;
@@ -88,9 +87,12 @@
   }
 
   &__content {
+    min-height: 400px;
+
     @include media-breakpoint('lg') {
       display: flex;
       justify-content: flex-end;
+      align-items: flex-start;
 
       &.image--right {
         justify-content: flex-start;
