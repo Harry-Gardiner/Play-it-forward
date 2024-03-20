@@ -125,7 +125,31 @@ class Timeline extends Block
      * @var array
      */
     public $example = [
-        
+        'wrapper' => '',
+        'spacing_size' => '',
+        'title_style' => ['title' => 'Timeline Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+        'cards' => [
+          [
+            'card_year' => '2020',
+            'card_title' => 'Card title 1',
+            'card_text' => 'Card description 1'
+          ],
+          [
+            'card_year' => '2021',
+            'card_title' => 'Card title 2',
+            'card_text' => 'Card description 2'
+          ],
+          [
+            'card_year' => '2022',
+            'card_title' => 'Card title 3',
+            'card_text' => 'Card description 3'
+          ],
+          [
+            'card_year' => '2023',
+            'card_title' => 'Card title 4',
+            'card_text' => 'Card description 4'
+          ]
+        ]
     ];
 
     /**

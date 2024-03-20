@@ -281,17 +281,20 @@ Template Name: Pattern Library
       [
         'name' => 'Person 1',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
-        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'linkedin' => 'https://www.linkedin.com/'
       ],
       [
         'name' => 'Person 2',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet amet in explicabo!',
-        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'linkedin' => 'https://www.linkedin.com/'
       ],
       [
         'name' => 'Person 3',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
-        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text']
+        'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
+        'linkedin' => 'https://www.linkedin.com/'
       ]
     ]
   ])
@@ -768,7 +771,7 @@ Template Name: Pattern Library
   @endif
 </section>
 
-<section>
+<section class="flow block-padding--bottom">
   <h2>Results</h2>
   <p>Displays the latest results of 2 selected football teams. Consists of Team One and Team Two: These are tabs for organizing the fields in the WordPress editor. Each team has the following fields:
 
@@ -793,6 +796,41 @@ Template Name: Pattern Library
     <p>Not enough teams to display results. Add at least 2 teams under the football teams post type</p>
   @endif
   
+</section>
+
+<section class="flow block-padding--bottom">
+  <h2>Timeline</h2>
+  <p>Displays a timeline of events. Consists of title: This is a set of fields defined in the Title class.
+
+    cards: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a date field for entering a date, a title field for entering a card title, and a text field for entering a description.</p>
+
+  @include('blocks.timeline', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'title_style' => ['title' => 'Timeline Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'cards' => [
+      [
+        'card_year' => '2020',
+        'card_title' => 'Card title 1',
+        'card_text' => 'Card description 1'
+      ],
+      [
+        'card_year' => '2021',
+        'card_title' => 'Card title 2',
+        'card_text' => 'Card description 2'
+      ],
+      [
+        'card_year' => '2022',
+        'card_title' => 'Card title 3',
+        'card_text' => 'Card description 3'
+      ],
+      [
+        'card_year' => '2023',
+        'card_title' => 'Card title 4',
+        'card_text' => 'Card description 4'
+      ]
+    ]
+  ])
 </section>
 
 @endwhile
