@@ -10,7 +10,7 @@
                 "group": "dev"
             },
             "options": {
-                "cwd": "${workspaceFolder}/web/app/themes/sage"
+                "cwd": "${workspaceFolder}/site/web/app/themes/sage"
             },
             "runOptions": {
                 "runOn": "folderOpen"
