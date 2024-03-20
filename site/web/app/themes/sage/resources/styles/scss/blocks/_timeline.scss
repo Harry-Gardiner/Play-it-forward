@@ -2,65 +2,65 @@
     position: relative;
     overflow-x: hidden;
 
-    &.timeline--tundra {
-        // background-color: $pf-charcoal;
+    // &.timeline--tundra {
+    //     // background-color: $pf-charcoal;
 
-        .embla__button--prev {
-            background-image: url("../../../images/icons/chevron_left_charcoal.svg") !important;
-        }
+    //     .embla__button--prev {
+    //         background-image: url("../../../images/icons/chevron_left_charcoal.svg") !important;
+    //     }
 
-        .embla__button--next {
-            background-image: url("../../../images/icons/chevron_right_charcoal.svg") !important;
-        }
+    //     .embla__button--next {
+    //         background-image: url("../../../images/icons/chevron_right_charcoal.svg") !important;
+    //     }
 
-        .embla__container {
-            .embla__slide {
-                border-color: rgba(18, 67, 211, 0.3);
+    //     .embla__container {
+    //         .embla__slide {
+    //             border-color: rgba(18, 67, 211, 0.3);
 
-                &.active {
-                    border-color: $pf-charcoal;
+    //             &.active {
+    //                 border-color: $pf-charcoal;
 
-                    &::after {
-                        background-color: $pf-charcoal;
-                    }
-                }
+    //                 &::after {
+    //                     background-color: $pf-charcoal;
+    //                 }
+    //             }
 
-                &::before {
-                    background-color: $pf-charcoal;
-                    border-color: $pf-charcoal;
-                }
+    //             &::before {
+    //                 background-color: $pf-charcoal;
+    //                 border-color: $pf-charcoal;
+    //             }
 
-                &::after {
-                    background-color: $pf-charcoal;
-                }
-            }
-        }
+    //             &::after {
+    //                 background-color: $pf-charcoal;
+    //             }
+    //         }
+    //     }
 
-        .timeline {
-            &__title {
-                color: $pf-charcoal;
-            }
+    //     .timeline {
+    //         &__title {
+    //             color: $pf-charcoal;
+    //         }
 
-            &__card__year {
-                color: $pf-charcoal;
-            }
+    //         &__card__year {
+    //             color: $pf-charcoal;
+    //         }
 
-            &__card__title {
-                color: $pf-charcoal;
-            }
+    //         &__card__title {
+    //             color: $pf-charcoal;
+    //         }
 
-            &__card__text {
-                color: $pf-charcoal;
-            }
+    //         &__card__text {
+    //             color: $pf-charcoal;
+    //         }
 
-            &__instructions {
-                color: $pf-charcoal;
-            }
+    //         &__instructions {
+    //             color: $pf-charcoal;
+    //         }
 
 
-        }
+    //     }
 
-    }
+    // }
 
     .container {
         overflow-x: visible;
@@ -138,6 +138,16 @@
 
     .embla__container {
         display: flex;
+        margin-right: 2rem;
+
+        @include media-breakpoint('md') {
+            margin-right: 4rem;
+        }
+
+        @include media-breakpoint('lg') {
+            margin-right: 8rem;;
+        }
+
 
         .embla__slide {
             position: relative;
@@ -152,7 +162,7 @@
 
             @include media-breakpoint('md') {
                 min-width: 45%;
-                padding-right: 6rem;
+                padding-right: 4rem;
             }
 
             @include media-breakpoint('lg') {
@@ -193,6 +203,10 @@
                     background-color: $pf-raspberry;
                 }
             }
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 
@@ -214,22 +228,13 @@
         height: 1rem;
 
         @include media-breakpoint('md') {
-            right: 3.5rem;
-            top: -5.5rem;
-            left: auto;
-            width: 10rem;
-        }
-
-        @include media-breakpoint('lg') {
-            right: 7rem;
+            left: 45%;
+            transform: translateX(-45%);
         }
 
         @include media-breakpoint('xl') {
-            right: 10rem;
-        }
-
-        @include media-breakpoint('xxl') {
-            right: 20rem;
+            left: 0;
+            transform: translateX(0);
         }
 
         .embla__button {

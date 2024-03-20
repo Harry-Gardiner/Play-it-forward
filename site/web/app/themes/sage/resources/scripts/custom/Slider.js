@@ -42,7 +42,7 @@ if (timeline) {
 
     const timelineOptions = {
         align: 'center',
-        dragFree: true,
+        // dragFree: true,
     }
 
     const emblaApi = EmblaCarousel(viewportNode, timelineOptions);
