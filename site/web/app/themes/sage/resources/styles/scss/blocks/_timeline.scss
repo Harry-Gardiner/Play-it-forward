@@ -72,7 +72,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 6rem;
 
             @include media-breakpoint('md') {
                 flex-direction: row;
@@ -90,8 +89,6 @@
             opacity: 0.6;
 
             &--mobile {
-                margin-top: 1rem;
-
                 @include media-breakpoint('md') {
                     display: none;
                 }
@@ -122,6 +119,7 @@
 
         &__slider {
             position: relative;
+            margin-bottom: $spacing--lg;
         }
 
         &__cards-wrapper {
@@ -147,9 +145,9 @@
             min-width: 90%;
 
             padding-right: 2rem;
-            padding-bottom: 4rem;
+            padding-bottom: 2rem;
 
-            border-bottom: 1px dashed rgba(237, 236, 239, 0.5);
+            border-bottom: 1px dashed rgba(160, 160, 160, 0.9);
             margin-bottom: 1rem;
 
             @include media-breakpoint('md') {
@@ -165,9 +163,9 @@
             &::before {
                 content: "";
                 position: absolute;
-                border: 1px solid $pf-charcoal;
+                border: 1px solid $pf-raspberry;
                 border-radius: 50px;
-                // background-color: $green;
+                background-color: white;
                 height: 0.8rem;
                 width: 0.8rem;
                 bottom: -7px;
@@ -177,15 +175,15 @@
                 content: "";
                 position: absolute;
                 border-radius: 50px;
-                // background-color: $green;
+                background-color: white;
                 height: 0.4rem;
                 width: 0.4rem;
-                bottom: -0.15rem;
-                left: 0.26rem;
+                bottom: -0.2rem;
+                left: 0.20rem;
             }
 
             &.active {
-                border-bottom: 1px dashed $pf-charcoal;
+                border-bottom: 1px dashed $pf-raspberry;
 
                 &::before {
                     opacity: 1;
@@ -205,10 +203,10 @@
     }
 
     .embla__buttons {
-
         position: absolute;
-        top: -4.5rem;
-        left: -1.5rem;
+        bottom: -1.5rem;
+        left: 40%;
+        transform: translateX(-40%);
         display: flex;
         justify-content: space-between;
         width: 100%;
