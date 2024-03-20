@@ -1,0 +1,257 @@
+.section--timeline {
+    position: relative;
+    overflow-x: hidden;
+
+    &.timeline--tundra {
+        // background-color: $pf-charcoal;
+
+        .embla__button--prev {
+            background-image: url("../../../images/icons/chevron_left_charcoal.svg") !important;
+        }
+
+        .embla__button--next {
+            background-image: url("../../../images/icons/chevron_right_charcoal.svg") !important;
+        }
+
+        .embla__container {
+            .embla__slide {
+                border-color: rgba(18, 67, 211, 0.3);
+
+                &.active {
+                    border-color: $pf-charcoal;
+
+                    &::after {
+                        background-color: $pf-charcoal;
+                    }
+                }
+
+                &::before {
+                    background-color: $pf-charcoal;
+                    border-color: $pf-charcoal;
+                }
+
+                &::after {
+                    background-color: $pf-charcoal;
+                }
+            }
+        }
+
+        .timeline {
+            &__title {
+                color: $pf-charcoal;
+            }
+
+            &__card__year {
+                color: $pf-charcoal;
+            }
+
+            &__card__title {
+                color: $pf-charcoal;
+            }
+
+            &__card__text {
+                color: $pf-charcoal;
+            }
+
+            &__instructions {
+                color: $pf-charcoal;
+            }
+
+
+        }
+
+    }
+
+    .container {
+        overflow-x: visible;
+    }
+
+    .timeline {
+
+        &__text-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 6rem;
+
+            @include media-breakpoint('md') {
+                flex-direction: row;
+            }
+        }
+
+        &__title {
+            color: $pf-charcoal;
+            // @include h3();
+            font-weight: 500;
+        }
+
+        &__instructions {
+            color: $pf-charcoal;
+            opacity: 0.6;
+
+            &--mobile {
+                margin-top: 1rem;
+
+                @include media-breakpoint('md') {
+                    display: none;
+                }
+            }
+
+            &--desktop {
+                display: none;
+
+                @include media-breakpoint('md') {
+                    display: block;
+                }
+            }
+
+            // &::after {
+            //     content: '';
+            //     display: inline-block;
+
+            //     background-image: url("$icon_assets/chevron_right.svg");
+            //     background-repeat: no-repeat;
+            //     background-size: contain;
+            //     background-position: center;
+            //     position: relative;
+            //     margin-left: 0.2rem;
+            //     height: 0.7rem;
+            //     width: 0.7rem;
+            // }
+        }
+
+        &__slider {
+            position: relative;
+        }
+
+        &__cards-wrapper {
+            width: 95vw;
+
+            .embla.timeline__slider {
+                max-width: 100%;
+            }
+        }
+
+        &__line {
+            border-bottom: 1px dashed $pf-charcoal;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .embla__container {
+        display: flex;
+
+        .embla__slide {
+            position: relative;
+
+            min-width: 90%;
+
+            padding-right: 2rem;
+            padding-bottom: 4rem;
+
+            border-bottom: 1px dashed rgba(237, 236, 239, 0.5);
+            margin-bottom: 1rem;
+
+            @include media-breakpoint('md') {
+                min-width: 45%;
+                padding-right: 6rem;
+            }
+
+            @include media-breakpoint('lg') {
+                padding-right: 8rem;
+                min-width: 35%;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                border: 1px solid $pf-charcoal;
+                border-radius: 50px;
+                // background-color: $green;
+                height: 0.8rem;
+                width: 0.8rem;
+                bottom: -7px;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                border-radius: 50px;
+                // background-color: $green;
+                height: 0.4rem;
+                width: 0.4rem;
+                bottom: -0.15rem;
+                left: 0.26rem;
+            }
+
+            &.active {
+                border-bottom: 1px dashed $pf-charcoal;
+
+                &::before {
+                    opacity: 1;
+                }
+
+                &::after {
+                    background-color: $pf-raspberry;
+                }
+            }
+        }
+    }
+
+    .embla__dots {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .embla__buttons {
+
+        position: absolute;
+        top: -4.5rem;
+        left: -1.5rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 12rem;
+        height: 1rem;
+
+        @include media-breakpoint('md') {
+            right: 3.5rem;
+            top: -5.5rem;
+            left: auto;
+            width: 10rem;
+        }
+
+        @include media-breakpoint('lg') {
+            right: 7rem;
+        }
+
+        @include media-breakpoint('xl') {
+            right: 10rem;
+        }
+
+        @include media-breakpoint('xxl') {
+            right: 20rem;
+        }
+
+        .embla__button {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            border: none;
+            background-color: transparent;
+
+            width: 1rem;
+            height: 1rem;
+
+            &.embla__button--next {
+                background-image: url("../../../images/icons/chevron_right_charcoal.svg");
+            }
+
+            &.embla__button--prev {
+                background-image: url("../../../images/icons/chevron_left_charcoal.svg");
+            }
+        }
+
+    }
+}
