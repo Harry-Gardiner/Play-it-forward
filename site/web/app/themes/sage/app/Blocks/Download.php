@@ -132,7 +132,7 @@ class Download extends Block
         'download_file' => ['url' => 'https://example.com/wp-content/uploads/2021/01/example.pdf', 'filename' => 'example.pdf'],
         'download_image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'Example Image'],
         'title_style' => ['title' => 'Downloads Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
-
+        'description' => 'This is a description of the PDF.',
     ];
 
     /**

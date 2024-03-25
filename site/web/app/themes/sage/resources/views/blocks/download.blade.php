@@ -33,7 +33,6 @@
     default:
     $layout = 'default';
     }
-    // dd($layout);
 @endphp
 <section
     class="download {{ $layout ?? 'full-bleed' }}  {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
