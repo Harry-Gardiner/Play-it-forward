@@ -125,11 +125,14 @@ class Download extends Block
      * @var array
      */
     public $example = [
-        'items' => [
-            ['item' => 'Item one'],
-            ['item' => 'Item two'],
-            ['item' => 'Item three'],
-        ],
+        'wrapper' => '',
+        'spacing_size' => '',
+        'background_colour' => 'yellow',
+        'layout' => 'default',
+        'download_file' => ['url' => 'https://example.com/wp-content/uploads/2021/01/example.pdf', 'filename' => 'example.pdf'],
+        'download_image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'Example Image'],
+        'title_style' => ['title' => 'Downloads Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+
     ];
 
     /**
