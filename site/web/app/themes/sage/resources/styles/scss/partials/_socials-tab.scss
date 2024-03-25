@@ -1,33 +1,30 @@
 .socials-tab {
   position: fixed;
   z-index: 999;
-  top: 40%;
-  transform: translateY(-40%);
-  right: 0;
-
+  top: 90%;
+  transform: translateY(-90%);
+  left:-2.5rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-
-  right: -2.5rem; // Change this line
-  transition: right 0.3s ease-in-out; // Add this line
+  transition: left 0.3s ease-in-out; // Add this line
 
   &:hover,
   &:active {
-    right: 0;
+    left: 0;
 
     .socials-tab__socials {
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     }
   }
 
   &__text {
     position: relative;
-    top: 1rem;
-    right: -1px;
+    top: 10rem;
+    left: -1px;
     background-color: $pf-yellow;
     padding: 0.5rem;
-    color: $pf-white;
+    color: $pf-charcoal;
     
     font-weight: 400;
 
@@ -36,12 +33,10 @@
     text-align: center;
     width: fit-content;
 
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     z-index: 1;
-
-    box-shadow: 9px 0 10px -5px rgba(0, 0, 0, 0.2);
-    
+    box-shadow: -14px 0 17px rgba(0, 0, 0, 0.2);    
   }
 
   &__socials {
@@ -53,13 +48,13 @@
     align-items: center;
     position: relative;
 
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 
     transition: box-shadow 0.3s ease-in-out;
 
     a {
-      color: $pf-white;
+      color: $pf-charcoal;
       padding: 0.5rem;
       transition: transform 0.3s ease-in-out;
 
