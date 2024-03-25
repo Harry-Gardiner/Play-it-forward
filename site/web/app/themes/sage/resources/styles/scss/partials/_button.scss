@@ -187,4 +187,16 @@
       color: $pf-yellow;
     }
   }
+
+  &--yellow {
+    background-color: $pf-yellow;
+    color: $pf-charcoal;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border-color: $pf-charcoal;
+    }
+  }
 }

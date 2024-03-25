@@ -71,7 +71,7 @@
                         'type' => $btn_type,
                         'link' => $btn_link,
                         'text' => $btn_text,
-                        'colour' => 'transparent',
+                        'colour' => 'yellow',
                     ])
                 @endif
             </div>
