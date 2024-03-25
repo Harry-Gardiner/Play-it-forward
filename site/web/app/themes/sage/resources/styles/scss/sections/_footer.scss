@@ -126,6 +126,19 @@
         }
     }
 
+    &__banner {
+        background-image: url(../../../images/allTheGreens.png);
+        width: 100vw;
+        height: 2rem;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        
+        @include media-breakpoint(md) {
+            background-repeat: repeat-x;
+            height: 1.5rem;
+        }
+    }
 
     &__bottom {
         background-color: black;
