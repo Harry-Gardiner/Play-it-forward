@@ -3,7 +3,6 @@
 namespace App\Blocks;
 
 use App\Fields\Partials\GeneralTab;
-use App\Fields\Partials\Title;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -144,7 +143,6 @@ class Donate extends Block
             'spacing_size' => get_field('spacing_size'),
 
             // Content
-            'title_style' => get_field('title_style'),
             'body' => get_field('body'),
         ];
     }
@@ -165,7 +163,6 @@ class Donate extends Block
             ])
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Content')
-            ->addFields($this->get(Title::class))
             ->addWYSIWYG('body')
             ->addMessage('donate_message', '', [
                 'label' => 'Info',

@@ -9,11 +9,10 @@ Template Name: Pattern Library
 
   $args = array(
     'post_type' => 'football_teams',
-    'posts_per_page' => 2, // Adjust this value as needed
+    'posts_per_page' => 2, 
   );
 
   $football_query = new WP_Query($args);
-  // dd($football_query->posts[0]->ID);
   wp_reset_postdata();
 @endphp
 
