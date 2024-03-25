@@ -334,6 +334,24 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Download</h2>
+  <p>Displays a single download. Consists of title: Layout, default and full width background options. A group of fields for the title. This group consits of title text field, heading level and heading style.
+    cover_image: An image field for uploading a cover image of the document.
+    description: A textarea field for entering a description of the document.
+    file: A file field for uploading the document.</p>
+  @include('blocks.download', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'background_colour' => 'yellow',
+    'layout' => 'default',
+    'download_file' => ['url' => 'https://example.com/wp-content/uploads/2021/01/example.pdf', 'filename' => 'example.pdf'],
+    'download_image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'Example Image'],
+    'title_style' => ['title' => 'Downloads Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
+    'description' => 'This is a description of the PDF.',
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Downloads</h2>
   <p>Displays a grid of downloadable files. Consists of impact_word_enable: A true/false field for selecting whether to display an impact word. The default value is '0' (false).
     impact_word: A text field for entering the impact word.
