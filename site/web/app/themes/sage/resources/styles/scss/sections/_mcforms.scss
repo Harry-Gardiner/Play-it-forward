@@ -1,0 +1,59 @@
+#mc_embed_shell {
+  form {
+    font-family: $font--primary;
+    #mc_embed_signup_scroll {
+      & > * {
+        margin-bottom: 1rem;
+      }
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: $size--md;
+      text-transform: none;
+    }
+
+    .indicates-required {
+      font-size: $size--sm;
+      font-weight: 300;
+    }
+
+    .mc-field-group {
+        label {
+            margin-right: 1rem;
+        }
+
+        input {
+            border: none;
+            background: none;
+            border-bottom: 1px solid $pf-charcoal;
+            padding-left: 0.5rem;
+            width: 100%;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .clear {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #mc-embedded-subscribe {
+        @extend .button;
+        @extend .button--primary;
+        font-size: $size--sm;
+        padding: $spacing--sm $spacing--md;
+        border-radius: 100px;
+        background-color: $pf-yellow;
+        color: $pf-charcoal;
+        border: 1px solid transparent;
+        letter-spacing: 2px;
+    
+        &:hover {
+            border: 1px solid $pf-charcoal;
+            background-color: transparent;
+            color: $pf-charcoal;
+        }
+    }
+  }
+}

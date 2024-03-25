@@ -53,7 +53,7 @@
 
                         @if ($show_newsletter)
                             <div class="footer__newsletter">
-                                <h3>Get the newsletter</h3>
+                                {{-- <h3>Get the newsletter</h3> --}}
                                 <div class="footer__newsletter__form">
                                     {!! do_shortcode($newsletter_shortcode) !!}
                                 </div>
