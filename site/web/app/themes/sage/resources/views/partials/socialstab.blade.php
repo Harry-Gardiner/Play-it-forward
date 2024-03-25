@@ -14,7 +14,6 @@
 @endphp
 @if ($socials)
 <aside class="socials-tab">
-    <p class="socials-tab__text">Socials</p>
     <div class="socials-tab__socials">
         @if ($facebook != '')
             <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -32,5 +31,6 @@
             <a href={{ $linkedin }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
         @endif
     </div>
+    <p class="socials-tab__text">Socials</p>
 </aside>
 @endif
