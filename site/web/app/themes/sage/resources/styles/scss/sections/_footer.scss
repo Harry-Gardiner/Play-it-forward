@@ -136,7 +136,8 @@
         
         @include media-breakpoint(md) {
             background-repeat: repeat-x;
-            height: 1.5rem;
+            background-size: contain;
+            height: 40px;
         }
     }
 

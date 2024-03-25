@@ -258,6 +258,28 @@ Template Name: Pattern Library
 </section>
 
 <section class="flow block-padding--bottom">
+  <h2>Dividers</h2>
+  <p>3 variations</p>
+  @include('blocks.divider', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'colour' => 'everything'
+  ])
+
+  @include('blocks.divider', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'colour' => 'green'
+  ])
+
+  @include('blocks.divider', [
+    'wrapper' => '',
+    'spacing_size' => '',
+    'colour' => 'yellow'
+  ])
+</section>
+
+<section class="flow block-padding--bottom">
   <h2>Author</h2>
   <p>Displays the author of the blog. This block should be used immediately after each blog hero. Consists of select user: A drop down select. Default is the blog author, but able to select another author if adding content for other users.</p>
   @include('blocks.author', [
