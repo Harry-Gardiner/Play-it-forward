@@ -39,7 +39,7 @@ $theme_options
     ->addTab('Newsletter Signup')
     ->addText('newsletter_shortcode', [
         'label' => 'Newsletter signup shortcode',
-        'instructions' => 'Add the shortcode for the WPF newsletter signup form.',
+        'instructions' => 'Add the html for the newsletter signup form from MailChimp.',
     ])
 
     ->addTab('Info Banner')
