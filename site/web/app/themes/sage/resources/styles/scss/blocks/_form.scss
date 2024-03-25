@@ -2,7 +2,8 @@
     &.bg--yellow {
 
         button[value='wpforms-submit'],
-        button[type='submit'] {
+        button[type='submit'],
+        .button {
             background-color: $pf-charcoal !important;
             color: $pf-white !important;
             border: 1px solid transparent !important;
@@ -17,9 +18,9 @@
     }
 
     &.bg--charcoal {
-
         button[value='wpforms-submit'],
-        button[type='submit'] {
+        button[type='submit'],
+        .button {
             background-color: $pf-white !important;
             color: $pf-charcoal !important;
             border: 1px solid transparent !important;
@@ -36,7 +37,8 @@
     &.bg--dark-green {
 
         button[value='wpforms-submit'],
-        button[type='submit'] {
+        button[type='submit'],
+        .button {
             background-color: $pf-white !important;
             color: $pf-dark-green !important;
             border: 1px solid transparent !important;
@@ -51,7 +53,8 @@
     }
 
     &.bg--raspberry {
-        button[value='wpforms-submit'] {
+        button[value='wpforms-submit'],
+       .button {
             background-color: $pf-white !important;
             color: $pf-raspberry !important;
             border: 1px solid transparent !important;
@@ -65,9 +68,26 @@
         }
     }
 
+    &.bg--dark-raspberry {
+        button[value='wpforms-submit'],
+       .button {
+            background-color: $pf-white !important;
+            color: $pf-dark-raspberry !important;
+            border: 1px solid transparent !important;
+
+            &:hover,
+            &:focus {
+                border-color: $pf-white !important;
+                background-color: $pf-dark-raspberry !important;
+                color: $pf-white !important;
+            }
+        }
+    }
+
     &.bg--raspberry,
     &.bg--charcoal,
-    &.bg--dark-green {
+    &.bg--dark-green,
+    &.bg--dark-raspberry {
         input {
             color: $pf-white !important;
             border-bottom-color: $pf-white !important;
@@ -107,6 +127,10 @@
 
             object-fit: cover;
             object-position: center;
+
+            // @include media-breakpoint('xl') {
+            //     width: 35%;
+            // }
         }
 
         &__content {
@@ -117,9 +141,9 @@
                 padding-left: $spacing--lg;
                 width: 60%;
 
-                @include media-breakpoint('xl') {
-                    width: 65%;
-                }
+                // @include media-breakpoint('xl') {
+                //     width: 65%;
+                // }
             }
         }
     }

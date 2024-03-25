@@ -19,6 +19,9 @@
     }
 
     .mc-field-group {
+        display: flex;
+        flex-direction: column;
+        
         label {
             margin-right: 1rem;
         }
@@ -29,7 +32,12 @@
             border-bottom: 1px solid $pf-charcoal;
             padding-left: 0.5rem;
             width: 100%;
+            max-width: 250px;
             margin-top: 0.25rem;
+
+            @include media-breakpoint('lg') {
+                max-width: 400px;
+            }
         }
     }
 

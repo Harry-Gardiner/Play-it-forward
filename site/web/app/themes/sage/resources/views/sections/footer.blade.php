@@ -14,12 +14,12 @@
     <div class="footer__top full-bleed">
         <div class="container block-padding--top">
             <div class="footer__upper">
-                @include('partials.button', [
+                {{-- @include('partials.button', [
                     'type' => 'donate',
                     'link' => 'https://www.google.co.uk',
                     'text' => 'Donate',
                     'colour' => 'raspberry',
-                ])
+                ]) --}}
                 <div class="footer__social">
                     @if ($facebook != '')
                         <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -53,7 +53,6 @@
 
                         @if ($show_newsletter)
                             <div class="footer__newsletter">
-                                {{-- <h3>Get the newsletter</h3> --}}
                                 <div class="footer__newsletter__form">
                                     {!! do_shortcode($newsletter_shortcode) !!}
                                 </div>
