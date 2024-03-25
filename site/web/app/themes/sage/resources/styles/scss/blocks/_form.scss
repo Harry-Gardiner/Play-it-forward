@@ -96,23 +96,25 @@
                 color: $pf-white !important;
             }
         }
+    }
 
-        .wpforms-error {
-            color: $pf-white !important;
-
-            &::before {
-                background-color: $pf-white !important;
-            }
+    #mc_embed_signup_scroll {
+        h2 {
+            display: none;
         }
     }
 
-    .wpforms-container input {
+    input {
         border-bottom-width: 4px !important;
-        font-size: 17px !important;
 
         &::placeholder {
             text-transform: uppercase !important;
         }
+    }
+
+    label {
+        text-transform: uppercase;
+        font-weight: 500;
     }
 
     @include media-breakpoint('lg') {
@@ -127,10 +129,6 @@
 
             object-fit: cover;
             object-position: center;
-
-            // @include media-breakpoint('xl') {
-            //     width: 35%;
-            // }
         }
 
         &__content {
@@ -140,10 +138,6 @@
             &__body {
                 padding-left: $spacing--lg;
                 width: 60%;
-
-                // @include media-breakpoint('xl') {
-                //     width: 65%;
-                // }
             }
         }
     }
