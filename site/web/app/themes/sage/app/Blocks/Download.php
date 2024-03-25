@@ -144,11 +144,11 @@ class Download extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+            'layout' => get_field('layout'),
 
             // Download
             'download_file' => get_field('download_file'),
             'download_image' => get_field('download_image'),
-            // 'title' => get_field('title'),
             'title_style' => get_field('title_style'),
             'description' => get_field('description'),
         ];
@@ -173,6 +173,17 @@ class Download extends Block
             // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
             'default_value' => 'off-white',
         ])
+        ->addSelect('layout', [
+            'label' => 'Layout',
+            'instructions' => 'Choose the layout for the CTA Banner.<br><br>Full Width will span the full width of the screen. Default will be the default width of the content.',
+            'required' => 0,
+            'choices' => [
+                'default' => 'Default',
+                'full' => 'Full Width',
+            ],
+            'default_value' => 'default',
+            'layout' => 'horizontal',
+        ])
         ->addTab('download', [
             'label' => 'Download',
         ])
@@ -189,10 +200,6 @@ class Download extends Block
             'preview_size' => 'medium',
             'library' => 'all',
         ])
-        // ->addText('title', [
-        //     'label' => 'Title',
-        //     'instructions' => 'Enter the title of the PDF.',
-        // ])
         ->addFields($this->get(Title::class))
         ->addTextarea('description', [
             'label' => 'Description',

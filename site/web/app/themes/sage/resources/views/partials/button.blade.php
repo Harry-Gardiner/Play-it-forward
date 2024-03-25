@@ -27,6 +27,13 @@
         </a>
     @break
 
+    @case('download')
+        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" download>
+            {{ $text }}
+            <span class="visually-hidden">Download {{ $text }}</span>
+        </a>
+    @break
+
     @default
         <a class="button button--primary button--{{ $colour }}" href="{{ $link }}">{{ $text }}</a>
 @endswitch

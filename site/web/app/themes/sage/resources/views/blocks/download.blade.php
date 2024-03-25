@@ -1,70 +1,76 @@
 @php
-
     switch ($background_colour) {
-        case 'yellow':
-            $button_colour = 'bg-yellow';
-            break;
+    case 'yellow':
+    $button_colour = 'bg-yellow';
+    break;
 
-        case 'dark-green':
-            $button_colour = 'bg-green';
-            break;
+    case 'dark-green':
+    $button_colour = 'bg-green';
+    break;
 
-        case 'raspberry':
-            $button_colour = 'bg-raspberry';
-            break;
+    case 'raspberry':
+    $button_colour = 'bg-raspberry';
+    break;
 
-        case 'charcoal':
-            $button_colour = 'white';
-            break;
+    case 'charcoal':
+    $button_colour = 'white';
+    break;
 
-        default:
-            $button_colour = 'bg-raspberry';
-            break;
+    case 'off-white':
+    $button_colour = 'bg-yellow';
+    break;
+
+    default:
+    $button_colour = 'bg-raspberry';
+    break;
     }
 
     // $layout switch statement
-    // switch ($layout) {
-    //     case 'full':
-    //         $layout = 'full-bleed';
-    //         break;
-    //     case 'contained':
-    //         $layout = 'contained';
-    //         break;
-    //     default:
-    //         $layout = 'default';
-    // }
-
+    switch ($layout) {
+    case 'full':
+    $layout = 'full-bleed';
+    break;
+    default:
+    $layout = 'default';
+    }
+    // dd($layout);
 @endphp
 <section
-    class="download {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+    class="download {{ $layout ?? 'full-bleed' }}  {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
     @if ($download_image)
-        <div class="download__wrapper block-padding">
-            <img class="download__image" src="{{ $download_image['url'] }}""
-                alt="{{ $download_image['alt'] ? $download_image['alt'] : $download_image['name'] }}">
-            <div
-                class="download__content container">
-                <div class="download__content__body flow">
-                    <div class="flow">
-                        @if ($title_style['title'])
-                            @include('partials.title', [$title_style])
-                        @endif
-                        {{-- @if ($title)
-                            <h2 class="download__title">{{ $title }}</h2>                            
-                        @endif --}}
-                        @if ($description)
-                            {!! $description !!}
-                        @endif
-                    </div>
-                    @if ($download_file)
-                        @include('partials.button', [
-                            'type' => 'primary',
-                            'link' => $download_file['url'],
-                            'text' => 'Download',
-                            'colour' => $button_colour,
-                        ])
-                    @endif
-                </div>
+    <div class="download__wrapper block-padding container flow">
+
+        <div class="download__content flow">
+            <div>
+                @if ($title_style)
+                @include('partials.title', [$title_style])
+                @endif
+                @if ($description)
+                <p>{{ $description }}</p>
+                @endif
+            </div>
+            <div class="download__btn--desktop">
+                @include('partials.button', [
+                    'type' => 'download',
+                    'link' => $download_file['url'],
+                    'text' => 'Download',
+                    'colour' => $button_colour,
+                ])
             </div>
         </div>
+
+        <img class="download__image" src="{{ $download_image['url'] }}""
+            alt=" {{ $download_image['alt'] ? $download_image['alt'] : $download_image['name'] }}">
+        @if ($download_file)
+        <div class="download__btn--mobile">
+            @include('partials.button', [
+            'type' => 'download',
+            'link' => $download_file['url'],
+            'text' => 'Download',
+            'colour' => $button_colour,
+            ])
+        </div>
+        @endif
+    </div>
     @endif
 </section>
