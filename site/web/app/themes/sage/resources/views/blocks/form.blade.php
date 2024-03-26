@@ -36,7 +36,7 @@
                             @include('partials.title', [$title_style])
                         @endif
                         @if ($body)
-                            {!! $body !!}
+                            <div class="form-block__body">{!! $body !!}</div>
                         @endif
                         <div class="form-block__form btn-{{ $button_colour }}">
                             @if ($form_type === 'newsletter')
@@ -50,4 +50,30 @@
             </div>
         </div>
     @endif
+    @if (!$image)
+        <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
+            <div class="form-block
+            __content__body">
+                <div class="flow">
+                    @if ($title_style['title'])
+                        @include('partials.title', [$title_style])
+                    @endif
+                    @if ($body)
+                        <div class="form-block__body">{!! $body !!}</div>
+                    @endif
+                    <div class="form-block
+                    __form btn-{{ $button_colour }}">
+                        @if ($form_type === 'newsletter')
+                            {!! do_shortcode($newsletter_shortcode) !!}
+                        @else
+                            @if ($form_shortcode)
+                                {!! $form_shortcode !!}
+                            @endif
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 </section>

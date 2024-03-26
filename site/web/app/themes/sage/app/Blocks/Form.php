@@ -22,7 +22,7 @@ class Form extends Block
      *
      * @var string
      */
-    public $description = 'Block used to add form shortcode from wpforms';
+    public $description = 'Block used to add form html.';
 
     /**
      * The block category.
@@ -43,7 +43,7 @@ class Form extends Block
      *
      * @var array
      */
-    public $keywords = ['form', 'embed', 'wpform'];
+    public $keywords = ['form', 'embed', 'shortcode', 'beacon', 'newsletter', 'subscribe'];
 
     /**
      * The block post type allow list.
@@ -147,6 +147,7 @@ class Form extends Block
             'title_style' => get_field('title_style'),
             'body' => get_field('body'),
             'form_type' => get_field('form_type'),
+            'form_shortcode' => get_field('form_shortcode'),
             'image' => get_field('image'),
         ];
     }
@@ -183,9 +184,9 @@ class Form extends Block
             ])
             ->addText('form_shortcode', [
                 'label' => 'Form shortcode',
-                'instructions' => 'Add shortcode snippet from wpforms'
+                'instructions' => 'Add form html from beacon forms or other form providers.'
             ])->conditional('form_type', '==', 'other')
-            ->addImage('image');
+            ->addImage('image')->conditional('form_type', '==', 'newsletter');
 
         return $form->build();
     }
