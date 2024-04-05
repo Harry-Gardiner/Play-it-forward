@@ -31,6 +31,6 @@
             <a href={{ $linkedin }} target="_blank"><i class="fa-brands fa-linkedin"></i></i></a>
         @endif
     </div>
-    <p class="socials-tab__text">Socials</p>
+    <p class="socials-tab__text">Follow Us</p>
 </aside>
 @endif
