@@ -1,44 +1,43 @@
 @php
-    switch ($background_colour) {
-    case 'yellow':
-    $button_colour = 'bg-yellow';
-    break;
+switch ($background_colour) {
+case 'yellow':
+$button_colour = 'bg-yellow';
+break;
 
-    case 'dark-green':
-    $button_colour = 'bg-green';
-    break;
+case 'dark-green':
+$button_colour = 'bg-green';
+break;
 
-    case 'raspberry':
-    $button_colour = 'bg-raspberry';
-    break;
+case 'raspberry':
+$button_colour = 'bg-raspberry';
+break;
 
-    case 'charcoal':
-    $button_colour = 'white';
-    break;
+case 'charcoal':
+$button_colour = 'white';
+break;
 
-    case 'off-white':
-    $button_colour = 'bg-yellow';
-    break;
+case 'off-white':
+$button_colour = 'bg-yellow';
+break;
 
-    default:
-    $button_colour = 'bg-raspberry';
-    break;
-    }
+default:
+$button_colour = 'bg-raspberry';
+break;
+}
 
-    // $layout switch statement
-    switch ($layout) {
-    case 'full':
-    $layout = 'full-bleed';
-    break;
-    default:
-    $layout = 'default';
-    }
+// $layout switch statement
+switch ($layout) {
+case 'full':
+$layout = 'full-bleed';
+break;
+default:
+$layout = 'default';
+}
 @endphp
 <section
     class="download {{ $layout ?? 'full-bleed' }}  {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
     @if ($download_image)
     <div class="download__wrapper block-padding container flow">
-
         <div class="download__content flow">
             <div>
                 @if ($title_style)
@@ -50,10 +49,10 @@
             </div>
             <div class="download__btn--desktop">
                 @include('partials.button', [
-                    'type' => 'download',
-                    'link' => $download_file['url'],
-                    'text' => 'Download',
-                    'colour' => $button_colour,
+                'type' => 'download',
+                'link' => $download_file['url'],
+                'text' => 'View',
+                'colour' => $button_colour,
                 ])
             </div>
         </div>
@@ -65,7 +64,7 @@
             @include('partials.button', [
             'type' => 'download',
             'link' => $download_file['url'],
-            'text' => 'Download',
+            'text' => 'View',
             'colour' => $button_colour,
             ])
         </div>
