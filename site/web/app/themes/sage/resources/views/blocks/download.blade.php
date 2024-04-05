@@ -51,7 +51,7 @@ $layout = 'default';
                 @include('partials.button', [
                 'type' => 'download',
                 'link' => $download_file['url'],
-                'text' => 'View',
+                'text' => 'Read now',
                 'colour' => $button_colour,
                 ])
             </div>
@@ -64,7 +64,7 @@ $layout = 'default';
             @include('partials.button', [
             'type' => 'download',
             'link' => $download_file['url'],
-            'text' => 'View',
+            'text' => 'Read now',
             'colour' => $button_colour,
             ])
         </div>
