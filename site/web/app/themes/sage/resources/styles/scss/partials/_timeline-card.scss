@@ -4,9 +4,9 @@
     justify-content: space-between;
 
     &__year {
-        color: $pf-raspberry;
-       @extend .h5;
-       font-weight: 500;
+       color: $pf-raspberry;
+       @extend .h3;
+       font-weight: 700;
     }
 
     &__title {
