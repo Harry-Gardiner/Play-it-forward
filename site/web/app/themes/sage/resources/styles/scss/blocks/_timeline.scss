@@ -143,13 +143,9 @@
         height: 1rem;
 
         @include media-breakpoint('md') {
-            left: 45%;
-            transform: translateX(-45%);
-        }
-
-        @include media-breakpoint('xl') {
-            left: 0;
-            transform: translateX(0);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -2.5rem;
         }
 
         .embla__button {
