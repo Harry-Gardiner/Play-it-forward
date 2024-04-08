@@ -96,7 +96,7 @@ domReady(async () => {
       });
 
       hiddenMatches.slice(0, 3).forEach(function (match) {
-        match.style.display = 'flex';
+        match.style.display = 'grid';
         match.classList.add('loaded');
       });
 
