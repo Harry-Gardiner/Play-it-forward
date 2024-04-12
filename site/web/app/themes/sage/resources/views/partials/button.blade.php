@@ -28,9 +28,9 @@
     @break
 
     @case('download')
-        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" download>
+        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" target="_blank">
             {{ $text }}
-            <span class="visually-hidden">Download {{ $text }}</span>
+            <span class="visually-hidden">{{ $text }}</span>
         </a>
     @break
 

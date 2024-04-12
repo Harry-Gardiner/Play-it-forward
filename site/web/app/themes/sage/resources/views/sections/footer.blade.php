@@ -6,20 +6,13 @@
     $linkedin = get_field('linkedin_link', 'option');
 
     $footer_columns = get_field('footer_columns', 'option');
-    $show_newsletter = get_field('show_newsletter_signup', 'option');
-    $newsletter_shortcode = get_field('newsletter_shortcode', 'option');
+    $footer_logo = get_field('footer_logo', 'option');
 @endphp
 
 <footer class="footer">
     <div class="footer__top full-bleed">
         <div class="container block-padding--top">
             <div class="footer__upper">
-                {{-- @include('partials.button', [
-                    'type' => 'donate',
-                    'link' => 'https://www.google.co.uk',
-                    'text' => 'Donate',
-                    'colour' => 'raspberry',
-                ]) --}}
                 <div class="footer__social">
                     @if ($facebook != '')
                         <a href={{ $facebook }} target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -51,11 +44,9 @@
                             </div>
                         @endforeach
 
-                        @if ($show_newsletter)
-                            <div class="footer__newsletter">
-                                <div class="footer__newsletter__form">
-                                    {!! do_shortcode($newsletter_shortcode) !!}
-                                </div>
+                        @if ($footer_logo)
+                            <div class="footer__logo">
+                                <img src="{{$footer_logo['sizes']['medium']}}" alt="{{$footer_logo['alt']}}">
                             </div>
                         @endif
                     </div>

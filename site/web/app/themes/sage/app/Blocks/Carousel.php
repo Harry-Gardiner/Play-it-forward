@@ -161,6 +161,7 @@ class Carousel extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
 
             // Carousel
             'title_style' => get_field('title_style'),
@@ -185,6 +186,15 @@ class Carousel extends Block
                 'label' => 'Carousel',
             ])
             ->addFields($this->get(GeneralTab::class))  
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                'choices' => [
+                    'white' => 'White',
+                    'off-white' => 'Off White',
+                    'raspberry' => 'Raspberry',
+                ],
+                'default_value' => 'white',
+            ])
             ->addTab('Slider Options')
             ->addFields($this->get(Title::class))
             ->addSelect('slider_type', [

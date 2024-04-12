@@ -182,8 +182,8 @@ class Timeline extends Block
 
         $timeline
         ->addMessage('block_title', '', [
-            'label' => 'Text with Media',
-            'message' => 'A block for adding additional text and an impact word to images or videos.',
+            'label' => 'Timeline',
+            'message' => 'A block for displaying a timeline of events or items in a carousel format.',
         ])
         ->addFields($this->get(GeneralTab::class))
         ->addTab('Content')
@@ -198,6 +198,11 @@ class Timeline extends Block
             ])
             ->addText('card_title', [
                 'label' => 'Card title',
+            ])
+            ->addImage('card_image', [
+                'label' => 'Card image',
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
             ])
             ->addTextarea('card_text', [
                 'label' => 'Card text',

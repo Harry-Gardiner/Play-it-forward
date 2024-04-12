@@ -56,10 +56,9 @@ $theme_options
     )
 
     ->addTab('Footer')
-    ->addTrueFalse('show_newsletter_signup', [
-        'label' => 'Show newsletter signup',
-        'instructions' => 'Shows the newsletter signup form in the final column',
-        'default_value' => 0,
+    ->addImage('footer_logo', [
+        'label' => 'Footer logo',
+        'instructions' => 'Add a logo for the footer.',
     ])
     ->addRepeater('footer_columns', [
         'label' => 'Footer columns',

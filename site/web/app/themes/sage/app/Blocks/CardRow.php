@@ -168,6 +168,7 @@ class CardRow extends Block
             // General
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
+            'background_colour' => get_field('colour_picker'),
 
             // Card Row
             'title_style' => get_field('title_style'),
@@ -189,6 +190,14 @@ class CardRow extends Block
             'label' => 'Card Row',
         ])
         ->addFields($this->get(GeneralTab::class))  
+        ->addRadio('colour_picker', [
+            'label' => 'Select Colour',
+            'choices' => [
+                'white' => 'White',
+                'off-white' => 'Off White',
+            ],
+            'default_value' => 'white',
+        ])
         ->addFields($this->get(Title::class))
         ->addTab('Cards')
         // add repeater called cards with image, title and button
