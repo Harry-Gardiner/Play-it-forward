@@ -31,19 +31,40 @@
     }
 }
 
+.two-column-content__column-1 {
+    .two-column-quote {
+        @include media-breakpoint('md') {
+            padding-right: 2rem;
+        }
+
+        @include media-breakpoint('lg') {
+            padding-right: 4rem;
+        }
+
+        @include media-breakpoint('xl') {
+            padding-right: 8rem;
+        }
+    }
+}
+
+.two-column-content__column-2 {
+    .two-column-quote {
+        @include media-breakpoint('md') {
+            padding-left: 2rem;
+        }
+
+        @include media-breakpoint('lg') {
+            padding-left: 4rem;
+        }
+
+        @include media-breakpoint('xl') {
+            padding-left: 8rem;
+        }
+    }
+
+}
+
 .two-column-quote {
-   @include media-breakpoint('md') {
-        padding-right: 2rem;
-    }
-
-    @include media-breakpoint('lg') {
-        padding-right: 4rem;
-    }
-
-    @include media-breakpoint('xl') {
-        padding-right: 8rem;
-    }
-
     &__short {
         font-size: $size--lg;
         font-weight: 600;
