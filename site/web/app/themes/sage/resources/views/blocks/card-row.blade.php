@@ -1,5 +1,14 @@
-<section class="card-row {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
-   <div class="block-padding">
+@php
+    // Wrapper
+    $wrapper = $wrapper ?? null;
+    $spacing_size = $spacing_size ?? null;
+
+    //BG
+    $background_colour = $background_colour ?? 'white';
+@endphp
+
+<section class="card-row full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+   <div class="block-padding container">
      <div class="container">
         @if ($title_style['title'] !== '')
             @include('partials.title', [$title_style])
