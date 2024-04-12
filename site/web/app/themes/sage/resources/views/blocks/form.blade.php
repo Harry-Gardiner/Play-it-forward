@@ -30,8 +30,8 @@
         <div class="form-block__image">
             <img src="{{ $image['url'] }}"" alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
             <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
-                <div class="form-block__content__body">
-                    <div class="flow">
+                <div class="form-block__content__body flow">
+                    
                         @if ($title_style['title'])
                             @include('partials.title', [$title_style])
                         @endif
@@ -45,24 +45,26 @@
                                 Other
                             @endif
                         </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
     @endif
     @if (!$image)
         <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
-            <div class="form-block
-            __content__body">
-                <div class="flow">
+            <div class="form-block__default-img">
+                <img src="{{ asset('images/pif_logo_lrg_white.png') }}"
+                alt="Play it forward logo">
+               </div>
+            <div class="form-block__content__body--alt flow">
+                
                     @if ($title_style['title'])
                         @include('partials.title', [$title_style])
                     @endif
                     @if ($body)
                         <div class="form-block__body">{!! $body !!}</div>
                     @endif
-                    <div class="form-block
-                    __form btn-{{ $button_colour }}">
+                    <div class="form-block__form btn-{{ $button_colour }}">
                         @if ($form_type === 'newsletter')
                             {!! do_shortcode($newsletter_shortcode) !!}
                         @else
@@ -71,7 +73,7 @@
                             @endif
                         @endif
                     </div>
-                </div>
+               
             </div>
         </div>
     @endif

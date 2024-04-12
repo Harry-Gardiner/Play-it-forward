@@ -117,6 +117,18 @@
         font-weight: 500;
     }
 
+    &__default-img {
+        display: none;
+    }
+
+    &__content {
+        &__body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     @include media-breakpoint('lg') {
         position: relative;
 
@@ -138,7 +150,24 @@
             &__body {
                 padding-left: $spacing--lg;
                 width: 60%;
+                align-items: flex-start;
             }
+        }
+
+        &__default-img {
+            display: block;
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__form {
+        width: 100%;
+        max-width: 400px;
+
+        @include media-breakpoint('sm') {
+            width: 400px;
         }
     }
 
