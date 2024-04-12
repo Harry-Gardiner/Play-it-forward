@@ -1,10 +1,3 @@
-@php
-// $cards = $fields['cards'];
-// $theme = $fields['theme'] ? 'timeline--' . $fields['theme'] : '';
-// dump($title_style);
-@endphp
-
-
 @if ($cards && !empty($cards))
 <section class="section--timeline">
   <div class="block-padding">

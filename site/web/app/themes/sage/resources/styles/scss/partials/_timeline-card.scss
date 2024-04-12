@@ -16,6 +16,12 @@
         margin-top: 0.5rem;
     }
 
+    &__img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+    }
+
     &__text {
         color: $pf-charcoal;
     }

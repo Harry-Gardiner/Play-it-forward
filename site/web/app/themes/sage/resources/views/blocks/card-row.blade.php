@@ -10,8 +10,10 @@
             <div class="card-row__item">
                 <div class="card-row__item__inner">
                     <div class="card-row__item__content flow">
-                        <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}""
-                        alt="{{ $item['image']['alt'] ? $item['image']['alt'] : $item['image']['name'] }}">
+                        @if ($item['image'])
+                            <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}""
+                            alt="{{ $item['image']['alt'] ? $item['image']['alt'] : $item['image']['name'] }}">
+                        @endif
                         <div class="card-row__item__body">
                           @if ($item['title'])
                               <h3 class="card-row__item__title">{{ $item['title'] }}</h3>
