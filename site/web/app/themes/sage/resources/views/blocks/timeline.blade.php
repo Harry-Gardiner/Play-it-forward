@@ -13,8 +13,6 @@
         @if ($title_style['title'])
             @include('partials.title', [$title_style])
         @endif
-        <p class="timeline__instructions timeline__instructions--desktop">Click & Drag</p>
-        <p class="timeline__instructions timeline__instructions--mobile">Swipe</p>
       </div>
     @endif
     <div class="timeline__cards-wrapper">

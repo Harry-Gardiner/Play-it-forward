@@ -11,34 +11,10 @@
         &__text-wrapper {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
 
             @include media-breakpoint('md') {
                 flex-direction: row;
-            }
-        }
-
-        &__title {
-            color: $pf-charcoal;
-            font-weight: 500;
-        }
-
-        &__instructions {
-            color: $pf-charcoal;
-            opacity: 0.6;
-
-            &--mobile {
-                @include media-breakpoint('md') {
-                    display: none;
-                }
-            }
-
-            &--desktop {
-                display: none;
-
-                @include media-breakpoint('md') {
-                    display: block;
-                }
             }
         }
 
