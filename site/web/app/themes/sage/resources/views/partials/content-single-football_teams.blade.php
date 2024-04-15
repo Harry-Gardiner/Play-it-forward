@@ -25,9 +25,9 @@
         $dateA = DateTime::createFromFormat('d/m/Y', $a['match_date']);
         $dateB = DateTime::createFromFormat('d/m/Y', $b['match_date']);
 
-        return $dateA <=> $dateB;
+        return $dateB <=> $dateA;
     });
-    $last_match = array_pop($matches);
+    $last_match = array_shift($matches);
     if ($last_match['match_score'] !== '' && $last_match['match_opponent'] !== '') {
         // split match score into array by the - character
         $score = explode('-', $last_match['match_score']);

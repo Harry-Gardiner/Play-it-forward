@@ -126,6 +126,22 @@
         }
     }
 
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint(md) {
+            align-items: flex-start;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
     &__banner {
         background-image: url(../../../images/allTheGreens.png);
         width: 100vw;
@@ -221,7 +237,7 @@
         }
 
         a {
-            font-weight: 300;
+            font-weight: 500;
             text-decoration: none;
             color: $pf-charcoal;
 

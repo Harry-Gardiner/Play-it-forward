@@ -9,6 +9,9 @@
     $thumbnail_alt = $thumbnail_id ? get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true) : '';
 @endphp
 <div class="card">
+    <div class="card__banner">
+        <img src="@asset('images/bitOfEverything.png')" alt="hero banner">
+    </div>
     <a href="{{ get_permalink($post->ID) }}">
         <div class="card__image">
             @if ($thumbnail_id)

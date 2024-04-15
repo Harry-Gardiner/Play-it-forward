@@ -31,11 +31,12 @@
                             @if ($download['description'])
                                 <p class="downloads__description">{{ $download['description'] }}</p>
                             @endif
-                            <a href="{{ $download['download_file']['url'] }}" download
+                            <a href="{{ $download['download_file']['url'] }}"
                                 class="downloads__link button button--primary button--download"
-                                title="Download {{ $download['title'] }} in PDF format"
-                                aria-label="Download {{ $download['title'] }} in PDF format">
-                                Download
+                                target="_blank"
+                                title="View {{ $download['title'] }}"
+                                aria-label="View {{ $download['title'] }}">
+                                View
                             </a>
                         </div>
                     @endforeach

@@ -1,5 +1,14 @@
-<section class="card-row {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
-   <div class="block-padding">
+@php
+    // Wrapper
+    $wrapper = $wrapper ?? null;
+    $spacing_size = $spacing_size ?? null;
+
+    //BG
+    $background_colour = $background_colour ?? 'white';
+@endphp
+
+<section class="card-row full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+   <div class="block-padding container">
      <div class="container">
         @if ($title_style['title'] !== '')
             @include('partials.title', [$title_style])
@@ -10,8 +19,10 @@
             <div class="card-row__item">
                 <div class="card-row__item__inner">
                     <div class="card-row__item__content flow">
-                        <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}""
-                        alt="{{ $item['image']['alt'] ? $item['image']['alt'] : $item['image']['name'] }}">
+                        @if ($item['image'])
+                            <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}""
+                            alt="{{ $item['image']['alt'] ? $item['image']['alt'] : $item['image']['name'] }}">
+                        @endif
                         <div class="card-row__item__body">
                           @if ($item['title'])
                               <h3 class="card-row__item__title">{{ $item['title'] }}</h3>
