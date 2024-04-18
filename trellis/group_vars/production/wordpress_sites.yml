@@ -5,6 +5,8 @@ wordpress_sites:
   play-itforward.org:
     site_hosts:
       - canonical: play-itforward.org
+        redirects:
+          - www.play-itforward.org
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
     repo: git@github.com:Harry-Gardiner/Play-it-forward.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
