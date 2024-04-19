@@ -68,7 +68,7 @@
                         <div class="football-team__latest__content container block-padding">
                             <div class="title">
                                 <h2 class="h2 football-team__results__heading">
-                                    Last match results
+                                    Latest match results
                                 </h2>
                             </div>
                             <p class="football-team__latest__date">{{ $last_match['match_date'] }}</p>
