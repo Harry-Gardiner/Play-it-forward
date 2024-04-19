@@ -32,23 +32,13 @@
             border-bottom: 1px solid $pf-charcoal;
             padding-left: 0.5rem;
             width: 100%;
-            // max-width: 250px;
             margin-top: 0.25rem;
-
-            // @include media-breakpoint('lg') {
-            //     max-width: 400px;
-            // }
         }
     }
 
     .clear {
         display: flex;
         justify-content: flex-end;
-        // max-width: 250px;
-
-        // @include media-breakpoint('lg') {
-        //   max-width: 400px;
-        // }
     }
 
     #mc-embedded-subscribe {
@@ -67,6 +57,10 @@
             background-color: transparent;
             color: $pf-charcoal;
         }
+    }
+
+    #mce-MMERGE3 {
+        padding-bottom: 1rem;
     }
   }
 }
