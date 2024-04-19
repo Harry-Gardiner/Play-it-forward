@@ -53,7 +53,7 @@
     @if (!$image)
         <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
             <div class="form-block__default-img">
-                <img src="{{ asset('images/pif_logo_lrg_white.png') }}"
+                <img src="{{ asset('images/pif_logo_white_no_chevron.png') }}"
                 alt="Play it forward logo">
                </div>
             <div class="form-block__content__body--alt flow">
