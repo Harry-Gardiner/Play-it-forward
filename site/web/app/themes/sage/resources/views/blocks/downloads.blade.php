@@ -20,10 +20,12 @@
                     @foreach ($download_grid as $download)
                         <div class="downloads__item {{ $download['download_image_orientation'] }} flow">
                             @if ($download['download_image'])
-                                <div class="downloads__image">
+                                <a href="{{ $download['download_file']['url'] }}"  target="_blank"
+                                title="View {{ $download['title'] }}"
+                                aria-label="View {{ $download['title'] }}" class="downloads__image">
                                     <img src="{{ $download['download_image']['sizes']['medium_large'] }}"
                                         alt="{{ $download['download_image']['alt'] }}">
-                                </div>
+                                </a>
                             @endif
                             @if ($download['title'])
                                 <p class="downloads__title">{{ $download['title'] }}</p>

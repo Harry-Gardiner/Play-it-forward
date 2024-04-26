@@ -57,8 +57,10 @@ $layout = 'default';
             </div>
         </div>
 
-        <img class="download__image" src="{{ $download_image['url'] }}""
-            alt=" {{ $download_image['alt'] ? $download_image['alt'] : $download_image['name'] }}">
+        <a href="{{$download_file['url']}}" target="_blank">
+            <img class="download__image" src="{{ $download_image['url'] }}""
+                alt=" {{ $download_image['alt'] ? $download_image['alt'] : $download_image['name'] }}">
+        </a >
         @if ($download_file)
         <div class="download__btn--mobile">
             @include('partials.button', [
