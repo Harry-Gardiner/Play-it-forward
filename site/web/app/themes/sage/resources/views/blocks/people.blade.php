@@ -28,6 +28,9 @@
                       @endif
                       <div class="person__info">
                           <p class="person__name h3">{{ $person['name'] }}</p>
+                          @if ($person['position'])
+                              <p class="person__position">{{ $person['position'] }}</p>
+                          @endif
                           @if ($person['bio'])
                             <div class="person__bio-prompt">
                                 <p>BIO</p>

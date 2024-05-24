@@ -301,18 +301,21 @@ Template Name: Pattern Library
     'people' => [
       [
         'name' => 'Person 1',
+        'position' => 'Position 1',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
         'linkedin' => 'https://www.linkedin.com/'
       ],
       [
         'name' => 'Person 2',
+        'position' => 'Position 2',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius. Lorem ipsum dolor sit. Lorem ipsum dolor sit amet amet in explicabo!',
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
         'linkedin' => 'https://www.linkedin.com/'
       ],
       [
         'name' => 'Person 3',
+        'position' => 'Position 3',
         'bio' => 'Bio text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/800x800'], 'alt' => 'alt text'],
         'linkedin' => 'https://www.linkedin.com/'

@@ -70,6 +70,13 @@
       }
     }
 
+    &__position {
+      font-size: $size--sm;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: $spacing--xs;
+    }
+
     &__info {
       display: flex;
       flex-direction: column;

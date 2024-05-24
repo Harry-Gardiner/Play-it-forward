@@ -198,6 +198,9 @@ class People extends Block
             ->addText('name', [
                 'label' => 'Name',
             ])
+            ->addText('position', [
+                'label' => 'Job Title',
+            ])
             ->addWYSIWYG('bio', [
                 'label' => 'Bio',
                 'media_upload' => 0,
