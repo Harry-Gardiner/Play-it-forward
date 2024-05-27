@@ -19,9 +19,11 @@
   }
 
   &__title {
+    text-transform: uppercase;
+
     h1 {
+      text-transform: inherit;
       font-style: normal;
-      text-transform: none;
       word-wrap: break-word;
     }
   }
