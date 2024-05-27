@@ -24,13 +24,14 @@
         }
 
         @include media-breakpoint('lg') {
-            flex: unset;
+            flex: 1;
         }
 
         &__image {
             border-radius: 4px;
             height: 250px;
             object-fit: cover;
+            width: 100%;
         }
 
         .button {
