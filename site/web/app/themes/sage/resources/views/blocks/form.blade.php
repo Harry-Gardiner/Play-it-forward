@@ -39,6 +39,7 @@
                             <div class="form-block__body">{!! $body !!}</div>
                         @endif
                         <div class="form-block__form btn-{{ $button_colour }}">
+                            <small>* indicates required</small>
                             @if ($form_type === 'newsletter')
                                 {!! do_shortcode($newsletter_shortcode) !!}
                             @else
@@ -65,6 +66,7 @@
                         <div class="form-block__body">{!! $body !!}</div>
                     @endif
                     <div class="form-block__form btn-{{ $button_colour }}">
+                        <small>* indicates required</small>
                         @if ($form_type === 'newsletter')
                             {!! do_shortcode($newsletter_shortcode) !!}
                         @else
