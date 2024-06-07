@@ -11,7 +11,7 @@
         @if ($impact_word_enable === 'yes')
             <div class="impact__word">{{ $impact_word }}</div>
         @endif
-        <div>
+        <div class="partners__wrapper">
             @if ($title_style['title'])
                 @include('partials.title', [$title_style])
             @endif
@@ -27,7 +27,9 @@
                             @endif
                             <div class="partners__item__info">
                                 <p class="h3">{{ $partner['name'] }}</p>
-                                <p>{{ $partner['description'] }}</p>
+                                @if ($partner['description'])
+                                    <p>{{ $partner['description'] }}</p> 
+                                @endif
                                 @if ($partner['url'])
                                     <a href="{{ $partner['url'] }}" target="_blank">
                                         <div class="arrow-container">
