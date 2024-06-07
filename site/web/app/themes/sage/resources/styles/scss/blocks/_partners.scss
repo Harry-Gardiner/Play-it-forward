@@ -27,6 +27,12 @@
         gap: 1rem;
         align-items: center;
 
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
         &__info {
             text-align: center;
 
