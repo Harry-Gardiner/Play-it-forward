@@ -1,6 +1,6 @@
 <div class="text flow">
     @if(isset($title))
-        <h2 class="text__title">{{ $title }}</h2>
+        <h3 class="h3">{{ $title }}</h3>
     @endif
     @if(isset($text))
         {!! $text !!}
