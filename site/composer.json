@@ -51,7 +51,8 @@
     "wpackagist-plugin/updraftplus": "^1.24.3",
     "wpackagist-plugin/contact-form-7": "^5.9.5",
     "wpackagist-plugin/mailchimp-for-wp": "^4.9.13",
-    "wpackagist-plugin/wp-mail-smtp": "^4.0.1"
+    "wpackagist-plugin/wp-mail-smtp": "^4.0.1",
+    "wpackagist-plugin/mailgun": "^1.9.9"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
