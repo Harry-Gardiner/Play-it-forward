@@ -4,7 +4,7 @@
             @if(isset(${'content_'.$i}))
                 <div class="two-column-content__column-{{ $i }}">
                     @if(${'content_'.$i} === 'text')
-                        @include('partials.text', ['text' => ${'text_'.$i}])
+                        @include('partials.text', ['text' => ${'text_'.$i}, 'title' => ${'title_'.$i}])
                     @elseif(${'content_'.$i} === 'quote')
                         @include('partials.quote', ['text' => ${'quote_'.$i}, 'author' => ${'author_'.$i}, 'style' => ${'style_'.$i}])
                     @elseif(${'content_'.$i} === 'image')

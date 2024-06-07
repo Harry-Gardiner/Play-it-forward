@@ -130,6 +130,7 @@ class TwoColumnContent extends Block
         'content_1' => 'image',
         'image_1' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'],
         'content_2' => 'text',
+        'title_2' => 'Title',
         'text_2' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>',
     ];
 
@@ -145,7 +146,9 @@ class TwoColumnContent extends Block
 
             'content_1' => get_field('content_1'),
             'content_2' => get_field('content_2'),
+            'title_1' => get_field('title_1'),
             'text_1' => get_field('text_1'),
+            'title_2' => get_field('title_2'),
             'text_2' => get_field('text_2'),
             'quote_1' => get_field('quote_1'),
             'quote_2' => get_field('quote_2'),
@@ -219,6 +222,10 @@ class TwoColumnContent extends Block
                 'label' => 'Quote author (optional)',
                 'instructions' => 'Add the name of the person being quoted. You may also like to add their job title etc here',
             ])->conditional('content_1', '==', 'quote')
+            ->addText('title_1', [
+                'label' => 'Title',
+                'instructions' => 'Add a title for this block. This will be displayed in a larger font size than the main text.',
+            ])->conditional('content_1', '==', 'text')
             ->addWysiwyg('text_1', [
                 'label' => 'Text',
                 'media_upload' => 0,
@@ -267,6 +274,10 @@ class TwoColumnContent extends Block
                 'label' => 'Quote author (optional)',
                 'instructions' => 'Add the name of the person being quoted. You may also like to add their job title etc here',
             ])->conditional('content_2', '==', 'quote')
+            ->addText('title_2', [
+                'label' => 'Title',
+                'instructions' => 'Add a title for this block. This will be displayed in a larger font size than the main text.',
+            ])->conditional('content_2', '==', 'text')
             ->addWysiwyg('text_2', [
                 'label' => 'Text',
                 'media_upload' => 0,
