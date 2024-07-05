@@ -20,12 +20,13 @@
 
   &__title {
     text-transform: uppercase;
-
+    width: 100%;
+    
     h1 {
       text-transform: inherit;
       font-style: normal;
       word-wrap: break-word;
-      line-break: anywhere;
+      hyphens: auto;
     }
   }
 
