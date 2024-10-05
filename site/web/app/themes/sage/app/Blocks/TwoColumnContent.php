@@ -5,6 +5,7 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\GeneralTab;
+use App\Fields\Partials\Title;
 
 class TwoColumnContent extends Block
 {
@@ -126,7 +127,9 @@ class TwoColumnContent extends Block
     public $example = [
         'wrapper' => '',
         'spacing_size' => '',
+        'background_colour' => 'off-white',
         'align_layout' => 'align-to-top',
+        'title_style' => ['title' => 'Partners Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
         'content_1' => 'image',
         'image_1' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'],
         'content_2' => 'text',
@@ -143,6 +146,7 @@ class TwoColumnContent extends Block
     {
         return [
             'align_layout' => get_field('align_layout'),
+            'title_style' => get_field('title_style'),
 
             'content_1' => get_field('content_1'),
             'content_2' => get_field('content_2'),
@@ -179,6 +183,11 @@ class TwoColumnContent extends Block
 
         $twoColumnContent
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
+                'default_value' => 'off-white',
+            ])
             ->addTab('Layout', [
                 'label' => 'Block layout'
             ])
@@ -192,6 +201,7 @@ class TwoColumnContent extends Block
                 'default_value' => 'middle',
 
             ])
+            ->addFields($this->get(Title::class))
             ->addTab('Column 1', [
                 'label' => 'Column 1'
             ])
@@ -241,7 +251,7 @@ class TwoColumnContent extends Block
                 'label' => 'Video URL',
                 'instructions' => 'Add the URL of the video you would like to embed. This should be a YouTube or Vimeo URL.',
             ])->conditional('content_1', '==', 'video')
-            
+
 
             ->addTab('Column 2', [
                 'label' => 'Column 2'
@@ -257,7 +267,7 @@ class TwoColumnContent extends Block
                 ],
                 'default_value' => 'text',
             ])
-            
+
             ->addRadio('style_2', [
                 'label' => 'Quote style',
                 'instructions' => 'Choose the style of quote you would like to use. \'Short\' should be reserved for very short, punchy quotes, ideally of less than 100 characters. Longer quotes should use the \'Long\' style.',
@@ -293,7 +303,7 @@ class TwoColumnContent extends Block
                 'label' => 'Video URL',
                 'instructions' => 'Add the URL of the video you would like to embed. This should be a YouTube or Vimeo URL.',
             ])->conditional('content_2', '==', 'video')
-            
+
             ;
 
         return $twoColumnContent->build();

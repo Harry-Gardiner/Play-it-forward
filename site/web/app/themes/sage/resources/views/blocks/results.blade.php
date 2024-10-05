@@ -55,12 +55,6 @@ return $dateA <=> $dateB;
                     <div class="results__content flow">
                         <p class="h2 results__content__title">{{ $team_one_title }}</p>
                         <div class="results__body">{!! $team_one_body !!}</div>
-                        @include('partials.button', [
-                        'type' => 'button',
-                        'link' => get_permalink($team_one->ID),
-                        'text' => 'Find out more',
-                        'colour' => 'white',
-                        ])
                     </div>
                     @if ($team_one_matches)
                     <div class="results__recent">
@@ -88,6 +82,14 @@ return $dateA <=> $dateB;
                         </div>
                     </div>
                     @endif
+                    <div class="results__more">
+                      @include('partials.button', [
+                        'type' => 'button',
+                        'link' => get_permalink($team_one->ID),
+                        'text' => 'More Results',
+                        'colour' => 'white',
+                        ])
+                    </div>
                 </div>
             </div>
 
@@ -96,12 +98,6 @@ return $dateA <=> $dateB;
                     <div class="results__content flow">
                         <p class="h2 results__content__title">{{ $team_two_title }}</p>
                         <div class="results__body">{!! $team_two_body !!}</div>
-                        @include('partials.button', [
-                        'type' => 'button',
-                        'link' => get_permalink($team_two->ID),
-                        'text' => 'Find out more',
-                        'colour' => 'white',
-                        ])
                     </div>
                     @if ($team_two_matches)
                     <div class="results__recent">
@@ -129,6 +125,14 @@ return $dateA <=> $dateB;
                         </div>
                     </div>
                     @endif
+                    <div class="results__more">
+                      @include('partials.button', [
+                        'type' => 'button',
+                        'link' => get_permalink($team_two->ID),
+                        'text' => 'More Results',
+                        'colour' => 'white',
+                        ])
+                    </div>
                 </div>
             </div>
         </div>
