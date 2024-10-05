@@ -127,6 +127,7 @@ class TwoColumnContent extends Block
     public $example = [
         'wrapper' => '',
         'spacing_size' => '',
+        'background_colour' => 'off-white',
         'align_layout' => 'align-to-top',
         'title_style' => ['title' => 'Partners Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
         'content_1' => 'image',
@@ -182,6 +183,11 @@ class TwoColumnContent extends Block
 
         $twoColumnContent
             ->addFields($this->get(GeneralTab::class))
+            ->addRadio('colour_picker', [
+                'label' => 'Select Colour',
+                // Choices are generated in setup.php see ACF Radio Color Palette filter approx line 244.
+                'default_value' => 'off-white',
+            ])
             ->addTab('Layout', [
                 'label' => 'Block layout'
             ])

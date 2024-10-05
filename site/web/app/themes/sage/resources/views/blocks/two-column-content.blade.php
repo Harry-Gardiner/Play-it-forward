@@ -1,8 +1,9 @@
 @php
 $title_style = $title_style ?? [];
+$background_colour = $background_colour ?? 'white';
 @endphp
 <section
-    class="two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }}">
+    class="two-column-content__align-{{ $align_layout ? $align_layout : 'middle' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} full-bleed bg--{{ $background_colour }}">
     <div class="two-column-content container block-padding">
         @if (is_array($title_style) && isset($title_style['title']) && $title_style['title'] !== '')
             @include('partials.title', [$title_style])
