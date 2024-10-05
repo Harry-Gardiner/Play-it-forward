@@ -26,7 +26,6 @@
     "json-to-scss": "^1.6.2"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001606",
     "countup.js": "^2.8.0",
     "embla-carousel": "^8.0.0-rc15",
     "embla-carousel-autoplay": "^8.0.0-rc15"
