@@ -65,6 +65,12 @@
     }
   }
 
+  &__more {
+    margin-top: $spacing--xl;
+    display: flex;
+    justify-content: center;
+  }
+
   .football-team__latest__last {
     text-transform: uppercase;
     p {
