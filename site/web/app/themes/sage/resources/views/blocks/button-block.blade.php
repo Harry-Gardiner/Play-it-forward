@@ -5,6 +5,7 @@
             'link' => $btn_link,
             'text' => $btn_text,
             'colour' => $btn_colour,
+            'new_tab' => $btn_new_tab,
         ])
     </div>
 </section>
