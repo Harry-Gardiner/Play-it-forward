@@ -1,5 +1,5 @@
 @php
-  $new_tab = $btn_new_tab ?? false;
+  $new_tab = $new_tab ?? false;
 @endphp
 @switch($type)
     @case('donate')

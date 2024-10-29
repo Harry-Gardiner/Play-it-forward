@@ -25,6 +25,7 @@
         $btn_text = $cta_button['text'] ?? null;
         $btn_colour = 'raspberry';
         $btn_type = $cta_button['type'] ?? null;
+        $btn_new_tab = $cta_button['new_tab'] ?? false;
     }
 @endphp
 <section
@@ -72,6 +73,7 @@
                         'link' => $btn_link,
                         'text' => $btn_text,
                         'colour' => 'yellow',
+                        'new_tab' => $btn_new_tab,
                     ])
                 @endif
             </div>

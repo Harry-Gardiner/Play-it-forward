@@ -98,7 +98,8 @@ Template Name: Pattern Library
     'btn_type' => 'primary',
     'btn_colour' => 'raspberry',
     'btn_link' => '#',
-    'btn_text' => 'Raspberry button'
+    'btn_text' => 'Raspberry button',
+    'btn_new_tab' => false
   ])
   @include('blocks.button-block', [
     'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -108,7 +109,8 @@ Template Name: Pattern Library
     'btn_type' => 'primary',
     'btn_colour' => 'black',
     'btn_link' => '#',
-    'btn_text' => 'black button'
+    'btn_text' => 'black button',
+    'btn_new_tab' => true
   ])
 @include('blocks.button-block', [
   'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -118,7 +120,8 @@ Template Name: Pattern Library
   'btn_type' => 'donate',
   'btn_colour' => 'dark-green',
   'btn_link' => '#',
-  'btn_text' => 'Donate'
+  'btn_text' => 'Donate',
+  'btn_new_tab' => false
 ])
 
 <section class="flow block-padding--bottom">
@@ -160,7 +163,7 @@ Template Name: Pattern Library
     ],
     'hero_content' => '<p>Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>',
     'show_button' => 'yes',
-    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => '']
+    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => false]
   ])
 
 </section>
@@ -205,7 +208,7 @@ Template Name: Pattern Library
   'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!',
   'image' => [],
   'show_button' => 'yes',
-  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' =>'primary', 'btn_colour' => '', 'new_tab' => '']
+  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' =>'primary', 'btn_colour' => '', 'new_tab' => true]
 ])
 
 {{-- CTA - default --}}
@@ -220,7 +223,7 @@ Template Name: Pattern Library
   'image' => [],
   'image_position' => 'left',
   'show_button' => 'yes',
-  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => '']
+  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => true]
 ])
 
 {{-- CTA - full --}}
@@ -546,7 +549,8 @@ Template Name: Pattern Library
         'link' => '#',
         'text' => 'Button text',
         'type' => 'primary',
-        'btn_colour' => 'dark-green'
+        'btn_colour' => 'dark-green',
+        'new_tab' => false
       ],
       [
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
@@ -554,7 +558,8 @@ Template Name: Pattern Library
         'link' => '#',
         'text' => 'Button text',
         'type' => 'primary',
-        'btn_colour' => 'black'
+        'btn_colour' => 'black',
+        'new_tab' => false
       ],
       [
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
@@ -562,7 +567,8 @@ Template Name: Pattern Library
         'link' => '#',
         'text' => 'Button text',
         'type' => 'primary',
-        'btn_colour' => 'raspberry'
+        'btn_colour' => 'raspberry',
+        'new_tab' => true
       ],
     ]
   ])
@@ -674,11 +680,8 @@ Template Name: Pattern Library
         'description' => 'Description 4'
       ]
     ],
-    'show_button' => 'no',
-    'btn_type' => '',
-    'btn_link' => '',
-    'btn_text' => '',
-    'btn_colour' => ''
+    'show_button' => 'yes',
+    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => 'yellow', 'new_tab' => true]
   ])
 
   @include('blocks.custom-grid', [

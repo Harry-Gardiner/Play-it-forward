@@ -65,6 +65,7 @@
                         'link' => $btn_link,
                         'text' => $btn_text,
                         'colour' => $button_colour,
+                        'new_tab' => $btn_new_tab,
                     ])
                 @endif
 
