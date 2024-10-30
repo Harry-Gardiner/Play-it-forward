@@ -129,25 +129,13 @@
         }
     }
 
-    // TODO: Delete this code
-    #mc_embed_signup_scroll {
-        h2 {
-            display: none;
-        }
+    &.contact {
+      height: 1215px;
     }
 
     input[type='submit'] {
         @extend .button;
         @extend .button--primary;
-    }
-
-    // TODO: Delete this code
-    input {
-        border-bottom-width: 4px !important;
-
-        &::placeholder {
-            text-transform: uppercase !important;
-        }
     }
 
     input:not([type='submit']) {
@@ -169,7 +157,7 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         input[type='checkbox'] {
             width: fit-content;
             margin-right: 0.5rem;
