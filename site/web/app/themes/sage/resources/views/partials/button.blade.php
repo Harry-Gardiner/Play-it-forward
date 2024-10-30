@@ -1,3 +1,6 @@
+@php
+  $new_tab = $new_tab ?? false;
+@endphp
 @switch($type)
     @case('donate')
         @php
@@ -35,5 +38,5 @@
     @break
 
     @default
-        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}">{{ $text }}</a>
+        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" target={{$new_tab ? '_blank' : '_self'}}>{{ $text }}</a>
 @endswitch

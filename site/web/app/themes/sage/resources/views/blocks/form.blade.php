@@ -25,13 +25,18 @@
     }
 @endphp
 <section
-    class="form-block full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
+    class="form-block full-bleed {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }} {{$form_type === 'contact' ? 'contact' : ''}}">
+
+    @if ($form_type === 'contact')
+    <iframe src="https://us12.list-manage.com/contact-form?u=c8747c61e4e4ff0f9c320dddd&form_id=8adf8b3ddecee5d44756aa1ce3996287" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+    @endif
+
     @if ($image)
         <div class="form-block__image">
             <img src="{{ $image['url'] }}"" alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
             <div class="form-block__content container {{ $wrapper ? $wrapper : '' }} block-padding">
                 <div class="form-block__content__body flow">
-                    
+
                         @if ($title_style['title'])
                             @include('partials.title', [$title_style])
                         @endif
@@ -46,7 +51,7 @@
                                 Other
                             @endif
                         </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -58,7 +63,7 @@
                 alt="Play it forward logo">
                </div>
             <div class="form-block__content__body--alt flow">
-                
+
                     @if ($title_style['title'])
                         @include('partials.title', [$title_style])
                     @endif
@@ -75,7 +80,7 @@
                             @endif
                         @endif
                     </div>
-               
+
             </div>
         </div>
     @endif

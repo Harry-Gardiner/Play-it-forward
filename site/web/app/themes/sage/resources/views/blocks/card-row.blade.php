@@ -33,6 +33,7 @@
                               'link' => $item['link'],
                               'text' => $item['text'],
                               'colour' => $item['btn_colour'],
+                              'new_tab' => $item['new_tab'],
                               ])
                           @endif
                         </div>

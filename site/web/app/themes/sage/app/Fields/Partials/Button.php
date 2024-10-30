@@ -37,6 +37,11 @@ class Button extends Partial
                 'instructions' => 'Enter the link for the button.',
                 'required' => 1,
                 'default_value' => '/',
+            ])->conditional('type', '!=', 'donate')
+            ->addTrueFalse('new_tab', [
+                'label' => 'Open in new tab?',
+                'instructions' => 'Check this box to open the link in a new tab.',
+                'default_value' => 0,
             ])->conditional('type', '!=', 'donate');
 
         return $button;

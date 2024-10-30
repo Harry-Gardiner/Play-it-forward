@@ -82,7 +82,7 @@
   &__content {
     position: absolute;
     left: 0;
-    top: $spacing--xs;
+    bottom: $spacing--xs;
     margin: $spacing--sm;
     z-index: 1;
   }
@@ -99,29 +99,6 @@
       line-height: 1.5;
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
-    }
-  }
-
-  @include media-breakpoint('md') {
-    &:nth-child(odd) {
-      .card__content {
-        top: $spacing--xs;
-
-        @include media-breakpoint('lg') {
-          top: $spacing--sm;
-        }
-      }
-    }
-
-    &:nth-child(even) {
-      .card__content {
-        bottom: $spacing--xs;
-        top: unset;
-
-        @include media-breakpoint('lg') {
-          bottom: $spacing--sm;
-        }
-      }
     }
   }
 
