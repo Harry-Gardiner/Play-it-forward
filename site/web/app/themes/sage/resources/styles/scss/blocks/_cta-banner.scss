@@ -66,7 +66,7 @@
     object-position: center center;
 
     // media query for landscape orientation
-    @media screen and (orientation: landscape) 
+    @media screen and (orientation: landscape)
     and (max-width: 900px) {
       max-height: 80vh;
     }
@@ -103,6 +103,18 @@
       &__body {
         width: 50%;
         padding-left: rem(74);
+      }
+    }
+  }
+
+  &.width--40 {
+    @include media-breakpoint('lg') {
+      img {
+        width: 40%;
+      }
+
+      .cta-banner__image__content__body {
+        width: 60%;
       }
     }
   }

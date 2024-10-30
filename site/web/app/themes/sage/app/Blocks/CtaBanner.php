@@ -134,6 +134,7 @@ class CtaBanner extends Block
         'title_style' => ['title' => 'CTA - variation full', 'heading_level' => 'h2', 'heading_style' => 'h2'],
         'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!',
         'image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'], 'image_position' => 'left','show_button' => 'yes',
+        'image_width' => '50',
         'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => ''],
     ];
 
@@ -150,6 +151,7 @@ class CtaBanner extends Block
             'body' => get_field('body'),
             'image' => get_field('image'),
             'image_position' => get_field('image_position'),
+            'image_width' => get_field('image_width'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
             'layout' => get_field('layout'),
@@ -203,6 +205,18 @@ class CtaBanner extends Block
                 'default_value' => 'left',
                 'layout' => 'horizontal',
             ])->conditional('add_image', '==', 'yes')
+            ->addSelect('image_width', [
+                'label' => 'Image Width',
+                'instructions' => 'Choose the width of the image %.',
+                'required' => 0,
+                'choices' => [
+                    '50' => '50',
+                    '40' => '40',
+                ],
+                'default_value' => '50',
+                'layout' => 'horizontal',
+            ])->conditional('add_image', '==', 'yes')
+
 
             ->addTab('Layout')->conditional('add_image', '==', 'no')
             ->addSelect('layout', [

@@ -45,6 +45,9 @@
             $layout = 'default';
     }
 
+    if($image) {
+      $image_width = $image_width ?? '50'; // Default to 50% if not set
+    }
 @endphp
 <section
     class="cta-wrapper {{ !$image ? $layout : 'full-bleed' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
@@ -75,7 +78,7 @@
 
 
     @if ($image)
-        <div class="cta-banner__image">
+        <div class="cta-banner__image width--{{$image_width}}">
             <img class="image--{{ $image_position }}" src="{{ $image['url'] }}""
                 alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
             <div
