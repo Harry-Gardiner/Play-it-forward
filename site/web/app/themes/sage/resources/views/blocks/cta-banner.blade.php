@@ -4,6 +4,7 @@
         $btn_link = $cta_button['link'];
         $btn_text = $cta_button['text'];
         $btn_type = $cta_button['type'];
+        $btn_new_tab = $cta_button['new_tab'];
 
         if ($cta_button['btn_colour'] !== '') {
             $button_colour = $cta_button['btn_colour'];
@@ -44,6 +45,9 @@
             $layout = 'default';
     }
 
+    if($image) {
+      $image_width = $image_width ?? '50'; // Default to 50% if not set
+    }
 @endphp
 <section
     class="cta-wrapper {{ !$image ? $layout : 'full-bleed' }} {{ $wrapper ? $wrapper : '' }} {{ $spacing_size ? $spacing_size : '' }} bg--{{ $background_colour }}">
@@ -64,6 +68,7 @@
                         'link' => $btn_link,
                         'text' => $btn_text,
                         'colour' => $button_colour,
+                        'new_tab' => $btn_new_tab,
                     ])
                 @endif
 
@@ -73,7 +78,7 @@
 
 
     @if ($image)
-        <div class="cta-banner__image">
+        <div class="cta-banner__image width--{{$image_width}}">
             <img class="image--{{ $image_position }}" src="{{ $image['url'] }}""
                 alt="{{ $image['alt'] ? $image['alt'] : $image['name'] }}">
             <div
@@ -93,6 +98,7 @@
                             'link' => $btn_link,
                             'text' => $btn_text,
                             'colour' => $button_colour,
+                            'new_tab' => $btn_new_tab
                         ])
                     @endif
                 </div>

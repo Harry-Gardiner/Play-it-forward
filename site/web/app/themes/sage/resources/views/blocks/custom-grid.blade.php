@@ -20,6 +20,7 @@
         $btn_link = $cta_button['link'];
         $btn_text = $cta_button['text'];
         $btn_type = $cta_button['type'];
+        $btn_new_tab = $cta_button['new_tab'];
 
         if ($cta_button['btn_colour'] !== '') {
             $button_colour = $cta_button['btn_colour'];
@@ -97,6 +98,7 @@
                             'link' => $btn_link,
                             'text' => $btn_text,
                             'colour' => $button_colour,
+                            'new_tab' => $btn_new_tab,
                         ])
                     @endif
                 </div>

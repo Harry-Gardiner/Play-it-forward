@@ -158,7 +158,8 @@ class CustomGrid extends Block
         'btn_type' => '',
         'btn_link' => '',
         'btn_text' => '',
-        'btn_colour' => ''
+        'btn_colour' => '',
+        'new_tab' => ''
     ];
 
     /**

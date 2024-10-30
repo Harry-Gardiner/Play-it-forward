@@ -2,10 +2,6 @@
     display: flex;
     flex-direction: column;
 
-    .title {
-        margin-bottom: 0;
-    }
-
     &__align-top {
         align-items: flex-start;
     }

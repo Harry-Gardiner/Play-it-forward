@@ -9,7 +9,7 @@ Template Name: Pattern Library
 
   $args = array(
     'post_type' => 'football_teams',
-    'posts_per_page' => 2, 
+    'posts_per_page' => 2,
   );
 
   $football_query = new WP_Query($args);
@@ -98,7 +98,8 @@ Template Name: Pattern Library
     'btn_type' => 'primary',
     'btn_colour' => 'raspberry',
     'btn_link' => '#',
-    'btn_text' => 'Raspberry button'
+    'btn_text' => 'Raspberry button',
+    'btn_new_tab' => false
   ])
   @include('blocks.button-block', [
     'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -108,7 +109,8 @@ Template Name: Pattern Library
     'btn_type' => 'primary',
     'btn_colour' => 'black',
     'btn_link' => '#',
-    'btn_text' => 'black button'
+    'btn_text' => 'black button',
+    'btn_new_tab' => true
   ])
 @include('blocks.button-block', [
   'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -118,7 +120,8 @@ Template Name: Pattern Library
   'btn_type' => 'donate',
   'btn_colour' => 'dark-green',
   'btn_link' => '#',
-  'btn_text' => 'Donate'
+  'btn_text' => 'Donate',
+  'btn_new_tab' => false
 ])
 
 <section class="flow block-padding--bottom">
@@ -126,19 +129,19 @@ Template Name: Pattern Library
   <p>Added to the top of the front page. Consists of hero_image: An image field for uploading a hero image. The image can be of the types 'jpg', 'jpeg', 'png', or 'svg'.
 
     hero image position: A select field for choosing the position of the hero image. The choices are 'Center', 'Top', 'Bottom', 'Left', and 'Right', with 'Center' as the default value.
-  
+
     Hero Content: This is a tab for organizing the fields in the WordPress editor.
-  
+
     hero title: A text field for entering the hero title.
-  
+
     highlighted text: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a text field for entering highlighted text.
-  
+
     impact text: This is another repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes a text field for entering impact text.
-  
+
     hero content: A WYSIWYG (What You See Is What You Get) editor field for entering the hero subtitle. Media upload is disabled.
-  
+
     show button: A radio button field for choosing whether to show a button. The choices are 'Yes' and 'No', with 'No' as the default value.
-  
+
     cta button: This is a group of fields for defining a call-to-action (CTA) button. It includes a set of fields defined in the Button class (shown if show_button is 'Yes').
   </p>
   <br>
@@ -160,9 +163,9 @@ Template Name: Pattern Library
     ],
     'hero_content' => '<p>Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>',
     'show_button' => 'yes',
-    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
+    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => false]
   ])
-  
+
 </section>
 
 <section class="flow block-padding--bottom">
@@ -205,7 +208,7 @@ Template Name: Pattern Library
   'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!',
   'image' => [],
   'show_button' => 'yes',
-  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' =>'primary', 'btn_colour' => '']
+  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' =>'primary', 'btn_colour' => '', 'new_tab' => true]
 ])
 
 {{-- CTA - default --}}
@@ -220,19 +223,19 @@ Template Name: Pattern Library
   'image' => [],
   'image_position' => 'left',
   'show_button' => 'yes',
-  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
+  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => true]
 ])
 
 {{-- CTA - full --}}
 @include('blocks.cta-banner', [
-  'layout' => 'full', 
-  'background_colour' => 'raspberry', 
-  'wrapper' => '', 
-  'spacing_size' => '', 
+  'layout' => 'full',
+  'background_colour' => 'raspberry',
+  'wrapper' => '',
+  'spacing_size' => '',
   'title_style' => ['title' => 'CTA - variation full', 'heading_level' => 'h2', 'heading_style' => 'h2'],
-  'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!', 
+  'body' => 'Body text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor eius in explicabo!',
   'image' => ['url' => 'https://placehold.co/800x800', 'alt' => 'alt text'], 'image_position' => 'left','show_button' => 'yes',
-  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '']
+  'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => '']
 ])
 </section>
 
@@ -466,7 +469,7 @@ Template Name: Pattern Library
   <p>Displays a grid of partner logos. Consists of Title: This is a set of fields defined in the Title class.
 
     body: A WYSIWYG (What You See Is What You Get) editor field for entering content. Media upload is disabled, and it uses the 'basic' toolbar.
-  
+
     partners: This is a repeater field that allows you to add multiple sets of sub-fields. Each set of sub-fields includes an image field for uploading a logo, a text field for entering a name, a textarea field for entering a description, and a URL field for entering a URL.</p>
   @include('blocks.partners', [
     'wrapper' => '',
@@ -543,26 +546,29 @@ Template Name: Pattern Library
       [
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
         'title' => 'Card title',
-        'link' => '#', 
-        'text' => 'Button text', 
-        'type' => 'primary', 
-        'btn_colour' => 'dark-green'
+        'link' => '#',
+        'text' => 'Button text',
+        'type' => 'primary',
+        'btn_colour' => 'dark-green',
+        'new_tab' => false
       ],
       [
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
         'title' => 'Card title 2',
-        'link' => '#', 
-        'text' => 'Button text', 
-        'type' => 'primary', 
-        'btn_colour' => 'black'
+        'link' => '#',
+        'text' => 'Button text',
+        'type' => 'primary',
+        'btn_colour' => 'black',
+        'new_tab' => false
       ],
       [
         'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
         'title' => 'Card title 3',
-        'link' => '#', 
-        'text' => 'Button text', 
-        'type' => 'primary', 
-        'btn_colour' => 'raspberry'
+        'link' => '#',
+        'text' => 'Button text',
+        'type' => 'primary',
+        'btn_colour' => 'raspberry',
+        'new_tab' => true
       ],
     ]
   ])
@@ -617,7 +623,7 @@ Template Name: Pattern Library
   <h2>Quote</h2>
   <p>Displays a quote. Consists of quote style: A radio button field for selecting the style of quote to use. The choices are 'Short' and 'Long'.
 
-    quote text: A textarea field for entering the quote text. 
+    quote text: A textarea field for entering the quote text.
 
     quote author: A text field for entering the quote author.</p>
   @include('blocks.quote', [
@@ -633,13 +639,13 @@ Template Name: Pattern Library
 
 <section class="flow block-padding--bottom">
   <h2>Custom Grid</h2>
-  <p>A simple Custom Grid block. Can be used to display a grid of items. 
+  <p>A simple Custom Grid block. Can be used to display a grid of items.
 
   Consists of grid type: A select field for choosing the type of grid to display. The choices are 'Icons' and 'Standard', with 'Standard' as the default value.
   Standard allows you to add a title, description and a grid of statistic items.
-  
+
   Icons allows you to add a title, description and a grid of icons.
-  
+
 
   title: This is a set of fields defined in the Title class.
 
@@ -674,11 +680,8 @@ Template Name: Pattern Library
         'description' => 'Description 4'
       ]
     ],
-    'show_button' => 'no',
-    'btn_type' => '',
-    'btn_link' => '',
-    'btn_text' => '',
-    'btn_colour' => ''
+    'show_button' => 'yes',
+    'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => 'yellow', 'new_tab' => true]
   ])
 
   @include('blocks.custom-grid', [
@@ -823,9 +826,9 @@ Template Name: Pattern Library
   <p>Displays the latest results of 2 selected football teams. Consists of Team One and Team Two: These are tabs for organizing the fields in the WordPress editor. Each team has the following fields:
 
     team one and team two: A post object field for selecting a post of the 'football teams' post type. The selected post is returned as an object.
-  
+
     team one title and team two title: A text field for entering a title.
-  
+
     team one body and team two body: A WYSIWYG (What You See Is What You Get) editor field for entering sub text. Media upload is disabled, and it uses the 'basic' toolbar.</p>
     <br>
   @if ($football_query->have_posts() && $football_query->post_count > 1)
@@ -842,7 +845,7 @@ Template Name: Pattern Library
   @else
     <p>Not enough teams to display results. Add at least 2 teams under the football teams post type</p>
   @endif
-  
+
 </section>
 
 <section class="flow block-padding--bottom">

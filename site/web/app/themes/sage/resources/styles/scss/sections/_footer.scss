@@ -149,7 +149,7 @@
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
-        
+
         @include media-breakpoint(md) {
             background-repeat: repeat-x;
             background-size: contain;
@@ -276,7 +276,7 @@
     position: fixed;
     visibility: hidden;
     z-index: 899;
-    bottom: 4rem;
+    bottom: 5rem;
     right: 1rem;
     width: 60px;
     height: 60px;

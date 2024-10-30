@@ -179,7 +179,8 @@ class Form extends Block
                 'instructions' => 'Choose form option.',
                 'choices' => [
                     'newsletter' => 'Newsletter',
-                    'other' => 'Other'
+                    'other' => 'Other',
+                    'contact' => 'Contact'
                 ]
             ])
             ->addText('form_shortcode', [

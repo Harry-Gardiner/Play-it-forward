@@ -4,7 +4,7 @@
   {{-- @include('partials.page-header') --}}
 
   @if (! have_posts())
-    
+
       <div class="error-404 full-bleed block-padding">
         <div class="error-404__circle">
           <p class="h1">404</p>
