@@ -57,9 +57,6 @@
                     <div class="results__body">{!! $team_one_body !!}</div>
                 </div>
                 @if ($team_one_matches)
-                    @php
-                        dump($team_one_last_match);
-                    @endphp
                     <div class="results__recent">
                         <div class="football-team__latest__content block-padding--top">
                             <div class="title">
