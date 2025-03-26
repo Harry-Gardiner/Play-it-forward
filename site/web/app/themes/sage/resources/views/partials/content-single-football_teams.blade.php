@@ -102,9 +102,9 @@
                                 <div class="football-team__matches__result"
                                 style="{{ $index >= 3 ? 'display: none;' : '' }}">
                                         <p class="match-date">{{ $match['match_date'] }}</p>
-                                        <p class="score">{{ $match['match_score'] }}</p>
                                         <p class="team">{{ $team_name }}</p>
-                                        <p class="vs--small">vs</p>
+                                        <p class="score">{{ $match['match_score'] }}</p>
+                                        {{-- <p class="vs--small">vs</p> --}}
                                         <p class="team">{{ $match['match_opponent'] }}</p>
                                     </div>
                                 @endif
