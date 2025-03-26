@@ -38,6 +38,9 @@
     // Featured image
     $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
     $image_position = get_field('image_position') ?? 'center center';
+
+    // Team name
+    $team_name = (strpos($_SERVER['REQUEST_URI'], 'womens') !== false) ? 'Play it forward queens' : 'Play it forward fc';
 @endphp
 
 <article @php(post_class('football-team h-entry'))>
@@ -76,7 +79,7 @@
                                 <p class="h1 score-top">{{ $home_score }}-{{ $away_score }}</p>
                                 <div class="football-team__latest__score">
                                     <p class="team h1">{{ $home_score }}</p>
-                                    <p class="h3">Play it forward fc</p>
+                                    <p class="h3">{{ $team_name }}</p>
                                 </div>
                                 <p class="vs">VS</p>
                                 <div class="football-team__latest__score">
@@ -100,7 +103,7 @@
                                 style="{{ $index >= 3 ? 'display: none;' : '' }}">
                                         <p class="match-date">{{ $match['match_date'] }}</p>
                                         <p class="score">{{ $match['match_score'] }}</p>
-                                        <p class="team">Play it forward fc</p>
+                                        <p class="team">{{ $team_name }}</p>
                                         <p class="vs--small">vs</p>
                                         <p class="team">{{ $match['match_opponent'] }}</p>
                                     </div>
