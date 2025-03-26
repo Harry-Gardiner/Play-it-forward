@@ -47,7 +47,15 @@ class Teams extends Field
             ->addRepeater('matches', ['title' => 'Matches'])
                 ->addDatePicker('match_date', ['title' => 'Date'])
                 ->addText('match_opponent', ['title' => 'Opponent'])
-                ->addText('match_score', ['title' => 'Score', 'instructions' => 'Enter the score in the format: 1-0. Play It Forward FC first, opponent second.'])
+                ->addText('match_score', ['title' => 'Score', 'instructions' => 'Score format: If PIF home, enter PIF score first. If away, enter opponent score first.'])
+                ->addSelect('match_location', [
+                    'title' => 'Location',
+                    'choices' => [
+                        'home' => 'Home',
+                        'away' => 'Away',
+                    ],
+                    'default_value' => 'home',
+                ])
             ->endRepeater()
             ->addTab('Image')
             ->addMessage('general_tab_message', 'message', [
@@ -55,12 +63,12 @@ class Teams extends Field
                 'message' => 'The image is pulled from the teams featured image. If you would like to change the image, please do so in the featured image section of the page.',
             ])
             ->addSelect('image_position', [
-                'title' => 'Image Position', 
+                'title' => 'Image Position',
                 'choices' => [
                     'top' => 'Top',
                     'bottom' => 'Bottom',
                     'center' => 'Center'
-                ], 
+                ],
                 'default_value' => 'center'
                 ])
             ;

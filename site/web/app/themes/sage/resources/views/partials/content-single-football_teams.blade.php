@@ -78,13 +78,17 @@
                             <div class="football-team__latest__last">
                                 <p class="h1 score-top">{{ $home_score }}-{{ $away_score }}</p>
                                 <div class="football-team__latest__score">
-                                    <p class="team h1">{{ $home_score }}</p>
-                                    <p class="h3">{{ $team_name }}</p>
+                                  <p class="team h1">{{ $home_score }}</p>
+                                  <p class="h3">
+                                    {{ $last_match['match_location'] === 'away' ? $last_match['match_opponent'] : $team_name }}
+                                  </p>
                                 </div>
                                 <p class="vs">VS</p>
                                 <div class="football-team__latest__score">
-                                    <p class="team h1">{{ $away_score }}</p>
-                                    <p class="h3">{{ $last_match['match_opponent'] }}</p>
+                                  <p class="team h1">{{ $away_score }}</p>
+                                  <p class="h3">
+                                    {{ $last_match['match_location'] === 'away' ? $team_name : $last_match['match_opponent'] }}
+                                  </p>
                                 </div>
                             </div>
                         </div>
@@ -102,10 +106,15 @@
                                 <div class="football-team__matches__result"
                                 style="{{ $index >= 3 ? 'display: none;' : '' }}">
                                         <p class="match-date">{{ $match['match_date'] }}</p>
-                                        <p class="team">{{ $team_name }}</p>
-                                        <p class="score">{{ $match['match_score'] }}</p>
-                                        {{-- <p class="vs--small">vs</p> --}}
-                                        <p class="team">{{ $match['match_opponent'] }}</p>
+                                        @if ($match['match_location'] === 'home')
+                                          <p class="team">{{ $team_name }}</p>
+                                          <p class="score">{{ $match['match_score'] }}</p>
+                                          <p class="team">{{ $match['match_opponent'] }}</p>
+                                        @else
+                                          <p class="team">{{ $match['match_opponent'] }}</p>
+                                          <p class="score">{{ $match['match_score'] }}</p>
+                                          <p class="team">{{ $team_name }}</p>
+                                        @endif
                                     </div>
                                 @endif
                             @endforeach
