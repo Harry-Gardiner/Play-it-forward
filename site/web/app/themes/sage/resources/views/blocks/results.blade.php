@@ -114,7 +114,7 @@ return $dateA <=> $dateB;
                                 </p>
                                 <div class="football-team__latest__score">
                                     <p class="team h1">{{ $team_two_last_match['home_score'] }}</p>
-                                    <p class="h3">Play it forward fc</p>
+                                    <p class="h3">Play it forward queens</p>
                                 </div>
                                 <p class="vs">VS</p>
                                 <div class="football-team__latest__score">
