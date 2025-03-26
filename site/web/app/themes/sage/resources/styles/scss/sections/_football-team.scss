@@ -73,6 +73,12 @@
       font-weight: 700;
     }
 
+    .match-result {
+      width: fit-content;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+
     &__content {
       @include media-breakpoint('lg') {
         max-width: 70%;
@@ -148,6 +154,27 @@
     padding: 0.5rem;
   }
 
+  .match-result {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $pf-off-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+
+    &--w {
+      color: $pf-dark-green;
+    }
+    &--l {
+      color: $pf-raspberry;
+    }
+    &--d {
+      color: $pf-charcoal;
+    }
+  }
+
   &__matches {
     &__content {
       display: flex;
@@ -182,8 +209,9 @@
 
       @include media-breakpoint('md') {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr 2fr;
+        grid-template-columns: 1fr 1fr 2fr 1fr 2fr;
         gap: 1rem;
+        justify-items: center;
       }
 
       .score {

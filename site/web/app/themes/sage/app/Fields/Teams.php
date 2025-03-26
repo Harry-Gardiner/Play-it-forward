@@ -46,6 +46,15 @@ class Teams extends Field
             ->addTab('Matches')
             ->addRepeater('matches', ['title' => 'Matches'])
                 ->addDatePicker('match_date', ['title' => 'Date'])
+                ->addSelect('match_result', [
+                    'title' => 'Result',
+                    'choices' => [
+                        'w' => 'Win',
+                        'd' => 'Draw',
+                        'l' => 'Lose',
+                    ],
+                    'default_value' => 'w',
+                ])
                 ->addText('match_opponent', ['title' => 'Opponent'])
                 ->addText('match_score', ['title' => 'Score', 'instructions' => 'Score format: If PIF home, enter PIF score first. If away, enter opponent score first.'])
                 ->addSelect('match_location', [

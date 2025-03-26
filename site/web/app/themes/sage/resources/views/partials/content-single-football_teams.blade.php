@@ -75,6 +75,7 @@
                                 </h2>
                             </div>
                             <p class="football-team__latest__date">{{ $last_match['match_date'] }}</p>
+                            <p class="match-result {{'match-result--' . $last_match['match_result']}}">{{ $last_match['match_result'] }}</p>
                             <div class="football-team__latest__last">
                                 <p class="h1 score-top">{{ $home_score }}-{{ $away_score }}</p>
                                 <div class="football-team__latest__score">
@@ -106,6 +107,7 @@
                                 <div class="football-team__matches__result"
                                 style="{{ $index >= 3 ? 'display: none;' : '' }}">
                                         <p class="match-date">{{ $match['match_date'] }}</p>
+                                        <p class="match-result {{'match-result--' . $match['match_result']}}">{{ $match['match_result'] }}</p>
                                         @if ($match['match_location'] === 'home')
                                           <p class="team">{{ $team_name }}</p>
                                           <p class="score">{{ $match['match_score'] }}</p>
