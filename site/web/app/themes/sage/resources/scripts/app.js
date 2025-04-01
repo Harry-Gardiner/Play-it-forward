@@ -95,7 +95,7 @@ domReady(async () => {
         return result.style.display === 'none';
       });
 
-      hiddenMatches.slice(0, 3).forEach(function (match) {
+      hiddenMatches.slice(0, 10).forEach(function (match) {
         match.style.display = 'grid';
         match.classList.add('loaded');
       });
@@ -112,12 +112,11 @@ domReady(async () => {
         }, index * 100);
       });
 
-      if (hiddenMatches.length <= 3) {
+      if (hiddenMatches.length <= 10) {
         loadMoreMatchesButton.style.display = 'none';
       }
     });
   }
-
 
   /**
    * Info Banner Cookies
