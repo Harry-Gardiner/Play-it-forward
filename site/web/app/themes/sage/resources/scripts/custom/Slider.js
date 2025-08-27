@@ -2,6 +2,64 @@ import EmblaCarousel from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { addPrevNextBtnsClickHandlers } from './EmblaControls.js'
 
+// Hero Slider
+const heroSlider = document.querySelector('.hero-slider.embla')
+if (heroSlider) {
+    const viewportNode = heroSlider.querySelector('.embla__viewport')
+    const prevBtn = heroSlider.querySelector('.embla__prev')
+    const nextBtn = heroSlider.querySelector('.embla__next')
+    const dotNodes = heroSlider.querySelectorAll('.embla__dot')
+    
+    const heroOptions = { 
+        loop: true,
+        duration: 30
+    }
+    
+    // Default autoplay delay, can be overridden by data attribute
+    const autoplayDelay = 5000
+    const emblaApi = EmblaCarousel(viewportNode, heroOptions, [Autoplay({ delay: autoplayDelay })])
+    
+    // Add navigation handlers
+    if (prevBtn && nextBtn) {
+        const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+            emblaApi,
+            prevBtn,
+            nextBtn
+        )
+        emblaApi.on('destroy', removePrevNextBtnsClickHandlers)
+    }
+    
+    // Add custom dot navigation for existing dots
+    if (dotNodes.length > 0) {
+        const addCustomDotHandlers = () => {
+            dotNodes.forEach((dotNode, index) => {
+                dotNode.addEventListener('click', () => emblaApi.scrollTo(index), false)
+            })
+        }
+        
+        const toggleDotBtnsActive = () => {
+            const selected = emblaApi.selectedScrollSnap()
+            dotNodes.forEach((dotNode, index) => {
+                if (index === selected) {
+                    dotNode.classList.add('embla__dot--selected')
+                } else {
+                    dotNode.classList.remove('embla__dot--selected')
+                }
+            })
+        }
+        
+        emblaApi
+            .on('init', addCustomDotHandlers)
+            .on('init', toggleDotBtnsActive)
+            .on('select', toggleDotBtnsActive)
+            
+        // Initialize first dot as active
+        if (dotNodes[0]) {
+            dotNodes[0].classList.add('embla__dot--selected')
+        }
+    }
+}
+
 // Front page hero slider
 const emblaNode = document.querySelector('.embla.hero-fp__mid__slider')
 const options = { loop: true }
