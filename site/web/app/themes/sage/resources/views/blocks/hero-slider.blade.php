@@ -15,28 +15,28 @@
                     <div class="embla__slide hero-slider__slide">
                         @if ($slide['image'])
                             <div class="hero-slider__image">
-                                <img src="{{ $slide['image']['url'] }}" 
-                                     alt="{{ $slide['image']['alt'] ?: 'Hero slide' }}" 
+                                <img src="{{ $slide['image']['url'] }}"
+                                     alt="{{ $slide['image']['alt'] ?: 'Hero slide' }}"
                                      loading="{{ $index === 0 ? 'eager' : 'lazy' }}">
                             </div>
                         @endif
-                        
+
                         @if ($overlay_opacity > 0)
                             <div class="hero-slider__overlay" style="opacity: {{ $overlay_opacity / 100 }};"></div>
                         @endif
-                        
+
                         <div class="hero-slider__content">
                             @if ($slide['title'])
                                 <h1 class="hero-slider__title">{{ $slide['title'] }}</h1>
                             @endif
-                            
+
                             @if ($slide['subtitle'])
                                 <p class="hero-slider__subtitle">{{ $slide['subtitle'] }}</p>
                             @endif
-                            
+
                             @if ($slide['cta_text'] && $slide['cta_link'])
                                 <div class="hero-slider__cta">
-                                    <a href="{{ $slide['cta_link']['url'] ?? $slide['cta_link'] }}" 
+                                    <a href="{{ $slide['cta_link']['url'] ?? $slide['cta_link'] }}"
                                        class="button button--primary button--yellow"
                                        {{ ($slide['cta_link']['target'] ?? false) ? 'target="' . $slide['cta_link']['target'] . '"' : '' }}>
                                         {{ $slide['cta_text'] }}
@@ -48,7 +48,7 @@
                 @endforeach
             </div>
         </div>
-        
+
         @if ($show_arrows && count($slides) > 1)
             <div class="hero-slider__navigation">
                 <button class="hero-slider__nav hero-slider__nav--prev embla__prev" aria-label="Previous slide">
@@ -63,11 +63,11 @@
                 </button>
             </div>
         @endif
-        
+
         @if ($show_dots && count($slides) > 1)
             <div class="hero-slider__pagination embla__dots">
                 @foreach ($slides as $index => $slide)
-                    <button class="hero-slider__dot embla__dot" 
+                    <button class="hero-slider__dot embla__dot"
                             aria-label="Go to slide {{ $index + 1 }}">
                     </button>
                 @endforeach

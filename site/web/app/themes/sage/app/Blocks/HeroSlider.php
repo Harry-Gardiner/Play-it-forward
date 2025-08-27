@@ -171,7 +171,7 @@ class HeroSlider extends Block
                 'label' => 'Hero Slider',
                 'message' => 'Create a full-screen hero slider with background images, titles, and call-to-action buttons.',
             ])
-            
+
             ->addTab('Slides')
             ->addRepeater('slides', [
                 'label' => 'Hero Slides',
@@ -233,7 +233,7 @@ class HeroSlider extends Block
                     'default_value' => 'white',
                 ])
             ->endRepeater()
-            
+
             ->addTab('Settings')
             ->addTrueFalse('autoplay', [
                 'label' => 'Autoplay',

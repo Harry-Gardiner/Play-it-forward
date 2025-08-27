@@ -17,16 +17,14 @@ $pf-off-white: #f8faf8;
 $pf-charcoal: #262626;
 $pf-white: #fff;
 $pf-raspberry: #993050;
-$pf-secondary-raspberry: #751E39;
-$pf-yellow: #FAB200;
-$pf-yellow--alt: #E0A000;
-$pf-shadow: #464B44;
-$pf-light-green: #60CE71;
-$pf-dark-green: #2D6E51;
-$pf-grey: #D9D9D9;
-$pf-dark-raspberry: #77203A;
-
-
+$pf-secondary-raspberry: #751e39;
+$pf-yellow: #fab200;
+$pf-yellow--alt: #e0a000;
+$pf-shadow: #464b44;
+$pf-light-green: #60ce71;
+$pf-dark-green: #2d6e51;
+$pf-grey: #d9d9d9;
+$pf-dark-raspberry: #77203a;
 
 // Text colours
 $body-text-color: $pf-charcoal;
@@ -36,19 +34,24 @@ $body-text-color: $pf-charcoal;
 ***********************/
 
 $breakpoints: (
-  sm: (breakpoint: 576px,
+  sm: (
+    breakpoint: 576px,
     max-width: 540px,
   ),
-  md: (breakpoint: 768px,
+  md: (
+    breakpoint: 768px,
     max-width: 720px,
   ),
-  lg: (breakpoint: 992px,
+  lg: (
+    breakpoint: 992px,
     max-width: 960px,
   ),
-  xl: (breakpoint: 1200px,
+  xl: (
+    breakpoint: 1200px,
     max-width: 1140px,
   ),
-  xxl: (breakpoint: 1650px,
+  xxl: (
+    breakpoint: 1650px,
   ),
 );
 
@@ -68,7 +71,6 @@ $size--xxl: $pf-base-size * 3.125;
 //50px
 $size--giant: $pf-base-size * 4.6875;
 
-
 /**********************
  Spacing
 ***********************/
@@ -86,11 +88,11 @@ $spacing--header-lg: $pf-base-size * 8;
 Fonts
 ***********************/
 
-$font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial, sans-serif;
+$font--primary: 'Jost', 'Avenir', 'Futura', 'Century Gothic', Helvetica, Arial,
+  sans-serif;
 $font--secondary: 'Katibeh', 'Unna', 'Big Caslon', Georgia, serif;
 $font--tertiary: 'Montserrat', Helvetica, Arial, sans-serif;
 $font--fun: 'Knewave', Helvetica, Arial, sans-serif;
-
 
 /**********************
 Header

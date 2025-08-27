@@ -6,7 +6,9 @@
   margin-left: calc(-50vw + 50%);
 
   @include media-breakpoint(md) {
-    height: calc(100vh - $header-height-desktop - $header-banner-height-desktop);
+    height: calc(
+      100vh - $header-height-desktop - $header-banner-height-desktop
+    );
   }
 
   .embla__viewport {
