@@ -22,7 +22,6 @@
 @import 'utilities/overlay';
 @import 'utilities/text-alignment';
 
-
 @import 'typography';
 
 // Sections
@@ -44,11 +43,15 @@
 @import 'partials/socials-tab';
 @import 'partials/timeline-card';
 
+// Components
+@import 'components/newsletter-popup';
+
 // Blocks
 @import 'blocks/button-block';
 @import 'blocks/cta-banner';
 @import 'blocks/hero-fp';
 @import 'blocks/hero';
+@import 'blocks/hero-slider';
 @import 'blocks/carousel';
 @import 'blocks/featured-posts';
 @import 'blocks/two-column-content';
@@ -70,32 +73,32 @@
 @import 'blocks/divider';
 
 body {
-    @extend .container;
-    line-height: 1.5;
-    overflow-x: hidden;
-    background-color: $pf-white;
+  @extend .container;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-color: $pf-white;
 }
 
 #app {
-    min-height: 100vh;
+  min-height: 100vh;
 
-    footer {
-        position: sticky;
-        top: 100vh;
-    }
+  footer {
+    position: sticky;
+    top: 100vh;
+  }
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 th {
-    text-align: left;
+  text-align: left;
 }
 
 :focus {
-    outline: 2px dotted;
-    outline-offset: 0.25rem;
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
 }
 
 input,
@@ -103,5 +106,5 @@ textarea,
 button,
 select,
 a {
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
