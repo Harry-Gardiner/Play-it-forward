@@ -77,3 +77,15 @@ collect(['setup', 'filters', 'options'])
 */
 
 add_theme_support('sage');
+
+/*
+|--------------------------------------------------------------------------
+| Newsletter Popup Functionality
+|--------------------------------------------------------------------------
+|
+| Include newsletter popup functionality for managing popup content
+| and settings through ACF Options.
+|
+*/
+
+require_once get_template_directory() . '/app/newsletter-popup.php';
