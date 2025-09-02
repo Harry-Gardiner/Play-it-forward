@@ -24,7 +24,7 @@
         <div class="spinner"><img src="{{ asset('images/football_loading.gif') }}" alt="loading image"></div>
         @if ($latest_posts->post_count >= 9)
             <div class="btn__wrapper">
-                <button class="button button--primary button--raspberry" id="load-more" data-num="9">Load more</button>
+                <button class="button button--primary button--raspberry" id="load-more" data-num="9" data-post-type="{{ $latest_posts_type }}">Load more</button>
             </div>
         @endif
     </div>

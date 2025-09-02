@@ -41,7 +41,9 @@ domReady(async () => {
       }, 500);
 
       const response = await fetch(
-        `/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}`
+        `/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}&post_type=${
+          loadMoreButton.getAttribute('data-post-type') || 'post'
+        }`
       );
       const newPosts = await response.json();
       // Check if there are new posts
