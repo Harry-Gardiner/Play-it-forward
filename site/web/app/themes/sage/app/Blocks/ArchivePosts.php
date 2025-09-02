@@ -128,7 +128,7 @@ class ArchivePosts extends Block
         'wrapper' => '',
         'spacing_size' => '',
         'title_style' => ['title' => 'Archive Posts Title', 'heading_level' => 'h2', 'heading_style' => 'h2'],
-        'latest_posts_type' => 'post',
+        'latest_posts_type' => 'news',
     ];
 
     /**
@@ -169,6 +169,10 @@ class ArchivePosts extends Block
                 'label' => 'Post Type',
                 'instructions' => 'Choose the post type to display.',
                 'default_value' => 'post',
+                'choices' => [
+                    'post' => 'Blog Posts',
+                    'news' => 'News Articles',
+                ],
             ]);
         return $archivePosts->build();
     }

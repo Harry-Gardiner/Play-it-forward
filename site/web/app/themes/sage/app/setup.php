@@ -195,10 +195,10 @@ add_action('widgets_init', function () {
 });
 
 /**
- * Nav walker 
- * 
+ * Nav walker
+ *
  * If nav item is a # swap it to a span.
- * Add carets to nav items with child elements 
+ * Add carets to nav items with child elements
  */
 class AWP_Menu_Walker extends \Walker_Nav_Menu
 {
@@ -273,7 +273,7 @@ add_filter('acf/load_field/name=text_background_colour', function ($field) {
 
 /**
  * ACF WP User Select
- * 
+ *
  * Dynamically populates any ACF field with selected_user Field Name with wp users
  * Default value is the current user
  *
@@ -281,16 +281,16 @@ add_filter('acf/load_field/name=text_background_colour', function ($field) {
 add_filter('acf/load_field/name=selected_user', function ($field) {
     $users = get_users(['fields' => ['ID', 'display_name']]);
     $choices = [];
-    
+
     foreach ($users as $user) {
         $choices[$user->ID] = $user->display_name;
     }
 
-    $blog_user = get_user_by('ID', get_current_user_id()); 
-    $default_user_id = $blog_user ? $blog_user->ID : ''; 
+    $blog_user = get_user_by('ID', get_current_user_id());
+    $default_user_id = $blog_user ? $blog_user->ID : '';
 
     $field['choices'] = $choices;
-    $field['default_value'] = $default_user_id; 
+    $field['default_value'] = $default_user_id;
 
     return $field;
 });
@@ -312,9 +312,10 @@ add_action('rest_api_init', function () {
         'callback' => function ($request) {
             $page = $request->get_param('page');
             $per_page = $request->get_param('per_page');
+            $post_type = $request->get_param('post_type') ?: 'post'; // Default to 'post' if not specified
 
             $args = [
-                'post_type' => 'post',
+                'post_type' => $post_type,
                 'posts_per_page' => $per_page,
                 'paged' => $page,
                 'orderby' => 'date',
@@ -355,6 +356,36 @@ add_action('init', function () {
         'taxonomies' => ['category', 'post_tag'],
         'rewrite' => [
             'slug' => 'football-teams',
+            'with_front' => false,
+        ],
+    ]);
+});
+
+// register a custom post type called 'News'
+add_action('init', function () {
+    register_post_type('news', [
+        'labels' => [
+            'name' => __('News'),
+            'singular_name' => __('News Article'),
+            'add_new' => __('Add New News Article'),
+            'add_new_item' => __('Add New News Article'),
+            'edit_item' => __('Edit News Article'),
+            'new_item' => __('New News Article'),
+            'view_item' => __('View News Article'),
+            'search_items' => __('Search News'),
+            'not_found' => __('No news articles found'),
+            'not_found_in_trash' => __('No news articles found in trash'),
+            'all_items' => __('All News Articles'),
+            'archives' => __('News Archives'),
+        ],
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-megaphone',
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'author'],
+        'show_in_rest' => true,
+        'taxonomies' => ['category', 'post_tag'],
+        'rewrite' => [
+            'slug' => 'news-article',
             'with_front' => false,
         ],
     ]);
