@@ -379,13 +379,13 @@ add_action('init', function () {
             'archives' => __('News Archives'),
         ],
         'public' => true,
-        'has_archive' => true,
+        'has_archive' => false,
         'menu_icon' => 'dashicons-megaphone',
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'author'],
         'show_in_rest' => true,
         'taxonomies' => ['category', 'post_tag'],
         'rewrite' => [
-            'slug' => 'news',
+            'slug' => 'news-article',
             'with_front' => false,
         ],
     ]);
