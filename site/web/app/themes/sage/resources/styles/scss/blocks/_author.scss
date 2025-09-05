@@ -1,25 +1,24 @@
 .author {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  &__avatar {
+    img {
+      border-radius: 100%;
+      height: 60px;
+    }
+  }
+
+  &___info {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    flex-direction: column;
+  }
 
-    &__avatar {
-        img {
-            border-radius: 100%;
-        }
-    }
-
-    &___info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__name,
-    &__date {
-        text-transform: uppercase;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
+  &__name,
+  &__date {
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
 }
