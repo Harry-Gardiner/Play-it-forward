@@ -128,6 +128,7 @@ class Text extends Block
         'wrapper' => '',
         'spacing_size' => '',
         'style' => 'body',
+        'text_alignment' => 'left',
     ];
 
     /**
@@ -145,6 +146,7 @@ class Text extends Block
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
             'background_colour' => get_field('colour_picker'),
+             'text_alignment' => get_field('text_alignment'),
         ];
     }
 
@@ -177,6 +179,15 @@ class Text extends Block
                 'tabs' => 'visual',
                 'toolbar' => 'basic',
                 'instructions' => 'Add the text for this block. You can also add bullet lists, numbered lists, bold text, italic text, links and more.',
+            ])
+            ->addRadio('text_alignment', [
+                'label' => 'Text alignment',
+                'choices' => [
+                    'left' => 'Left',
+                    'center' => 'Center',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
             ]);
 
 
