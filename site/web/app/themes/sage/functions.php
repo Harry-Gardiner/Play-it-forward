@@ -88,4 +88,4 @@ add_theme_support('sage');
 |
 */
 
-require_once get_template_directory() . '/app/newsletter-popup.php';
+// require_once get_template_directory() . '/app/newsletter-popup.php';
