@@ -1,333 +1,340 @@
 .footer {
-    color: $pf-charcoal;
+  color: $pf-charcoal;
 
-    &__top {
-        background-color: $pf-off-white;
+  &__top {
+    background-color: $pf-off-white;
 
-        &__wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: $spacing--md;
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing--md;
 
-            @include media-breakpoint(lg) {
-                flex-direction: row;
-            }
-        }
+      @include media-breakpoint(lg) {
+        flex-direction: row;
+      }
+    }
 
-        &__col1 {
-            display: flex;
-            flex-direction: column;
-            gap: $spacing--md;
-            padding: $spacing--md 0;
+    &__col1 {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing--md;
+      padding: $spacing--md 0;
 
-            @include media-breakpoint(lg) {
-                flex-basis: 50%;
-            }
-
-        }
-
-        &__logo {
-            p {
-                display: inline !important;
-            }
-        }
-
-        &__nav {
-            @include media-breakpoint(md) {
-                margin-left: 3.5rem;
-            }
-
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-
-                li {
-                    width: calc(50% - 1rem);
-
-                    a {
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-        }
-
-        &__col2 {
-            @include media-breakpoint(lg) {
-                flex-basis: 50%;
-            }
-        }
-
-        &__icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-
-            &__img {
-                width: 250px;
-                height: 150px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    max-width: 100%;
-                    max-height: 100%;
-                    object-fit: contain;
-                }
-            }
-
-            &.multiple-icons {
-                .footer__top__icons__img {
-                    width: 200px;
-                    height: 100px;
-                }
-
-                &:only-child .footer__top__icons__img {
-                    width: 250px;
-                    height: 160px;
-                }
-            }
-
-            @include media-breakpoint(lg) {
-                &.multiple-icons {
-                    .footer__top__icons__img {
-                        width: 200px;
-                        height: 100px;
-                    }
-
-                    &:only-child .footer__top__icons__img {
-                        width: 250px;
-                        height: 160px;
-                    }
-                }
-            }
-        }
-
-        &__form {
-            margin-bottom: $spacing--lg;
-            background-color: #D9D9D9;
-            padding: $spacing--sm;
-
-            @include media-breakpoint(lg) {
-                clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
-                margin-top: -$spacing--xs;
-
-                padding: $spacing--xs $spacing--xl;
-            }
-        }
-
-        &__icons {
-            margin-bottom: $spacing--md;
-        }
+      @include media-breakpoint(lg) {
+        flex-basis: 50%;
+      }
     }
 
     &__logo {
+      p {
+        display: inline !important;
+      }
+    }
+
+    &__nav {
+      @include media-breakpoint(md) {
+        margin-left: 3.5rem;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        li {
+          width: calc(50% - 1rem);
+
+          a {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__col2 {
+      @include media-breakpoint(lg) {
+        flex-basis: 50%;
+      }
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      &__img {
+        width: 250px;
+        height: 150px;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        @include media-breakpoint(md) {
-            align-items: flex-start;
-        }
-
         img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
         }
+      }
+
+      &.multiple-icons {
+        .footer__top__icons__img {
+          width: 200px;
+          height: 100px;
+        }
+
+        &:only-child .footer__top__icons__img {
+          width: 250px;
+          height: 160px;
+        }
+      }
+
+      @include media-breakpoint(lg) {
+        &.multiple-icons {
+          .footer__top__icons__img {
+            width: 200px;
+            height: 100px;
+          }
+
+          &:only-child .footer__top__icons__img {
+            width: 250px;
+            height: 160px;
+          }
+        }
+      }
     }
 
-    &__banner {
-        background-image: url(../../../images/allTheGreens.png);
-        width: 100vw;
-        height: 2rem;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: cover;
+    &__form {
+      margin-bottom: $spacing--lg;
+      background-color: #d9d9d9;
+      padding: $spacing--sm;
 
-        @include media-breakpoint(md) {
-            background-repeat: repeat-x;
-            background-size: contain;
-            height: 45px;
-        }
+      @include media-breakpoint(lg) {
+        clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+        margin-top: -$spacing--xs;
+
+        padding: $spacing--xs $spacing--xl;
+      }
     }
 
-    &__bottom {
-        background-color: black;
+    &__icons {
+      margin-bottom: $spacing--md;
+    }
+  }
 
-        &__content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: $spacing--md;
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            padding-top: rem(44);
-            padding-bottom: rem(44);
-
-            @include media-breakpoint(lg) {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
+    @include media-breakpoint(md) {
+      align-items: flex-start;
     }
 
-    &__social {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-
-        i {
-            color: $pf-charcoal;
-        }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
+  }
 
-    &__upper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
-        padding-bottom: 3rem;
+  &__banner {
+    background-image: url(../../../images/allTheGreens.png);
+    width: 100vw;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 
-        .button {
-            width: fit-content;
-            margin: 0 auto;
-
-            @include media-breakpoint(md) {
-                margin: 0;
-            }
-        }
-
-        @include media-breakpoint(md) {
-            flex-direction: row;
-            justify-content: space-between;
-        }
+    @include media-breakpoint(md) {
+      background-repeat: repeat-x;
+      background-size: contain;
+      height: 45px;
     }
+  }
 
-    &__middle {
-        padding-bottom: 3rem;
+  &__bottom {
+    background-color: black;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: $spacing--md;
+
+      padding-top: rem(44);
+      padding-bottom: rem(44);
+
+      @include media-breakpoint(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
+  }
 
-    &__columns-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 
-        @include media-breakpoint(md) {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr);
-        }
+    i {
+      color: $pf-charcoal;
     }
+  }
 
-    &__column {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-bottom: 1rem;
+  &__upper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 3rem;
 
-        h3 {
-            font-weight: 500;
-            font-size: $size--md;
-            text-transform: none;
-        }
+    .button {
+      width: fit-content;
+      margin: 0 auto;
 
-        a {
-            font-weight: 500;
-            text-decoration: none;
-            color: $pf-charcoal;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    &__newsletter {
-        h3 {
-            font-weight: 500;
-            font-size: $size--md;
-            text-transform: none;
-        }
-    }
-
-    &__lower {
-        background-color: $pf-charcoal;
-        color: $pf-white;
-        text-align: center;
-        padding: 2rem 0;
-
-        p,
-        a {
-            font-size: $size--sm;
-        }
-
-        a {
-            text-decoration: underline;
-        }
-    }
-}
-
-#backToTopBtn {
-    position: fixed;
-    visibility: hidden;
-    z-index: 899;
-    bottom: 5rem;
-    right: 1rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: $pf-charcoal;
-    color: $pf-white;
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.50));
-    text-transform: uppercase;
-    font-size: 9px;
-    padding: 0.5rem;
-    padding-top: 0;
-
-    span {
-        display: block;
-        font-size: $size--xs;
+      @include media-breakpoint(md) {
+        margin: 0;
+      }
     }
 
     @include media-breakpoint(md) {
-        right: 2rem;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__middle {
+    padding-bottom: 3rem;
+  }
+
+  &__columns-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include media-breakpoint(md) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+
+    h3 {
+      font-weight: 500;
+      font-size: $size--md;
+      text-transform: none;
     }
 
-    &.show {
-        visibility: visible;
-        animation: slideIn 0.3s ease-in-out;
-        animation-fill-mode: forwards;
+    a {
+      font-weight: 500;
+      text-decoration: none;
+      color: $pf-charcoal;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__newsletter {
+    h3 {
+      font-weight: 500;
+      font-size: $size--md;
+      text-transform: none;
+    }
+  }
+
+  &__charity-number {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  &__lower {
+    background-color: $pf-charcoal;
+    color: $pf-white;
+    text-align: center;
+    padding: 2rem 0;
+
+    p,
+    a {
+      font-size: $size--sm;
     }
 
-    &.hide {
-        animation: slideOut 0.3s ease-in-out;
-        animation-fill-mode: forwards;
+    a {
+      text-decoration: underline;
     }
+  }
+}
+
+#backToTopBtn {
+  position: fixed;
+  visibility: hidden;
+  z-index: 899;
+  bottom: 5rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $pf-charcoal;
+  color: $pf-white;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  text-transform: uppercase;
+  font-size: 9px;
+  padding: 0.5rem;
+  padding-top: 0;
+
+  span {
+    display: block;
+    font-size: $size--xs;
+  }
+
+  @include media-breakpoint(md) {
+    right: 2rem;
+  }
+
+  &.show {
+    visibility: visible;
+    animation: slideIn 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  &.hide {
+    animation: slideOut 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
 }
 
 /* Define slide-in animation */
 @keyframes slideIn {
-    from {
-        transform: translateX(150%);
-    }
+  from {
+    transform: translateX(150%);
+  }
 
-    to {
-        transform: translateX(0);
-    }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Define slide-out animation */
 @keyframes slideOut {
-    from {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(0);
+  }
 
-    to {
-        transform: translateX(150%);
-    }
+  to {
+    transform: translateX(150%);
+  }
 }

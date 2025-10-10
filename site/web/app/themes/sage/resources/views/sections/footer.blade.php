@@ -52,7 +52,7 @@
                     </div>
                 @endif
             </div>
-
+            <div class="footer__charity-number">Registered charity number: 1177278</div>
             <div class="footer__banner full-bleed"></div>
 
             <div class="footer__lower full-bleed">
