@@ -19,15 +19,15 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "6.7.3",
-    "@roots/bud-sass": "^6.7.3",
-    "@roots/bud-tailwindcss": "6.7.3",
-    "@roots/sage": "6.7.3",
+    "@roots/bud": "6.24.0",
+    "@roots/bud-sass": "^6.24.0",
+    "@roots/bud-tailwindcss": "6.24.0",
+    "@roots/sage": "6.24.0",
     "json-to-scss": "^1.6.2"
   },
   "dependencies": {
-    "countup.js": "^2.8.0",
-    "embla-carousel": "^8.0.0-rc15",
-    "embla-carousel-autoplay": "^8.0.0-rc15"
+    "countup.js": "^2.9.0",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0"
   }
 }
