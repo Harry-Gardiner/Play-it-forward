@@ -45,11 +45,11 @@
     "log1x/acf-composer": "^2.1",
     "wpackagist-plugin/simple-local-avatars": "^2.7",
     "wpackagist-plugin/imagify": "^2.2.1",
-    "wpackagist-plugin/wordpress-seo": "^23.5",
-    "wpackagist-plugin/wordfence": "^7.11.5",
+    "wpackagist-plugin/wordpress-seo": "^26.0",
+    "wpackagist-plugin/wordfence": "^8.0",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.1",
     "wpackagist-plugin/updraftplus": "^1.24.3",
-    "wpackagist-plugin/contact-form-7": "^5.9.5",
+    "wpackagist-plugin/contact-form-7": "^6.0",
     "wpackagist-plugin/mailchimp-for-wp": "^4.9.13"
   },
   "require-dev": {
