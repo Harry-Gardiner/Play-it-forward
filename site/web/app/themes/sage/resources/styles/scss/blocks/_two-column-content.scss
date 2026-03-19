@@ -1,92 +1,97 @@
 .two-column-content {
+  display: flex;
+  flex-direction: column;
+
+  &__align-top {
+    align-items: flex-start;
+  }
+
+  &__align-middle {
+    align-items: center;
+  }
+
+  &__align-bottom {
+    align-items: flex-end;
+  }
+
+  &__columns {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 
-    &__align-top {
-        align-items: flex-start;
+    @include media-breakpoint('md') {
+      flex-direction: row;
+    }
+  }
+
+  &__column-1,
+  &__column-2 {
+    @include media-breakpoint('md') {
+      width: 50%;
     }
 
-    &__align-middle {
-        align-items: center;
+    iframe {
+      aspect-ratio: 16/9;
+      width: 100%;
     }
-
-    &__align-bottom {
-        align-items: flex-end;
-    }
-
-    &__columns {
-        display: flex;
-        gap: 2rem;
-    }
-
-    &__column-1, &__column-2 {
-        @media (min-width: 768px) {
-            width: 50%;
-        }
-
-        iframe {
-            aspect-ratio: 16/9;
-            width: 100%;
-        }
-    }
+  }
 }
 
 .two-column-content__column-1 {
-    .two-column-quote {
-        @include media-breakpoint('md') {
-            padding-right: 2rem;
-        }
-
-        @include media-breakpoint('lg') {
-            padding-right: 4rem;
-        }
-
-        @include media-breakpoint('xl') {
-            padding-right: 8rem;
-        }
+  .two-column-quote {
+    @include media-breakpoint('md') {
+      padding-right: 2rem;
     }
+
+    @include media-breakpoint('lg') {
+      padding-right: 4rem;
+    }
+
+    @include media-breakpoint('xl') {
+      padding-right: 8rem;
+    }
+  }
 }
 
 .two-column-content__column-2 {
-    .two-column-quote {
-        @include media-breakpoint('md') {
-            padding-left: 2rem;
-        }
-
-        @include media-breakpoint('lg') {
-            padding-left: 4rem;
-        }
-
-        @include media-breakpoint('xl') {
-            padding-left: 8rem;
-        }
+  .two-column-quote {
+    @include media-breakpoint('md') {
+      padding-left: 2rem;
     }
 
+    @include media-breakpoint('lg') {
+      padding-left: 4rem;
+    }
+
+    @include media-breakpoint('xl') {
+      padding-left: 8rem;
+    }
+  }
 }
 
 .two-column-quote {
-    &__short {
-        font-size: $size--lg;
-        font-weight: 600;
-        text-transform: uppercase;
-        width: 100%;
-        margin: auto;
-    }
+  &__short {
+    font-size: $size--lg;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 100%;
+    margin: auto;
+  }
 
-    &__long {
-        font-size: $size--lg;
-        font-weight: 400;
-        margin: auto;
-        width: 100%;
-    }
+  &__long {
+    font-size: $size--lg;
+    font-weight: 400;
+    margin: auto;
+    width: 100%;
+  }
 
-    &__author {
-        width: 100%;
-        text-align: right;
-        font-size: $size--lg;
-        font-weight: 400;
-        margin: auto;
-        margin-top: 2rem;
-        color: $pf-raspberry;
-    }
+  &__author {
+    width: 100%;
+    text-align: right;
+    font-size: $size--lg;
+    font-weight: 400;
+    margin: auto;
+    margin-top: 2rem;
+    color: $pf-raspberry;
+  }
 }
