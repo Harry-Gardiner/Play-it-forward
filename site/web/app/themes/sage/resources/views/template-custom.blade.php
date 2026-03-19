@@ -856,7 +856,10 @@ Template Name: Pattern Library
                     'wrapper' => '',
                     'spacing_size' => '',
                     'background_colour' => 'off-white',
-                    'style' => 'short',
+                    'variant' => 'image',
+                    'image' => ['url' => 'https://placehold.co/400x400', 'alt' => 'Quote image'],
+                    'image_position' => 'left',
+                    'style' => 'long',
                     'text' =>
                         'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
                     'author' => 'Quote author, author job title etc',

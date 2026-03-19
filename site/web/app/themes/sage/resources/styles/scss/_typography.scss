@@ -17,7 +17,9 @@ a {
 }
 
 .text__standfirst {
-  li, p, a {
+  li,
+  p,
+  a {
     font-family: $font--primary;
     font-size: $size--lg;
     font-weight: 400;
@@ -109,7 +111,7 @@ ul:not(.acf-radio-list):not(.acf-tab-group) {
   }
 
   li:not([class]):not(.editor-styles-wrapper):before {
-    content: "·";
+    content: '·';
     font-size: 30px;
     vertical-align: middle;
     line-height: 20px;
@@ -164,14 +166,12 @@ ol {
     width: 60%;
   }
 
-
-
   &__mark {
     display: inline-block;
     width: 3rem;
     height: 1rem;
     position: relative;
-    
+
     span {
       color: $pf-raspberry;
       font-size: 100px;
@@ -182,7 +182,7 @@ ol {
       left: -5px;
     }
   }
-  
+
   &__short {
     font-weight: 600;
     text-transform: uppercase;
@@ -211,7 +211,45 @@ ol {
   }
 }
 
+.quote--image {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing--lg;
 
+  @include media-breakpoint('md') {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .quote {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .quote__image {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .quote__body {
+    flex: 1 1 60%;
+    max-width: 60%;
+  }
+
+  @include media-breakpoint('sm', 'max-width') {
+    flex-direction: column;
+
+    .quote__image,
+    .quote__body {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
 
 @include media-breakpoint('lg') {
   .nav {

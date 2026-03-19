@@ -127,9 +127,12 @@ class Quote extends Block
         'wrapper' => '',
         'spacing_size' => '',
         'background_colour' => 'off-white',
+        'variant' => 'simple',
         'style' => 'short',
         'text' => 'Quote text - Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius in explicabo!',
-        'author' => 'Quote author, author job title etc'
+        'author' => 'Quote author, author job title etc',
+        'image' => ['url' => 'https://placehold.co/400x400', 'alt' => 'Quote image'],
+        'image_position' => 'left',
     ];
 
     /**
@@ -146,9 +149,12 @@ class Quote extends Block
             'background_colour' => get_field('colour_picker'),
 
             // Quote
+            'variant' => get_field('variant'),
             'text' => get_field('text'),
             'style' => get_field('style'),
             'author' => get_field('author'),
+            'image' => get_field('image'),
+            'image_position' => get_field('image_position'),
         ];
     }
 
@@ -164,6 +170,15 @@ class Quote extends Block
         $quote
             ->addFields($this->get(GeneralTab::class))
             ->addTab('Quote')
+            ->addRadio('variant', [
+                'label' => 'Quote variant',
+                'instructions' => 'Choose whether this quote includes an image.',
+                'choices' => [
+                    'simple' => 'Simple',
+                    'image' => 'Image',
+                ],
+                'default_value' => 'simple',
+            ])
             ->addRadio('style', [
                 'label' => 'Quote style',
                 'instructions' => 'Choose the style of quote you would like to use. \'Short\' should be reserved for very short, punchy quotes, ideally of less than 100 characters. Longer quotes should use the \'Long\' style.',
@@ -179,7 +194,21 @@ class Quote extends Block
             ->addText('author', [
                 'label' => 'Quote author (optional)',
                 'instructions' => 'Add the name of the person being quoted. You may also like to add their job title etc here',
-            ]);
+            ])
+            ->addImage('image', [
+                'label' => 'Quote image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ])->conditional('variant', '==', 'image')
+            ->addRadio('image_position', [
+                'label' => 'Image position',
+                'choices' => [
+                    'left' => 'Left',
+                    'right' => 'Right',
+                ],
+                'default_value' => 'left',
+            ])->conditional('variant', '==', 'image');
 
         return $quote->build();
     }
