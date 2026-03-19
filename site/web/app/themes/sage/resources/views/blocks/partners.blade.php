@@ -22,8 +22,8 @@
                 <div class="partners__list">
                     @foreach ($partners as $partner)
                         <div class="partners__item">
-                            @if (is_array($partner['logo']))
-                            <img src="{{ $partner['logo']['sizes']['medium'] }}" alt="{{ $partner['logo']['alt'] }}">
+                            @if (! empty($partner['logo']['sizes']['medium']))
+                                <img src="{{ $partner['logo']['sizes']['medium'] }}" alt="{{ $partner['logo']['alt'] ?? '' }}">
                             @endif
                             <div class="partners__item__info">
                                 <p class="h3">{{ $partner['name'] }}</p>
