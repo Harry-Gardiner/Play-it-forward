@@ -758,6 +758,32 @@ Template Name: Pattern Library
             </section>
 
             <section class="flow block-padding--bottom">
+                <h2>FAQs</h2>
+                <p>Displays a list of frequently asked questions in an accordion style. Questions will expand and collapse.
+                </p>
+                @include('blocks.faq', [
+                    'wrapper' => '',
+                    'spacing_size' => '',
+                    'title_style' => [
+                        'title' => 'FAQs',
+                        'heading_level' => 'h2',
+                        'heading_style' => 'h2',
+                    ],
+                    'body' => 'Have a question? Click a question below to view the answer.',
+                    'faqs' => [
+                        [
+                            'question' => 'How do I sign up?',
+                            'answer' => '<p>Go to the registration page and complete the form.</p>',
+                        ],
+                        [
+                            'question' => 'Can I edit my submission?',
+                            'answer' => '<p>Yes — you can edit via your account dashboard once logged in.</p>',
+                        ],
+                    ],
+                ])
+            </section>
+
+            <section class="flow block-padding--bottom">
                 <h2>Text with media</h2>
                 <p>
                     Text with media block Consists of title: This is a set of fields defined in the Title class.
