@@ -205,7 +205,7 @@ class CardRow extends Block
             'label' => 'Cards',
             'layout' => 'block',
             'button_label' => 'Add Card',
-            'max' => 4,
+            'max' => 12,
         ])
         ->addImage('image', [
             'label' => 'Image',
