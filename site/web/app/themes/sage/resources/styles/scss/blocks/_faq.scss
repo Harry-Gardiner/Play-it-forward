@@ -17,58 +17,63 @@
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: rgba($pf-white, 0.9);
+  }
 
-    summary {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: $spacing--md $spacing--lg;
-      font-weight: 700;
-      list-style: none;
+  &__question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing--md $spacing--md;
+    font-weight: 700;
+    list-style: none;
 
-      &::-webkit-details-marker {
-        display: none;
-      }
+    &::-webkit-details-marker {
+      display: none;
     }
 
-    &__toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 50%;
-      border: 1px solid rgba($pf-charcoal, 0.4);
-      color: $pf-charcoal;
-      font-size: 0.85rem;
-      line-height: 1;
+    &:focus {
+      outline: none;
+    }
+  }
 
-      &::before {
-        content: '▶';
-        display: inline-block;
-        transform: rotate(0deg);
-        transition: transform 0.2s ease;
-      }
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba($pf-charcoal, 0.4);
+    color: $pf-charcoal;
+    font-size: 0.85rem;
+    line-height: 1;
+
+    &::before {
+      content: '▶';
+      display: inline-block;
+      transform: rotate(0deg);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &__item[open] {
+    .faq__toggle::before {
+      transform: rotate(90deg);
     }
 
-    &[open] {
-      .faq__toggle::before {
-        transform: rotate(90deg);
-      }
-
-      > summary {
-        border-bottom: 1px solid rgba($pf-charcoal, 0.15);
-      }
+    > .faq__question {
+      border-bottom: 1px solid rgba($pf-charcoal, 0.15);
     }
+  }
 
-    &__answer {
-      padding: 0 $spacing--lg $spacing--md;
-      border-top: 1px solid rgba($pf-charcoal, 0.15);
+  &__answer {
+    padding: $spacing--lg $spacing--md;
+    border-top: 1px solid rgba($pf-charcoal, 0.15);
 
-      p {
-        margin: 0;
-      }
+    p {
+      margin: 0;
     }
   }
 }
