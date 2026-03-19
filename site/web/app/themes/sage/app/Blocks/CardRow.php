@@ -126,32 +126,34 @@ class CardRow extends Block
      * @var array
      */
     public $example = [
-        'wrapper' => '', 
-        'spacing_size' => '', 
+        'wrapper' => '',
+        'spacing_size' => '',
         'title_style' => ['title' => 'Card row', 'heading_level' => 'h2', 'heading_style' => 'h2'],
         'items' => [
             [
               'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
               'title' => 'Card title',
-              'link' => '#', 
-              'text' => 'Button text', 
-              'type' => 'primary', 
+              'content' => 'This is a short description for the first card. It only renders if content exists.',
+              'link' => '#',
+              'text' => 'Button text',
+              'type' => 'primary',
               'btn_colour' => 'dark-green'
             ],
             [
               'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
               'title' => 'Card title 2',
-              'link' => '#', 
-              'text' => 'Button text', 
-              'type' => 'primary', 
+              'content' => 'A second card can also have a bit of text. It won\'t show if empty.',
+              'link' => '#',
+              'text' => 'Button text',
+              'type' => 'primary',
               'btn_colour' => 'black'
             ],
             [
               'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
               'title' => 'Card title 3',
-              'link' => '#', 
-              'text' => 'Button text', 
-              'type' => 'primary', 
+              'link' => '#',
+              'text' => 'Button text',
+              'type' => 'primary',
               'btn_colour' => 'raspberry'
             ],
           ]
@@ -189,7 +191,7 @@ class CardRow extends Block
         ->addMessage('block_title', '', [
             'label' => 'Card Row',
         ])
-        ->addFields($this->get(GeneralTab::class))  
+        ->addFields($this->get(GeneralTab::class))
         ->addRadio('colour_picker', [
             'label' => 'Select Colour',
             'choices' => [
@@ -212,6 +214,9 @@ class CardRow extends Block
         ])
         ->addText('title', [
             'label' => 'Title',
+        ])
+        ->addWysiwyg('content', [
+            'label' => 'Content',
         ])
         ->addFields($this->get(Button::class))
         ->addSelect('btn_colour', [
