@@ -2,7 +2,13 @@
   color: $pf-charcoal;
 
   &__top {
-    background-color: $pf-off-white;
+    background-color: $pf-white;
+
+    // subtle divider between main content and footer (contained width)
+    .container {
+      border-top: 2px solid rgba($pf-charcoal, 0.2);
+      margin-top: $spacing--xl;
+    }
 
     &__wrapper {
       display: flex;

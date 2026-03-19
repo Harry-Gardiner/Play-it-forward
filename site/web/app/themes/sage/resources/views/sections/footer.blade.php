@@ -46,7 +46,7 @@
 
                         @if ($footer_logo)
                             <div class="footer__logo">
-                                <img src="{{$footer_logo['sizes']['medium']}}" alt="{{$footer_logo['alt']}}">
+                                <img src="{{ $footer_logo['sizes']['medium'] }}" alt="{{ $footer_logo['alt'] }}">
                             </div>
                         @endif
                     </div>
