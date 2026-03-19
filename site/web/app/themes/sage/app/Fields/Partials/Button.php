@@ -35,8 +35,8 @@ class Button extends Partial
             ->addUrl('link', [
                 'label' => 'Link',
                 'instructions' => 'Enter the link for the button.',
-                'required' => 1,
-                'default_value' => '/',
+                'required' => 0,
+                'default_value' => '',
             ])->conditional('type', '!=', 'donate')
             ->addTrueFalse('new_tab', [
                 'label' => 'Open in new tab?',
