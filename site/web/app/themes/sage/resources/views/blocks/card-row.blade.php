@@ -21,8 +21,27 @@
                     <div class="card-row__item__inner">
                         <div class="card-row__item__content flow">
                             @if ($item['image'])
-                                <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}"
-                                    alt="{{ $item['image']['alt'] ? $item['image']['alt'] : $item['image']['name'] }}">
+                                @php
+                                    $imgUrl = $item['image']['sizes']['full'] ?? $item['image']['url'];
+                                    $imgAlt = $item['image']['alt'] ?? $item['image']['name'];
+                                    $lightboxCaption = $item['image_lightbox_caption'] ?? '';
+                                @endphp
+
+                                @if (!empty($item['image_lightbox']))
+                                    <a
+                                        href="{{ $imgUrl }}"
+                                        class="card-row__lightbox"
+                                        data-title="{{ $lightboxCaption }}"
+                                        aria-label="Open image in lightbox"
+                                        >
+                                        <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}" alt="{{ $imgAlt }}">
+                                        <span class="card-row__lightbox-overlay">
+                                            <span class="card-row__lightbox-overlay-text">Open</span>
+                                        </span>
+                                    </a>
+                                @else
+                                    <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}" alt="{{ $imgAlt }}">
+                                @endif
                             @endif
                             <div class="card-row__item__body">
                                 @if ($item['title'])

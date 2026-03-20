@@ -137,7 +137,9 @@ class CardRow extends Block
               'link' => '#',
               'text' => 'Button text',
               'type' => 'primary',
-              'btn_colour' => 'dark-green'
+              'btn_colour' => 'dark-green',
+              'image_lightbox' => true,
+              'image_lightbox_caption' => 'Image 1 caption'
             ],
             [
               'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
@@ -146,7 +148,9 @@ class CardRow extends Block
               'link' => '#',
               'text' => 'Button text',
               'type' => 'primary',
-              'btn_colour' => 'black'
+              'btn_colour' => 'black',
+              'image_lightbox' => false,
+              'image_lightbox_caption' => ''
             ],
             [
               'image' => ['sizes' => ['medium_large' => 'https://placehold.co/500x300'], 'alt' => 'alt text'],
@@ -154,7 +158,9 @@ class CardRow extends Block
               'link' => '#',
               'text' => 'Button text',
               'type' => 'primary',
-              'btn_colour' => 'raspberry'
+              'btn_colour' => 'raspberry',
+              'image_lightbox' => false,
+              'image_lightbox_caption' => ''
             ],
           ]
     ];
@@ -211,6 +217,20 @@ class CardRow extends Block
         ])
         ->addImage('image', [
             'label' => 'Image',
+        ])
+        ->addTrueFalse('image_lightbox', [
+            'label' => 'Enable lightbox for image',
+            'message' => 'Open image in lightbox',
+            'default_value' => 0,
+        ])
+        ->addText('image_lightbox_caption', [
+            'label' => 'Lightbox caption (optional)',
+            'instructions' => 'Caption shown under the image in the lightbox.',
+            'conditional_logic' => [
+                [
+                    ['field' => 'image_lightbox', 'operator' => '==', 'value' => '1'],
+                ],
+            ],
         ])
         ->addText('title', [
             'label' => 'Title',

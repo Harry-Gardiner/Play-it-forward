@@ -30,6 +30,7 @@
     "caniuse-lite": "^1.0.30001770",
     "countup.js": "^2.8.0",
     "embla-carousel": "^8.0.0-rc15",
-    "embla-carousel-autoplay": "^8.0.0-rc15"
+    "embla-carousel-autoplay": "^8.0.0-rc15",
+    "glightbox": "^3.3.1"
   }
 }

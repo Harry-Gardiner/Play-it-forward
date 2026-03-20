@@ -1,4 +1,5 @@
 import domReady from '@roots/sage/client/dom-ready';
+import GLightbox from 'glightbox';
 import './custom/Header.js';
 import './custom/Slider.js';
 import './custom/StatsCounter.js';
@@ -118,6 +119,23 @@ domReady(async () => {
       if (hiddenMatches.length <= 10) {
         loadMoreMatchesButton.style.display = 'none';
       }
+    });
+  }
+
+  /**
+   * Card row lightbox
+   */
+  if (document.querySelector('.card-row__lightbox')) {
+    GLightbox({
+      selector: '.card-row__lightbox',
+      touchNavigation: true,
+      loop: false,
+      closeButton: true,
+      openEffect: 'fade',
+      closeEffect: 'fade',
+      plyr: {
+        css: 'https://cdn.plyr.io/3.7.8/plyr.css',
+      },
     });
   }
 
