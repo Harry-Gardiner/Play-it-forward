@@ -28,8 +28,7 @@
         $btn_new_tab = $cta_button['new_tab'] ?? false;
     }
 @endphp
-<section
-    class="hero-fp full-bleed">
+<section class="hero-fp full-bleed">
 
     <div class="hero-fp__top">
         @if ($hero_image)
@@ -47,37 +46,39 @@
             </div>
         @endif
     </div>
-    <div class="hero-fp__mid">
-        <div class="container">
-            @if ($impact_text)
-            <div class="embla hero-fp__mid__slider">
-                <div class="embla__container">
-                    @foreach ($impact_text as $item)
-                    <div class="embla__slide hero-fp__mid__slider__item">
-                        {{ $item['text_string'] }}
+    @if ($impact_text)
+        <div class="hero-fp__mid">
+            <div class="container">
+
+                <div class="embla hero-fp__mid__slider">
+                    <div class="embla__container">
+                        @foreach ($impact_text as $item)
+                            <div class="embla__slide hero-fp__mid__slider__item">
+                                {{ $item['text_string'] }}
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
+
             </div>
+        </div>
+    @endif
+    <div class="hero-fp__bottom block-padding">
+        <div class="container">
+            @if ($hero_content)
+                <div class="hero-fp__bottom__sub-text flow">
+                    {!! $hero_content !!}
+                    @if ($show_button == 'yes')
+                        @include('partials.button', [
+                            'type' => $btn_type,
+                            'link' => $btn_link,
+                            'text' => $btn_text,
+                            'colour' => 'yellow',
+                            'new_tab' => $btn_new_tab,
+                        ])
+                    @endif
+                </div>
             @endif
         </div>
     </div>
-    <div class="hero-fp__bottom block-padding--bottom">
-        <div class="container">
-            @if ($hero_content)
-            <div class="hero-fp__bottom__sub-text flow">
-                {!! $hero_content !!}
-                @if ($show_button == 'yes')
-                    @include('partials.button', [
-                        'type' => $btn_type,
-                        'link' => $btn_link,
-                        'text' => $btn_text,
-                        'colour' => 'yellow',
-                        'new_tab' => $btn_new_tab,
-                    ])
-                @endif
-            </div>
-            @endif
-        </div>
-    </div>  
 </section>
