@@ -117,6 +117,19 @@
       left: 0;
       z-index: 1;
     }
+
+    &--chevron {
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+      overflow: hidden;
+      will-change: clip-path;
+    }
+  }
+
+  &--chevron {
+    .hero-fp__top {
+      overflow: hidden;
+    }
   }
 
   &__title {

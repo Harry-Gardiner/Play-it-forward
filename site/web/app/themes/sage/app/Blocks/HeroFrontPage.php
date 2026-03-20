@@ -140,6 +140,7 @@ class HeroFrontPage extends Block
         'hero_content' => '<p>Hero subtitle - Lorem ipsum dolor sit amet: consectetur sadipscing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>',
         'show_button' => 'yes',
         'cta_button' => ['link' => '#', 'text' => 'Button text', 'type' => 'primary', 'btn_colour' => '', 'new_tab' => ''],
+        'hero_image_overlay' => true,
     ];
 
     /**
@@ -160,6 +161,7 @@ class HeroFrontPage extends Block
             'hero_content' => get_field('hero_content'),
             'show_button' => get_field('show_button'),
             'cta_button' => get_field('cta_button'),
+            'hero_image_overlay' => get_field('hero_image_overlay'),
         ];
     }
 
@@ -195,6 +197,12 @@ class HeroFrontPage extends Block
                     'right' => 'Right',
                 ],
                 'default_value' => 'center',
+            ])
+            ->addTrueFalse('hero_image_overlay', [
+                'label' => 'Chevron bottom mask',
+                'instructions' => 'Enable a chevron-style angled clip at the bottom of the hero image.',
+                'message' => 'Enable',
+                'default_value' => 0,
             ])
             ->addTab('Hero Content')
             ->addImage('hero_icon', [

@@ -197,6 +197,7 @@ Template Name: Pattern Library
                         'btn_colour' => '',
                         'new_tab' => false,
                     ],
+                    'hero_image_overlay' => true,
                 ])
 
             </section>

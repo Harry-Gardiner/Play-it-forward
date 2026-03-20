@@ -27,12 +27,14 @@
         $btn_type = $cta_button['type'] ?? null;
         $btn_new_tab = $cta_button['new_tab'] ?? false;
     }
+
+    $hero_image_overlay = $hero_image_overlay ?? false;
 @endphp
-<section class="hero-fp full-bleed">
+<section class="hero-fp full-bleed {{ $hero_image_overlay ? 'hero-fp--chevron' : '' }}">
 
     <div class="hero-fp__top">
         @if ($hero_image)
-            <div class="hero-fp__image">
+            <div class="hero-fp__image {{ $hero_image_overlay ? 'hero-fp__image--chevron' : '' }}">
                 <img src="{{ $hero_image['sizes']['2048x2048'] }}" alt="{{ $alt_text }}"
                     style="object-position:{{ $hero_image_position }}">
             </div>
