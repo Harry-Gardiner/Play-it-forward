@@ -22,8 +22,8 @@
                         <div class="card-row__item__content flow">
                             @if ($item['image'])
                                 @php
-                                    $imgUrl = $item['image']['sizes']['full'] ?? $item['image']['url'];
-                                    $imgAlt = $item['image']['alt'] ?? $item['image']['name'];
+                                    $imgUrl = $item['image']['sizes']['full'] ?? ($item['image']['url'] ?? '');
+                                    $imgAlt = $item['image']['alt'] ?? ($item['image']['name'] ?? '');
                                     $lightboxCaption = $item['image_lightbox_caption'] ?? '';
                                 @endphp
 
