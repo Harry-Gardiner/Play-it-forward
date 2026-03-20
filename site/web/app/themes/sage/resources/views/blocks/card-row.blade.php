@@ -28,19 +28,18 @@
                                 @endphp
 
                                 @if (!empty($item['image_lightbox']))
-                                    <a
-                                        href="{{ $imgUrl }}"
-                                        class="card-row__lightbox"
-                                        data-title="{{ $lightboxCaption }}"
-                                        aria-label="Open image in lightbox"
-                                        >
-                                        <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}" alt="{{ $imgAlt }}">
+                                    <a href="{{ $imgUrl }}" class="card-row__lightbox"
+                                        data-title="{{ $lightboxCaption }}" aria-label="Open image in lightbox">
+                                        <img class="card-row__item__image"
+                                            src="{{ $item['image']['sizes']['medium_large'] }}"
+                                            alt="{{ $imgAlt }}">
                                         <span class="card-row__lightbox-overlay">
                                             <span class="card-row__lightbox-overlay-text">Open</span>
                                         </span>
                                     </a>
                                 @else
-                                    <img class="card-row__item__image" src="{{ $item['image']['sizes']['medium_large'] }}" alt="{{ $imgAlt }}">
+                                    <img class="card-row__item__image"
+                                        src="{{ $item['image']['sizes']['medium_large'] }}" alt="{{ $imgAlt }}">
                                 @endif
                             @endif
                             <div class="card-row__item__body">

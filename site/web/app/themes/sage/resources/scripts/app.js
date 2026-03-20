@@ -44,7 +44,7 @@ domReady(async () => {
       const response = await fetch(
         `/wp-json/v1/posts/load_more?page=${currentPage}&per_page=${num}&post_type=${
           loadMoreButton.getAttribute('data-post-type') || 'post'
-        }`
+        }`,
       );
       const newPosts = await response.json();
       // Check if there are new posts
@@ -53,7 +53,7 @@ domReady(async () => {
         const postsHtml = newPosts
           .map(
             (post) =>
-              `<div class="card new-card" style="opacity: 0">${post}</div>`
+              `<div class="card new-card" style="opacity: 0">${post}</div>`,
           )
           .join('');
         // Render the new cards
@@ -91,7 +91,7 @@ domReady(async () => {
 
   const loadMoreMatchesButton = document.getElementById('loadMoreMatches');
   const matchResults = Array.from(
-    document.querySelectorAll('.football-team__matches__result')
+    document.querySelectorAll('.football-team__matches__result'),
   );
   if (loadMoreMatchesButton) {
     loadMoreMatchesButton.addEventListener('click', function () {
