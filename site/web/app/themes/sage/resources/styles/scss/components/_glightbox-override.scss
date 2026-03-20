@@ -1,0 +1,11 @@
+// Override Glightbox default styles that cause layout shift
+// Disable the scrollbar fixer margin and prevent overflow hidden
+
+.gscrollbar-fixer {
+  margin-right: 0 !important;
+  margin: 0 auto !important;
+}
+
+.glightbox-open {
+  overflow: unset !important;
+}
