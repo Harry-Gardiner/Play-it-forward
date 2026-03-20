@@ -123,21 +123,34 @@ domReady(async () => {
   }
 
   /**
-   * Card row lightbox
+   * Card row lightbox (single-item mode)
    */
-  if (document.querySelector('.card-row__lightbox')) {
-    GLightbox({
-      selector: '.card-row__lightbox',
+  document.querySelectorAll('.glightbox').forEach((anchor) => {
+    const imgHref = anchor.getAttribute('href');
+    const caption = anchor.getAttribute('data-title') || '';
+
+    const lightbox = GLightbox({
+      elements: [
+        {
+          href: imgHref,
+          type: 'image',
+          title: caption,
+          description: caption,
+        },
+      ],
       touchNavigation: true,
       loop: false,
       closeButton: true,
       openEffect: 'fade',
       closeEffect: 'fade',
-      plyr: {
-        css: 'https://cdn.plyr.io/3.7.8/plyr.css',
-      },
+      slideEffect: 'none',
     });
-  }
+
+    anchor.addEventListener('click', (event) => {
+      event.preventDefault();
+      lightbox.open();
+    });
+  });
 
   /**
    * Info Banner Cookies

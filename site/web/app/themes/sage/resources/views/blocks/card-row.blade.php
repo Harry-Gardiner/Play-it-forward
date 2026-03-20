@@ -28,7 +28,7 @@
                                 @endphp
 
                                 @if (!empty($item['image_lightbox']))
-                                    <a href="{{ $imgUrl }}" class="card-row__lightbox"
+                                    <a href="{{ $imgUrl }}" class="card-row__lightbox glightbox"
                                         data-title="{{ $lightboxCaption }}" aria-label="Open image in lightbox">
                                         <img class="card-row__item__image"
                                             src="{{ $item['image']['sizes']['medium_large'] }}"
