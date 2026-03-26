@@ -133,17 +133,38 @@
 
   &__logo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: $spacing--sm;
 
-    @include media-breakpoint(md) {
-      align-items: flex-start;
+    .footer__logo__primary,
+    .footer__logo__secondary {
+      max-width: 180px;
+      max-height: 90px;
+      object-fit: contain;
     }
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+    .footer__logo__primary {
+      order: 1;
+    }
+
+    .footer__logo__secondary {
+      order: 2;
+    }
+
+    @include media-breakpoint(lg) {
+      flex-direction: row;
+      align-items: center;
+
+      .footer__logo__secondary {
+        order: 1;
+        margin-right: $spacing--md;
+      }
+
+      .footer__logo__primary {
+        order: 2;
+      }
     }
   }
 

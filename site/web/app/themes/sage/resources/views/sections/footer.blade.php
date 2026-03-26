@@ -46,7 +46,10 @@
 
                         @if ($footer_logo)
                             <div class="footer__logo">
-                                <img src="{{ $footer_logo['sizes']['medium'] }}" alt="{{ $footer_logo['alt'] }}">
+                                <img src="@asset('images/fundraising-regulator.png')" alt="Fundraising Regulator badge"
+                                    class="footer__logo__secondary">
+                                <img src="{{ $footer_logo['sizes']['medium'] }}" alt="{{ $footer_logo['alt'] }}"
+                                    class="footer__logo__primary">
                             </div>
                         @endif
                     </div>
