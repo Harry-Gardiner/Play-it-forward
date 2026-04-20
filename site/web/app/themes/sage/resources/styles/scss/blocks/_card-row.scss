@@ -12,7 +12,7 @@
 
     @include media-breakpoint('lg') {
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
   }
 
@@ -24,7 +24,7 @@
     }
 
     @include media-breakpoint('lg') {
-      flex: 1;
+      flex: 0 0 calc(25% - #{$spacing--lg * 0.75});
     }
 
     &__image {
@@ -44,33 +44,6 @@
       &:hover {
         .card-row__item__image {
           transform: scale(1.05) translateY(-3px);
-        }
-
-        .card-row__lightbox-overlay {
-          opacity: 1;
-        }
-      }
-
-      .card-row__lightbox-overlay {
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.35);
-        opacity: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-
-        .card-row__lightbox-overlay-text {
-          background: rgba(0, 0, 0, 0.55);
-          color: #fff;
-          padding: 0.4rem 0.9rem;
-          border-radius: 30px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          font-size: 0.85rem;
         }
       }
     }

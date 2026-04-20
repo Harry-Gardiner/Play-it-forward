@@ -33,9 +33,6 @@
                                         <img class="card-row__item__image"
                                             src="{{ $item['image']['sizes']['medium_large'] }}"
                                             alt="{{ $imgAlt }}">
-                                        <span class="card-row__lightbox-overlay">
-                                            <span class="card-row__lightbox-overlay-text">Open</span>
-                                        </span>
                                     </a>
                                 @else
                                     <img class="card-row__item__image"
