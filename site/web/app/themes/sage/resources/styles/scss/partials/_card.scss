@@ -87,6 +87,38 @@
     z-index: 1;
   }
 
+  &__category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.2em 0.5em;
+    border-radius: 50px;
+    margin-bottom: 0.25rem;
+    background: $pf-yellow;
+    color: $pf-white;
+    border: 1px solid $pf-yellow;
+  }
+
+  &__date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    font-size: $size--xs;
+    font-weight: 600;
+    color: $pf-charcoal;
+    background: $pf-white;
+    padding: 0.2em 0.5em;
+    margin-bottom: 0.3rem;
+    border-radius: 50px;
+    letter-spacing: 0.3px;
+  }
+
   &__title {
     color: $pf-charcoal;
     font-weight: 700;
