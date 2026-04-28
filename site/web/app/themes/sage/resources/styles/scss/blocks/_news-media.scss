@@ -1,0 +1,123 @@
+.news-media {
+    &__inner {
+        @extend .flow;
+    }
+
+    &__tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        border-bottom: 2px solid $pf-grey;
+        padding-bottom: 0;
+        margin-bottom: $spacing--md;
+    }
+
+    &__tab {
+        position: relative;
+        background: none;
+        border: none;
+        padding: 0.6rem 1.25rem;
+        font-family: $font--primary;
+        font-size: $size--sm;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: $pf-charcoal;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        border-radius: 0;
+        margin-bottom: -2px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: transparent;
+            transition: background 0.2s ease;
+        }
+
+        &:hover {
+            color: $pf-raspberry;
+
+            &::after {
+                background: rgba($pf-raspberry, 0.4);
+            }
+        }
+
+        &.is-active {
+            color: $pf-raspberry;
+
+            &::after {
+                background: $pf-raspberry;
+            }
+        }
+    }
+
+    &__grid {
+        width: 100%;
+        justify-items: stretch;
+
+        .news-media__item {
+            width: 100%;
+
+            // .card is always :nth-child(1) inside its wrapper, so the global
+            // odd/even padding rule fires on every card. Reset it here, then
+            // re-apply via the wrapper's own nth-child position in the grid.
+            .card {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            &:nth-child(odd) .card,
+            &:nth-child(even) .card {
+                padding-left: 22px;
+                padding-right: 0;
+
+                .card__banner {
+                    position: absolute;
+                    top: 50%;
+                    rotate: 90deg;
+                    left: -94%;
+                    right: auto;
+                }
+            }
+        }
+    }
+
+    &__item {
+        &[hidden] {
+            display: none !important;
+        }
+    }
+
+    &__empty {
+        text-align: center;
+        color: $pf-charcoal;
+        padding: $spacing--lg 0;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    &__load-more-wrapper {
+        text-align: center;
+        margin-top: $spacing--xl;
+    }
+
+    &__spinner {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+
+    &__load-more {
+        &[hidden] {
+            display: none !important;
+        }
+    }
+}

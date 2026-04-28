@@ -337,6 +337,40 @@ add_action('rest_api_init', function () {
     ]);
 });
 
+/**
+ * REST API route for the News & Media block load more.
+ * Returns {type, html} objects so the JS can append with correct data-type.
+ */
+add_action('rest_api_init', function () {
+    register_rest_route('v1', 'news-media/load_more', [
+        'methods' => 'GET',
+        'callback' => function ($request) {
+            $page     = intval($request->get_param('page') ?: 1);
+            $per_page = intval($request->get_param('per_page') ?: 9);
+            $type     = $request->get_param('type') ?: 'blog';
+
+            $post_type = $type === 'news' ? 'news' : 'post';
+
+            $query = get_posts([
+                'post_type'      => $post_type,
+                'posts_per_page' => $per_page,
+                'paged'          => $page,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+            ]);
+
+            return collect($query)->map(function ($post) use ($type) {
+                return [
+                    'type' => $type,
+                    'date' => get_the_date('c', $post),
+                    'html' => view('partials.card', ['post' => $post])->render(),
+                ];
+            });
+        },
+        'permission_callback' => '__return_true',
+    ]);
+});
+
 
 /**
  * Register custom post types

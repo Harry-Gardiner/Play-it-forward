@@ -7,6 +7,7 @@ import './custom/Footer.js';
 import './custom/Beacon.js';
 import './custom/TeamTab.js';
 import './custom/NewsletterPopup.js';
+import './custom/NewsMediaTabs.js';
 import InfoBannerCookies from './custom/Banner.js';
 
 /**
