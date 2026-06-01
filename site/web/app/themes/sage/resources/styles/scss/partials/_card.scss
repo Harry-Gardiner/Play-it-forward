@@ -98,10 +98,12 @@
     letter-spacing: 0.8px;
     padding: 0.2em 0.5em;
     border-radius: 50px;
-    margin-bottom: 0.25rem;
     background: $pf-yellow;
     color: $pf-white;
     border: 1px solid $pf-yellow;
+    position: absolute;
+    top: $spacing--xs;
+    right: $spacing--sm;
   }
 
   &__date {

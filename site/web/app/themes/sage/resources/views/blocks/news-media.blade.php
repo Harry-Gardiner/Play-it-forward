@@ -65,7 +65,6 @@
                                         @endif
                                     </div>
                                     <div class="card__content">
-                                        <span class="card__category card__category--publications">Publication</span>
                                         @if (!empty($pub['publication_date']))
                                             <span class="card__date">{{ $pub['publication_date'] }}</span>
                                         @endif
@@ -75,6 +74,7 @@
                                             </h3>
                                         @endif
                                     </div>
+                                    <span class="card__category card__category--publications">Publication</span>
                                 </a>
                             </div>
                         </div>

@@ -58,10 +58,17 @@
 
     &__grid {
         width: 100%;
-        justify-items: stretch;
+        gap: 4rem;
+        align-items: stretch;
+        grid-auto-rows: 1fr;
+
+        @include media-breakpoint('md') {
+            align-items: stretch;
+        }
 
         .news-media__item {
             width: 100%;
+            height: 100%;
 
             // .card is always :nth-child(1) inside its wrapper, so the global
             // odd/even padding rule fires on every card. Reset it here, then
@@ -69,6 +76,17 @@
             .card {
                 padding-left: 0;
                 padding-right: 0;
+                height: 100%;
+
+                .card__image {
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
             }
 
             &:nth-child(odd) .card,

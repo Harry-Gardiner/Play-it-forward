@@ -26,11 +26,11 @@
             @endif
         </div>
         <div class="card__content">
-            @if ($post_type_label)
-                <span class="card__category card__category--{{ $post->post_type }}">{{ $post_type_label }}</span>
-            @endif
             <span class="card__date">{{ get_the_date('j F Y', $post->ID) }}</span>
             <h3 class="card__title h4"><span>{{ $post->post_title }}</span></h3>
         </div>
+        @if ($post_type_label)
+            <span class="card__category card__category--{{ $post->post_type }}">{{ $post_type_label }}</span>
+        @endif
     </a>
 </div>
