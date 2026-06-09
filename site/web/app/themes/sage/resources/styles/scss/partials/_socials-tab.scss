@@ -1,9 +1,9 @@
 .socials-tab {
   position: fixed;
   z-index: 999;
-  top: 90%;
+  top: 85%;
   transform: translateY(-90%);
-  left:-2.5rem;
+  left: -2.5rem;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -14,7 +14,7 @@
     left: 0;
 
     .socials-tab__socials {
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -25,7 +25,7 @@
     background-color: $pf-yellow;
     padding: 1rem 0.5rem;
     color: $pf-charcoal;
-    
+
     font-weight: 400;
 
     transform: rotate(180deg);
@@ -36,7 +36,7 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     z-index: 1;
-    box-shadow: -14px 0 17px rgba(0, 0, 0, 0.2);    
+    box-shadow: -14px 0 17px rgba(0, 0, 0, 0.2);
   }
 
   &__socials {
