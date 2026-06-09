@@ -30,6 +30,9 @@
     src="https://www.facebook.com/tr?id=377918534552495&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Mailchimp Script -->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/c8747c61e4e4ff0f9c320dddd/d188ae0d3979482f51267a256.js");</script>
   </head>
 
   <body <?php body_class(); ?>>
