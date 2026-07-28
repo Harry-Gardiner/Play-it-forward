@@ -36,12 +36,13 @@ add_filter('allowed_block_types_all', function ($block_editor_context, $editor_c
         'core/video',
         'core/search',
         'core/spacer',
+        'core/html',
     );
 
 
     // Fetch all ACF blocks.
     $block_files = glob(__DIR__ . '/Blocks/*.php');
- 
+
     $acf_blocks = array();
     foreach ($block_files as $block_file) {
         $block_name = basename($block_file, '.php');
