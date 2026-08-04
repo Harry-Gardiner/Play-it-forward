@@ -33,6 +33,13 @@
                 margin-top: $spacing--lg;
             }
 
+            &:has(> :nth-child(2):last-child),
+            &:has(> :nth-child(3):last-child) {
+                @include media-breakpoint('md') {
+                    gap: $spacing--xl;
+                }
+            }
+
             >* {
                 flex: 1 1 100%;
                 max-width: 100%;
