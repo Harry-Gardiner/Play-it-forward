@@ -235,9 +235,9 @@ class CustomGrid extends Block
                 'layout' => 'block',
                 'button_label' => 'Add Item',
             ])
-            ->addNumber('item', [
-                'label' => 'Number',
-                'instructions' => 'Enter the statistic number',
+            ->addText('item', [
+                'label' => 'Number or Short Text',
+                'instructions' => 'Numeric values animate on scroll; text values display as-is.',
             ])->conditional('grid_type', '==', 'default')->orCondition('grid_type', '==', 'combined')
             ->addImage('icon', [
                 'label' => 'Icon',

@@ -14,7 +14,14 @@ function animateNumbers() {
 
     const numbers = document.querySelectorAll('.custom-grid__stat__number');
     numbers.forEach((number) => {
-        const countUp = new CountUp(number.id, Number(number.textContent), options);
+        const value = Number(number.textContent);
+
+        // Non-numeric stats (e.g. plain text) are left as static content.
+        if (Number.isNaN(value) || number.textContent.trim() === '') {
+            return;
+        }
+
+        const countUp = new CountUp(number.id, value, options);
 
         // after DOM has rendered
         countUp.handleScroll();

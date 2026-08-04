@@ -23,23 +23,34 @@
 
         &--icons,
         &--combined {
-            display: grid;
-            grid-gap: $spacing--sm;
-            align-items: center;
-            justify-items: center;
-
-            @include media-breakpoint('sm') {
-                grid-auto-rows: 1fr;
-                grid-template-columns: repeat(2, 1fr);
-            }
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: $spacing--sm;
 
             @include media-breakpoint('md') {
-                grid-template-columns: repeat(3, 1fr);
                 margin-top: $spacing--lg;
             }
 
-            @include media-breakpoint('lg') {
-                grid-template-columns: repeat(4, 1fr);
+            >* {
+                flex: 1 1 100%;
+                max-width: 100%;
+
+                @include media-breakpoint('sm') {
+                    flex-basis: calc(50% - #{$spacing--sm});
+                    max-width: calc(50% - #{$spacing--sm});
+                }
+
+                @include media-breakpoint('md') {
+                    flex-basis: calc(33.333% - #{$spacing--sm});
+                    max-width: calc(33.333% - #{$spacing--sm});
+                }
+
+                @include media-breakpoint('lg') {
+                    flex-basis: calc(25% - #{$spacing--sm});
+                    max-width: calc(25% - #{$spacing--sm});
+                }
             }
         }
 
@@ -66,15 +77,17 @@
     }
 
     &__icon {
-        max-width: 200px;
-        max-height: 200px;
+        width: 100%;
+        max-width: 120px;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
     }
 
     &__combined {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        height: 100%;
     }
 
     .button-container {
