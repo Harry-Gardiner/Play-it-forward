@@ -26,6 +26,7 @@
         $btn_colour = 'raspberry';
         $btn_type = $cta_button['type'] ?? null;
         $btn_new_tab = $cta_button['new_tab'] ?? false;
+        $btn_icon = $cta_button['icon'] ?? 'none';
     }
 
     $hero_image_overlay = $hero_image_overlay ?? false;
@@ -77,6 +78,7 @@
                             'text' => $btn_text,
                             'colour' => 'yellow',
                             'new_tab' => $btn_new_tab,
+                            'icon' => $btn_icon,
                         ])
                     @endif
                 </div>

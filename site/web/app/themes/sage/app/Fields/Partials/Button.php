@@ -26,6 +26,16 @@ class Button extends Partial
                 ],
                 'default_value' => 'primary',
             ])
+            ->addSelect('icon', [
+                'label' => 'Icon',
+                'instructions' => 'Optional icon shown before the button text.',
+                'choices' => [
+                    'none' => 'None',
+                    'basket' => 'Shopping Cart',
+                    'padlock' => 'Padlock',
+                ],
+                'default_value' => 'none',
+            ])
             ->addText('text', [
                 'label' => 'Text',
                 'instructions' => 'Enter the text for the button.',

@@ -35,6 +35,14 @@
       width: 100%;
     }
   }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .two-column-content__column-1 {

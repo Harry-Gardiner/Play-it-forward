@@ -164,6 +164,16 @@ class TwoColumnContent extends Block
             'image_2' => get_field('image_2'),
             'video_url_1' => get_field('video_url_1'),
             'video_url_2' => get_field('video_url_2'),
+            'btn_text_1' => get_field('btn_text_1'),
+            'btn_text_2' => get_field('btn_text_2'),
+            'btn_link_1' => get_field('btn_link_1'),
+            'btn_link_2' => get_field('btn_link_2'),
+            'btn_new_tab_1' => get_field('btn_new_tab_1') ?: false,
+            'btn_new_tab_2' => get_field('btn_new_tab_2') ?: false,
+            'btn_icon_1' => get_field('btn_icon_1') ?: 'none',
+            'btn_icon_2' => get_field('btn_icon_2') ?: 'none',
+            'btn_colour_1' => get_field('btn_colour_1'),
+            'btn_colour_2' => get_field('btn_colour_2'),
 
             // General
             'wrapper' => get_field('block_spacing'),
@@ -213,6 +223,7 @@ class TwoColumnContent extends Block
                     'image' => 'Image',
                     'video' => 'Video',
                     'quote' => 'Quote',
+                    'button' => 'Button',
                 ],
                 'default_value' => 'text',
             ])
@@ -251,6 +262,36 @@ class TwoColumnContent extends Block
                 'label' => 'Video URL',
                 'instructions' => 'Add the URL of the video you would like to embed. This should be a YouTube or Vimeo URL.',
             ])->conditional('content_1', '==', 'video')
+            ->addText('btn_text_1', [
+                'label' => 'Button text',
+            ])->conditional('content_1', '==', 'button')
+            ->addUrl('btn_link_1', [
+                'label' => 'Button link',
+            ])->conditional('content_1', '==', 'button')
+            ->addTrueFalse('btn_new_tab_1', [
+                'label' => 'Open in new tab?',
+                'default_value' => 0,
+            ])->conditional('content_1', '==', 'button')
+            ->addSelect('btn_icon_1', [
+                'label' => 'Button icon',
+                'choices' => [
+                    'none' => 'None',
+                    'basket' => 'Shopping Cart',
+                    'padlock' => 'Padlock',
+                ],
+                'default_value' => 'none',
+            ])->conditional('content_1', '==', 'button')
+            ->addSelect('btn_colour_1', [
+                'label' => 'Button colour',
+                'choices' => [
+                    'raspberry' => 'Raspberry',
+                    'black' => 'Black',
+                    'white' => 'White',
+                    'dark-green' => 'Dark Green',
+                    'yellow' => 'Fab Yellow',
+                ],
+                'default_value' => 'raspberry',
+            ])->conditional('content_1', '==', 'button')
 
 
             ->addTab('Column 2', [
@@ -264,6 +305,7 @@ class TwoColumnContent extends Block
                     'image' => 'Image',
                     'video' => 'Video',
                     'quote' => 'Quote',
+                    'button' => 'Button',
                 ],
                 'default_value' => 'text',
             ])
@@ -303,6 +345,36 @@ class TwoColumnContent extends Block
                 'label' => 'Video URL',
                 'instructions' => 'Add the URL of the video you would like to embed. This should be a YouTube or Vimeo URL.',
             ])->conditional('content_2', '==', 'video')
+            ->addText('btn_text_2', [
+                'label' => 'Button text',
+            ])->conditional('content_2', '==', 'button')
+            ->addUrl('btn_link_2', [
+                'label' => 'Button link',
+            ])->conditional('content_2', '==', 'button')
+            ->addTrueFalse('btn_new_tab_2', [
+                'label' => 'Open in new tab?',
+                'default_value' => 0,
+            ])->conditional('content_2', '==', 'button')
+            ->addSelect('btn_icon_2', [
+                'label' => 'Button icon',
+                'choices' => [
+                    'none' => 'None',
+                    'basket' => 'Shopping Cart',
+                    'padlock' => 'Padlock',
+                ],
+                'default_value' => 'none',
+            ])->conditional('content_2', '==', 'button')
+            ->addSelect('btn_colour_2', [
+                'label' => 'Button colour',
+                'choices' => [
+                    'raspberry' => 'Raspberry',
+                    'black' => 'Black',
+                    'white' => 'White',
+                    'dark-green' => 'Dark Green',
+                    'yellow' => 'Fab Yellow',
+                ],
+                'default_value' => 'raspberry',
+            ])->conditional('content_2', '==', 'button')
 
             ;
 

@@ -1,5 +1,6 @@
 @php
   $new_tab = $new_tab ?? false;
+  $icon = $icon ?? 'none';
 @endphp
 @switch($type)
     @case('donate')
@@ -11,6 +12,7 @@
             $target = $donationsLink['target'] ? $donationsLink['target'] : '_self';
         @endphp
         <a class="button button--donate button--{{ $colour }}" href="{{ $link }}">
+            @include('partials.icons.icon', ['icon' => $icon])
             {{ $text }}
             <span class="visually-hidden">Link to donate</span>
         </a>
@@ -25,6 +27,7 @@
             $target = $donationsLink['target'] ? $donationsLink['target'] : '_self';
         @endphp
         <a class="button button--header" href="{{ $link }}">
+            @include('partials.icons.icon', ['icon' => $icon])
             {{ $text }}
             <span class="visually-hidden">Link to donate</span>
         </a>
@@ -32,11 +35,15 @@
 
     @case('download')
         <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" target="_blank">
+            @include('partials.icons.icon', ['icon' => $icon])
             {{ $text }}
             <span class="visually-hidden">{{ $text }}</span>
         </a>
     @break
 
     @default
-        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" target={{$new_tab ? '_blank' : '_self'}}>{{ $text }}</a>
+        <a class="button button--primary button--{{ $colour }}" href="{{ $link }}" target={{$new_tab ? '_blank' : '_self'}}>
+            @include('partials.icons.icon', ['icon' => $icon])
+            {{ $text }}
+        </a>
 @endswitch

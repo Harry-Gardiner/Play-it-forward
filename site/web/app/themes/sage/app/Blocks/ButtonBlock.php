@@ -132,6 +132,7 @@ class ButtonBlock extends Block
             'btn_colour' => get_field('btn_colour'),
             'btn_position' => get_field('position'),
             'btn_new_tab' => get_field('new_tab') ?: false,
+            'btn_icon' => get_field('icon') ?: 'none',
 
             'wrapper' => get_field('block_spacing'),
             'spacing_size' => get_field('spacing_size'),
@@ -172,6 +173,7 @@ class ButtonBlock extends Block
                     'black' => 'Black',
                     'white' => 'White',
                     'dark-green' => 'Dark Green',
+                    'yellow' => 'Fab Yellow',
                 ],
                 'default_value' => 'raspberry',
             ]);

@@ -27,6 +27,17 @@ $background_colour = $background_colour ?? 'white';
                             @include('partials.image', ['image' => ${'image_' . $i}])
                         @elseif(${'content_' . $i} === 'video')
                             @include('partials.video', ['video_url' => ${'video_url_' . $i}])
+                        @elseif(${'content_' . $i} === 'button')
+                            <div class="two-column-content__button">
+                                @include('partials.button', [
+                                    'type' => 'primary',
+                                    'text' => ${'btn_text_' . $i},
+                                    'link' => ${'btn_link_' . $i},
+                                    'new_tab' => ${'btn_new_tab_' . $i},
+                                    'icon' => ${'btn_icon_' . $i},
+                                    'colour' => ${'btn_colour_' . $i},
+                                ])
+                            </div>
                         @endif
                     </div>
                 @endif

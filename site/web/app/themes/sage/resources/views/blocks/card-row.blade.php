@@ -57,6 +57,7 @@
                                         'text' => $item['text'],
                                         'colour' => $item['btn_colour'],
                                         'new_tab' => $item['new_tab'],
+                                        'icon' => $item['icon'] ?? 'none',
                                     ])
                                 @endif
                             </div>

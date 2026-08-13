@@ -6,6 +6,7 @@
             'text' => $btn_text,
             'colour' => $btn_colour,
             'new_tab' => $btn_new_tab,
+            'icon' => $btn_icon,
         ])
     </div>
 </section>
