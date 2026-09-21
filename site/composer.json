@@ -53,11 +53,12 @@
     "wpackagist-plugin/simple-local-avatars": "^2.8",
     "wpackagist-plugin/imagify": "^2.2.8",
     "wpackagist-plugin/wordpress-seo": "^28.1",
-    "wpackagist-plugin/wordfence": "^8.2",
+    "wpackagist-plugin/wordfence": "^9.0",
     "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "^3.2",
     "wpackagist-plugin/updraftplus": "^1.26.4",
     "wpackagist-plugin/contact-form-7": "^6.1.6",
     "wpackagist-plugin/mailchimp-for-wp": "^4.13",
+    "wpackagist-plugin/wordpress-importer": "^0.9.6",
     "brick/math": "^0.12",
     "ramsey/uuid": "^4.7"
   },
