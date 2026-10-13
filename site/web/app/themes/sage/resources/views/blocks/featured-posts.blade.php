@@ -1,7 +1,8 @@
 @php
     $load_more = false;
+    $featured_post_type = $featured_post_type === 'featured' ? 'featured' : 'latest';
 
-    if ($number_of_posts == 'All') {
+    if ($number_of_posts == '10') {
         $load_more = true;
         if ($impact_word_enable === 'yes') {
             $number_of_posts = 10;
