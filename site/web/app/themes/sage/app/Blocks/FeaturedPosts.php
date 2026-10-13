@@ -230,7 +230,7 @@ class FeaturedPosts extends Block
                 'label' => 'Load More Text',
                 'instructions' => 'Enter the text to display on the load more button.',
                 'default_value' => 'Load More',
-            ])->conditional('number_of_posts', '==', 'All');
+            ])->conditional('number_of_posts', '==', '10');
         return $featuredPosts->build();
     }
 
