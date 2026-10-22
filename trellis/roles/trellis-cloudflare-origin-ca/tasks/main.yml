@@ -37,6 +37,6 @@
     - site_cfca_config.key_size is defined
   with_dict: "{{ wordpress_sites }}"
 
-- include: setup.yml
-- include: certificates.yml
-- include: nginx.yml
+- import_tasks: setup.yml
+- import_tasks: certificates.yml
+- import_tasks: nginx.yml
