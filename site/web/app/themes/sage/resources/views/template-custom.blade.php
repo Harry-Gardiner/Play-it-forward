@@ -118,6 +118,7 @@ Template Name: Pattern Library
                 'btn_link' => '#',
                 'btn_text' => 'Raspberry button',
                 'btn_new_tab' => false,
+                'btn_icon' => 'none',
             ])
             @include('blocks.button-block', [
                 'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -129,6 +130,7 @@ Template Name: Pattern Library
                 'btn_link' => '#',
                 'btn_text' => 'black button',
                 'btn_new_tab' => true,
+                'btn_icon' => 'none',
             ])
             @include('blocks.button-block', [
                 'block' => (object) ['classes' => 'block-padding--bottom'],
@@ -140,6 +142,7 @@ Template Name: Pattern Library
                 'btn_link' => '#',
                 'btn_text' => 'Donate',
                 'btn_new_tab' => false,
+                'btn_icon' => 'none',
             ])
 
             <section class="flow block-padding--bottom">

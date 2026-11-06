@@ -28,8 +28,10 @@
                     @if (!empty($faq['question']))
                         <details class="faq__item" @if (!empty($faq['open'])) open @endif>
                             <summary class="faq__question">
-                                {{ $faq['question'] }}
-                                <span class="faq__toggle" aria-hidden="true"></span>
+                                <span class="faq__question-text">
+                                    {{ $faq['question'] }}
+                                    <span class="faq__toggle" aria-hidden="true"></span>
+                                </span>
                             </summary>
                             @if (!empty($faq['answer']))
                                 <div class="faq__answer">

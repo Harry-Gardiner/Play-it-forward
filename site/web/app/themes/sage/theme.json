@@ -1161,19 +1161,19 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "name": "Ui-sans-serif",
+          "name": "Jost",
           "slug": "sans",
-          "fontFamily": "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\""
+          "fontFamily": "Jost,Avenir,Futura,\"Century Gothic\",Helvetica,Arial,sans-serif"
         },
         {
-          "name": "Ui-serif",
+          "name": "Katibeh",
           "slug": "serif",
-          "fontFamily": "ui-serif,Georgia,Cambria,\"Times New Roman\",Times,serif"
+          "fontFamily": "Katibeh,Unna,\"Big Caslon\",Georgia,serif"
         },
         {
-          "name": "Ui-monospace",
-          "slug": "mono",
-          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace"
+          "name": "Knewave",
+          "slug": "fun",
+          "fontFamily": "Knewave,Helvetica,Arial,sans-serif"
         }
       ],
       "fontSizes": [
