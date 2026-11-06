@@ -78,6 +78,7 @@
 
 body {
   @extend .container;
+  font-family: $font--primary;
   line-height: 1.5;
   overflow-x: hidden;
   background-color: $pf-white;

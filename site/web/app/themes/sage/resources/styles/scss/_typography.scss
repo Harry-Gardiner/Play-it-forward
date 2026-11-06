@@ -119,6 +119,30 @@ ul:not(.acf-radio-list):not(.acf-tab-group) {
   }
 }
 
+// Rich text (WYSIWYG) lists: real indented bullets instead of the '·' marker
+.text,
+.text__body,
+.text-with-media__content__body,
+.two-column-content,
+.faq__answer,
+.e-content {
+  ul:not(.acf-radio-list):not(.acf-tab-group) {
+    margin-left: 1.5rem;
+
+    li:not([class]) {
+      list-style: disc outside;
+
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  ol {
+    margin-left: 1.5rem;
+  }
+}
+
 ol {
   margin-left: 1rem;
 
